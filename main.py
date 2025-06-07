@@ -11,7 +11,13 @@ from models import Pferd, Heulage
 from controllers.fuetterung_controller import FütterungController
 from hardware.hx711_sensor import HX711Sensor
 from views.main_window import MainWindow
-from utils.futter_loader import finde_heu_dateien
+from utils.futter_loader import lade_heu_als_dataclasses
+
+heuliste = lade_heu_als_dataclasses("heu_eigen_2025.csv")
+if heuliste:
+    heu = heuliste[0]  # Erstes Heu-Objekt
+    print(heu.name, heu.trockenmasse)
+
 
 def main():
     # 1. Hardware initialisieren

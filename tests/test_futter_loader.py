@@ -1,8 +1,11 @@
 # tests/test_futter_loader.py
 import unittest
-from utils.futter_loader import lade_heu_aus_csv
+from utils.futter_loader import lade_heu_als_dataclasses
+
 
 class TestFutterLoader(unittest.TestCase):
     def test_lade_heu(self):
-        heu = lade_heu_aus_csv("data/heu2024.csv")
+        heuliste = lade_heu_als_dataclasses(dateiname)
+        if heuliste:
+            heu = heuliste[0]  # Das erste Heu-Objekt aus der Liste
         self.assertIsNotNone(heu)
