@@ -1,12 +1,25 @@
-from .sensor_interface import WeightSensorInterface
+from hx711_multi import HX711
 
-class HX711Sensor(WeightSensorInterface):
-    def __init__(self, data_pin: int, clock_pin: int):
-        # Initialisierung der HX711-Hardware (Pseudo-Code)
-        self.data_pin = data_pin
-        self.clock_pin = clock_pin
+# Passe die Pins und Kalibrierwerte an dein Setup an!
+dout_pins = [5, 6, 13, 19]  # DOUT der vier HX711
+sck_pin = 26                # Gemeinsamer SCK
+scales = [1, 1, 1, 1]       # Ersetze durch deine Skalenfaktoren
+offsets = [0, 0, 0, 0]      # Ersetze durch deine Offsets
 
-    def read_weight(self) -> float:
-        # Hier würdest du die echte Bibliothek ansprechen, z.B. hx711python
-        # return hx711.get_weight()
-        return 2.5  # Dummywert für Beispiel
+hx = HX711(
+    dout_pins=dout_pins,
+    sck_pin=sck_pin,
+    channel_A_gain=128,
+    channel_select='A'
+)
+hx.set_scale(scales)
+hx.set_offset(offsets)
+
+def lese_gewicht_hx711():
+    """Liest das Gesamtgewicht (Summe aller Zellen)"""
+    werte = hx.read_all()  # Gibt eine Liste mit 4 Werten zurück
+    return sum(werte)
+
+def lese_einzelzellwerte_hx711():
+    """Liest die Werte aller vier Zellen einzeln"""
+    return hx.read_all()
