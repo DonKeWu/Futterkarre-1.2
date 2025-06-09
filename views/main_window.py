@@ -1,26 +1,23 @@
 # views/main_window.py
 import logging
-logger = logging.getLogger(__name__)
-
-from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox, QStackedWidget
+from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.QtCore import QTimer
 
 from views.start import StartSeite
 from views.fuettern_seite import FuetternSeite
 from views.auswahl_seite import AuswahlSeite
+from views.einstellungen_seite import EinstellungenSeite
+from views.beladen_seite import BeladenSeite  # Neue Klasse statt create_load_screen
 
-from utils.futter_loader import lade_heu_als_dataclasses, lade_heulage_als_dataclasses, lade_pferde_als_dataclasses
-heuliste = lade_heu_als_dataclasses("heu_eigen_2025.csv")
-if heuliste:
-    heu = heuliste[0]  # Erstes Heu-Objekt
-    print(heu.name, heu.trockenmasse)
+logger = logging.getLogger(__name__)
+
 
 class MainWindow(QMainWindow):
-    def __init__(self, sensor, heu_namen=None):
+    def __init__(self, sensor_manager, heu_namen=None):
         super().__init__()
-        self.sensor = sensor
-        self.status = "start"
+        self.sensor_manager = sensor_manager  # Statt sensor
         self.heu_namen = heu_namen if heu_namen is not None else []
+        logger.info("MainWindow wird initialisiert")
         self.init_ui()
 
     def init_ui(self):
@@ -29,111 +26,68 @@ class MainWindow(QMainWindow):
 
         self.stacked_widget = QStackedWidget()
 
-        # Seiten anlegen
+        # Seiten anlegen (alle als Klassen)
         self.start_screen = StartSeite()
         self.auswahl_seite = AuswahlSeite(parent=self)
-        self.load_screen = self.create_load_screen()
-        self.fuettern_seite = FuetternSeite()
-        self.summary_screen = self.create_summary_screen()
+        self.beladen_seite = BeladenSeite(parent=self, sensor_manager=self.sensor_manager)
+        self.fuettern_seite = FuetternSeite(parent=self)
+        self.einstellungen_seite = EinstellungenSeite(parent=self, sensor_manager=self.sensor_manager)
 
-        self.stacked_widget.addWidget(self.start_screen)    # Index 0
-        self.stacked_widget.addWidget(self.auswahl_seite)   # Index 1
-        self.stacked_widget.addWidget(self.load_screen)     # Index 2
+        # Seiten zum Stack hinzufügen
+        self.stacked_widget.addWidget(self.start_screen)  # Index 0
+        self.stacked_widget.addWidget(self.auswahl_seite)  # Index 1
+        self.stacked_widget.addWidget(self.beladen_seite)  # Index 2
         self.stacked_widget.addWidget(self.fuettern_seite)  # Index 3
-        self.stacked_widget.addWidget(self.summary_screen)  # Index 4
+        self.stacked_widget.addWidget(self.einstellungen_seite)  # Index 4
 
         self.setCentralWidget(self.stacked_widget)
         self.show_status("start")
 
-        # Navigation: Start → Auswahl
+        # Navigation verbinden
+        self.connect_navigation()
+
+    def connect_navigation(self):
+        """Verbindet alle Navigations-Events"""
+        # Start → Auswahl
         self.start_screen.btn_start.clicked.connect(lambda: self.show_status("auswahl"))
 
-        # Navigation: Beladen abgeschlossen -> Füttern
-        self.load_screen.findChild(QPushButton, "btn_beladung_abgeschlossen").clicked.connect(
+        # Beladen → Füttern
+        self.beladen_seite.btn_beladung_abgeschlossen.clicked.connect(
             lambda: self.show_status("fuettern")
         )
-        # Navigation: Füttern -> Abschluss (oder zurück)
-        self.fuettern_seite.btn_naechstes_pferd.clicked.connect(lambda: self.show_status("abschluss"))
-        self.fuettern_seite.btn_nachladen.clicked.connect(lambda: self.show_status("beladen"))
+
+        # Füttern Navigation
+        self.fuettern_seite.btn_naechstes_pferd.clicked.connect(
+            lambda: self.show_status("start")  # Zurück zum Start
+        )
+        self.fuettern_seite.btn_nachladen.clicked.connect(
+            lambda: self.show_status("beladen")
+        )
 
     def show_status(self, status):
+        """Zentrale Navigation zwischen Seiten"""
+        logger.info(f"Wechsel zu Status: {status}")
+
         if status == "start":
             self.stacked_widget.setCurrentWidget(self.start_screen)
         elif status == "auswahl":
             self.stacked_widget.setCurrentWidget(self.auswahl_seite)
         elif status == "beladen":
-            self.stacked_widget.setCurrentWidget(self.load_screen)
+            self.stacked_widget.setCurrentWidget(self.beladen_seite)
         elif status == "fuettern":
             self.stacked_widget.setCurrentWidget(self.fuettern_seite)
-        elif status == "abschluss":
-            self.stacked_widget.setCurrentWidget(self.summary_screen)
+        elif status == "einstellungen":
+            self.stacked_widget.setCurrentWidget(self.einstellungen_seite)
 
-# Diese Methoden werden von AuswahlSeite aufgerufen:
-
+    # Methoden für AuswahlSeite
     def zeige_heu_futter(self):
-        self.show_status("fuettern")  # Oder ggf. "beladen" oder andere Logik
+        self.show_status("fuettern")
 
     def zeige_heulage_futter(self):
-        self.show_status("fuettern")  # Oder andere Logik
+        self.show_status("fuettern")
 
     def zeige_futter_laden(self):
         self.show_status("beladen")
 
     def zeige_einstellungen(self):
-        # Hier ggf. zu einer Einstellungsseite wechseln
-        pass
-
-    def create_load_screen(self):
-        widget = QWidget()
-        layout = QVBoxLayout()
-        self.weight_label = QLabel("Gewicht: -- kg")
-        self.combo_heu = QComboBox()
-        self.combo_heu.addItems(self.heu_namen)
-        self.combo_heu.currentIndexChanged.connect(self.on_heu_changed)
-        self.refresh_button = QPushButton("Aktualisieren")
-        self.refresh_button.clicked.connect(self.update_weight)
-        btn_beladung_abgeschlossen = QPushButton("Beladung abgeschlossen")
-        btn_beladung_abgeschlossen.setObjectName("btn_beladung_abgeschlossen")
-        layout.addWidget(QLabel("Bitte Futter wählen und Wagen beladen."))
-        layout.addWidget(self.weight_label)
-        layout.addWidget(self.combo_heu)
-        layout.addWidget(self.refresh_button)
-        layout.addWidget(btn_beladung_abgeschlossen)
-        widget.setLayout(layout)
-        # Gewicht automatisch aktualisieren
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.update_weight)
-        self.timer.start(1000)
-        return widget
-
-    def create_summary_screen(self):
-        widget = QWidget()
-        layout = QVBoxLayout()
-        label = QLabel("Fütterung abgeschlossen!\nHier kommt die Checkliste.")
-        layout.addWidget(label)
-        widget.setLayout(layout)
-        return widget
-
-    def update_weight(self):
-        try:
-            weight = self.sensor.read_weight()
-            self.weight_label.setText(f"Gewicht: {weight:.2f} kg")
-        except Exception as e:
-            self.weight_label.setText("Fehler beim Wiegen!")
-
-    def on_heu_changed(self, index):
-        heu_name = self.combo_heu.currentText()
-        try:
-            heuliste = lade_heu_als_dataclasses(heu_name)
-            if heuliste:
-                heu = heuliste[0]
-            print(f"Geladenes Heu: {heu}")
-        except Exception as e:
-            print(f"Fehler beim Laden von {heu_name}: {e}")
-
-
-
-
-
-
-
+        self.show_status("einstellungen")

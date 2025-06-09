@@ -3,350 +3,31 @@
 ├── config
 │   ├── app_config.py
 │   ├── __init__.py
-│   ├── logging_config.py
-│   └── __pycache__
-│       ├── app_config.cpython-312.pyc
-│       ├── __init__.cpython-312.pyc
-│       └── logging_config.cpython-312.pyc
+│   └── logging_config.py
 ├── controllers
 │   ├── fuetterung_controller.py
-│   ├── __init__.py
-│   └── __pycache__
-│       ├── fuetterung_controller.cpython-312.pyc
-│       └── __init__.cpython-312.pyc
+│   └── __init__.py
 ├── data
 │   ├── heu_eigen_2025.csv
 │   ├── heu_frd_2025.csv
 │   ├── heulage_eigen_2025.csv
 │   ├── __init__.py
 │   └── pferde.csv
-├── .git
-│   ├── branches
-│   ├── COMMIT_EDITMSG
-│   ├── config
-│   ├── description
-│   ├── HEAD
-│   ├── hooks
-│   │   ├── applypatch-msg.sample
-│   │   ├── commit-msg.sample
-│   │   ├── fsmonitor-watchman.sample
-│   │   ├── post-update.sample
-│   │   ├── pre-applypatch.sample
-│   │   ├── pre-commit.sample
-│   │   ├── pre-merge-commit.sample
-│   │   ├── prepare-commit-msg.sample
-│   │   ├── pre-push.sample
-│   │   ├── pre-rebase.sample
-│   │   ├── pre-receive.sample
-│   │   ├── push-to-checkout.sample
-│   │   ├── sendemail-validate.sample
-│   │   └── update.sample
-│   ├── index
-│   ├── info
-│   │   └── exclude
-│   ├── logs
-│   │   ├── HEAD
-│   │   └── refs
-│   │       ├── heads
-│   │       │   └── master
-│   │       └── remotes
-│   │           └── origin
-│   │               └── master
-│   ├── objects
-│   │   ├── 00
-│   │   │   ├── 0859c501c84a96cbab38654d64bf74cce9fa66
-│   │   │   └── d7c426d1d48a3eb3b16fd4c407e6756d8cf760
-│   │   ├── 01
-│   │   │   ├── 73e908a732333e441d537bea156d7d2cbfc15c
-│   │   │   └── 9ec92fd2ede30e06ab66564a49e00724757c3f
-│   │   ├── 02
-│   │   │   └── 80f57a5ef12205c2c81891b9a1e799464a4a55
-│   │   ├── 03
-│   │   │   └── 4eaf96619c900e7df8a52aa870ba1de4648ec7
-│   │   ├── 08
-│   │   │   ├── 34dfbb6985ea464e84348d9d98d0bd6d20031d
-│   │   │   └── 37793b5572299065f81d6043b7f0dec9883cfd
-│   │   ├── 0a
-│   │   │   └── ea7969a825878418aaf25ff39f8da637c3c5e8
-│   │   ├── 0c
-│   │   │   └── 6cdb700b457b679d56187cfe970e66b9bc6458
-│   │   ├── 0d
-│   │   │   └── 0aafc21905872dc95c009a590bffad20e6f1e7
-│   │   ├── 10
-│   │   │   └── 5ce2da2d6447d11dfe32bfb846c3d5b199fc99
-│   │   ├── 11
-│   │   │   ├── 56f72f6fbcd81e62fa95257dc91f8b7d1d548e
-│   │   │   └── 5d127a6debee4c727f22ab0320ada23b24d1f0
-│   │   ├── 13
-│   │   │   ├── 566b81b018ad684f3a35fee301741b2734c8f4
-│   │   │   └── fa939090b1ab12ea170cad493c1c34fb25c524
-│   │   ├── 16
-│   │   │   └── d727f9e586d4cf1ada9589b8f46f938374a75d
-│   │   ├── 1a
-│   │   │   └── efb605bbfab069edfc8db62f6c9957378b9247
-│   │   ├── 1b
-│   │   │   ├── 07fc5481f92319a147a1554b993ef7510d5248
-│   │   │   └── f521028149ab97c66b2b69cda8f91dac2aa2fc
-│   │   ├── 1e
-│   │   │   └── 7c0bee16df31d68132c5eebaffcaed4147bb9a
-│   │   ├── 28
-│   │   │   └── 2b6668088715edd4a22a1e71ffd708f48ce5db
-│   │   ├── 29
-│   │   │   └── 8d3515629f27558d8b9f794e82f4d8ac1af28a
-│   │   ├── 30
-│   │   │   └── 77fe03955b144270f73232b9f38888aff57167
-│   │   ├── 32
-│   │   │   ├── c7c1323bf19d790b6ec5ae772cc8610fbc22f2
-│   │   │   └── c96e38fd552c669f1414cb7fe79ec9c10516fa
-│   │   ├── 34
-│   │   │   └── 4630f92b6c59c20936ff693e8ed2e14339fbee
-│   │   ├── 35
-│   │   │   ├── 997cc5070bc20b1bdc1ad974558d0dfef0af22
-│   │   │   └── eb1ddfbbc029bcab630581847471d7f238ec53
-│   │   ├── 36
-│   │   │   └── c416f9b12838b4843f0a71b880735979c43def
-│   │   ├── 38
-│   │   │   └── f1e96abdfcfcb0d4369af2bee9a563928cc797
-│   │   ├── 3c
-│   │   │   ├── 4683bea37f112f2742f38fd399114d7b965c91
-│   │   │   ├── 4d778928c8b57fc7c0d36bc33231bbab6b3f91
-│   │   │   └── 7b310af8e79f22667ce8717cf522e2b7ff2635
-│   │   ├── 3e
-│   │   │   ├── 51ac045fa474b61c8eb5f54fcace0f4decc67d
-│   │   │   └── 6798bc4c9a6542578a8315705b0e08040cbe67
-│   │   ├── 3f
-│   │   │   └── df5f80b46f1c45f8cd7cfa8f670637c116baa1
-│   │   ├── 42
-│   │   │   ├── 8fe6f44cdb86d0c87a8573c6adac5507d367cf
-│   │   │   └── 95c43a19dcbaf6d3065a33f18434e27e51479c
-│   │   ├── 43
-│   │   │   ├── 9b0be5ed5cf2a9fcd4a2704bf5d9e89882e2cb
-│   │   │   └── f54bc91c2d3e23f6c7e76aae2e5312edef6e5e
-│   │   ├── 45
-│   │   │   └── 9652d379766fd59eefdfcd81f129215cf4e7e5
-│   │   ├── 4b
-│   │   │   └── 80e53378f20127a21d716e1b7d189c0020827d
-│   │   ├── 4c
-│   │   │   └── 8f93f0b3cee98dd38aac62cdc9e8150149bc8d
-│   │   ├── 4e
-│   │   │   └── b3949bf9013c97520c617610a66ea5a5f5f310
-│   │   ├── 4f
-│   │   │   └── 1f207a891a9900e0b266f77001a97bcad0e838
-│   │   ├── 53
-│   │   │   └── b735453e0d04c8ede89e07dae1f7c11a22cc70
-│   │   ├── 55
-│   │   │   ├── 2eb32433e643d6f82b0abd8c4ea664e295e518
-│   │   │   └── e2359f795793c7103fc0011ef72cd09c82ce34
-│   │   ├── 5a
-│   │   │   └── 9f1e44378a2a6cfb8af05143db9055af6790a1
-│   │   ├── 5b
-│   │   │   └── 638242e17bb297304024c23f7adbdb86db8ae5
-│   │   ├── 60
-│   │   │   └── 6b5e59385c646177ce31f9e52aee3f567e7c43
-│   │   ├── 62
-│   │   │   └── 07ca04436e3630c468174b1ff194654b5ca8ee
-│   │   ├── 63
-│   │   │   ├── 0bd077af1b3c0fcee801bae6a561e9603fc9e0
-│   │   │   └── aed4c5caab84c00c308b0349c9431ad1e68a21
-│   │   ├── 64
-│   │   │   ├── 6186669df38edfaa5f100b91e9b4447ac435c5
-│   │   │   └── a90df563b68e4e7ac209a6d6eced66e430dd50
-│   │   ├── 65
-│   │   │   ├── 29b025fcd029788358e7645660ff7572b24ade
-│   │   │   └── f3bc4e1db211e3e75bbcfdb51f48362f6df7ac
-│   │   ├── 68
-│   │   │   └── 7b77d2de22d7e9a5b5827f557a696cc51c3609
-│   │   ├── 69
-│   │   │   └── b2045aa899550c7913ceafc448be6383a8fd6a
-│   │   ├── 6d
-│   │   │   └── 649b0b3c7d96ce8e9021044d657a37e7daf2b0
-│   │   ├── 6e
-│   │   │   └── d19f9fd7edff9802e9257a73af26adc66d64d2
-│   │   ├── 71
-│   │   │   ├── 088db8c0f91d9d4b195fc5af8dd77b82e8959a
-│   │   │   └── e7b5eca2decf01922bd7f6c9241234e7fdff02
-│   │   ├── 74
-│   │   │   └── cb0734dcbcbf2366bb2056e5ab2db7d1f24caf
-│   │   ├── 76
-│   │   │   ├── 292a0d7d071b8b641cedd0c96d13ae093e1df8
-│   │   │   └── d0e8c98c0621834aa4fb9b7932f34f5fb869f1
-│   │   ├── 77
-│   │   │   └── 641f2e086e56e97462038abbe63add029fdcca
-│   │   ├── 79
-│   │   │   └── 2815fa5885dda79d8f4a6fa595fd254088f489
-│   │   ├── 7b
-│   │   │   ├── d188ee5865a4afe1eb530ebd14bc355e7e16f6
-│   │   │   └── fe6a20b5784efdfac116e202568fcc8718d99b
-│   │   ├── 7e
-│   │   │   └── dfd221bd5a2861a8cbc4a635773b4b239c1753
-│   │   ├── 7f
-│   │   │   └── c93a217f45ea33d3846ca0317855a5941151ab
-│   │   ├── 80
-│   │   │   └── 9f33032da480c7b8657a6bc14aa76a7a96f822
-│   │   ├── 81
-│   │   │   └── a3db0a0af9731397dfdd32f20d3a3b06d2fba7
-│   │   ├── 82
-│   │   │   ├── 1561208999fc06bf5255328cec1aee90167f42
-│   │   │   ├── 2dba28db88ba54ff691f2a1131c51171b1a4fe
-│   │   │   ├── 66d521c3bf8a3aedcc6e3739c60cd8396386e8
-│   │   │   └── d72081f97f0f353ecf513ea7d17d8855fa5d27
-│   │   ├── 87
-│   │   │   └── 4aa34c7c2d71ecf208590b7f503013c5bee1f4
-│   │   ├── 88
-│   │   │   ├── 5cb11441107a02be12d50fceb5037355924ba7
-│   │   │   └── 7ce367843e480339ce2391e467af39e61b2fc0
-│   │   ├── 8a
-│   │   │   └── 985eda050d94185322592c1fbc95e12be378b5
-│   │   ├── 8e
-│   │   │   └── 7f4d5a7b223578564842b9ad2db2e0104fb862
-│   │   ├── 8f
-│   │   │   ├── b698b209b56ec334ab1882ab7a44eaff0c5416
-│   │   │   └── df172598add9ade1d9ea08c4c2bb5780d9523d
-│   │   ├── 91
-│   │   │   └── 3e0af35153b1f46ebc5d76706a1ba53e19b7c6
-│   │   ├── 92
-│   │   │   ├── abee8138336557c011dc38dddf9f918e742fa3
-│   │   │   └── adb763747b22233763b7a594ccdcad8fd80204
-│   │   ├── 94
-│   │   │   └── a25f7f4cb416c083d265558da75d457237d671
-│   │   ├── 95
-│   │   │   └── 44deddb3a0ec7b006f7e1e03a6d5264d291ef0
-│   │   ├── 96
-│   │   │   └── 849f1b6dc232de52d3bd3dc12819973ab9674f
-│   │   ├── 97
-│   │   │   ├── 824ec9b0149e48c91dce4fee530335b327c686
-│   │   │   ├── a60dbc5931db68fd967b3b4b79e2bdc8ab6f41
-│   │   │   └── a8057b886c5b1a1f88cd6b4cbb8df0f7a7dea5
-│   │   ├── 9d
-│   │   │   └── 1dcfdaf1a6857c5f83dc27019c7600e1ffaff8
-│   │   ├── 9f
-│   │   │   └── 6d3ae0803a5ea98566e4c6a255c5185b4235d4
-│   │   ├── a1
-│   │   │   └── a598f4e389bffa4dee98af1295512eac641667
-│   │   ├── a2
-│   │   │   └── cb4817644b491c922fc8a07bf4871b544eb9eb
-│   │   ├── a5
-│   │   │   ├── b91ae6e6dac45095b41d06334b38ad5d57f097
-│   │   │   └── e21a972d9f72baf730cce2023d78be7907c61c
-│   │   ├── a9
-│   │   │   └── 66eb58b99423acddf470aa7daccd87a94f54ca
-│   │   ├── ac
-│   │   │   └── 738e36ab1ab7d2c5b0a4970a07e45fca04ed78
-│   │   ├── af
-│   │   │   ├── 1ea064c70044d15d3edc33df2640fa4da6dfb5
-│   │   │   └── 749af5fabf0ba645b54e34045ad89975d46384
-│   │   ├── b0
-│   │   │   └── eb174903d04bc4a5798994dc6f02aa88319bec
-│   │   ├── b2
-│   │   │   └── 32e9f5efb2bb442800a6fdfc192a59bf2ec7bf
-│   │   ├── b5
-│   │   │   ├── b40dc173da6924a078fc582da06b2e58348a0d
-│   │   │   └── d39f41adb1ab37614fc79c76ca95ad91a3f353
-│   │   ├── b7
-│   │   │   └── 2b77660a0f20d0b01352025b5cd0399b643d8d
-│   │   ├── b9
-│   │   │   ├── 36b7dc7d1be1d98af7c2615dec6ae04b626f8f
-│   │   │   └── cc65683da2962eaa708d1b515fe802efd2ee8f
-│   │   ├── bb
-│   │   │   └── 7c52e7310323acfba34f32bf56779e7c7814f5
-│   │   ├── bc
-│   │   │   └── 736efdc5fcc6abf5166e409b2b0f37f30b316f
-│   │   ├── bd
-│   │   │   └── 94e2e06a39a5f6ccea08ee318d4b6ab73caba1
-│   │   ├── bf
-│   │   │   └── d42e1e4783868fe88e134b0eb0ca2eaa859f15
-│   │   ├── c3
-│   │   │   ├── 38b80a83ad825b0a3cf9ba8f1ec5e0069903f7
-│   │   │   └── f38a8761ab3274f34525ca9426e5b6ab688105
-│   │   ├── c5
-│   │   │   └── fb42be179ec059d51ede06686635afeeee6806
-│   │   ├── c6
-│   │   │   └── 9f1c9221300168d672a07730bb7ec813279c91
-│   │   ├── c8
-│   │   │   ├── a1aeb868088519dd67075f5ae6672399f78a11
-│   │   │   └── d84d36dee8b6e11489ab2f9f92faedf01dedb5
-│   │   ├── c9
-│   │   │   ├── 3d5641bff2ae78a23ad23330c572d05d7bcc48
-│   │   │   └── d79a400c942588cf22654000fae9dab4b03c53
-│   │   ├── cb
-│   │   │   └── affcc267701cfe78ede887353069909fe54456
-│   │   ├── ce
-│   │   │   └── a4342c48c225fbac816754b93b7eb01cb8e8f9
-│   │   ├── d0
-│   │   │   └── bcad10772f7026d64940c5b51f5a1243ddff4a
-│   │   ├── d5
-│   │   │   ├── 3b0d482705eaf01906916c19ad79f62b875e02
-│   │   │   └── 8c2fa6be44606530d15ee42e55e14a9f6c4fd9
-│   │   ├── d6
-│   │   │   └── 160d63df8d57d9074bfb83d36feae68eba0f13
-│   │   ├── da
-│   │   │   └── 9f47e02b601fad70b8520c4f19683d5265760a
-│   │   ├── db
-│   │   │   └── d179aeb5af899fbaea97bd384080612d784493
-│   │   ├── dc
-│   │   │   └── 5f150ac308bd3011e029040c1f16d3a4847449
-│   │   ├── e1
-│   │   │   └── 0e51ee98af8e4bce6e4ad710822479ca88958a
-│   │   ├── e2
-│   │   │   ├── aa739171c00004e74a1fe0d99ab74970ba7c90
-│   │   │   └── dbdccdc43a01f5ddf0c170b167a9fc54a467d7
-│   │   ├── e6
-│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
-│   │   ├── ec
-│   │   │   └── a228ba064563ca01e9622298d60440dd9eb7ac
-│   │   ├── f0
-│   │   │   └── d0102ca94c8169ae0515993a427f89c9a840ef
-│   │   ├── f1
-│   │   │   ├── 0a467cdefdb641dd23e82297cabdf6388ffd60
-│   │   │   └── ab693f26f7d2504dd5311b6538b3cb84ee1898
-│   │   ├── f5
-│   │   │   └── edb3480aab31f0b87efe14f182fa5aa0abcc3d
-│   │   ├── f6
-│   │   │   ├── 190bf8b050a1beb3044ac5fdea390b02e115b8
-│   │   │   ├── af48f890d747ef85c8f06474d7b78229e91393
-│   │   │   └── d8f8689f87ee074ddbac9c8a816352f1ba9e1c
-│   │   ├── fa
-│   │   │   └── 80650c353ffc2bec1f6b447bb575adab8f2b5e
-│   │   ├── ff
-│   │   │   ├── 2bbeceed95ecbfbb8618365c03724df6696582
-│   │   │   └── 40fce8567073a7bab244a8aca8e0a9796a4958
-│   │   ├── info
-│   │   └── pack
-│   └── refs
-│       ├── heads
-│       │   └── master
-│       ├── remotes
-│       │   └── origin
-│       │       └── master
-│       └── tags
 ├── hardware
+│   ├── fu_sim.py
+│   ├── hx711_real.py
 │   ├── hx711_sensor.py
+│   ├── hx711_sim.py
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── hx711_sensor.cpython-312.pyc
-│   │   ├── __init__.cpython-312.pyc
-│   │   └── sensor_interface.cpython-312.pyc
-│   └── sensor_interface.py
-├── .idea
-│   ├── Futterwagen_2.iml
-│   ├── inspectionProfiles
-│   │   └── profiles_settings.xml
-│   ├── misc.xml
-│   ├── modules.xml
-│   ├── vcs.xml
-│   └── workspace.xml
+│   ├── sensor_interface.py
+│   └── sensor_manager.py
 ├── main.py
 ├── main.txt
 ├── models
 │   ├── fuetterung.py
 │   ├── futter.py
 │   ├── __init__.py
-│   ├── pferd.py
-│   └── __pycache__
-│       ├── fuetterung.cpython-312.pyc
-│       ├── futter.cpython-312.pyc
-│       ├── __init__.cpython-312.pyc
-│       └── pferd.cpython-312.pyc
+│   └── pferd.py
 ├── tests
 │   ├── __init__.py
 │   └── test_futter_loader.py
@@ -355,15 +36,14 @@
 ├── utils
 │   ├── futter_loader.py
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── futter_loader.cpython-312.pyc
-│   │   ├── __init__.cpython-312.pyc
-│   │   └── validation.cpython-312.pyc
 │   └── validation.py
 └── views
     ├── auswahl_seite.py
     ├── auswahl_seite.txt
     ├── auswahl_seite.ui
+    ├── beladen_seite.py
+    ├── einstellungen_seite.py
+    ├── einstellungen_seite.ui
     ├── fuettern_seite.py
     ├── icons
     │   ├── Back.png
@@ -376,20 +56,14 @@
     │   ├── icons.qrc
     │   ├── icons_rc.py
     │   ├── Next.png
-    │   ├── __pycache__
-    │   │   └── icons_rc.cpython-312.pyc
     │   ├── Reload.png
     │   └── Sim.png
     ├── __init__.py
     ├── main_window.py
     ├── main_window.txt
-    ├── __pycache__
-    │   ├── auswahl_seite.cpython-312.pyc
-    │   ├── fuettern_seite.cpython-312.pyc
-    │   ├── __init__.cpython-312.pyc
-    │   ├── main_window.cpython-312.pyc
-    │   └── start.cpython-312.pyc
     ├── start.py
-    └── start.ui
+    ├── start.ui
+    ├── test_einstellungen_seite.py
+    └── test_fuettern_seite.py
 
-144 directories, 249 files
+10 directories, 57 files
