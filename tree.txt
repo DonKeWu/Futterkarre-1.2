@@ -11,6 +11,7 @@
 │   ├── heu_frd_2025.csv
 │   ├── heulage_eigen_2025.csv
 │   ├── __init__.py
+│   ├── Pellets_deukavallo_Top_E.csv
 │   └── pferde.csv
 ├── hardware
 │   ├── fu_sim.py
@@ -20,6 +21,7 @@
 │   ├── __init__.py
 │   ├── sensor_interface.py
 │   └── sensor_manager.py
+├── interactive_py_converter.py
 ├── logs
 │   ├── debug.log
 │   └── futterkarre.log
@@ -36,20 +38,24 @@
 ├── utils
 │   ├── futter_loader.py
 │   ├── __init__.py
-│   ├── navigation_manager.py
 │   └── validation.py
 └── views
     ├── auswahl_seite.py
     ├── auswahl_seite.txt
     ├── auswahl_seite.ui
     ├── beladen_seite.py
+    ├── beladen_seite.ui
     ├── einstellungen_seite.py
     ├── einstellungen_seite.ui
     ├── fuettern_seite.py
+    ├── fuettern_seite.ui
+    ├── futter_konfiguration.py
+    ├── futter_konfiguration.ui
     ├── icons
     │   ├── Back.png
     │   ├── Calib.png
     │   ├── Display.png
+    │   ├── Fodder.png
     │   ├── Gear0.xcf
     │   ├── Gear+Calib.xcf
     │   ├── Gear.png
@@ -67,4 +73,4 @@
     ├── test_einstellungen_seite.py
     └── test_fuettern_seite.py
 
-11 directories, 57 files
+11 directories, 63 files

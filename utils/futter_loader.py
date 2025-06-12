@@ -18,10 +18,10 @@ def lade_pferde_als_dataclasses(dateiname: str) -> List[Pferd]:
         for row in reader:
             if validate_pferd(row):
                 pferd = Pferd(
-                    name=row['Name'],
-                    gewicht=float(row['Gewicht']),
-                    alter=int(row['Alter']),
-                    notizen=row.get('Notizen')
+                    name=row['Name'],  # Großgeschrieben
+                    gewicht=float(row['Gewicht']),  # Großgeschrieben
+                    alter=int(row['Alter']),  # Großgeschrieben
+                    notizen=row.get('Notizen', '')
                 )
                 pferde_liste.append(pferd)
             else:

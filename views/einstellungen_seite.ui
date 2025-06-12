@@ -42,41 +42,11 @@
   <property name="styleSheet">
    <string notr="true">background-color: #fdffe0;</string>
   </property>
-  <widget class="QLabel" name="label_gewicht">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>50</y>
-     <width>381</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-    background-color: transparent;
-}</string>
-   </property>
-   <property name="text">
-    <string>label_gewicht</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="txt_simulation_toggle">
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>350</y>
+     <y>360</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -118,7 +88,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>240</y>
+     <y>180</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -213,7 +183,7 @@ color: #fdffe0;
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>240</y>
+     <y>180</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -254,7 +224,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>130</y>
+     <y>90</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -289,7 +259,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>350</y>
+     <y>360</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -368,7 +338,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>130</y>
+     <y>90</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -409,7 +379,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>120</y>
+     <y>100</y>
      <width>381</width>
      <height>51</height>
     </rect>
@@ -445,48 +415,6 @@ QPushButton:hover {
    </property>
    <property name="text">
     <string notr="true">Wiegeeinheit auswählen</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_aktuelle_we">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>160</y>
-     <width>381</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>5</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>600</width>
-     <height>70</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-    background-color: transparent;
-}</string>
-   </property>
-   <property name="text">
-    <string notr="true">label_aktuelle_we</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_fu_sim_toggle">
@@ -545,7 +473,7 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_fu_sim_toggle">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>380</x>
      <y>450</y>
      <width>600</width>
      <height>70</height>
@@ -584,8 +512,84 @@ QPushButton:hover {
     <string>Fütter - Simulation an/aus</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_futter_config">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>270</y>
+     <width>100</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2E672F;
+    color: #ffffff;
+    border-radius: 15px;
+}
+QPushButton:hover {
+    background-color: #8FBC8F;
+    color: #f5f5b5;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Futterwagen_2/views/icons/icons.qrc">
+     <normaloff>:/icons/Fodder.png</normaloff>
+     <normalon>:/icons/Fodder.png</normalon>:/icons/Fodder.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txt_kalibrieren_2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>270</y>
+     <width>600</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>5</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>600</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>600</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background-color: transparent;
+}</string>
+   </property>
+   <property name="text">
+    <string>Futter Auswahl</string>
+   </property>
+  </widget>
   <zorder>ub_einstellungen</zorder>
-  <zorder>label_gewicht</zorder>
   <zorder>txt_simulation_toggle</zorder>
   <zorder>txt_kalibrieren</zorder>
   <zorder>btn_kalibrieren</zorder>
@@ -594,9 +598,10 @@ QPushButton:hover {
   <zorder>btn_back</zorder>
   <zorder>btn_we_auswahl</zorder>
   <zorder>txt_we_auswahl</zorder>
-  <zorder>label_aktuelle_we</zorder>
   <zorder>btn_fu_sim_toggle</zorder>
   <zorder>txt_fu_sim_toggle</zorder>
+  <zorder>btn_futter_config</zorder>
+  <zorder>txt_kalibrieren_2</zorder>
  </widget>
  <resources>
   <include location="../../Futterwagen_2/views/icons/icons.qrc"/>

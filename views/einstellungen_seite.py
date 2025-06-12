@@ -1,7 +1,7 @@
 # views/einstellungen_seite.py
 import os
 import logging
-import views.icons.icons_rc
+
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QTimer
@@ -14,7 +14,7 @@ class EinstellungenSeite(QWidget):
     def __init__(self, sensor_manager):
         super().__init__()
         self.sensor_manager = sensor_manager
-        self.navigation = None  # Wird von MainWindow gesetzt
+        self.navigation = None
         logger.info("EinstellungenSeite wird initialisiert")
 
         # UI-Datei laden
@@ -32,21 +32,19 @@ class EinstellungenSeite(QWidget):
         self.btn_fu_sim_toggle.setChecked(False)
 
         # Events verbinden
-        self.btn_simulation_toggle.clicked.connect(self.toggle_hx_simulation)
-        self.btn_fu_sim_toggle.clicked.connect(self.toggle_fu_simulation)
-        self.btn_back.clicked.connect(self.zurueck_geklickt)
+        self.connect_buttons()
 
-        # Timer erstellen, aber NICHT starten
+        # Timer erstellen, aber NICHT für Gewichtsanzeige verwenden
         self.timer = QTimer()
-        self.timer.timeout.connect(self.update_weight)
+        # self.timer.timeout.connect(self.update_weight)  # ENTFERNT!
 
     def start_timer(self):
-        """Startet Timer nur wenn Seite aktiv ist"""
-        self.timer.start(1000)
+        """Timer nicht mehr nötig auf Einstellungsseite"""
+        pass  # Kein Timer für Gewichtsanzeige
 
     def stop_timer(self):
-        """Stoppt Timer"""
-        self.timer.stop()
+        """Timer nicht mehr nötig auf Einstellungsseite"""
+        pass  # Kein Timer für Gewichtsanzeige
 
     def toggle_hx_simulation(self, checked):
         hx711_sim.setze_simulation(checked)
@@ -57,17 +55,37 @@ class EinstellungenSeite(QWidget):
         logger.info(f"Fütterungs-Simulation: {'aktiviert' if checked else 'deaktiviert'}")
 
     def zurueck_geklickt(self):
-        """EINFACHE Navigation - KEIN Parent-Chaos!"""
-        logger.info("Zurück-Button geklickt - Navigation zur Auswahl-Seite")
+        """INTELLIGENTE Navigation - geht zur vorherigen Seite zurück"""
+        logger.info("Zurück-Button geklickt - Intelligente Navigation")
         if self.navigation:
-            self.navigation.show_status("auswahl")
+            self.navigation.go_back()  # Verwendet jetzt go_back() statt show_status("auswahl")
         else:
             logger.error("Navigation nicht verfügbar!")
 
     def update_weight(self):
-        try:
-            weight = self.sensor_manager.read_weight()
-            self.label_gewicht.setText(f"Gewicht: {weight:.2f} kg")
-        except Exception as e:
-            logger.error(f"Fehler beim Wiegen: {e}")
-            self.label_gewicht.setText("Fehler beim Wiegen!")
+        """Gewichtsanzeige gehört zur Kalibrierungsseite, nicht hier"""
+        pass
+
+    def connect_buttons(self):
+        """Verbindet ALLE Buttons der Seite"""
+        # Bestehende Buttons
+        self.btn_simulation_toggle.clicked.connect(self.toggle_hx_simulation)
+        self.btn_fu_sim_toggle.clicked.connect(self.toggle_fu_simulation)
+
+        # BACK-BUTTON VERBINDEN - DAS FEHLTE!
+        self.btn_back.clicked.connect(self.zurueck_geklickt)
+
+        # NEUER Button für Futter-Konfiguration
+        if hasattr(self, 'btn_futter_config'):
+            self.btn_futter_config.clicked.connect(self.zu_futter_konfiguration)
+            logger.info("Futter-Konfigurations-Button verbunden")
+        else:
+            logger.warning("btn_futter_config nicht gefunden - UI nicht aktuell?")
+
+        logger.info("Alle Einstellungs-Buttons verbunden")
+
+    def zu_futter_konfiguration(self):
+        """Navigation zur Futter-Konfigurationsseite"""
+        if self.navigation:
+            logger.info("Wechsel zur Futter-Konfiguration")
+            self.navigation.show_status("futter_konfiguration")

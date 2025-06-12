@@ -120,3 +120,314 @@
 2025-06-09 16:00:17,356 [INFO] views.main_window: MainWindow wird initialisiert
 2025-06-09 16:00:17,367 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
 2025-06-09 16:00:17,367 [ERROR] __main__: Kritischer Fehler in main(): 'BeladenSeite' object has no attribute 'create_ui_in_code'
+2025-06-11 07:13:37,923 [INFO] __main__: Sensor Manager initialisiert
+2025-06-11 07:13:37,923 [INFO] __main__: 1 Heu-Einträge geladen
+2025-06-11 07:13:37,954 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-11 07:13:37,974 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-11 07:13:37,977 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-11 07:13:37,977 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-11 07:13:37,977 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-11 07:13:37,984 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-11 07:13:37,984 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-11 07:13:37,991 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-11 07:13:38,027 [INFO] __main__: MainWindow gestartet
+2025-06-11 07:13:38,027 [INFO] __main__: Testdaten geladen
+2025-06-11 07:13:45,238 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-11 07:13:45,238 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-11 07:13:49,176 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-11 07:13:49,177 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-11 07:14:08,152 [INFO] views.fuettern_seite: Nachladen: Speichere Kontext für Pferd 1
+2025-06-11 07:14:08,152 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-11 07:14:08,152 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-11 07:14:08,153 [INFO] views.beladen_seite: Beladen-Seite: Kontext erhalten - Pferd 1, Restgewicht: 0.00 kg
+2025-06-11 07:14:39,794 [INFO] views.beladen_seite: Futtertyp gewählt: HEULAGE
+2025-06-11 07:14:42,206 [INFO] views.beladen_seite: Beladen abgeschlossen: 0.00 kg heulage nachgeladen
+2025-06-11 07:14:42,207 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-11 07:14:42,207 [INFO] views.main_window: Vorherige Seite gespeichert: beladen
+2025-06-11 07:14:42,208 [INFO] views.fuettern_seite: Titel aktualisiert: heulage → Heulage Fütterung
+2025-06-11 07:14:42,208 [INFO] views.fuettern_seite: Füttern-Seite: Kontext wiederhergestellt - Pferd 1, nachgeladen: 0.00 kg
+2025-06-11 16:53:39,509 [INFO] __main__: Sensor Manager initialisiert
+2025-06-11 16:53:39,510 [INFO] __main__: Simulationen aktiviert
+2025-06-11 16:53:39,536 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-11 16:53:39,536 [ERROR] __main__: Kritischer Fehler in main(): name 'FutterKonfiguration' is not defined
+2025-06-12 06:23:13,674 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 06:23:13,674 [INFO] __main__: Simulationen aktiviert
+2025-06-12 06:23:13,704 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 06:23:13,708 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-06-12 06:23:13,708 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-06-12 06:23:13,708 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-06-12 06:23:13,708 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 06:23:13,709 [ERROR] __main__: Kritischer Fehler in main(): 'MainWindow' object has no attribute 'start_screen'
+2025-06-12 06:47:17,480 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 06:47:17,480 [INFO] __main__: Simulationen aktiviert
+2025-06-12 06:47:17,490 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 06:47:17,505 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 06:47:17,508 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 06:47:17,508 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 06:47:17,508 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 06:47:17,516 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 06:47:17,516 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 06:47:17,520 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-06-12 06:47:17,520 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-06-12 06:47:17,520 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-06-12 06:47:17,520 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 06:47:17,522 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 06:47:17,576 [INFO] __main__: MainWindow gestartet
+2025-06-12 06:47:20,874 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 06:47:20,875 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 06:47:26,395 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 06:47:26,395 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 06:47:27,448 [ERROR] views.einstellungen_seite: Fehler beim Wiegen: 'EinstellungenSeite' object has no attribute 'label_gewicht'
+2025-06-12 06:50:13,782 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 06:50:13,782 [INFO] __main__: Simulationen aktiviert
+2025-06-12 06:50:13,793 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 06:50:13,799 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 06:50:13,802 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 06:50:13,802 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 06:50:13,802 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 06:50:13,809 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 06:50:13,809 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 06:50:13,813 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-06-12 06:50:13,813 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-06-12 06:50:13,813 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-06-12 06:50:13,813 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 06:50:13,815 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 06:50:13,854 [INFO] __main__: MainWindow gestartet
+2025-06-12 06:50:18,042 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 06:50:18,043 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 06:50:21,381 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 06:50:21,381 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 06:50:22,431 [ERROR] views.einstellungen_seite: Fehler beim Wiegen: 'EinstellungenSeite' object has no attribute 'label_gewicht'
+2025-06-12 06:59:55,327 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 06:59:55,328 [INFO] __main__: Simulationen aktiviert
+2025-06-12 06:59:55,339 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 06:59:55,347 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 06:59:55,351 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 06:59:55,351 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 06:59:55,351 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 06:59:55,359 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 06:59:55,359 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 06:59:55,362 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 06:59:55,363 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-06-12 06:59:55,363 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-06-12 06:59:55,363 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-06-12 06:59:55,363 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 06:59:55,365 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 06:59:55,397 [INFO] __main__: MainWindow gestartet
+2025-06-12 06:59:56,873 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 06:59:56,874 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 06:59:58,768 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 06:59:58,768 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 07:00:02,486 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:00:02,487 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:00:02,487 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:03:09,880 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_eigen_2025.csv
+2025-06-12 07:05:22,625 [INFO] views.futter_konfiguration: 1 Heu-Einträge aus heu_eigen_2025.csv geladen
+2025-06-12 07:05:22,625 [INFO] views.futter_konfiguration: 1 Heulage-Einträge aus heulage_eigen_2025.csv geladen
+2025-06-12 07:05:22,625 [INFO] views.main_window: Futter-Daten gesetzt: 1 Heu, 1 Heulage, 0 Pellets
+2025-06-12 07:05:29,758 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:05:29,759 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:14:35,364 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:14:35,365 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:14:35,365 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:14:42,504 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 07:14:42,504 [INFO] __main__: Simulationen aktiviert
+2025-06-12 07:14:42,515 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 07:14:42,521 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 07:14:42,523 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 07:14:42,523 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 07:14:42,524 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 07:14:42,530 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 07:14:42,530 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 07:14:42,534 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 07:14:42,536 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 07:14:42,536 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 07:14:42,546 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 07:14:42,579 [INFO] __main__: MainWindow gestartet
+2025-06-12 07:14:43,762 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 07:14:43,762 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 07:14:45,456 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:14:45,456 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 07:14:47,998 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:14:47,999 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:14:47,999 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:14:57,399 [INFO] views.futter_konfiguration: 1 Heu-Einträge aus heu_frd_2025.csv geladen
+2025-06-12 07:14:57,400 [INFO] views.futter_konfiguration: 1 Heulage-Einträge aus heulage_eigen_2025.csv geladen
+2025-06-12 07:14:57,400 [INFO] views.main_window: Futter-Daten gesetzt: 1 Heu, 1 Heulage, 0 Pellets
+2025-06-12 07:20:27,939 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:20:27,939 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:20:29,721 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:20:29,722 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:20:29,722 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:20:45,708 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 07:20:45,708 [INFO] __main__: Simulationen aktiviert
+2025-06-12 07:20:45,719 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 07:20:45,726 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 07:20:45,730 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 07:20:45,730 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 07:20:45,730 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 07:20:45,737 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 07:20:45,737 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 07:20:45,740 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 07:20:45,742 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 07:20:45,742 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 07:20:45,753 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 07:20:45,783 [INFO] __main__: MainWindow gestartet
+2025-06-12 07:20:46,954 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 07:20:46,954 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 07:20:48,160 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:20:48,161 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 07:20:49,597 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:20:49,597 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:20:49,597 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:21:20,267 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:21:20,267 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:21:22,189 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:21:22,190 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:21:22,190 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:21:25,132 [INFO] views.futter_konfiguration: 1 Heu-Einträge aus heu_frd_2025.csv geladen
+2025-06-12 07:21:25,132 [INFO] views.futter_konfiguration: 1 Heulage-Einträge aus heulage_eigen_2025.csv geladen
+2025-06-12 07:21:25,133 [INFO] views.main_window: Futter-Daten gesetzt: 1 Heu, 1 Heulage, 0 Pellets
+2025-06-12 07:46:55,311 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:46:55,312 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:47:02,492 [INFO] views.einstellungen_seite: HX711 Simulation: aktiviert
+2025-06-12 07:47:04,022 [INFO] views.einstellungen_seite: Fütterungs-Simulation: aktiviert
+2025-06-12 07:47:05,920 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:47:05,920 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:47:05,920 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:47:12,431 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:47:12,431 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:47:12,431 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:47:15,923 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:47:15,924 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:47:15,924 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:47:39,518 [INFO] views.einstellungen_seite: Fütterungs-Simulation: deaktiviert
+2025-06-12 07:47:40,554 [INFO] views.einstellungen_seite: Fütterungs-Simulation: aktiviert
+2025-06-12 07:47:43,423 [INFO] views.einstellungen_seite: HX711 Simulation: deaktiviert
+2025-06-12 07:47:44,762 [INFO] views.einstellungen_seite: HX711 Simulation: aktiviert
+2025-06-12 07:47:49,365 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:47:49,365 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:47:49,365 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:47:54,339 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:47:54,339 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:47:54,339 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:48:01,034 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:48:01,034 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:48:05,845 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:48:05,845 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:48:05,845 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:57:31,507 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 07:57:31,507 [INFO] __main__: Simulationen aktiviert
+2025-06-12 07:57:31,519 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 07:57:31,526 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 07:57:31,529 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 07:57:31,529 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 07:57:31,529 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 07:57:31,536 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 07:57:31,536 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 07:57:31,539 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 07:57:31,539 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-12 07:57:31,541 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 07:57:31,541 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 07:57:31,552 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 07:57:31,584 [INFO] __main__: MainWindow gestartet
+2025-06-12 07:57:32,815 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 07:57:32,816 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 07:57:36,068 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:57:36,069 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 07:57:37,355 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 07:57:37,355 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 07:57:37,355 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 07:57:40,041 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:57:40,041 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:57:45,056 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:57:45,056 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:57:45,057 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 07:57:47,097 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 07:57:47,097 [INFO] views.main_window: Back-Button: Zurück zu einstellungen
+2025-06-12 07:57:47,097 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 08:04:44,204 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 08:04:44,204 [INFO] __main__: Simulationen aktiviert
+2025-06-12 08:04:44,216 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 08:04:44,223 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 08:04:44,225 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 08:04:44,225 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 08:04:44,225 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 08:04:44,232 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 08:04:44,232 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 08:04:44,237 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 08:04:44,237 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-12 08:04:44,239 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 08:04:44,239 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 08:04:44,250 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 08:04:44,282 [INFO] __main__: MainWindow gestartet
+2025-06-12 08:04:45,533 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:04:45,533 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 08:04:47,763 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 08:04:47,763 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:04:49,521 [INFO] views.einstellungen_seite: Wechsel zur Futter-Konfiguration
+2025-06-12 08:04:49,521 [INFO] views.main_window: Wechsel zu Status: futter_konfiguration
+2025-06-12 08:04:49,522 [INFO] views.main_window: Vorherige Seite gespeichert: einstellungen
+2025-06-12 08:04:52,326 [INFO] views.futter_konfiguration: 1 Heu-Einträge aus heu_frd_2025.csv geladen
+2025-06-12 08:04:52,327 [INFO] views.futter_konfiguration: 1 Heulage-Einträge aus heulage_eigen_2025.csv geladen
+2025-06-12 08:04:52,327 [INFO] views.main_window: Futter-Daten gesetzt: 1 Heu, 1 Heulage, 0 Pellets
+2025-06-12 08:04:56,199 [INFO] views.main_window: Back-Button: Aktuell=futter_konfiguration, Zurück zu=einstellungen
+2025-06-12 08:04:56,199 [INFO] views.main_window: Navigation-History: einstellungen → futter_konfiguration
+2025-06-12 08:04:56,199 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-12 08:04:57,795 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-12 08:04:57,795 [INFO] views.main_window: Back-Button: Aktuell=einstellungen, Zurück zu=einstellungen
+2025-06-12 08:04:57,795 [INFO] views.main_window: Navigation-History: einstellungen → einstellungen
+2025-06-12 08:04:57,795 [WARNING] views.main_window: Ungültige Navigation: previous_page=einstellungen, current=einstellungen
+2025-06-12 08:04:57,795 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:05:03,337 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:05:03,337 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:06:43,999 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:06:43,999 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:06:45,246 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:06:45,247 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:06:47,386 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:06:47,387 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:06:48,412 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:06:48,412 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:06:49,974 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:06:49,975 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:06:50,827 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:06:50,827 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:06:53,064 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:06:53,064 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:06:54,619 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-12 08:06:54,620 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:06:56,841 [INFO] views.beladen_seite: Beladen abgeschlossen: 0.00 kg heu nachgeladen
+2025-06-12 08:06:56,841 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:06:56,841 [INFO] views.main_window: Vorherige Seite gespeichert: beladen
+2025-06-12 08:06:56,842 [INFO] views.fuettern_seite: Titel aktualisiert: heu → Heu Fütterung
+2025-06-12 08:06:56,842 [INFO] views.fuettern_seite: Füttern-Seite: Kontext wiederhergestellt - Pferd 1, nachgeladen: 0.00 kg
+2025-06-12 08:06:59,596 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 08:06:59,596 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:07:00,404 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:07:00,404 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 08:07:03,941 [INFO] views.fuettern_seite: Nachladen: Speichere Kontext für Pferd 1
+2025-06-12 08:07:03,941 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-12 08:07:03,942 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 08:07:03,943 [INFO] views.beladen_seite: Beladen-Seite: Kontext erhalten - Pferd 1, Restgewicht: 0.00 kg
+2025-06-12 08:07:05,509 [INFO] views.beladen_seite: Futtertyp gewählt: HEULAGE
+2025-06-12 08:07:06,655 [INFO] views.beladen_seite: Beladen abgeschlossen: 0.00 kg heulage nachgeladen
+2025-06-12 08:07:06,655 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 08:07:06,656 [INFO] views.main_window: Vorherige Seite gespeichert: beladen
+2025-06-12 08:07:06,657 [INFO] views.fuettern_seite: Titel aktualisiert: heulage → Heulage Fütterung
+2025-06-12 08:07:06,657 [INFO] views.fuettern_seite: Füttern-Seite: Kontext wiederhergestellt - Pferd 1, nachgeladen: 0.00 kg
+2025-06-12 08:43:18,623 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 08:43:18,623 [INFO] __main__: Simulationen aktiviert
+2025-06-12 08:43:18,636 [ERROR] __main__: Kritischer Fehler in main(): 'name'
+2025-06-12 08:52:36,799 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 08:52:36,800 [INFO] __main__: Simulationen aktiviert
+2025-06-12 08:52:36,812 [ERROR] __main__: Kritischer Fehler in main(): 'name'
+2025-06-12 09:05:15,360 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 09:05:15,360 [INFO] __main__: Simulationen aktiviert
+2025-06-12 09:05:15,374 [ERROR] __main__: Kritischer Fehler in main(): 'MainWindow' object has no attribute 'lade_pferde_daten'
+2025-06-12 09:06:53,639 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 09:06:53,640 [INFO] __main__: Simulationen aktiviert
+2025-06-12 09:06:53,650 [ERROR] __main__: Kritischer Fehler in main(): 'MainWindow' object has no attribute 'lade_pferde_daten'
+2025-06-12 09:09:23,256 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 09:09:23,256 [INFO] __main__: Simulationen aktiviert
+2025-06-12 09:09:23,267 [ERROR] __main__: Kritischer Fehler in main(): 'MainWindow' object has no attribute 'lade_pferde_daten'
