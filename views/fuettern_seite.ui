@@ -1195,7 +1195,7 @@ QPushButton:hover {
     <string>0.00</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_h_fu_sim">
+  <widget class="QPushButton" name="btn_fu_sim">
    <property name="geometry">
     <rect>
      <x>920</x>
@@ -1487,7 +1487,7 @@ QPushButton:hover {
   <zorder>label_h_fruktan</zorder>
   <zorder>label_h_me_pferd</zorder>
   <zorder>label_h_pcvxp</zorder>
-  <zorder>btn_h_fu_sim</zorder>
+  <zorder>btn_fu_sim</zorder>
   <zorder>txt_h_rohfaser_2</zorder>
   <zorder>txt_Trockensubstanz</zorder>
   <zorder>label_h_trsub</zorder>

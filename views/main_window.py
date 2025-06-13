@@ -128,11 +128,16 @@ class MainWindow(QMainWindow):
     def zeige_heu_futter(self):
         """Zeigt Heu-Fütterung mit echten Pferd-Daten"""
         aktuelles_pferd = self.get_aktuelles_pferd()
+
         self.show_status("fuettern")
 
+        # WICHTIG: Pferd-Daten explizit setzen
         if aktuelles_pferd:
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
             self.fuettern_seite.start_timer()
+            logger.info(f"Heu-Fütterung gestartet für: {aktuelles_pferd.name}")
+        else:
+            logger.warning("Kein Pferd verfügbar!")
 
     def zeige_heulage_futter(self):
         """Zeigt Heulage-Fütterung mit echten Daten"""
@@ -162,7 +167,42 @@ class MainWindow(QMainWindow):
             self.show_status("auswahl", from_back=True)
 
     # === PFERDE-MANAGEMENT ===
+    def lade_pferde_daten(self):
+        """Lädt echte Pferde aus pferde.csv"""
+        import csv
+        import os
+        from models.pferd import Pferd
 
+        pferde = []
+        csv_path = os.path.join("data", "pferde.csv")
+
+        try:
+            with open(csv_path, 'r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+
+                # Debug: Spalten anzeigen
+                print(f"CSV-Spalten gefunden: {reader.fieldnames}")
+
+                for row in reader:
+                    pferd = Pferd(
+                        name=row['Name'],  # KORRIGIERT: Großgeschrieben
+                        gewicht=float(row['Gewicht']),  # KORRIGIERT: Großgeschrieben
+                        alter=int(row['Alter']),  # KORRIGIERT: Großgeschrieben
+                        notizen=row.get('Notizen', '')  # Optional
+                    )
+                    pferde.append(pferd)
+                    print(f"Pferd geladen: {pferd.name}, {pferd.gewicht}kg, {pferd.alter} Jahre")
+
+            logger.info(f"{len(pferde)} Pferde aus CSV geladen")
+            return pferde
+
+        except FileNotFoundError:
+            logger.error(f"Pferde-CSV nicht gefunden: {csv_path}")
+            return [Pferd(name="Blitz", gewicht=500, alter=8)]
+        except Exception as e:
+            logger.error(f"Fehler beim Laden der Pferde-CSV: {e}")
+            print(f"CSV-Fehler: {e}")
+            return [Pferd(name="Blitz", gewicht=500, alter=8)]
 
     def get_aktuelles_pferd(self):
         """Gibt das aktuelle Pferd zurück"""

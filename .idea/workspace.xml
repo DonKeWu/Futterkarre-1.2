@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88ca5671-1551-40e7-8982-496270eb3b5f" name="Changes" comment="anlegen">
-      <change afterPath="$PROJECT_DIR$/views/futter_konfiguration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardware/sensor_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/hardware/sensor_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/futterkarre.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/futterkarre.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tree.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/navigation_manager.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/beladen_seite.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/beladen_seite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/einstellungen_seite.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/einstellungen_seite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/einstellungen_seite.ui" beforeDir="false" afterPath="$PROJECT_DIR$/views/einstellungen_seite.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/fu_laden.ui" beforeDir="false" afterPath="$PROJECT_DIR$/views/beladen_seite.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/fuettern_seite.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/fuettern_seite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/icons/Gear+Calib.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/views/icons/Gear+Calib.xcf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fuettern_seite.ui" beforeDir="false" afterPath="$PROJECT_DIR$/views/fuettern_seite.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +75,29 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="beladen_seite" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Futterkarre-2" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/views" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/views/beladen_seite.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="fuettern_seite" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Futterkarre-2" />
       <option name="ENV_FILES" value="" />
@@ -107,6 +123,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.beladen_seite" />
         <item itemvalue="Python.fuettern_seite" />
       </list>
     </recent_temporary>
@@ -130,7 +147,8 @@
       <workItem from="1749528086574" duration="8088000" />
       <workItem from="1749615710768" duration="3260000" />
       <workItem from="1749638109794" duration="4482000" />
-      <workItem from="1749702114266" duration="8964000" />
+      <workItem from="1749702114266" duration="10100000" />
+      <workItem from="1749792142816" duration="997000" />
     </task>
     <task id="LOCAL-00001" summary="anlegen">
       <option name="closed" value="true" />
@@ -164,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749477659563</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="anlegen">
+      <option name="closed" value="true" />
+      <created>1749712186508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749712186508</updated>
+    </task>
+    <task id="LOCAL-00006" summary="anlegen">
+      <option name="closed" value="true" />
+      <created>1749712189974</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749712189974</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,8 +220,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Futterkarre_2$main.coverage" NAME="main Coverage Results" MODIFIED="1749712013252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Futterkarre_2$beladen_seite.coverage" NAME="beladen_seite Coverage Results" MODIFIED="1749480613667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
+    <SUITE FILE_PATH="coverage/Futterkarre_2$main.coverage" NAME="main Coverage Results" MODIFIED="1749792204100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Futterkarre_2$beladen_seite.coverage" NAME="beladen_seite Coverage Results" MODIFIED="1749793134203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/Futterkarre_2$fuettern_seite.coverage" NAME="fuettern_seite Coverage Results" MODIFIED="1749653612589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
   </component>
 </project>

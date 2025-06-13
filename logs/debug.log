@@ -431,3 +431,397 @@
 2025-06-12 09:09:23,256 [INFO] __main__: Sensor Manager initialisiert
 2025-06-12 09:09:23,256 [INFO] __main__: Simulationen aktiviert
 2025-06-12 09:09:23,267 [ERROR] __main__: Kritischer Fehler in main(): 'MainWindow' object has no attribute 'lade_pferde_daten'
+2025-06-12 09:16:16,476 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 09:16:16,476 [INFO] __main__: Simulationen aktiviert
+2025-06-12 09:16:16,488 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-06-12 09:16:16,488 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 09:16:16,494 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 09:16:16,497 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 09:16:16,497 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 09:16:16,497 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 09:16:16,503 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 09:16:16,504 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 09:16:16,507 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 09:16:16,507 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-12 09:16:16,509 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 09:16:16,509 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 09:16:16,520 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 09:16:16,553 [INFO] __main__: MainWindow gestartet
+2025-06-12 09:16:18,078 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 09:16:18,079 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 09:16:20,501 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 09:16:20,501 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 09:25:48,501 [INFO] __main__: Sensor Manager initialisiert
+2025-06-12 09:25:48,501 [INFO] __main__: Simulationen aktiviert
+2025-06-12 09:25:48,511 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-06-12 09:25:48,511 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-12 09:25:48,517 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-12 09:25:48,520 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-12 09:25:48,520 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-12 09:25:48,520 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-12 09:25:48,527 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-12 09:25:48,527 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-12 09:25:48,531 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-12 09:25:48,531 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-12 09:25:48,533 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-12 09:25:48,533 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-12 09:25:48,543 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-12 09:25:48,575 [INFO] __main__: MainWindow gestartet
+2025-06-12 09:25:50,629 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 09:25:50,629 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-12 09:25:53,148 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 09:25:53,148 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 09:25:58,237 [INFO] views.main_window: Back-Button: Aktuell=fuettern, Zurück zu=auswahl
+2025-06-12 09:25:58,237 [INFO] views.main_window: Navigation-History: auswahl → fuettern
+2025-06-12 09:25:58,238 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 09:25:59,388 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 09:25:59,388 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 09:26:01,978 [INFO] views.main_window: Back-Button: Aktuell=fuettern, Zurück zu=auswahl
+2025-06-12 09:26:01,979 [INFO] views.main_window: Navigation-History: auswahl → fuettern
+2025-06-12 09:26:01,979 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-12 09:26:03,268 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 09:26:03,279 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-12 09:26:11,000 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-12 09:26:11,000 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 09:26:11,001 [INFO] views.beladen_seite: Beladen-Seite: Kontext erhalten - Pferd 1, Restgewicht: 0.00 kg
+2025-06-12 09:26:13,451 [INFO] views.beladen_seite: Futtertyp gewählt: HEULAGE
+2025-06-12 09:26:16,582 [INFO] views.beladen_seite: Beladen abgeschlossen: 0.00 kg heulage nachgeladen
+2025-06-12 09:26:16,582 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-12 09:26:16,583 [INFO] views.main_window: Vorherige Seite gespeichert: beladen
+2025-06-12 09:26:16,584 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-06-12 09:26:18,360 [INFO] views.main_window: Wechsel zu Pferd 2: Delight
+2025-06-12 09:26:18,360 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Delight, 3 Jahre, 280.0 kg
+2025-06-12 09:26:19,614 [INFO] views.main_window: Wechsel zu Pferd 3: Maverick
+2025-06-12 09:26:19,614 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maverick, 5 Jahre, 400.0 kg
+2025-06-12 09:26:20,231 [INFO] views.main_window: Wechsel zu Pferd 4: Rondo
+2025-06-12 09:26:20,231 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rondo, 12 Jahre, 520.0 kg
+2025-06-12 09:26:20,685 [INFO] views.main_window: Wechsel zu Pferd 5: Maranello
+2025-06-12 09:26:20,685 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maranello, 20 Jahre, 450.0 kg
+2025-06-12 09:26:21,085 [INFO] views.main_window: Wechsel zu Pferd 6: Salute
+2025-06-12 09:26:21,085 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Salute, 4 Jahre, 300.0 kg
+2025-06-12 09:26:21,477 [INFO] views.main_window: Wechsel zu Pferd 7: Calli
+2025-06-12 09:26:21,477 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Calli, 10 Jahre, 450.0 kg
+2025-06-12 09:26:21,820 [INFO] views.main_window: Wechsel zu Pferd 8: Karl
+2025-06-12 09:26:21,820 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Karl, 15 Jahre, 300.0 kg
+2025-06-12 09:26:22,017 [INFO] views.main_window: Wechsel zu Pferd 9: Furore
+2025-06-12 09:26:22,018 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Furore, 12 Jahre, 500.0 kg
+2025-06-12 09:26:22,188 [INFO] views.main_window: Wechsel zu Pferd 10: Nabo
+2025-06-12 09:26:22,189 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nabo, 8 Jahre, 300.0 kg
+2025-06-12 09:26:22,365 [INFO] views.main_window: Wechsel zu Pferd 11: Devina
+2025-06-12 09:26:22,365 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Devina, 17 Jahre, 450.0 kg
+2025-06-12 09:26:22,525 [INFO] views.main_window: Wechsel zu Pferd 12: Tajo
+2025-06-12 09:26:22,525 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Tajo, 3 Jahre, 150.0 kg
+2025-06-12 09:26:22,690 [INFO] views.main_window: Wechsel zu Pferd 13: Saphina
+2025-06-12 09:26:22,691 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Saphina, 5 Jahre, 200.0 kg
+2025-06-12 09:26:22,847 [INFO] views.main_window: Wechsel zu Pferd 14: Donna
+2025-06-12 09:26:22,848 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Donna, 15 Jahre, 450.0 kg
+2025-06-12 09:26:23,016 [INFO] views.main_window: Wechsel zu Pferd 15: Hugo
+2025-06-12 09:26:23,016 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Hugo, 13 Jahre, 500.0 kg
+2025-06-12 09:26:23,173 [INFO] views.main_window: Wechsel zu Pferd 16: Pippa
+2025-06-12 09:26:23,173 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Pippa, 18 Jahre, 400.0 kg
+2025-06-12 09:26:23,334 [INFO] views.main_window: Wechsel zu Pferd 17: Shadow
+2025-06-12 09:26:23,335 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Shadow, 10 Jahre, 580.0 kg
+2025-06-12 09:26:23,601 [INFO] views.main_window: Wechsel zu Pferd 18: Million
+2025-06-12 09:26:23,601 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Million, 3 Jahre, 280.0 kg
+2025-06-12 09:26:23,782 [INFO] views.main_window: Wechsel zu Pferd 19: Osi
+2025-06-12 09:26:23,782 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Osi, 18 Jahre, 250.0 kg
+2025-06-12 09:26:23,950 [INFO] views.main_window: Wechsel zu Pferd 20: Onkel
+2025-06-12 09:26:23,951 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Onkel, 17 Jahre, 300.0 kg
+2025-06-12 09:26:24,129 [INFO] views.main_window: Wechsel zu Pferd 21: James
+2025-06-12 09:26:24,129 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: James, 10 Jahre, 150.0 kg
+2025-06-12 09:26:24,302 [INFO] views.main_window: Wechsel zu Pferd 22: Fine
+2025-06-12 09:26:24,302 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Fine, 15 Jahre, 350.0 kg
+2025-06-12 09:26:24,437 [INFO] views.main_window: Wechsel zu Pferd 23: Dario
+2025-06-12 09:26:24,437 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Dario, 17 Jahre, 250.0 kg
+2025-06-12 09:26:24,602 [INFO] views.main_window: Wechsel zu Pferd 24: Bella
+2025-06-12 09:26:24,603 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Bella, 6 Jahre, 480.0 kg
+2025-06-12 09:26:24,756 [INFO] views.main_window: Wechsel zu Pferd 25: Rosa
+2025-06-12 09:26:24,756 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rosa, 3 Jahre, 200.0 kg
+2025-06-12 09:26:24,928 [INFO] views.main_window: Wechsel zu Pferd 26: Milla
+2025-06-12 09:26:24,929 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Milla, 3 Jahre, 200.0 kg
+2025-06-12 09:26:25,102 [INFO] views.main_window: Wechsel zu Pferd 27: Missy
+2025-06-12 09:26:25,102 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Missy, 10 Jahre, 400.0 kg
+2025-06-12 09:26:26,069 [WARNING] views.fuettern_seite: Karre ist leer - Nachladen erforderlich!
+2025-06-12 09:26:26,788 [WARNING] views.fuettern_seite: Karre ist leer - Nachladen erforderlich!
+2025-06-12 09:26:27,197 [WARNING] views.fuettern_seite: Karre ist leer - Nachladen erforderlich!
+2025-06-12 09:26:27,825 [WARNING] views.fuettern_seite: Karre ist leer - Nachladen erforderlich!
+2025-06-12 09:26:28,420 [WARNING] views.fuettern_seite: Karre ist leer - Nachladen erforderlich!
+2025-06-12 09:26:35,154 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-12 09:26:35,155 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-12 09:26:35,156 [INFO] views.beladen_seite: Beladen-Seite: Kontext erhalten - Pferd 1, Restgewicht: 0.00 kg
+2025-06-13 07:23:24,777 [INFO] __main__: Sensor Manager initialisiert
+2025-06-13 07:23:24,778 [INFO] __main__: Simulationen aktiviert
+2025-06-13 07:23:24,811 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-06-13 07:23:24,811 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-13 07:23:24,831 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-13 07:23:24,835 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-13 07:23:24,835 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-13 07:23:24,835 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-13 07:23:24,847 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-13 07:23:24,847 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-13 07:23:24,851 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-13 07:23:24,851 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-13 07:23:24,853 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-13 07:23:24,853 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-13 07:23:24,873 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-13 07:23:24,910 [INFO] __main__: MainWindow gestartet
+2025-06-13 07:23:27,048 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-13 07:23:27,048 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-13 07:23:30,036 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-13 07:23:30,036 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-13 07:23:32,953 [INFO] views.main_window: Wechsel zu Pferd 2: Delight
+2025-06-13 07:23:32,953 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Delight, 3 Jahre, 280.0 kg
+2025-06-13 07:23:38,697 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-13 07:23:38,697 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-13 07:23:38,698 [INFO] views.beladen_seite: Beladen-Seite: Kontext erhalten - Pferd 1, Restgewicht: 0.00 kg
+2025-06-13 07:23:43,654 [INFO] views.beladen_seite: Back-Button geklickt
+2025-06-13 07:23:43,654 [INFO] views.main_window: Back-Button: Aktuell=beladen, Zurück zu=fuettern
+2025-06-13 07:23:43,654 [INFO] views.main_window: Navigation-History: fuettern → beladen
+2025-06-13 07:23:43,654 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-13 07:23:46,139 [INFO] views.main_window: Wechsel zu Pferd 3: Maverick
+2025-06-13 07:23:46,140 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maverick, 5 Jahre, 400.0 kg
+2025-06-13 07:23:46,820 [INFO] views.main_window: Wechsel zu Pferd 4: Rondo
+2025-06-13 07:23:46,821 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rondo, 12 Jahre, 520.0 kg
+2025-06-13 07:23:47,349 [INFO] views.main_window: Wechsel zu Pferd 5: Maranello
+2025-06-13 07:23:47,350 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maranello, 20 Jahre, 450.0 kg
+2025-06-13 07:23:47,754 [INFO] views.main_window: Wechsel zu Pferd 6: Salute
+2025-06-13 07:23:47,754 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Salute, 4 Jahre, 300.0 kg
+2025-06-13 07:23:48,125 [INFO] views.main_window: Wechsel zu Pferd 7: Calli
+2025-06-13 07:23:48,126 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Calli, 10 Jahre, 450.0 kg
+2025-06-13 07:23:48,489 [INFO] views.main_window: Wechsel zu Pferd 8: Karl
+2025-06-13 07:23:48,490 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Karl, 15 Jahre, 300.0 kg
+2025-06-13 07:23:48,852 [INFO] views.main_window: Wechsel zu Pferd 9: Furore
+2025-06-13 07:23:48,853 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Furore, 12 Jahre, 500.0 kg
+2025-06-13 07:23:49,174 [INFO] views.main_window: Wechsel zu Pferd 10: Nabo
+2025-06-13 07:23:49,174 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nabo, 8 Jahre, 300.0 kg
+2025-06-13 07:23:49,393 [INFO] views.main_window: Wechsel zu Pferd 11: Devina
+2025-06-13 07:23:49,394 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Devina, 17 Jahre, 450.0 kg
+2025-06-13 07:23:49,578 [INFO] views.main_window: Wechsel zu Pferd 12: Tajo
+2025-06-13 07:23:49,579 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Tajo, 3 Jahre, 150.0 kg
+2025-06-13 07:23:49,938 [INFO] views.main_window: Wechsel zu Pferd 13: Saphina
+2025-06-13 07:23:49,939 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Saphina, 5 Jahre, 200.0 kg
+2025-06-13 07:23:50,152 [INFO] views.main_window: Wechsel zu Pferd 14: Donna
+2025-06-13 07:23:50,153 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Donna, 15 Jahre, 450.0 kg
+2025-06-13 07:23:50,339 [INFO] views.main_window: Wechsel zu Pferd 15: Hugo
+2025-06-13 07:23:50,339 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Hugo, 13 Jahre, 500.0 kg
+2025-06-13 07:23:50,528 [INFO] views.main_window: Wechsel zu Pferd 16: Pippa
+2025-06-13 07:23:50,529 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Pippa, 18 Jahre, 400.0 kg
+2025-06-13 07:23:50,684 [INFO] views.main_window: Wechsel zu Pferd 17: Shadow
+2025-06-13 07:23:50,684 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Shadow, 10 Jahre, 580.0 kg
+2025-06-13 07:23:50,850 [INFO] views.main_window: Wechsel zu Pferd 18: Million
+2025-06-13 07:23:50,850 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Million, 3 Jahre, 280.0 kg
+2025-06-13 07:23:51,023 [INFO] views.main_window: Wechsel zu Pferd 19: Osi
+2025-06-13 07:23:51,024 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Osi, 18 Jahre, 250.0 kg
+2025-06-13 07:23:51,200 [INFO] views.main_window: Wechsel zu Pferd 20: Onkel
+2025-06-13 07:23:51,201 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Onkel, 17 Jahre, 300.0 kg
+2025-06-13 07:23:51,349 [INFO] views.main_window: Wechsel zu Pferd 21: James
+2025-06-13 07:23:51,349 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: James, 10 Jahre, 150.0 kg
+2025-06-13 07:23:51,522 [INFO] views.main_window: Wechsel zu Pferd 22: Fine
+2025-06-13 07:23:51,523 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Fine, 15 Jahre, 350.0 kg
+2025-06-13 07:23:51,707 [INFO] views.main_window: Wechsel zu Pferd 23: Dario
+2025-06-13 07:23:51,708 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Dario, 17 Jahre, 250.0 kg
+2025-06-13 07:23:51,880 [INFO] views.main_window: Wechsel zu Pferd 24: Bella
+2025-06-13 07:23:51,880 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Bella, 6 Jahre, 480.0 kg
+2025-06-13 07:23:52,041 [INFO] views.main_window: Wechsel zu Pferd 25: Rosa
+2025-06-13 07:23:52,041 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rosa, 3 Jahre, 200.0 kg
+2025-06-13 07:23:52,223 [INFO] views.main_window: Wechsel zu Pferd 26: Milla
+2025-06-13 07:23:52,223 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Milla, 3 Jahre, 200.0 kg
+2025-06-13 07:23:52,433 [INFO] views.main_window: Wechsel zu Pferd 27: Missy
+2025-06-13 07:23:52,433 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Missy, 10 Jahre, 400.0 kg
+2025-06-13 07:23:52,966 [INFO] views.main_window: Wechsel zu Pferd 28: Eddi
+2025-06-13 07:23:52,966 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Eddi, 12 Jahre, 580.0 kg
+2025-06-13 07:23:53,632 [INFO] views.main_window: Wechsel zu Pferd 29: Nasty
+2025-06-13 07:23:53,632 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nasty, 13 Jahre, 300.0 kg
+2025-06-13 07:23:54,185 [INFO] views.main_window: Wechsel zu Pferd 30: Irant
+2025-06-13 07:23:54,185 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Irant, 12 Jahre, 500.0 kg
+2025-06-13 07:23:54,908 [INFO] views.main_window: Wechsel zu Pferd 1: Midnight
+2025-06-13 07:23:54,908 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Midnight, 12 Jahre, 350.0 kg
+2025-06-13 07:23:57,101 [INFO] views.main_window: Wechsel zu Pferd 2: Delight
+2025-06-13 07:23:57,101 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Delight, 3 Jahre, 280.0 kg
+2025-06-13 07:23:57,763 [INFO] views.main_window: Wechsel zu Pferd 3: Maverick
+2025-06-13 07:23:57,763 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maverick, 5 Jahre, 400.0 kg
+2025-06-13 07:23:58,233 [INFO] views.main_window: Wechsel zu Pferd 4: Rondo
+2025-06-13 07:23:58,233 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rondo, 12 Jahre, 520.0 kg
+2025-06-13 07:23:58,423 [INFO] views.main_window: Wechsel zu Pferd 5: Maranello
+2025-06-13 07:23:58,424 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maranello, 20 Jahre, 450.0 kg
+2025-06-13 07:23:58,592 [INFO] views.main_window: Wechsel zu Pferd 6: Salute
+2025-06-13 07:23:58,592 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Salute, 4 Jahre, 300.0 kg
+2025-06-13 07:23:58,777 [INFO] views.main_window: Wechsel zu Pferd 7: Calli
+2025-06-13 07:23:58,777 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Calli, 10 Jahre, 450.0 kg
+2025-06-13 07:23:58,956 [INFO] views.main_window: Wechsel zu Pferd 8: Karl
+2025-06-13 07:23:58,956 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Karl, 15 Jahre, 300.0 kg
+2025-06-13 07:23:59,108 [INFO] views.main_window: Wechsel zu Pferd 9: Furore
+2025-06-13 07:23:59,108 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Furore, 12 Jahre, 500.0 kg
+2025-06-13 07:23:59,264 [INFO] views.main_window: Wechsel zu Pferd 10: Nabo
+2025-06-13 07:23:59,265 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nabo, 8 Jahre, 300.0 kg
+2025-06-13 07:23:59,446 [INFO] views.main_window: Wechsel zu Pferd 11: Devina
+2025-06-13 07:23:59,446 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Devina, 17 Jahre, 450.0 kg
+2025-06-13 07:23:59,628 [INFO] views.main_window: Wechsel zu Pferd 12: Tajo
+2025-06-13 07:23:59,628 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Tajo, 3 Jahre, 150.0 kg
+2025-06-13 07:23:59,789 [INFO] views.main_window: Wechsel zu Pferd 13: Saphina
+2025-06-13 07:23:59,789 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Saphina, 5 Jahre, 200.0 kg
+2025-06-13 07:23:59,955 [INFO] views.main_window: Wechsel zu Pferd 14: Donna
+2025-06-13 07:23:59,955 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Donna, 15 Jahre, 450.0 kg
+2025-06-13 07:24:00,127 [INFO] views.main_window: Wechsel zu Pferd 15: Hugo
+2025-06-13 07:24:00,127 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Hugo, 13 Jahre, 500.0 kg
+2025-06-13 07:24:00,304 [INFO] views.main_window: Wechsel zu Pferd 16: Pippa
+2025-06-13 07:24:00,304 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Pippa, 18 Jahre, 400.0 kg
+2025-06-13 07:24:00,478 [INFO] views.main_window: Wechsel zu Pferd 17: Shadow
+2025-06-13 07:24:00,478 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Shadow, 10 Jahre, 580.0 kg
+2025-06-13 07:24:00,838 [INFO] views.main_window: Wechsel zu Pferd 18: Million
+2025-06-13 07:24:00,838 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Million, 3 Jahre, 280.0 kg
+2025-06-13 07:24:01,055 [INFO] views.main_window: Wechsel zu Pferd 19: Osi
+2025-06-13 07:24:01,056 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Osi, 18 Jahre, 250.0 kg
+2025-06-13 07:24:01,252 [INFO] views.main_window: Wechsel zu Pferd 20: Onkel
+2025-06-13 07:24:01,253 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Onkel, 17 Jahre, 300.0 kg
+2025-06-13 07:24:01,468 [INFO] views.main_window: Wechsel zu Pferd 21: James
+2025-06-13 07:24:01,469 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: James, 10 Jahre, 150.0 kg
+2025-06-13 07:24:01,634 [INFO] views.main_window: Wechsel zu Pferd 22: Fine
+2025-06-13 07:24:01,634 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Fine, 15 Jahre, 350.0 kg
+2025-06-13 07:24:02,017 [INFO] views.main_window: Wechsel zu Pferd 23: Dario
+2025-06-13 07:24:02,017 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Dario, 17 Jahre, 250.0 kg
+2025-06-13 07:24:02,232 [INFO] views.main_window: Wechsel zu Pferd 24: Bella
+2025-06-13 07:24:02,232 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Bella, 6 Jahre, 480.0 kg
+2025-06-13 07:24:02,409 [INFO] views.main_window: Wechsel zu Pferd 25: Rosa
+2025-06-13 07:24:02,409 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rosa, 3 Jahre, 200.0 kg
+2025-06-13 07:24:02,599 [INFO] views.main_window: Wechsel zu Pferd 26: Milla
+2025-06-13 07:24:02,599 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Milla, 3 Jahre, 200.0 kg
+2025-06-13 07:24:02,801 [INFO] views.main_window: Wechsel zu Pferd 27: Missy
+2025-06-13 07:24:02,801 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Missy, 10 Jahre, 400.0 kg
+2025-06-13 07:24:02,999 [INFO] views.main_window: Wechsel zu Pferd 28: Eddi
+2025-06-13 07:24:02,999 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Eddi, 12 Jahre, 580.0 kg
+2025-06-13 07:24:03,201 [INFO] views.main_window: Wechsel zu Pferd 29: Nasty
+2025-06-13 07:24:03,201 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nasty, 13 Jahre, 300.0 kg
+2025-06-13 07:24:03,395 [INFO] views.main_window: Wechsel zu Pferd 30: Irant
+2025-06-13 07:24:03,395 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Irant, 12 Jahre, 500.0 kg
+2025-06-13 07:24:03,589 [INFO] views.main_window: Wechsel zu Pferd 1: Midnight
+2025-06-13 07:24:03,590 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Midnight, 12 Jahre, 350.0 kg
+2025-06-13 07:24:03,804 [INFO] views.main_window: Wechsel zu Pferd 2: Delight
+2025-06-13 07:24:03,804 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Delight, 3 Jahre, 280.0 kg
+2025-06-13 07:24:04,022 [INFO] views.main_window: Wechsel zu Pferd 3: Maverick
+2025-06-13 07:24:04,022 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maverick, 5 Jahre, 400.0 kg
+2025-06-13 07:24:04,245 [INFO] views.main_window: Wechsel zu Pferd 4: Rondo
+2025-06-13 07:24:04,245 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rondo, 12 Jahre, 520.0 kg
+2025-06-13 07:24:04,464 [INFO] views.main_window: Wechsel zu Pferd 5: Maranello
+2025-06-13 07:24:04,464 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Maranello, 20 Jahre, 450.0 kg
+2025-06-13 07:24:04,702 [INFO] views.main_window: Wechsel zu Pferd 6: Salute
+2025-06-13 07:24:04,702 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Salute, 4 Jahre, 300.0 kg
+2025-06-13 07:24:04,922 [INFO] views.main_window: Wechsel zu Pferd 7: Calli
+2025-06-13 07:24:04,922 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Calli, 10 Jahre, 450.0 kg
+2025-06-13 07:24:05,138 [INFO] views.main_window: Wechsel zu Pferd 8: Karl
+2025-06-13 07:24:05,138 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Karl, 15 Jahre, 300.0 kg
+2025-06-13 07:24:05,379 [INFO] views.main_window: Wechsel zu Pferd 9: Furore
+2025-06-13 07:24:05,379 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Furore, 12 Jahre, 500.0 kg
+2025-06-13 07:24:05,620 [INFO] views.main_window: Wechsel zu Pferd 10: Nabo
+2025-06-13 07:24:05,621 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nabo, 8 Jahre, 300.0 kg
+2025-06-13 07:24:05,823 [INFO] views.main_window: Wechsel zu Pferd 11: Devina
+2025-06-13 07:24:05,823 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Devina, 17 Jahre, 450.0 kg
+2025-06-13 07:24:06,017 [INFO] views.main_window: Wechsel zu Pferd 12: Tajo
+2025-06-13 07:24:06,017 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Tajo, 3 Jahre, 150.0 kg
+2025-06-13 07:24:06,209 [INFO] views.main_window: Wechsel zu Pferd 13: Saphina
+2025-06-13 07:24:06,209 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Saphina, 5 Jahre, 200.0 kg
+2025-06-13 07:24:06,440 [INFO] views.main_window: Wechsel zu Pferd 14: Donna
+2025-06-13 07:24:06,441 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Donna, 15 Jahre, 450.0 kg
+2025-06-13 07:24:06,665 [INFO] views.main_window: Wechsel zu Pferd 15: Hugo
+2025-06-13 07:24:06,665 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Hugo, 13 Jahre, 500.0 kg
+2025-06-13 07:24:06,887 [INFO] views.main_window: Wechsel zu Pferd 16: Pippa
+2025-06-13 07:24:06,887 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Pippa, 18 Jahre, 400.0 kg
+2025-06-13 07:24:07,105 [INFO] views.main_window: Wechsel zu Pferd 17: Shadow
+2025-06-13 07:24:07,106 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Shadow, 10 Jahre, 580.0 kg
+2025-06-13 07:24:07,337 [INFO] views.main_window: Wechsel zu Pferd 18: Million
+2025-06-13 07:24:07,337 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Million, 3 Jahre, 280.0 kg
+2025-06-13 07:24:07,547 [INFO] views.main_window: Wechsel zu Pferd 19: Osi
+2025-06-13 07:24:07,548 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Osi, 18 Jahre, 250.0 kg
+2025-06-13 07:24:07,756 [INFO] views.main_window: Wechsel zu Pferd 20: Onkel
+2025-06-13 07:24:07,757 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Onkel, 17 Jahre, 300.0 kg
+2025-06-13 07:24:07,964 [INFO] views.main_window: Wechsel zu Pferd 21: James
+2025-06-13 07:24:07,965 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: James, 10 Jahre, 150.0 kg
+2025-06-13 07:24:08,166 [INFO] views.main_window: Wechsel zu Pferd 22: Fine
+2025-06-13 07:24:08,167 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Fine, 15 Jahre, 350.0 kg
+2025-06-13 07:24:08,397 [INFO] views.main_window: Wechsel zu Pferd 23: Dario
+2025-06-13 07:24:08,397 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Dario, 17 Jahre, 250.0 kg
+2025-06-13 07:24:08,603 [INFO] views.main_window: Wechsel zu Pferd 24: Bella
+2025-06-13 07:24:08,603 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Bella, 6 Jahre, 480.0 kg
+2025-06-13 07:24:08,821 [INFO] views.main_window: Wechsel zu Pferd 25: Rosa
+2025-06-13 07:24:08,821 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Rosa, 3 Jahre, 200.0 kg
+2025-06-13 07:26:45,424 [INFO] views.main_window: Back-Button: Aktuell=fuettern, Zurück zu=fuettern
+2025-06-13 07:26:45,424 [INFO] views.main_window: Navigation-History: fuettern → fuettern
+2025-06-13 07:26:45,424 [WARNING] views.main_window: Ungültige Navigation: previous_page=fuettern, current=fuettern
+2025-06-13 07:26:45,424 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-13 07:26:46,995 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-13 07:26:46,995 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-13 07:26:53,344 [INFO] views.main_window: Wechsel zu Pferd 26: Milla
+2025-06-13 07:26:53,344 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Milla, 3 Jahre, 200.0 kg
+2025-06-13 07:26:55,107 [INFO] views.main_window: Wechsel zu Pferd 27: Missy
+2025-06-13 07:26:55,107 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Missy, 10 Jahre, 400.0 kg
+2025-06-13 07:26:55,553 [INFO] views.main_window: Wechsel zu Pferd 28: Eddi
+2025-06-13 07:26:55,553 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Eddi, 12 Jahre, 580.0 kg
+2025-06-13 07:26:56,107 [INFO] views.main_window: Wechsel zu Pferd 29: Nasty
+2025-06-13 07:26:56,107 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Nasty, 13 Jahre, 300.0 kg
+2025-06-13 07:26:56,736 [INFO] views.main_window: Wechsel zu Pferd 30: Irant
+2025-06-13 07:26:56,736 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Irant, 12 Jahre, 500.0 kg
+2025-06-13 07:26:57,273 [INFO] views.main_window: Wechsel zu Pferd 1: Midnight
+2025-06-13 07:26:57,273 [INFO] views.fuettern_seite: Pferd-Daten angezeigt: Midnight, 12 Jahre, 350.0 kg
+2025-06-13 07:27:15,369 [INFO] views.main_window: Back-Button: Aktuell=fuettern, Zurück zu=auswahl
+2025-06-13 07:27:15,369 [INFO] views.main_window: Navigation-History: auswahl → fuettern
+2025-06-13 07:27:15,369 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-13 07:27:16,856 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-13 07:27:16,856 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-13 07:27:20,372 [INFO] views.beladen_seite: Futtertyp gewählt: HEULAGE
+2025-06-13 07:27:21,088 [INFO] views.beladen_seite: Futtertyp gewählt: HEU
+2025-06-13 07:27:22,075 [INFO] views.beladen_seite: Futtertyp gewählt: HEULAGE
+2025-06-13 07:27:22,737 [INFO] views.beladen_seite: Futtertyp gewählt: HEU
+2025-06-13 07:39:40,970 [INFO] __main__: Sensor Manager initialisiert
+2025-06-13 07:39:40,970 [INFO] __main__: Simulationen aktiviert
+2025-06-13 07:39:40,983 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-06-13 07:39:40,983 [INFO] views.main_window: MainWindow wird initialisiert
+2025-06-13 07:39:40,993 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-06-13 07:39:40,997 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-06-13 07:39:40,998 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-06-13 07:39:40,998 [INFO] views.beladen_seite: Back-Button verbunden
+2025-06-13 07:39:41,005 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-06-13 07:39:41,005 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-06-13 07:39:41,009 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-06-13 07:39:41,009 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-06-13 07:39:41,011 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-06-13 07:39:41,011 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-06-13 07:39:41,021 [INFO] views.main_window: Wechsel zu Status: start
+2025-06-13 07:39:41,055 [INFO] __main__: MainWindow gestartet
+2025-06-13 07:39:43,013 [INFO] views.main_window: Wechsel zu Status: auswahl
+2025-06-13 07:39:43,013 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-06-13 07:39:45,239 [INFO] views.main_window: Wechsel zu Status: beladen
+2025-06-13 07:39:45,240 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
+2025-06-13 07:39:45,717 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:46,192 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:46,667 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:47,142 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:47,617 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:48,092 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:48,567 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:49,042 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:49,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:50,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:50,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:51,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:51,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:52,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:52,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:53,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:53,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:54,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:54,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:55,038 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:55,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:56,037 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:56,538 [ERROR] views.beladen_seite: Fehler beim Wiegen: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:56,826 [ERROR] views.beladen_seite: Fehler beim Lesen des Gewichts: module 'hardware.hx711_sim' has no attribute 'ist_simulation_aktiv'
+2025-06-13 07:39:56,826 [INFO] views.main_window: Wechsel zu Status: fuettern
+2025-06-13 07:39:56,826 [INFO] views.main_window: Vorherige Seite gespeichert: beladen
+2025-06-13 07:39:59,015 [INFO] views.main_window: Wechsel zu Status: einstellungen
+2025-06-13 07:39:59,016 [INFO] views.main_window: Vorherige Seite gespeichert: fuettern
+2025-06-13 07:40:00,308 [INFO] views.einstellungen_seite: HX711 Simulation: aktiviert
+2025-06-13 07:40:00,914 [INFO] views.einstellungen_seite: Fütterungs-Simulation: aktiviert
+2025-06-13 07:40:04,547 [INFO] views.einstellungen_seite: Zurück-Button geklickt - Intelligente Navigation
+2025-06-13 07:40:04,547 [INFO] views.main_window: Back-Button: Aktuell=einstellungen, Zurück zu=fuettern
+2025-06-13 07:40:04,547 [INFO] views.main_window: Navigation-History: fuettern → einstellungen
+2025-06-13 07:40:04,547 [INFO] views.main_window: Wechsel zu Status: fuettern

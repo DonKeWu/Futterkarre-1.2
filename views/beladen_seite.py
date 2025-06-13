@@ -156,16 +156,25 @@ class BeladenSeite(QWidget):
                 self.navigation.show_status("fuettern", self.context)
 
     def update_weight(self):
-        """Aktualisiert Gewichtsanzeige"""
+        """Aktualisiert Gewichtsanzeige mit Debug-Ausgabe"""
         try:
+            # Debug: Simulation-Status prüfen
+            import hardware.hx711_sim as hx711_sim
+            print(f"HX711-Simulation aktiv: {hx711_sim.ist_simulation_aktiv()}")
+
             aktuelles_gewicht = self.sensor_manager.read_weight()
+            print(f"Gewicht gelesen: {aktuelles_gewicht:.2f} kg")
 
             # Hauptgewichtsanzeige aktualisieren
             if hasattr(self, 'label_karre_gewicht'):
                 self.label_karre_gewicht.setText(f"{aktuelles_gewicht:.2f}")
+                print(f"Label aktualisiert: {aktuelles_gewicht:.2f}")
+            else:
+                print("FEHLER: label_karre_gewicht nicht gefunden!")
 
         except Exception as e:
             logger.error(f"Fehler beim Wiegen: {e}")
+            print(f"FEHLER in update_weight: {e}")
             if hasattr(self, 'label_karre_gewicht'):
                 self.label_karre_gewicht.setText("Error")
 
@@ -195,3 +204,16 @@ class BeladenSeite(QWidget):
         layout.addWidget(self.btn_back)
 
         self.setLayout(layout)
+
+    def test_simulation(self):
+        """Test-Methode für HX711-Simulation"""
+        import hardware.hx711_sim as hx711_sim
+
+        print(f"Simulation aktiv: {hx711_sim.ist_simulation_aktiv()}")
+
+        for i in range(5):
+            gewicht = self.sensor_manager.read_weight()
+            print(f"Test {i + 1}: {gewicht:.2f} kg")
+
+            if hasattr(self, 'label_karre_gewicht'):
+                self.label_karre_gewicht.setText(f"{gewicht:.2f}")
