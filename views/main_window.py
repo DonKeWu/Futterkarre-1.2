@@ -62,7 +62,11 @@ class MainWindow(QMainWindow):
         from config.app_config import AppConfig
         
         self.setWindowTitle("Futterkarre 2.0")
-        self.setFixedSize(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT)  # 800x480 für Touch Display
+        # Fenster-Größe und Position für 60px Y-Offset (Raspberry Logo sichtbar)
+        self.setFixedSize(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT)
+        
+        # Responsive Sizing für unterschiedliche Bildschirmgrößen
+        self.setMinimumSize(800, 480)  # Minimum für Touch-Displays
 
         self.stacked_widget = QStackedWidget()
 

@@ -44,9 +44,15 @@ def main():
         app = QApplication(sys.argv)
         window = MainWindow(sensor_manager)  # Keine heu_namen mehr!
         
-        # FULLSCREEN für Touch-Display erzwingen!
-        window.showFullScreen()
-        logger.info("MainWindow im Fullscreen-Modus gestartet")
+        # Fenster positionieren (60px nach unten für Raspberry Logo)
+        if hasattr(AppConfig, 'WINDOW_Y_OFFSET'):
+            window.move(0, AppConfig.WINDOW_Y_OFFSET)
+            window.show()
+            logger.info(f"MainWindow gestartet mit Y-Offset: {AppConfig.WINDOW_Y_OFFSET}px")
+        else:
+            # Fallback: Fullscreen
+            window.showFullScreen()
+            logger.info("MainWindow im Fullscreen-Modus gestartet")
 
         sys.exit(app.exec_())
 

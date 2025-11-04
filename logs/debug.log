@@ -2469,3 +2469,24 @@
 2025-11-04 15:05:34,648 [INFO] __main__: MainWindow gestartet
 2025-11-04 15:05:38,191 [INFO] views.main_window: Wechsel zu Status: auswahl
 2025-11-04 15:05:38,191 [INFO] views.main_window: Vorherige Seite gespeichert: start
+2025-11-04 20:00:17,897 [INFO] __main__: Sensor Manager initialisiert
+2025-11-04 20:00:17,897 [INFO] __main__: HX711-Simulation aktiviert
+2025-11-04 20:00:17,918 [INFO] utils.futter_loader: Leere Box übersprungen: Box 11
+2025-11-04 20:00:17,918 [INFO] utils.futter_loader: Leere Box übersprungen: Box 15
+2025-11-04 20:00:17,918 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-04 20:00:17,918 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-04 20:00:17,918 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-04 20:00:17,918 [INFO] views.main_window: MainWindow wird initialisiert
+2025-11-04 20:00:17,926 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-04 20:00:17,929 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-04 20:00:17,929 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-04 20:00:17,929 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-04 20:00:17,937 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-04 20:00:17,937 [INFO] views.einstellungen_seite: EinstellungenSeite wird initialisiert
+2025-11-04 20:00:17,941 [INFO] views.einstellungen_seite: Futter-Konfigurations-Button verbunden
+2025-11-04 20:00:17,941 [INFO] views.einstellungen_seite: Alle Einstellungs-Buttons verbunden
+2025-11-04 20:00:17,942 [INFO] views.futter_konfiguration: futter_konfiguration.ui erfolgreich geladen
+2025-11-04 20:00:17,942 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-04 20:00:17,943 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-04 20:00:17,954 [INFO] views.main_window: Wechsel zu Status: start
+2025-11-04 20:00:17,969 [INFO] __main__: MainWindow gestartet mit Y-Offset: 60px
