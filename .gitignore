@@ -1,0 +1,32 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Log Files
+logs/
+*.log
+
+# IDE Files
+.idea/
+.vscode/
+*.pyc
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# Temporary Files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Project-specific
+*.ui.autosave
+python3 interactive py.txt
