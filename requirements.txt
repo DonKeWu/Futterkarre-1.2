@@ -1,0 +1,16 @@
+# PyQt5 for GUI
+PyQt5>=5.15.9
+
+# Hardware interfaces
+RPi.GPIO>=0.7.1; platform_machine=="aarch64" or platform_machine=="armv7l"
+gpiozero>=2.0; platform_machine=="aarch64" or platform_machine=="armv7l"
+
+# HX711 weight sensor library
+hx711>=1.1.2.3
+
+# Data handling
+pandas>=1.5.3
+numpy>=1.24.3
+
+# System utilities
+python-dateutil>=2.8.2

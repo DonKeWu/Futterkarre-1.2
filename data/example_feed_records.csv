@@ -1,0 +1,5 @@
+record_id,horse_id,feed_type,weight,timestamp,notes
+1,1,Heu,5.50,2024-11-04T07:30:00,Morgenfütterung
+2,1,Pellets,2.00,2024-11-04T07:35:00,Zusatzfutter
+3,2,Heu,4.80,2024-11-04T08:00:00,
+4,3,Heulage,6.20,2024-11-04T08:15:00,Bevorzugte Futterart
