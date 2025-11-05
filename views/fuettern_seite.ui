@@ -270,7 +270,7 @@
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>30</pointsize>
+     <pointsize>35</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -803,8 +803,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>140</y>
+     <x>450</x>
+     <y>150</y>
      <width>120</width>
      <height>90</height>
     </rect>
@@ -929,10 +929,10 @@ QPushButton:hover {
    </property>
    <property name="font">
     <font>
-     <family>URW Gothic</family>
+     <family>Droid Sans Fallback</family>
      <pointsize>34</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">

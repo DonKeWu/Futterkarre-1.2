@@ -151,7 +151,7 @@ QPushButton:hover {
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>30</pointsize>
+     <pointsize>35</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>

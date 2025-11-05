@@ -24,8 +24,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>1024</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>720</height>
    </size>
   </property>
   <property name="font">
@@ -45,8 +45,8 @@
   <widget class="QLabel" name="txt_simulation_toggle">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>360</y>
+     <x>520</x>
+     <y>450</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -72,7 +72,7 @@
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -87,8 +87,8 @@
   <widget class="QLabel" name="txt_kalibrieren">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>180</y>
+     <x>520</x>
+     <y>270</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -114,7 +114,7 @@
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -131,8 +131,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
-     <height>60</height>
+     <width>1280</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -149,14 +149,14 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>1024</width>
-     <height>60</height>
+     <width>1280</width>
+     <height>100</height>
     </size>
    </property>
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>30</pointsize>
+     <pointsize>35</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -182,8 +182,8 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_kalibrieren">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>180</y>
+     <x>390</x>
+     <y>270</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -223,8 +223,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>90</y>
+     <x>230</x>
+     <y>180</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -258,8 +258,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_simulation_toggle">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>360</y>
+     <x>390</x>
+     <y>450</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -311,10 +311,10 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_back">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>41</width>
-     <height>41</height>
+     <x>30</x>
+     <y>20</y>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -337,8 +337,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_we_auswahl">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>90</y>
+     <x>390</x>
+     <y>180</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -378,9 +378,9 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_we_auswahl">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>100</y>
-     <width>381</width>
+     <x>520</x>
+     <y>190</y>
+     <width>600</width>
      <height>51</height>
     </rect>
    </property>
@@ -405,7 +405,7 @@ QPushButton:hover {
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -420,8 +420,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_fu_sim_toggle">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>450</y>
+     <x>390</x>
+     <y>540</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -473,8 +473,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_fu_sim_toggle">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>450</y>
+     <x>520</x>
+     <y>540</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -500,7 +500,7 @@ QPushButton:hover {
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -515,8 +515,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_futter_config">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>270</y>
+     <x>390</x>
+     <y>360</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -550,8 +550,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_kalibrieren_2">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>270</y>
+     <x>520</x>
+     <y>360</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -577,7 +577,7 @@ QPushButton:hover {
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
