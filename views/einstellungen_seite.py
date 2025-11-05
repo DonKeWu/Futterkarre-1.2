@@ -22,6 +22,9 @@ class EinstellungenSeite(QWidget):
 
         # Feste Fenstergröße für Touchscreen
         self.setFixedSize(1024, 600)
+        
+        # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
+        self.move(0, 60)
 
         # Standard-Simulation EIN (für Development)
         hx711_sim.setze_simulation(True)

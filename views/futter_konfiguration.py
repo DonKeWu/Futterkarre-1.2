@@ -29,6 +29,9 @@ class FutterKonfiguration(QWidget):
         # Feste Fenstergröße für Touchscreen
         self.setFixedSize(1024, 600)
         
+        # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
+        self.move(0, 60)
+        
         self.lade_verfuegbare_dateien()
         self.connect_buttons()
 
