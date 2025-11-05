@@ -44,10 +44,9 @@ def main():
         app = QApplication(sys.argv)
         window = MainWindow(sensor_manager)  # Keine heu_namen mehr!
         
-        # Fullscreen-Positionierung (0,0) für komplette Display-Nutzung
-        window.move(0, 0)
-        window.show()
-        logger.info(f"MainWindow gestartet mit Y-Offset: 0px (Fullscreen)")
+        # ECHTER Fullscreen-Modus - versteckt Statusleiste komplett
+        window.showFullScreen()
+        logger.info("MainWindow gestartet im ECHTEN Fullscreen-Modus")
 
         sys.exit(app.exec_())
 

@@ -4,6 +4,7 @@ logger = logging.getLogger(__name__)
 import views.icons.icons_rc
 from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.QtCore import QTimer
+from PyQt5 import QtCore
 
 from views.start import StartSeite  # DIESER IMPORT FEHLT!
 from views.fuettern_seite import FuetternSeite
@@ -62,8 +63,7 @@ class MainWindow(QMainWindow):
         from config.app_config import AppConfig
         
         self.setWindowTitle("Futterkarre 2.0")
-        # Fullscreen-Größe für komplette Display-Nutzung
-        self.setFixedSize(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT)
+        # Fullscreen wird in main.py mit showFullScreen() aktiviert
         
         # Responsive Sizing für unterschiedliche Bildschirmgrößen
         self.setMinimumSize(800, 480)  # Minimum für Touch-Displays
