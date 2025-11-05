@@ -18,8 +18,8 @@ class FuetterungAbschluss(QWidget):
         except Exception as e:
             logger.error(f"Fehler beim Laden der UI: {e}")
             
-        # Feste Fenstergröße für Touchscreen
-        self.setFixedSize(1024, 600)
+        # Feste Fenstergröße für PiTouch2 (1280x720, minus 60px Statusleiste)
+        self.setFixedSize(1280, 660)
         
         # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
         self.move(0, 60)

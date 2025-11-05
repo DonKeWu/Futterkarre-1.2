@@ -20,8 +20,8 @@ class EinstellungenSeite(QWidget):
         ui_path = os.path.join(os.path.dirname(__file__), "einstellungen_seite.ui")
         uic.loadUi(ui_path, self)
 
-        # Feste Fenstergröße für Touchscreen
-        self.setFixedSize(1024, 600)
+        # Feste Fenstergröße für PiTouch2 (1280x720, minus 60px Statusleiste)
+        self.setFixedSize(1280, 660)
         
         # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
         self.move(0, 60)
