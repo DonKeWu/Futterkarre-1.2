@@ -1,4 +1,4 @@
-# views/fuettern_seite.py - Vereinfachte Version ohne separate Simulation
+# views/fuettern_seite.py - Mit WeightManager Integration
 import os
 import logging
 import views.icons.icons_rc
@@ -6,6 +6,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QTimer
 import hardware.hx711_sim as hx711_sim
+from hardware.weight_manager import get_weight_manager
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +15,10 @@ class FuetternSeite(QWidget):
     def __init__(self, pferd=None, parent=None):
         super().__init__(parent)
         self.navigation = None
+        
+        # WeightManager Integration
+        self.weight_manager = get_weight_manager()
+        self._weight_observer_registered = False
         self.pferd = pferd
 
         # Gewichts-Variablen
@@ -56,6 +61,12 @@ class FuetternSeite(QWidget):
 
     def connect_buttons(self):
         """Verbindet alle Buttons"""
+        # WeightManager Observer registrieren für automatische UI-Updates
+        if not self._weight_observer_registered:
+            self.weight_manager.register_observer("fuettern_seite", self._on_weight_change)
+            self._weight_observer_registered = True
+            logger.info("WeightManager Observer für FuetternSeite registriert")
+        
         # Navigation Buttons (Fütterungs-Simulation entfernt)
         if hasattr(self, 'btn_back'):
             self.btn_back.clicked.connect(self.zurueck_zur_auswahl)
@@ -226,14 +237,11 @@ class FuetternSeite(QWidget):
     # Simuliere_fuetterung entfernt - wird jetzt automatisch über btn_next_rgv gehandhabt
 
     def update_gewichts_anzeigen(self):
-        """Aktualisiert alle Gewichts-Anzeigen - verwendet sensor_manager"""
+        """Aktualisiert alle Gewichts-Anzeigen - verwendet WeightManager"""
         try:
-            # Einheitliche Gewichtsquelle: sensor_manager
-            # Im Simulation-Modus: hx711_sim workflow simulation
-            # Im Produktiv-Modus: echte Hardware
-            if hasattr(self, 'navigation') and hasattr(self.navigation, 'sensor_manager'):
-                aktuelles_gewicht = self.navigation.sensor_manager.read_weight()
-                self.karre_gewicht = aktuelles_gewicht
+            # Zentralisierte Gewichtsquelle über WeightManager
+            aktuelles_gewicht = self.weight_manager.read_weight()
+            self.karre_gewicht = aktuelles_gewicht
             
             # Karre-Gewicht anzeigen
             if hasattr(self, 'label_karre_gewicht_anzeigen'):
@@ -333,11 +341,11 @@ class FuetternSeite(QWidget):
         self.gewaehlter_futtertyp = "heulage"
         self.update_titel(self.gewaehlter_futtertyp)
         
-        # Simulation: 4.5kg automatisch entnehmen
-        if hx711_sim.ist_simulation_aktiv():
-            hx711_sim.pferd_gefuettert()  # Automatische 4.5kg Entnahme
+        # Simulation: 4.5kg automatisch entnehmen über WeightManager
+        if self.weight_manager.get_status()['is_simulation']:
+            self.weight_manager.simulate_weight_change(-4.5)  # 4.5kg entfernen
             self.entnommenes_gewicht = 4.5  # Für Anzeige
-            logger.info("Simulation: 4.5kg automatisch entnommen")
+            logger.info("WeightManager: 4.5kg automatisch entnommen")
             
             # Futter-Analysewerte mit tatsächlicher Menge aktualisieren
             if self.aktuelle_futter_daten:
@@ -396,6 +404,11 @@ class FuetternSeite(QWidget):
         logger.info("EXIT-Button gedrückt - Anwendung wird beendet")
         print("🛑 EXIT-Button gedrückt - Anwendung wird beendet")
         
+        # WeightManager Observer abmelden vor Beendigung
+        if self._weight_observer_registered:
+            self.weight_manager.unregister_observer("fuettern_seite")
+            self._weight_observer_registered = False
+        
         # Timer stoppen
         if hasattr(self, 'timer') and self.timer.isActive():
             self.timer.stop()
@@ -406,3 +419,24 @@ class FuetternSeite(QWidget):
         
         # Hauptprozess beenden
         sys.exit(0)
+    
+    def _on_weight_change(self, new_weight: float):
+        """Callback für WeightManager Observer - automatische UI-Updates"""
+        try:
+            self.karre_gewicht = new_weight
+            
+            # UI-Labels aktualisieren (nur wenn sie existieren)
+            if hasattr(self, 'label_karre_gewicht_anzeigen'):
+                self.label_karre_gewicht_anzeigen.setText(f"{new_weight:.2f}")
+            
+            logger.debug(f"FuetternSeite: Gewicht automatisch aktualisiert auf {new_weight:.2f}kg")
+            
+        except Exception as e:
+            logger.error(f"Fehler bei automatischer Gewichtsaktualisierung: {e}")
+    
+    def closeEvent(self, event):
+        """Aufräumen beim Schließen der Seite"""
+        if self._weight_observer_registered:
+            self.weight_manager.unregister_observer("fuettern_seite")
+            self._weight_observer_registered = False
+        super().closeEvent(event)

@@ -1,10 +1,11 @@
-# views/beladen_seite.py
+# views/beladen_seite.py - Mit WeightManager Integration
 import os
 import logging
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QButtonGroup
 from PyQt5.QtCore import QTimer
+from hardware.weight_manager import get_weight_manager
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +15,10 @@ class BeladenSeite(QWidget):
         super().__init__()
         self.sensor_manager = sensor_manager
         self.navigation = None  # Wird von MainWindow gesetzt
+        
+        # WeightManager Integration
+        self.weight_manager = get_weight_manager()
+        self._weight_observer_registered = False
 
         # Kontext-Variablen
         self.context = {}
@@ -166,13 +171,13 @@ class BeladenSeite(QWidget):
                 # Import hier um Zirkular-Import zu vermeiden
                 import hardware.hx711_sim as hx711_sim
                 
-                # Simulation: Karre automatisch beladen
-                if hx711_sim.ist_simulation_aktiv():
-                    hx711_sim.karre_beladen()  # Standardmäßig 35kg hinzufügen
-                    logger.info("Simulation: Karre automatisch beladen")
+                # Simulation: Karre automatisch beladen über WeightManager
+                if self.weight_manager.get_status()['is_simulation']:
+                    self.weight_manager.simulate_weight_change(35.0)  # 35kg hinzufügen
+                    logger.info("WeightManager: Karre automatisch beladen")
                 
-                # Aktuelles Gewicht lesen (Simulation oder Hardware)
-                aktuelles_gewicht = self.sensor_manager.read_weight()
+                # Aktuelles Gewicht lesen (WeightManager - einheitlich)
+                aktuelles_gewicht = self.weight_manager.read_weight(use_cache=False)
 
                 # HEU-ZWISCHENSTOPP: Rückkehr zur Füttern-Seite
                 if getattr(self, 'zwischenstopp_modus', False):
@@ -227,13 +232,10 @@ class BeladenSeite(QWidget):
                 self.navigation.show_status("fuettern", self.context)
 
     def update_weight(self):
-        """Aktualisiert Gewichtsanzeige mit Debug-Ausgabe"""
+        """Aktualisiert Gewichtsanzeige mit WeightManager"""
         try:
-            # Debug: Simulation-Status prüfen
-            import hardware.hx711_sim as hx711_sim
-            print(f"HX711-Simulation aktiv: {hx711_sim.ist_simulation_aktiv()}")
-
-            aktuelles_gewicht = self.sensor_manager.read_weight()
+            # WeightManager für einheitliche Gewichtsquelle
+            aktuelles_gewicht = self.weight_manager.read_weight()
             print(f"Gewicht gelesen: {aktuelles_gewicht:.2f} kg")
 
             # Hauptgewichtsanzeige aktualisieren
@@ -283,7 +285,7 @@ class BeladenSeite(QWidget):
         print(f"Simulation aktiv: {hx711_sim.ist_simulation_aktiv()}")
 
         for i in range(5):
-            gewicht = self.sensor_manager.read_weight()
+            gewicht = self.weight_manager.read_weight()
             print(f"Test {i + 1}: {gewicht:.2f} kg")
 
             if hasattr(self, 'label_karre_gewicht'):
