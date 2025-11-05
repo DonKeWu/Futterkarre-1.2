@@ -3048,3 +3048,44 @@
 2025-11-05 13:47:42,030 [INFO] views.main_window: Wechsel zu Status: fuettern
 2025-11-05 13:47:42,030 [INFO] views.main_window: Vorherige Seite gespeichert: auswahl
 2025-11-05 13:47:42,932 [INFO] views.fuettern_seite: EXIT-Button gedrückt - Anwendung wird beendet
+2025-11-05 16:14:37,408 [INFO] hardware.weight_manager: 🎮 Fallback zu HX711-Simulation aktiviert
+2025-11-05 16:14:37,408 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware: False, Simulation: True
+2025-11-05 16:14:37,443 [INFO] __main__: Sensor Manager initialisiert
+2025-11-05 16:14:37,443 [INFO] __main__: HX711-Simulation aktiviert
+2025-11-05 16:14:37,462 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-05 16:14:37,462 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-05 16:14:37,462 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-05 16:14:37,529 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-05 16:14:37,529 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-05 16:14:37,530 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-05 16:14:37,530 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-05 16:14:37,530 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-05 16:14:37,530 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-05 16:14:37,530 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-05 16:14:37,530 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-05 16:14:37,530 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-05 16:14:37,530 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-05 16:14:37,530 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-05 16:14:37,530 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-05 16:14:37,530 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-05 16:14:37,530 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-05 16:14:37,530 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-05 16:14:37,537 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-05 16:14:37,543 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-05 16:14:37,543 [INFO] views.beladen_seite: TimerManager Timer für BeladenSeite registriert
+2025-11-05 16:14:37,543 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-05 16:14:37,543 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-05 16:14:37,558 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-05 16:14:37,558 [INFO] views.fuettern_seite: WeightManager Observer für FuetternSeite registriert
+2025-11-05 16:14:37,558 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-05 16:14:37,558 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-05 16:14:37,558 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-05 16:14:37,565 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-05 16:14:37,567 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-05 16:14:37,567 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-05 16:14:37,567 [ERROR] __main__: Kritischer Fehler in main(): 'FutterKonfiguration' object has no attribute 'verfuegbare_pellet_dateien'

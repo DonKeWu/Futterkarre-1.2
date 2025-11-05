@@ -628,12 +628,12 @@ class FutterKonfiguration(QtWidgets.QWidget):
                         self.verfuegbare_heulage_dateien.append(datei)
                         self.combo_heulage.addItem(datei)
                     elif 'pellet' in datei.lower():
-                        self.verfuegbare_pellet_dateien.append(datei)
+                        self.verfuegbare_pellets_dateien.append(datei)
                         self.combo_pellets.addItem(datei)
 
         logger.info(f"Verfügbare Dateien: {len(self.verfuegbare_heu_dateien)} Heu, "
                     f"{len(self.verfuegbare_heulage_dateien)} Heulage, "
-                    f"{len(self.verfuegbare_pellet_dateien)} Pellets")
+                    f"{len(self.verfuegbare_pellets_dateien)} Pellets")
 
     def heu_gewaehlt(self, dateiname):
         """Wird aufgerufen wenn Heu-Datei gewählt wird"""
