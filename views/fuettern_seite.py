@@ -33,11 +33,11 @@ class FuetternSeite(QWidget):
         # UI laden
         self.load_ui_or_fallback()
         
-        # Feste Fenstergröße für PiTouch2 (1280x720, minus 60px Statusleiste)
-        self.setFixedSize(1280, 660)
+        # Vollbild für PiTouch2 (1280x720) - komplette Display-Nutzung
+        self.setFixedSize(1280, 720)
         
-        # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
-        self.move(0, 60)
+        # Position: oben links (0,0) - Display vollständig nutzen
+        self.move(0, 0)
         
         self.connect_buttons()
 
@@ -65,6 +65,11 @@ class FuetternSeite(QWidget):
             self.btn_h_reload.clicked.connect(self.nachladen_mit_kontext)
         if hasattr(self, 'btn_next_rgv'):
             self.btn_next_rgv.clicked.connect(self.naechstes_pferd)
+            
+        # EXIT-BUTTON für Testzwecke
+        if hasattr(self, 'exit'):
+            self.exit.clicked.connect(self.exit_application)
+            logger.info("Exit-Button für Tests verbunden")
 
     def create_ui(self):
         """Fallback UI wenn fuettern_seite.ui nicht existiert"""
@@ -81,11 +86,16 @@ class FuetternSeite(QWidget):
         # Buttons
         self.btn_h_fu_sim = QPushButton("Fütterung simulieren")
         self.btn_back = QPushButton("Zurück")
+        
+        # EXIT-Button für Tests hinzufügen
+        self.exit = QPushButton("🛑 EXIT (Test)")
+        self.exit.setStyleSheet("background-color: red; color: white; font-weight: bold;")
 
         layout.addWidget(self.label_rgv_name)
         layout.addWidget(self.label_karre_gewicht_anzeigen)
         layout.addWidget(self.btn_h_fu_sim)
         layout.addWidget(self.btn_back)
+        layout.addWidget(self.exit)  # EXIT-Button hinzufügen
 
         self.setLayout(layout)
 
@@ -331,3 +341,20 @@ class FuetternSeite(QWidget):
     def zu_einstellungen(self):
         if self.navigation:
             self.navigation.show_status("einstellungen")
+
+    def exit_application(self):
+        """EXIT-Button für Testzwecke - Beendet die gesamte Anwendung"""
+        import sys
+        logger.info("EXIT-Button gedrückt - Anwendung wird beendet")
+        print("🛑 EXIT-Button gedrückt - Anwendung wird beendet")
+        
+        # Timer stoppen
+        if hasattr(self, 'timer') and self.timer.isActive():
+            self.timer.stop()
+            
+        # Anwendung sauber beenden
+        if hasattr(self, 'navigation') and self.navigation:
+            self.navigation.close()
+        
+        # Hauptprozess beenden
+        sys.exit(0)

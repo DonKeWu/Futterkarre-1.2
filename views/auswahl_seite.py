@@ -15,11 +15,11 @@ class AuswahlSeite(QWidget):
         ui_path = Path(__file__).parent / "auswahl_seite.ui"
         uic.loadUi(str(ui_path), self)
 
-        # Feste Fenstergröße für PiTouch2 (1280x720, minus 60px Statusleiste)
-        self.setFixedSize(1280, 660)
+        # Vollbild für PiTouch2 (1280x720) - komplette Display-Nutzung
+        self.setFixedSize(1280, 720)
         
-        # Position: unter der Raspberry Pi Statusleiste (60px Abstand von oben)
-        self.move(0, 60)
+        # Position: oben links (0,0) - Display vollständig nutzen
+        self.move(0, 0)
 
         # Buttons verbinden - aber erst nach dem UI-Laden!
         self.connect_buttons()

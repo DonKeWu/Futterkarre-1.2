@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <string>QWidget {
     background-color: #2E3440;
     color: #D8DEE9;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
 }
 
 QLabel {
@@ -71,8 +71,6 @@ QPushButton:pressed {
     padding: 12px;
 }</string>
   </property>
-  
-  <!-- Titel -->
   <widget class="QLabel" name="label_titel">
    <property name="geometry">
     <rect>
@@ -82,18 +80,16 @@ QPushButton:pressed {
      <height>80</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string>font-size: 32px; font-weight: bold; color: #88C0D0;</string>
+   </property>
    <property name="text">
     <string>🎉 Fütterung erfolgreich abgeschlossen!</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
-   <property name="styleSheet">
-    <string>font-size: 32px; font-weight: bold; color: #88C0D0;</string>
-   </property>
   </widget>
-
-  <!-- Zusammenfassung Box -->
   <widget class="QFrame" name="frame_zusammenfassung">
    <property name="geometry">
     <rect>
@@ -103,14 +99,12 @@ QPushButton:pressed {
      <height>300</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
    <property name="styleSheet">
     <string>QFrame { border: 2px solid #4C566A; border-radius: 12px; background-color: #3B4252; }</string>
    </property>
-
-   <!-- Gesamtmenge -->
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
    <widget class="QLabel" name="label_gesamtmenge_text">
     <property name="geometry">
      <rect>
@@ -120,14 +114,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Gesamtmenge gefüttert:</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 20px; color: #ECEFF4;</string>
     </property>
+    <property name="text">
+     <string>Gesamtmenge gefüttert:</string>
+    </property>
    </widget>
-   
    <widget class="QLabel" name="label_gesamtmenge_wert">
     <property name="geometry">
      <rect>
@@ -137,15 +130,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>135.0 kg</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 22px; font-weight: bold; color: #88C0D0;</string>
     </property>
+    <property name="text">
+     <string>135.0 kg</string>
+    </property>
    </widget>
-
-   <!-- Futtertyp -->
    <widget class="QLabel" name="label_futtertyp_text">
     <property name="geometry">
      <rect>
@@ -155,14 +146,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Futtertyp:</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 20px; color: #ECEFF4;</string>
     </property>
+    <property name="text">
+     <string>Futtertyp:</string>
+    </property>
    </widget>
-   
    <widget class="QLabel" name="label_futtertyp_wert">
     <property name="geometry">
      <rect>
@@ -172,15 +162,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Heu eigen 2025</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 22px; font-weight: bold; color: #88C0D0;</string>
     </property>
+    <property name="text">
+     <string>Heu eigen 2025</string>
+    </property>
    </widget>
-
-   <!-- Gefütterte Pferde -->
    <widget class="QLabel" name="label_pferde_text">
     <property name="geometry">
      <rect>
@@ -190,14 +178,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Pferde gefüttert:</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 20px; color: #ECEFF4;</string>
     </property>
+    <property name="text">
+     <string>Pferde gefüttert:</string>
+    </property>
    </widget>
-   
    <widget class="QLabel" name="label_pferde_wert">
     <property name="geometry">
      <rect>
@@ -207,15 +194,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>30 von 32 Boxen</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 22px; font-weight: bold; color: #88C0D0;</string>
     </property>
+    <property name="text">
+     <string>30 von 32 Boxen</string>
+    </property>
    </widget>
-
-   <!-- Dauer -->
    <widget class="QLabel" name="label_dauer_text">
     <property name="geometry">
      <rect>
@@ -225,14 +210,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Fütterungsdauer:</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 20px; color: #ECEFF4;</string>
     </property>
+    <property name="text">
+     <string>Fütterungsdauer:</string>
+    </property>
    </widget>
-   
    <widget class="QLabel" name="label_dauer_wert">
     <property name="geometry">
      <rect>
@@ -242,15 +226,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>45 Minuten</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 22px; font-weight: bold; color: #88C0D0;</string>
     </property>
+    <property name="text">
+     <string>45 Minuten</string>
+    </property>
    </widget>
-
-   <!-- Nächste Fütterung -->
    <widget class="QLabel" name="label_naechste_text">
     <property name="geometry">
      <rect>
@@ -260,14 +242,13 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Nächste Fütterung:</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 20px; color: #ECEFF4;</string>
     </property>
+    <property name="text">
+     <string>Nächste Fütterung:</string>
+    </property>
    </widget>
-   
    <widget class="QLabel" name="label_naechste_wert">
     <property name="geometry">
      <rect>
@@ -277,49 +258,47 @@ QPushButton:pressed {
       <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>17:30 Uhr</string>
-    </property>
     <property name="styleSheet">
      <string>font-size: 22px; font-weight: bold; color: #A3BE8C;</string>
     </property>
+    <property name="text">
+     <string>17:30 Uhr</string>
+    </property>
    </widget>
   </widget>
-
-  <!-- Buttons -->
   <widget class="QPushButton" name="btn_neue_fuetterung">
    <property name="geometry">
     <rect>
      <x>150</x>
      <y>480</y>
      <width>300</width>
-     <height>80</height>
+     <height>84</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>🔄 Neue Fütterung</string>
    </property>
    <property name="styleSheet">
     <string>background-color: #A3BE8C;</string>
    </property>
+   <property name="text">
+    <string>🔄 Neue Fütterung</string>
+   </property>
   </widget>
-
   <widget class="QPushButton" name="btn_zum_start">
    <property name="geometry">
     <rect>
      <x>574</x>
      <y>480</y>
      <width>300</width>
-     <height>80</height>
+     <height>84</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>🏠 Zum Start</string>
    </property>
    <property name="styleSheet">
     <string>background-color: #5E81AC;</string>
    </property>
+   <property name="text">
+    <string>🏠 Zum Start</string>
+   </property>
   </widget>
-
  </widget>
+ <resources/>
+ <connections/>
 </ui>
