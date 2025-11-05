@@ -44,15 +44,10 @@ def main():
         app = QApplication(sys.argv)
         window = MainWindow(sensor_manager)  # Keine heu_namen mehr!
         
-        # Fenster positionieren (60px nach unten für Raspberry Logo)
-        if hasattr(AppConfig, 'WINDOW_Y_OFFSET'):
-            window.move(0, AppConfig.WINDOW_Y_OFFSET)
-            window.show()
-            logger.info(f"MainWindow gestartet mit Y-Offset: {AppConfig.WINDOW_Y_OFFSET}px")
-        else:
-            # Fallback: Fullscreen
-            window.showFullScreen()
-            logger.info("MainWindow im Fullscreen-Modus gestartet")
+        # Fullscreen-Positionierung (0,0) für komplette Display-Nutzung
+        window.move(0, 0)
+        window.show()
+        logger.info(f"MainWindow gestartet mit Y-Offset: 0px (Fullscreen)")
 
         sys.exit(app.exec_())
 

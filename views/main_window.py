@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         from config.app_config import AppConfig
         
         self.setWindowTitle("Futterkarre 2.0")
-        # Fenster-Größe und Position für 60px Y-Offset (Raspberry Logo sichtbar)
+        # Fullscreen-Größe für komplette Display-Nutzung
         self.setFixedSize(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT)
         
         # Responsive Sizing für unterschiedliche Bildschirmgrößen

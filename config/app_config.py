@@ -19,10 +19,10 @@ class AppConfig:
     LOGS_PATH = "logs/"
 
     # UI-Einstellungen - Raspberry Pi Touch Display 2 (Landscape)
-    # Fenster um 60px nach unten verschoben, damit Raspberry Logo sichtbar bleibt
+    # Fullscreen-Modus - komplette Display-Nutzung 1280x720
     WINDOW_WIDTH = 1280   # Native Breite (Landscape)
-    WINDOW_HEIGHT = 660   # Native Höhe minus 60px für Logo-Bereich
-    WINDOW_Y_OFFSET = 60  # Verschiebung nach unten
+    WINDOW_HEIGHT = 720   # Native Höhe - Fullscreen
+    WINDOW_Y_OFFSET = 0   # Fullscreen - keine Verschiebung
     TOUCH_OPTIMIZED = True
 
 
