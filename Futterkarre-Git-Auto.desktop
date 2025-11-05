@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=🚜 Futterkarre (Git-Auto-Update)
+Comment=Futterkarre mit automatischem Git-Update vor dem Start
+Exec=/bin/bash -c "cd /home/daniel/Projekte/Futterkarre-2 && ./futterkarre_git_start.sh"
+Icon=/home/daniel/Projekte/Futterkarre-2/views/icons/futterkarre_icon.png
+Terminal=true
+StartupNotify=true
+Categories=Application;Development;
+Keywords=Futterkarre;Feeding;Farm;Git;Auto-Update;
+StartupWMClass=python3
+Path=/home/daniel/Projekte/Futterkarre-2
