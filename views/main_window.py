@@ -1,4 +1,4 @@
-# views/main_window.py - Mit TimerManager Integration
+# views/main_window.py - Mit erweiterten Manager-Integrationen
 import logging
 logger = logging.getLogger(__name__)
 import views.icons.icons_rc
@@ -6,6 +6,9 @@ from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.QtCore import QTimer
 from PyQt5 import QtCore
 from utils.timer_manager import get_timer_manager
+from utils.settings_manager import get_settings_manager
+from utils.database_manager import get_database_manager, FeedingRecord
+from datetime import datetime
 
 from views.start import StartSeite
 from views.fuettern_seite import FuetternSeite
@@ -20,8 +23,10 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.sensor_manager = sensor_manager
         
-        # TimerManager Integration
+        # Manager-Instanzen
         self.timer_manager = get_timer_manager()
+        self.settings_manager = get_settings_manager()
+        self.database_manager = get_database_manager()
 
         self.pferde_liste = []
         self.aktueller_pferd_index = 0
@@ -47,7 +52,7 @@ class MainWindow(QMainWindow):
         # Standard-Futter-Daten laden
         self.lade_standard_futter_daten()
 
-        logger.info("MainWindow wird initialisiert")
+        logger.info("MainWindow wird initialisiert mit erweiterten Managern")
         self.init_ui()
         
     def lade_standard_futter_daten(self):
@@ -91,6 +96,9 @@ class MainWindow(QMainWindow):
         self.futter_konfiguration = FutterKonfiguration()
         self.fuetterung_abschluss = FuetterungAbschluss()
 
+        # Signal-Verbindungen für erweiterte Funktionen
+        self.setup_signal_connections()
+
         # Navigation für alle Seiten setzen
         for seite in [self.start_screen, self.auswahl_seite, self.beladen_seite,
                       self.fuettern_seite, self.einstellungen_seite, self.futter_konfiguration, 
@@ -109,6 +117,58 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.stacked_widget)
         self.show_status("start")
         self.connect_navigation()
+
+    def setup_signal_connections(self):
+        """Setup für erweiterte Signal-Verbindungen"""
+        try:
+            # FutterKonfiguration Signale
+            self.futter_konfiguration.futter_daten_gewaehlt.connect(self.on_futter_daten_gewaehlt)
+            
+            # EinstellungenSeite Signale
+            self.einstellungen_seite.calibration_requested.connect(self.on_calibration_requested)
+            
+            logger.info("Signal-Verbindungen erfolgreich eingerichtet")
+            
+        except Exception as e:
+            logger.error(f"Fehler bei Signal-Setup: {e}")
+
+    def on_futter_daten_gewaehlt(self, datei_name: str, futter_daten: dict):
+        """Callback für gewählte Futter-Daten"""
+        try:
+            logger.info(f"Futter-Daten gewählt: {datei_name} mit {len(futter_daten)} Einträgen")
+            
+            # Hier könnte eine spezifische Verarbeitung erfolgen
+            # basierend auf dem Datei-Typ (Heu, Heulage, etc.)
+            
+            # Datenbank-Event loggen
+            self.database_manager.log_system_event(
+                "futter_selection",
+                f"Futter-Daten gewählt: {datei_name}",
+                {
+                    "file_name": datei_name,
+                    "entry_count": len(futter_daten),
+                    "timestamp": datetime.now().isoformat()
+                }
+            )
+            
+        except Exception as e:
+            logger.error(f"Fehler bei Futter-Daten Verarbeitung: {e}")
+
+    def on_calibration_requested(self):
+        """Callback für Kalibrierungs-Anfrage"""
+        try:
+            logger.info("Kalibrierung angefordert")
+            
+            # Hier würde der Kalibrierungs-Prozess gestartet
+            # Vorerst nur Event loggen
+            self.database_manager.log_system_event(
+                "calibration_requested",
+                "Kalibrierung über UI angefordert",
+                {"timestamp": datetime.now().isoformat()}
+            )
+            
+        except Exception as e:
+            logger.error(f"Fehler bei Kalibrierungs-Anfrage: {e}")
 
     def set_futter_daten(self, heu_liste=None, heulage_liste=None, pellet_liste=None):
         """Empfängt Futter-Daten von der Konfigurationsseite"""
@@ -263,7 +323,10 @@ class MainWindow(QMainWindow):
         return None
         
     def registriere_fuetterung(self, futtertyp, menge_kg):
-        """Registriert eine Fütterung für separate Statistiken"""
+        """Registriert eine Fütterung für separate Statistiken UND Datenbank"""
+        aktuelles_pferd = self.get_aktuelles_pferd()
+        
+        # Lokale Statistiken (bestehend)
         if futtertyp.lower() in ['heu', 'heu_eigen', 'heu_frd']:
             self.heu_gesamt_kg += menge_kg
             self.heu_pferde_anzahl += 1
@@ -272,6 +335,43 @@ class MainWindow(QMainWindow):
             self.heulage_gesamt_kg += menge_kg
             self.heulage_pferde_anzahl += 1
             logger.info(f"Heulage-Fütterung registriert: +{menge_kg:.1f}kg (Gesamt: {self.heulage_gesamt_kg:.1f}kg, {self.heulage_pferde_anzahl} Pferde)")
+        
+        # Datenbank-Integration (NEU)
+        try:
+            if aktuelles_pferd:
+                # Gewichtswerte von Sensor Manager holen
+                from hardware.weight_manager import get_weight_manager
+                weight_manager = get_weight_manager()
+                
+                current_weight = weight_manager.read_weight()
+                last_weight = getattr(self, '_last_recorded_weight', current_weight)
+                
+                # FeedingRecord erstellen
+                feeding_record = FeedingRecord(
+                    timestamp=datetime.now().isoformat(),
+                    horse_name=aktuelles_pferd.name,
+                    feed_type=futtertyp,
+                    planned_amount=menge_kg,  # Geplante Menge
+                    actual_amount=menge_kg,   # Tatsächliche Menge (hier gleich)
+                    duration_seconds=getattr(self, '_feeding_duration', 120),  # Default 2 min
+                    notes=f"Box {aktuelles_pferd.box}",
+                    load_weight_before=last_weight,
+                    load_weight_after=current_weight
+                )
+                
+                # In Datenbank speichern
+                record_id = self.database_manager.add_feeding_record(feeding_record)
+                if record_id > 0:
+                    logger.info(f"Fütterung in Datenbank gespeichert: ID {record_id}")
+                else:
+                    logger.error("Fehler beim Speichern in Datenbank")
+                
+                # Aktuelles Gewicht für nächste Fütterung merken
+                self._last_recorded_weight = current_weight
+                
+        except Exception as e:
+            logger.error(f"Fehler bei Datenbank-Integration: {e}")
+            # Fütterung trotzdem erfolgreich (lokale Statistiken funktionieren)
         else:
             logger.warning(f"Unbekannter Futtertyp für Statistik: {futtertyp}")
     

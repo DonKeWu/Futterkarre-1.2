@@ -1,0 +1,62 @@
+{
+  "system": {
+    "language": "de",
+    "display_timeout": 300,
+    "fullscreen": true,
+    "brightness": 99,
+    "volume": 75,
+    "auto_sleep": true
+  },
+  "calibration": {
+    "tare_values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale_factors": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "calibration_weights": [
+      20.0,
+      20.0,
+      20.0,
+      20.0
+    ],
+    "last_calibration": "",
+    "auto_tare_on_startup": true
+  },
+  "feeding": {
+    "default_feed_amount": 4.5,
+    "max_feed_per_horse": 15.0,
+    "min_feed_per_horse": 1.0,
+    "max_total_load": 100.0,
+    "warning_threshold": 10.0,
+    "simulation_mode": true,
+    "auto_reload_threshold": 5.0
+  },
+  "hardware": {
+    "use_simulation": true,
+    "hx711_update_rate": 500,
+    "sensor_timeout": 5000,
+    "auto_hardware_detection": true,
+    "backup_to_usb": false,
+    "debug_mode": false
+  },
+  "ui": {
+    "theme": "default",
+    "font_size": 14,
+    "button_size": "large",
+    "show_debug_info": false,
+    "animation_speed": "normal",
+    "confirmation_dialogs": true
+  },
+  "metadata": {
+    "version": "1.2",
+    "last_saved": "/home/daniel/Dokumente/HOF/Futterwagen/Python/Futterkarre-2",
+    "timestamp": "1762350170.1130059"
+  }
+}
