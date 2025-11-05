@@ -84,7 +84,7 @@ QPushButton:pressed {
     <string>font-size: 32px; font-weight: bold; color: #88C0D0;</string>
    </property>
    <property name="text">
-    <string>🎉 Fütterung erfolgreich abgeschlossen!</string>
+    <string>[OK] Fütterung erfolgreich abgeschlossen!</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -279,7 +279,7 @@ QPushButton:pressed {
     <string>background-color: #A3BE8C;</string>
    </property>
    <property name="text">
-    <string>🔄 Neue Fütterung</string>
+    <string>[+] Neue Fütterung</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_zum_start">
