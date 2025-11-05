@@ -8,9 +8,9 @@ USE_SIMULATION = False
 # Workflow-Simulation - FESTE WERTE für Testing
 class WorkflowSimulation:
     def __init__(self):
-        self.karre_gewicht = 35.0          # Startgewicht (fest)
+        self.karre_gewicht = 0.0           # Startgewicht (leer)
         self.entnahme_pro_pferd = 4.5      # Entnahme pro Pferd (fest)
-        self.ist_beladen = True            # Karre-Status
+        self.ist_beladen = False           # Karre-Status (leer starten)
         
     def get_weight(self):
         """Gibt aktuelles Simulationsgewicht zurück mit kleinen Schwankungen"""
@@ -28,11 +28,17 @@ class WorkflowSimulation:
             self.ist_beladen = False
         print(f"Simulation: 4.5kg entnommen, Rest: {self.karre_gewicht:.1f}kg")
     
-    def karre_beladen(self):
-        """Automatisches Nachladen auf 35kg"""
-        self.karre_gewicht = 35.0
+    def karre_beladen(self, zusatz_gewicht=35.0):
+        """Realistisches Beladen - addiert zum vorhandenen Gewicht"""
+        self.karre_gewicht += zusatz_gewicht
         self.ist_beladen = True
-        print(f"Simulation: Karre beladen auf {self.karre_gewicht}kg")
+        print(f"Simulation: +{zusatz_gewicht}kg geladen, Gesamt: {self.karre_gewicht:.1f}kg")
+    
+    def reset_karre(self):
+        """Karre komplett entleeren (für Tests)"""
+        self.karre_gewicht = 0.0
+        self.ist_beladen = False
+        print("Simulation: Karre komplett entleert")
 
 # Globale Workflow-Simulation
 _workflow_sim = WorkflowSimulation()
@@ -55,9 +61,13 @@ def pferd_gefuettert():
     """Wird vom 'Weiter'-Button aufgerufen"""
     _workflow_sim.pferd_gefuettert()
 
-def karre_beladen():
+def karre_beladen(zusatz_gewicht=35.0):
     """Wird vom 'Beladen bestätigen'-Button aufgerufen"""
-    _workflow_sim.karre_beladen()
+    _workflow_sim.karre_beladen(zusatz_gewicht)
+
+def reset_karre():
+    """Karre komplett entleeren (für Tests)"""
+    _workflow_sim.reset_karre()
 
 def lese_einzelzellen():
     """Simuliert 4 einzelne Wägezellen für Debugging"""
