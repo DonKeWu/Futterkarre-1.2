@@ -7,12 +7,138 @@
 ## 📋 Inhaltsverzeichnis
 
 1. [Display & Touch-Anpassungen](#display--touch-anpassungen)
-2. [Hardware-Spezifikationen](#hardware-spezifikationen)
-3. [HX711 Wägezellen-System](#hx711-wägezellen-system)
-4. [Raspberry Pi 5 Setup](#raspberry-pi-5-setup)
-5. [Ernährungsphysiologie](#ernährungsphysiologie)
-6. [Entwicklungs-Fahrplan](#entwicklungs-fahrplan)
-7. [Online-Shops & Bezugsquellen](#online-shops--bezugsquellen)
+2. [Software-Architektur](#software-architektur)
+3. [WeightManager System](#weightmanager-system)
+4. [CSV-Validierung](#csv-validierung)
+5. [Hardware-Spezifikationen](#hardware-spezifikationen)
+6. [HX711 Wägezellen-System](#hx711-wägezellen-system)
+7. [Raspberry Pi 5 Setup](#raspberry-pi-5-setup)
+8. [Ernährungsphysiologie](#ernährungsphysiologie)
+9. [Entwicklungs-Fahrplan](#entwicklungs-fahrplan)
+10. [Online-Shops & Bezugsquellen](#online-shops--bezugsquellen)
+
+---
+
+## 🚀 Software-Architektur
+
+### Aktuelle Implementierung (Stand: 5. November 2025)
+
+**✅ Vollständig implementiert:**
+- **WeightManager Singleton:** Zentrale Gewichtsverwaltung
+- **CSV-Validierung:** Robuste Datenvalidierung mit Fallback
+- **HEU-Button Feature:** Separate Heu/Heulage Tracking
+- **Fullscreen UI:** Optimiert für PiTouch2 (1280x720)
+- **Simulation System:** Realistische Hardware-Simulation
+
+**🔄 In Entwicklung:**
+- **Timer-Management:** Zentralisierung aller UI-Timer
+- **Futter-Konfiguration:** Integration in MainWindow
+
+### Projektstruktur
+```
+Futterkarre-2/
+├── main.py                  # Hauptanwendung
+├── config/                  # Konfigurationsdateien
+├── controllers/             # Business Logic
+├── data/                    # CSV-Daten (Pferde, Futter)
+├── hardware/                # Hardware-Abstraktionen
+│   ├── weight_manager.py    # ⭐ Zentrale Gewichtsverwaltung
+│   ├── sensor_manager.py    # Legacy-Wrapper
+│   ├── hx711_real.py       # Echte Hardware
+│   └── hx711_sim.py        # Simulation
+├── models/                  # Datenmodelle
+├── utils/                   # Hilfsfunktionen
+│   ├── csv_validator.py    # ⭐ CSV-Validierung
+│   └── futter_loader.py    # Datenloading
+├── views/                   # UI-Komponenten
+└── tests/                   # Test-Scripts
+```
+
+---
+
+## ⚖️ WeightManager System
+
+### Zentrale Gewichtsverwaltung (Singleton)
+
+**Problem gelöst:**
+- Inkonsistente Gewichtsverwaltung zwischen UI-Komponenten
+- Manuelle Simulation/Hardware-Umschaltung
+- Timer-basiertes Polling für UI-Updates
+
+**Implementierung:**
+```python
+from hardware.weight_manager import get_weight_manager
+
+# Zentraler Zugriff
+wm = get_weight_manager()
+
+# Gewicht lesen (Auto-Hardware/Simulation)
+weight = wm.read_weight()
+
+# Observer für UI-Updates registrieren
+wm.register_observer("ui_component", callback_function)
+
+# Simulation steuern
+wm.set_simulation_mode(True)
+wm.simulate_weight_change(-4.5)  # 4.5kg entfernen
+```
+
+**Features:**
+- ✅ **Singleton Pattern:** Eine Instanz für gesamte Anwendung
+- ✅ **Auto-Erkennung:** Hardware vs. Simulation automatisch
+- ✅ **Observer-Pattern:** Event-basierte UI-Updates
+- ✅ **Robuste Fehlerbehandlung:** Automatischer Fallback
+- ✅ **State-Management:** Zentraler Gewichtszustand
+- ✅ **Kalibrierung:** Nullpunkt setzen, Einzelzellen lesen
+
+**Integration:**
+- `FuetternSeite`: Automatische Gewichtsupdates
+- `BeladenSeite`: Einheitliche Gewichtsquelle  
+- `sensor_manager`: Legacy-Wrapper für Kompatibilität
+
+---
+
+## 📊 CSV-Validierung
+
+### Robuste Datenvalidierung mit Schema
+
+**Problem gelöst:**
+- Kaputte CSV-Dateien führten zu Programmabstürzen
+- Keine Validierung von Datentypen und Wertebereichen
+- Fehlende Fallback-Mechanismen
+
+**Schema-Definition:**
+```python
+# Beispiel: Pferde-Schema
+pferde_schema = [
+    ColumnSchema("Name", str, required=True),
+    ColumnSchema("Gewicht", float, required=True, min_value=50, max_value=1200),
+    ColumnSchema("Alter", int, required=True, min_value=1, max_value=40),
+    ColumnSchema("Box", int, required=True, min_value=1),
+    ColumnSchema("Aktiv", str, allowed_values=["true", "false"])
+]
+```
+
+**Verwendung:**
+```python
+from utils.csv_validator import CSVValidator
+
+validator = CSVValidator()
+result = validator.validate_csv_file('data/pferde.csv', 'pferde')
+
+if result['success']:
+    valid_data = result['data']
+else:
+    fallback_data = validator.get_fallback_data('pferde')
+```
+
+**Features:**
+- ✅ **Schema-basiert:** Typisierte Validierung
+- ✅ **Automatische Korrektur:** Standardwerte bei Fehlern
+- ✅ **Edge-Case Handling:** Leere/kaputte Dateien
+- ✅ **Fallback-Daten:** Notfall-Datasets
+- ✅ **Detailliertes Logging:** Fehler und Warnungen
+- ✅ **Integration:** Nahtlos in futter_loader.py
 
 ---
 
@@ -297,4 +423,26 @@ sudo raspi-config → Advanced → GL Driver
 
 ---
 
-*Diese Dokumentation fasst alle Einzeldokumente zusammen und wird kontinuierlich aktualisiert. Letztes Update: 4. November 2025* 🚜✨
+*Diese Dokumentation fasst alle Einzeldokumente zusammen und wird kontinuierlich aktualisiert. Letztes Update: 5. November 2025* 🚜✨
+
+---
+
+## 🎯 Aktuelle Entwicklungsstand (5. November 2025)
+
+### ✅ **Abgeschlossen:**
+1. **WeightManager Singleton** - Zentrale Gewichtsverwaltung implementiert
+2. **CSV-Validierung** - Robuste Datenvalidierung mit Fallback-Mechanismen  
+3. **HEU-Button Feature** - Separate Heu/Heulage Statistiken
+4. **Fullscreen UI** - Optimiert für PiTouch2 (1280x720)
+5. **Display-Konfiguration** - SSH + VNC Setup für Entwicklung
+
+### 🔄 **In Bearbeitung:**
+- **Timer-Management** - Zentralisierung aller UI-Timer (nächste Priorität)
+
+### 📋 **Noch offen:**
+- Futter-Konfiguration Integration
+- Hardware-Beschaffung RPi5-System
+
+**Repository:** https://github.com/DonKeWu/Futterkarre-1.2  
+**Commits:** 34c1080 (CSV-Validierung), c0f6aef (WeightManager)  
+**Status:** Produktionsreif für Pi-Deployment

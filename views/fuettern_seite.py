@@ -19,6 +19,11 @@ class FuetternSeite(QWidget):
         # WeightManager Integration
         self.weight_manager = get_weight_manager()
         self._weight_observer_registered = False
+        
+        # TimerManager Integration
+        from utils.timer_manager import get_timer_manager
+        self.timer_manager = get_timer_manager()
+        self._timer_registered = False
         self.pferd = pferd
 
         # Gewichts-Variablen
@@ -66,6 +71,17 @@ class FuetternSeite(QWidget):
             self.weight_manager.register_observer("fuettern_seite", self._on_weight_change)
             self._weight_observer_registered = True
             logger.info("WeightManager Observer für FuetternSeite registriert")
+        
+        # TimerManager Timer registrieren
+        if not self._timer_registered:
+            self.timer_manager.register_timer(
+                "fuettern_weight_update", 
+                "FuetternSeite", 
+                1000,  # 1 Sekunde
+                self.update_displays
+            )
+            self._timer_registered = True
+            logger.info("TimerManager Timer für FuetternSeite registriert")
         
         # Navigation Buttons (Fütterungs-Simulation entfernt)
         if hasattr(self, 'btn_back'):
@@ -298,12 +314,14 @@ class FuetternSeite(QWidget):
         logger.info(f"Kontext wiederhergestellt - Pferd {self.aktuelle_pferd_nummer}, Karre: {neues_gewicht:.2f} kg")
 
     def start_timer(self):
-        """Startet Echtzeit-Updates"""
-        self.timer.start(1000)  # Jede Sekunde
+        """Legacy-Methode - jetzt über TimerManager"""
+        # Timer wird automatisch über MainWindow.timer_manager.set_active_page() gestartet
+        logger.debug("FuetternSeite: Timer über TimerManager aktiviert")
 
     def stop_timer(self):
-        """Stoppt Echtzeit-Updates"""
-        self.timer.stop()
+        """Legacy-Methode - jetzt über TimerManager"""
+        # Timer wird automatisch über TimerManager gestoppt
+        logger.debug("FuetternSeite: Timer über TimerManager deaktiviert")
 
     # Bestehende Methoden bleiben unverändert...
     def update_titel(self, futtertyp):
@@ -409,7 +427,12 @@ class FuetternSeite(QWidget):
             self.weight_manager.unregister_observer("fuettern_seite")
             self._weight_observer_registered = False
         
-        # Timer stoppen
+        # TimerManager Timer abmelden
+        if self._timer_registered:
+            self.timer_manager.unregister_timer("fuettern_weight_update")
+            self._timer_registered = False
+        
+        # Legacy Timer stoppen (falls noch vorhanden)
         if hasattr(self, 'timer') and self.timer.isActive():
             self.timer.stop()
             
@@ -439,4 +462,7 @@ class FuetternSeite(QWidget):
         if self._weight_observer_registered:
             self.weight_manager.unregister_observer("fuettern_seite")
             self._weight_observer_registered = False
+        if self._timer_registered:
+            self.timer_manager.unregister_timer("fuettern_weight_update")
+            self._timer_registered = False
         super().closeEvent(event)

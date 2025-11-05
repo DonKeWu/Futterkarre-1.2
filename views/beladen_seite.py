@@ -19,6 +19,11 @@ class BeladenSeite(QWidget):
         # WeightManager Integration
         self.weight_manager = get_weight_manager()
         self._weight_observer_registered = False
+        
+        # TimerManager Integration
+        from utils.timer_manager import get_timer_manager
+        self.timer_manager = get_timer_manager()
+        self._timer_registered = False
 
         # Kontext-Variablen
         self.context = {}
@@ -43,7 +48,18 @@ class BeladenSeite(QWidget):
         # Position: oben links (0,0) - Display vollständig nutzen
         self.move(0, 0)
 
-        # Timer erstellen
+        # Timer über TimerManager registrieren
+        if not self._timer_registered:
+            self.timer_manager.register_timer(
+                "beladen_weight_update",
+                "BeladenSeite", 
+                500,  # 500ms
+                self.update_weight
+            )
+            self._timer_registered = True
+            logger.info("TimerManager Timer für BeladenSeite registriert")
+
+        # Legacy Timer erstellen (für Fallback)
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_weight)
 
@@ -134,12 +150,14 @@ class BeladenSeite(QWidget):
             logger.error(f"Fehler beim Nullen der Waage: {e}")
 
     def start_timer(self):
-        """Startet Timer nur wenn Seite aktiv ist"""
-        self.timer.start(500)
+        """Legacy-Methode - jetzt über TimerManager"""
+        # Timer wird automatisch über MainWindow.timer_manager.set_active_page() gestartet
+        logger.debug("BeladenSeite: Timer über TimerManager aktiviert")
 
     def stop_timer(self):
-        """Stoppt Timer"""
-        self.timer.stop()
+        """Legacy-Methode - jetzt über TimerManager"""
+        # Timer wird automatisch über TimerManager gestoppt
+        logger.debug("BeladenSeite: Timer über TimerManager deaktiviert")
 
     def set_context(self, context):
         """Empfängt Kontext von der Füttern-Seite oder HEU-Zwischenstopp"""

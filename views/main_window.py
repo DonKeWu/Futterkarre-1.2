@@ -1,10 +1,11 @@
-# views/main_window.py
+# views/main_window.py - Mit TimerManager Integration
 import logging
 logger = logging.getLogger(__name__)
 import views.icons.icons_rc
 from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.QtCore import QTimer
 from PyQt5 import QtCore
+from utils.timer_manager import get_timer_manager
 
 from views.start import StartSeite
 from views.fuettern_seite import FuetternSeite
@@ -18,6 +19,9 @@ class MainWindow(QMainWindow):
     def __init__(self, sensor_manager):  # OHNE heu_namen!
         super().__init__()
         self.sensor_manager = sensor_manager
+        
+        # TimerManager Integration
+        self.timer_manager = get_timer_manager()
 
         self.pferde_liste = []
         self.aktueller_pferd_index = 0
@@ -122,69 +126,20 @@ class MainWindow(QMainWindow):
         """Alle Seiten verwenden jetzt self.navigation - KEINE manuelle Verbindung nötig!"""
         pass
 
-    def show_status(self, status, context=None, from_back=False):
-        """Navigation mit Back-Button Unterstützung"""
-        logger.info(f"Wechsel zu Status: {status}")
+    def show_status(self, page, context=None):
+        """Zentrale Navigation mit TimerManager"""
+        logger.info(f"Navigation: {page} mit Kontext: {context}")
 
-        # Timer stoppen bei Seitenwechsel
-        self.stop_all_timers()
+        # Timer der vorherigen Seite über TimerManager stoppen
+        self.timer_manager.stop_all_timers()
 
         # Vorherige Seite merken (außer bei Back-Navigation) - NACH Timer-Stop!
-        if not from_back and self.current_status != status:
+        if page != "back" and self.current_status != page:
             self.previous_page = self.current_status
-            self.previous_context = self.current_context.copy()
-            logger.info(f"Vorherige Seite gespeichert: {self.previous_page}")
+            self.previous_context = self.current_context.copy() if self.current_context else {}
 
-        # Aktuellen Status setzen - NACH dem Speichern der vorherigen Seite!
-        self.current_status = status
-        self.current_context = context or {}
-
-        if status == "start":
-            self.stacked_widget.setCurrentWidget(self.start_screen)
-        elif status == "auswahl":
-            self.stacked_widget.setCurrentWidget(self.auswahl_seite)
-        elif status == "beladen":
-            self.stacked_widget.setCurrentWidget(self.beladen_seite)
-            if context:
-                self.beladen_seite.set_context(context)
-            self.beladen_seite.start_timer()
-        elif status == "fuettern":
-            self.stacked_widget.setCurrentWidget(self.fuettern_seite)
-            if context:
-                self.fuettern_seite.restore_context(context)
-                
-                # FUTTER-ANALYSEWERTE basierend auf Futtertyp setzen
-                futtertyp = context.get('futtertyp', 'heu')
-                aktuelles_pferd = self.get_aktuelles_pferd()
-                
-                if aktuelles_pferd:
-                    self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
-                    
-                    if futtertyp == 'heu' and self.heu_liste:
-                        heu_daten = self.heu_liste[0]
-                        self.fuettern_seite.zeige_futter_analysewerte(heu_daten, 4.5)
-                        logger.info(f"Heu-Analysewerte angezeigt für: {heu_daten.name}")
-                    elif futtertyp == 'heulage' and self.heulage_liste:
-                        heulage_daten = self.heulage_liste[0]
-                        self.fuettern_seite.zeige_futter_analysewerte(heulage_daten, 4.5)
-                        logger.info(f"Heulage-Analysewerte angezeigt für: {heulage_daten.name}")
-                    else:
-                        logger.warning(f"Keine Futter-Daten für Typ: {futtertyp}")
-        elif status == "einstellungen":
-            self.stacked_widget.setCurrentWidget(self.einstellungen_seite)
-            # Timer NACH der Navigation starten
-            self.einstellungen_seite.start_timer()
-        elif status == "futter_konfiguration":
-            self.stacked_widget.setCurrentWidget(self.futter_konfiguration)
-        elif status == "abschluss":
-            self.stacked_widget.setCurrentWidget(self.fuetterung_abschluss)
-
-    def stop_all_timers(self):
-        """Stoppt alle Timer - verhindert Dauerschleifen"""
-        if hasattr(self.beladen_seite, 'timer'):
-            self.beladen_seite.timer.stop()
-        if hasattr(self.einstellungen_seite, 'timer'):
-            self.einstellungen_seite.timer.stop()
+    # Legacy-Methode entfernt - TimerManager übernimmt Timer-Verwaltung
+    # stop_all_timers() -> self.timer_manager.stop_all_timers()
 
     # Einfache Navigation-Methoden (bleiben unverändert)
     # === NAVIGATION METHODEN ===
@@ -210,7 +165,8 @@ class MainWindow(QMainWindow):
             else:
                 logger.warning("Keine Heu-Daten verfügbar! Bitte Futter-Konfiguration laden.")
                 
-            self.fuettern_seite.start_timer()
+            # Navigation zu Füttern-Seite über TimerManager
+            self.timer_manager.set_active_page("FuetternSeite")
             logger.info(f"Heu-Fütterung gestartet für: {aktuelles_pferd.name}")
         else:
             logger.warning("Kein Pferd verfügbar!")
@@ -236,7 +192,8 @@ class MainWindow(QMainWindow):
             else:
                 logger.warning("Keine Heulage-Daten verfügbar! Bitte Futter-Konfiguration laden.")
                 
-            self.fuettern_seite.start_timer()
+            # Navigation zu Füttern-Seite über TimerManager
+            self.timer_manager.set_active_page("FuetternSeite")
             logger.info(f"Heulage-Fütterung gestartet für: {aktuelles_pferd.name}")
         else:
             logger.warning("Kein Pferd verfügbar!")
@@ -253,11 +210,11 @@ class MainWindow(QMainWindow):
         logger.info(f"Navigation-History: {self.previous_page} → {self.current_status}")
 
         if self.previous_page and self.previous_page != self.current_status:
-            self.show_status(self.previous_page, self.previous_context, from_back=True)
+            self.show_status(self.previous_page, self.previous_context)
         else:
             logger.warning(f"Ungültige Navigation: previous_page={self.previous_page}, current={self.current_status}")
             # Fallback zur Auswahl
-            self.show_status("auswahl", from_back=True)
+            self.show_status("auswahl")
 
     # === PFERDE-MANAGEMENT ===
     def lade_pferde_daten(self):
