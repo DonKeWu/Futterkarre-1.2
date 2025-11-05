@@ -21,6 +21,7 @@ class BeladenSeite(QWidget):
         self.pferd_nummer = 1
         self.aktuelles_pferd = None
         self.gewaehlter_futtertyp = "heu"  # Standard
+        self.zwischenstopp_modus = False   # HEU-Zwischenstopp Flag
 
         # UI laden
         ui_path = os.path.join(os.path.dirname(__file__), "beladen_seite.ui")
@@ -136,30 +137,63 @@ class BeladenSeite(QWidget):
         self.timer.stop()
 
     def set_context(self, context):
-        """Empfängt Kontext von der Füttern-Seite"""
+        """Empfängt Kontext von der Füttern-Seite oder HEU-Zwischenstopp"""
         self.context = context
         self.restgewicht = context.get('restgewicht', 0.0)
         self.pferd_nummer = context.get('pferd_nummer', 1)
         self.aktuelles_pferd = context.get('pferd_objekt', None)
 
+        # HEU-ZWISCHENSTOPP MODUS
+        if context.get('zwischenstopp', False):
+            self.zwischenstopp_modus = True
+            futtertyp = context.get('futtertyp', 'heu')
+            logger.info(f"HEU-Zwischenstopp Modus aktiviert - Futtertyp: {futtertyp}")
+            
+            # HEU automatisch vorwählen (falls UI-Element existiert)
+            if hasattr(self, 'radio_heu') and futtertyp == 'heu':
+                self.radio_heu.setChecked(True)
+                logger.info("HEU automatisch vorgewählt")
+        else:
+            self.zwischenstopp_modus = False
+
         logger.info(
             f"Beladen-Seite: Kontext erhalten - Pferd {self.pferd_nummer}, Restgewicht: {self.restgewicht:.2f} kg")
 
     def beladen_fertig(self):
-        """Navigation zurück zur Füttern-Seite mit Simulation-Support"""
+        """Navigation zurück zur Füttern-Seite mit Simulation-Support und HEU-Zwischenstopp"""
         if self.navigation:
             try:
                 # Import hier um Zirkular-Import zu vermeiden
                 import hardware.hx711_sim as hx711_sim
                 
-                # Simulation: Karre automatisch auf 35kg beladen
+                # Simulation: Karre automatisch beladen
                 if hx711_sim.ist_simulation_aktiv():
-                    hx711_sim.karre_beladen()  # Automatisch auf 35kg
-                    logger.info("Simulation: Karre automatisch auf 35kg beladen")
+                    hx711_sim.karre_beladen()  # Standardmäßig 35kg hinzufügen
+                    logger.info("Simulation: Karre automatisch beladen")
                 
                 # Aktuelles Gewicht lesen (Simulation oder Hardware)
                 aktuelles_gewicht = self.sensor_manager.read_weight()
 
+                # HEU-ZWISCHENSTOPP: Rückkehr zur Füttern-Seite
+                if getattr(self, 'zwischenstopp_modus', False):
+                    logger.info("HEU-Zwischenstopp beendet - Rückkehr zur Füttern-Seite")
+                    
+                    # HEU-Context für Füttern-Seite vorbereiten
+                    rueckkehr_context = {
+                        'pferd_objekt': self.context.get('rueckkehr_pferd'),
+                        'pferd_name': self.context.get('pferd_name', 'Unbekannt'),
+                        'futtertyp': 'heu',
+                        'heu_gewicht': aktuelles_gewicht,
+                        'zwischenstopp_beendet': True
+                    }
+                    
+                    logger.info(f"Rückkehr zu Pferd: {rueckkehr_context['pferd_name']} mit {aktuelles_gewicht:.2f}kg HEU")
+                    
+                    # Direkt zurück zur Füttern-Seite
+                    self.navigation.show_status("fuettern", rueckkehr_context)
+                    return
+
+                # NORMALER MODUS: Wie bisher
                 # Für Simulation: Immer Neubeladung (35kg)
                 # Für Hardware: Additive Beladung wie bisher
                 if hx711_sim.ist_simulation_aktiv():

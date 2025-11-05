@@ -803,7 +803,7 @@ QPushButton:hover {
   <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>500</x>
      <y>140</y>
      <width>120</width>
      <height>90</height>
@@ -918,6 +918,44 @@ QPushButton:hover {
     <string>Rest</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_h_extra">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>140</y>
+     <width>150</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>34</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #b0cfa5;
+    color: #ffffff;
+    border-radius: 25px;
+}
+QPushButton:hover {
+    background-color: #8FBC8F;
+    color: #f5f5b5;
+}</string>
+   </property>
+   <property name="text">
+    <string>HEU</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
+   </property>
+  </widget>
   <zorder>b_heu_fuetterung</zorder>
   <zorder>label_rgv_name</zorder>
   <zorder>txt_rgv_name</zorder>
@@ -944,6 +982,7 @@ QPushButton:hover {
   <zorder>exit</zorder>
   <zorder>label_karre_gewicht_anzeigen</zorder>
   <zorder>label_box_2</zorder>
+  <zorder>btn_h_extra</zorder>
  </widget>
  <resources>
   <include location="../../Futterwagen/Futterkarre/icons/icons.qrc"/>

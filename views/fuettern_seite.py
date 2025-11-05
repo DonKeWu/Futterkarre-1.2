@@ -66,6 +66,11 @@ class FuetternSeite(QWidget):
         if hasattr(self, 'btn_next_rgv'):
             self.btn_next_rgv.clicked.connect(self.naechstes_pferd)
             
+        # HEU-ZWISCHENSTOPP BUTTON
+        if hasattr(self, 'btn_h_extra'):
+            self.btn_h_extra.clicked.connect(self.heu_zwischenstopp)
+            logger.info("HEU-Zwischenstopp Button verbunden")
+            
         # EXIT-BUTTON für Testzwecke
         if hasattr(self, 'exit'):
             self.exit.clicked.connect(self.exit_application)
@@ -341,6 +346,32 @@ class FuetternSeite(QWidget):
     def zu_einstellungen(self):
         if self.navigation:
             self.navigation.show_status("einstellungen")
+
+    def heu_zwischenstopp(self):
+        """HEU-Zwischenstopp: Beladen-Seite mit HEU-Vorwahl öffnen"""
+        logger.info("HEU-Zwischenstopp gestartet")
+        
+        if not self.navigation:
+            logger.error("Navigation nicht verfügbar")
+            return
+            
+        # Aktuelles Pferd für Rückkehr speichern
+        context = {
+            'futtertyp': 'heu',                    # HEU vorwählen
+            'zwischenstopp': True,                 # Spezial-Modus
+            'rueckkehr_pferd': getattr(self, 'aktuelles_pferd', None),
+            'rueckkehr_seite': 'fuettern',        # Zurück zur Füttern-Seite
+            'pferd_name': getattr(self, 'pferd_name', 'Unbekannt')
+        }
+        
+        logger.info(f"HEU-Zwischenstopp für Pferd: {context['pferd_name']}")
+        
+        # Timer stoppen
+        if hasattr(self, 'timer') and self.timer.isActive():
+            self.timer.stop()
+            
+        # Zur Beladen-Seite mit HEU-Context
+        self.navigation.show_status("beladen", context)
 
     def exit_application(self):
         """EXIT-Button für Testzwecke - Beendet die gesamte Anwendung"""
