@@ -25,7 +25,7 @@ class FuetternSeite(QWidget):
         self.aktuelle_pferd_nummer = 1
         self.aktuelles_pferd = None
         self.letztes_gewicht = 0.0
-        self.gewaehlter_futtertyp = "heu"
+        self.gewaehlter_futtertyp = "heulage"  # Standard: Heulage
         
         # Futter-Daten Variablen (HINZUGEFÜGT)
         self.aktuelle_futter_daten = None
@@ -70,6 +70,9 @@ class FuetternSeite(QWidget):
         if hasattr(self, 'btn_h_extra'):
             self.btn_h_extra.clicked.connect(self.heu_zwischenstopp)
             logger.info("HEU-Zwischenstopp Button verbunden")
+            
+        # Initial-Titel setzen
+        self.update_titel(self.gewaehlter_futtertyp)
             
         # EXIT-BUTTON für Testzwecke
         if hasattr(self, 'exit'):
@@ -320,6 +323,10 @@ class FuetternSeite(QWidget):
 
     def naechstes_pferd(self):
         """Wechselt zum nächsten Pferd und triggert automatische Simulation"""
+        # Zurück zu Heulage und Titel aktualisieren
+        self.gewaehlter_futtertyp = "heulage"
+        self.update_titel(self.gewaehlter_futtertyp)
+        
         # Simulation: 4.5kg automatisch entnehmen
         if hx711_sim.ist_simulation_aktiv():
             hx711_sim.pferd_gefuettert()  # Automatische 4.5kg Entnahme
@@ -350,6 +357,10 @@ class FuetternSeite(QWidget):
     def heu_zwischenstopp(self):
         """HEU-Zwischenstopp: Beladen-Seite mit HEU-Vorwahl öffnen"""
         logger.info("HEU-Zwischenstopp gestartet")
+        
+        # Auf Heu umschalten und Titel aktualisieren
+        self.gewaehlter_futtertyp = "heu"
+        self.update_titel(self.gewaehlter_futtertyp)
         
         if not self.navigation:
             logger.error("Navigation nicht verfügbar")

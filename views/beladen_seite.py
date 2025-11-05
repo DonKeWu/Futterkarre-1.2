@@ -182,7 +182,7 @@ class BeladenSeite(QWidget):
                     rueckkehr_context = {
                         'pferd_objekt': self.context.get('rueckkehr_pferd'),
                         'pferd_name': self.context.get('pferd_name', 'Unbekannt'),
-                        'futtertyp': 'heu',
+                        'futtertyp': self.gewaehlter_futtertyp,  # Dynamisch: heu oder heulage
                         'heu_gewicht': aktuelles_gewicht,
                         'zwischenstopp_beendet': True
                     }
