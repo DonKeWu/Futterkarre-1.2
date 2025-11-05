@@ -323,6 +323,12 @@ class FuetternSeite(QWidget):
 
     def naechstes_pferd(self):
         """Wechselt zum nächsten Pferd und triggert automatische Simulation"""
+        # STATISTIK: Fütterung vor Wechsel registrieren
+        if self.navigation and hasattr(self.navigation, 'registriere_fuetterung'):
+            gefuetterte_menge = getattr(self, 'entnommenes_gewicht', 4.5)
+            if gefuetterte_menge > 0:
+                self.navigation.registriere_fuetterung(self.gewaehlter_futtertyp, gefuetterte_menge)
+        
         # Zurück zu Heulage und Titel aktualisieren
         self.gewaehlter_futtertyp = "heulage"
         self.update_titel(self.gewaehlter_futtertyp)

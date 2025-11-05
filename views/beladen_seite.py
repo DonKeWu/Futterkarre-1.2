@@ -187,7 +187,11 @@ class BeladenSeite(QWidget):
                         'zwischenstopp_beendet': True
                     }
                     
-                    logger.info(f"Rückkehr zu Pferd: {rueckkehr_context['pferd_name']} mit {aktuelles_gewicht:.2f}kg HEU")
+                    # STATISTIK: HEU-Zwischenstopp registrieren
+                    if self.navigation and hasattr(self.navigation, 'registriere_fuetterung'):
+                        self.navigation.registriere_fuetterung(self.gewaehlter_futtertyp, aktuelles_gewicht)
+                    
+                    logger.info(f"Rückkehr zu Pferd: {rueckkehr_context['pferd_name']} mit {aktuelles_gewicht:.2f}kg {self.gewaehlter_futtertyp.upper()}")
                     
                     # Direkt zurück zur Füttern-Seite
                     self.navigation.show_status("fuettern", rueckkehr_context)

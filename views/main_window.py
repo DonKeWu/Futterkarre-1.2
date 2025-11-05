@@ -34,6 +34,12 @@ class MainWindow(QMainWindow):
         self.heulage_liste = []
         self.pellet_liste = []
         
+        # SEPARATE STATISTIKEN für Heu und Heulage
+        self.heu_gesamt_kg = 0.0      # Gesamtmenge Heu gefüttert
+        self.heulage_gesamt_kg = 0.0  # Gesamtmenge Heulage gefüttert
+        self.heu_pferde_anzahl = 0    # Anzahl Pferde mit Heu gefüttert
+        self.heulage_pferde_anzahl = 0 # Anzahl Pferde mit Heulage gefüttert
+        
         # Standard-Futter-Daten laden
         self.lade_standard_futter_daten()
 
@@ -184,6 +190,10 @@ class MainWindow(QMainWindow):
     # === NAVIGATION METHODEN ===
     def zeige_heu_futter(self):
         """Zeigt Heu-Fütterung mit echten Pferd- und Futter-Daten"""
+        # STATISTIK: Bei erster Pferd-Fütterung zurücksetzen
+        if self.aktueller_pferd_index == 0:
+            self.reset_statistiken()
+            
         aktuelles_pferd = self.get_aktuelles_pferd()
         self.show_status("fuettern")
 
@@ -207,6 +217,10 @@ class MainWindow(QMainWindow):
 
     def zeige_heulage_futter(self):
         """Zeigt Heulage-Fütterung mit echten Pferd- und Futter-Daten"""
+        # STATISTIK: Bei erster Pferd-Fütterung zurücksetzen
+        if self.aktueller_pferd_index == 0:
+            self.reset_statistiken()
+            
         aktuelles_pferd = self.get_aktuelles_pferd()
         self.show_status("fuettern")
 
@@ -291,14 +305,47 @@ class MainWindow(QMainWindow):
                 return aktuelles_pferd
         return None
         
+    def registriere_fuetterung(self, futtertyp, menge_kg):
+        """Registriert eine Fütterung für separate Statistiken"""
+        if futtertyp.lower() in ['heu', 'heu_eigen', 'heu_frd']:
+            self.heu_gesamt_kg += menge_kg
+            self.heu_pferde_anzahl += 1
+            logger.info(f"Heu-Fütterung registriert: +{menge_kg:.1f}kg (Gesamt: {self.heu_gesamt_kg:.1f}kg, {self.heu_pferde_anzahl} Pferde)")
+        elif futtertyp.lower() in ['heulage', 'heulage_eigen']:
+            self.heulage_gesamt_kg += menge_kg
+            self.heulage_pferde_anzahl += 1
+            logger.info(f"Heulage-Fütterung registriert: +{menge_kg:.1f}kg (Gesamt: {self.heulage_gesamt_kg:.1f}kg, {self.heulage_pferde_anzahl} Pferde)")
+        else:
+            logger.warning(f"Unbekannter Futtertyp für Statistik: {futtertyp}")
+    
+    def reset_statistiken(self):
+        """Setzt alle Fütterungsstatistiken zurück"""
+        self.heu_gesamt_kg = 0.0
+        self.heulage_gesamt_kg = 0.0
+        self.heu_pferde_anzahl = 0
+        self.heulage_pferde_anzahl = 0
+        logger.info("Fütterungsstatistiken zurückgesetzt")
+        
     def zeige_fuetterung_abschluss(self):
-        """Zeigt die Fütterung-Abschluss Seite"""
+        """Zeigt die Fütterung-Abschluss Seite mit separaten Heu/Heulage Statistiken"""
+        # NEUE: Separate Statistiken für Heu und Heulage
+        gesamtmenge_kg = self.heu_gesamt_kg + self.heulage_gesamt_kg
+        gefuetterte_pferde_gesamt = self.heu_pferde_anzahl + self.heulage_pferde_anzahl
+        
         fuetterung_daten = {
-            'gefuetterte_pferde': len(self.pferde_liste),
-            'menge_pro_pferd': 4.5,
-            'futtertyp': getattr(self, 'aktueller_futtertyp', 'Heu eigen 2025'),
-            'gesamte_boxen': 32
+            'gefuetterte_pferde': gefuetterte_pferde_gesamt,
+            'menge_pro_pferd': 4.5,  # Durchschnitt
+            'futtertyp': f"Heu: {self.heu_gesamt_kg:.1f}kg ({self.heu_pferde_anzahl}P) | Heulage: {self.heulage_gesamt_kg:.1f}kg ({self.heulage_pferde_anzahl}P)",
+            'gesamte_boxen': 32,
+            # ERWEITERTE Statistiken
+            'heu_gesamt': self.heu_gesamt_kg,
+            'heulage_gesamt': self.heulage_gesamt_kg,
+            'heu_pferde': self.heu_pferde_anzahl,
+            'heulage_pferde': self.heulage_pferde_anzahl,
+            'gesamtmenge': gesamtmenge_kg
         }
+        
+        logger.info(f"Fütterung abgeschlossen - Heu: {self.heu_gesamt_kg:.1f}kg ({self.heu_pferde_anzahl}P), Heulage: {self.heulage_gesamt_kg:.1f}kg ({self.heulage_pferde_anzahl}P)")
         
         if hasattr(self, 'fuetterung_abschluss'):
             self.fuetterung_abschluss.zeige_zusammenfassung(fuetterung_daten)
