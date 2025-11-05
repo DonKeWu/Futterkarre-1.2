@@ -138,7 +138,7 @@
      <x>200</x>
      <y>270</y>
      <width>150</width>
-     <height>30</height>
+     <height>35</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -156,7 +156,7 @@
    <property name="maximumSize">
     <size>
      <width>150</width>
-     <height>30</height>
+     <height>40</height>
     </size>
    </property>
    <property name="font">
@@ -175,7 +175,7 @@
      <x>40</x>
      <y>270</y>
      <width>161</width>
-     <height>30</height>
+     <height>35</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -193,7 +193,7 @@
    <property name="maximumSize">
     <size>
      <width>16777215</width>
-     <height>30</height>
+     <height>35</height>
     </size>
    </property>
    <property name="font">
@@ -384,10 +384,13 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>650</y>
+     <y>680</y>
      <width>1200</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -397,10 +400,13 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>550</y>
+     <y>580</y>
      <width>1200</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -410,7 +416,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>570</y>
+     <y>600</y>
      <width>111</width>
      <height>30</height>
     </rect>
@@ -446,8 +452,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_h_rohfaser">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>570</y>
+     <x>600</x>
+     <y>600</y>
      <width>111</width>
      <height>30</height>
     </rect>
@@ -483,8 +489,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_h_fruktan">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>570</y>
+     <x>810</x>
+     <y>600</y>
      <width>111</width>
      <height>30</height>
     </rect>
@@ -555,7 +561,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>590</y>
+     <y>620</y>
      <width>150</width>
      <height>60</height>
     </rect>
@@ -600,7 +606,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>550</x>
-     <y>590</y>
+     <y>620</y>
      <width>150</width>
      <height>60</height>
     </rect>
@@ -645,7 +651,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>590</y>
+     <y>620</y>
      <width>150</width>
      <height>60</height>
     </rect>
@@ -716,7 +722,7 @@ QPushButton:hover {
    <property name="geometry">
     <rect>
      <x>1140</x>
-     <y>460</y>
+     <y>490</y>
      <width>91</width>
      <height>91</height>
     </rect>
@@ -736,10 +742,10 @@ QPushButton:hover {
   <widget class="QLabel" name="label_fu_entnommen">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>300</y>
-     <width>661</width>
-     <height>251</height>
+     <x>200</x>
+     <y>280</y>
+     <width>921</width>
+     <height>341</height>
     </rect>
    </property>
    <property name="font">
@@ -755,40 +761,6 @@ QPushButton:hover {
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_karre_gewicht_anzeigen">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>520</y>
-     <width>231</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16777215</width>
-     <height>35</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="text">
-    <string>label_karre_gewicht</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_box">
@@ -864,13 +836,13 @@ QPushButton:hover {
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="label_box_2">
+  <widget class="QLabel" name="label_karre_gewicht_anzeigen">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>490</y>
-     <width>101</width>
-     <height>31</height>
+     <x>30</x>
+     <y>620</y>
+     <width>150</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -893,8 +865,53 @@ QPushButton:hover {
    </property>
    <property name="font">
     <font>
+     <family>URW Gothic</family>
+     <pointsize>32</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>0.00</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_box_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>600</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="text">
@@ -923,9 +940,9 @@ QPushButton:hover {
   <zorder>btn_fu_sim</zorder>
   <zorder>txt_kg_2</zorder>
   <zorder>label_fu_entnommen</zorder>
-  <zorder>label_karre_gewicht_anzeigen</zorder>
   <zorder>label_box</zorder>
   <zorder>exit</zorder>
+  <zorder>label_karre_gewicht_anzeigen</zorder>
   <zorder>label_box_2</zorder>
  </widget>
  <resources>
