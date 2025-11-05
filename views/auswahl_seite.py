@@ -39,11 +39,17 @@ class AuswahlSeite(QWidget):
 
     def zu_heu_futter(self):
         if self.navigation:
-            self.navigation.show_status("fuettern")
+            if hasattr(self.navigation, "zeige_heu_futter"):
+                self.navigation.zeige_heu_futter()
+            else:
+                self.navigation.show_status("fuettern")
 
     def zu_heulage_futter(self):
         if self.navigation:
-            self.navigation.show_status("fuettern")
+            if hasattr(self.navigation, "zeige_heulage_futter"):
+                self.navigation.zeige_heulage_futter()
+            else:
+                self.navigation.show_status("fuettern")
 
     def zu_beladen(self):
         if self.navigation:

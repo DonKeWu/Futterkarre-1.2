@@ -3,6 +3,7 @@
 **Regeln für die Zusammenarbeit mit dem Raspberry Pi und Ubuntu-Rechner:**
 
 - Du arbeitest auf einem Ubuntu-Rechner.
+- Auf dem Ubuntu-Rechner darfst du Dinge direkt ausführen (z.B. Python-Programme, Git-Befehle, Tests).
 - Der Raspberry Pi ist nur per SSH erreichbar.
 - Du kannst hier auf dem Ubuntu-Rechner direkt Befehle ausführen.
 - Für alles, was auf dem Pi laufen soll, musst du mir die passenden Terminal-Befehle liefern, die ich dann per SSH auf dem Pi ausführe.

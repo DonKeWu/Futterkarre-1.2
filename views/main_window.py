@@ -96,6 +96,17 @@ class MainWindow(QMainWindow):
         self.futter_konfiguration = FutterKonfiguration()
         self.fuetterung_abschluss = FuetterungAbschluss()
 
+        # Seiten-Mapping für Navigation
+        self.page_widgets = {
+            "start": self.start_screen,
+            "auswahl": self.auswahl_seite,
+            "beladen": self.beladen_seite,
+            "fuettern": self.fuettern_seite,
+            "einstellungen": self.einstellungen_seite,
+            "futter_konfiguration": self.futter_konfiguration,
+            "abschluss": self.fuetterung_abschluss
+        }
+
         # Signal-Verbindungen für erweiterte Funktionen
         self.setup_signal_connections()
 
@@ -197,6 +208,15 @@ class MainWindow(QMainWindow):
         if page != "back" and self.current_status != page:
             self.previous_page = self.current_status
             self.previous_context = self.current_context.copy() if self.current_context else {}
+
+        # Seite tatsächlich wechseln
+        if page in self.page_widgets:
+            self.stacked_widget.setCurrentWidget(self.page_widgets[page])
+            self.current_status = page
+            self.current_context = context or {}
+            logger.info(f"Seite gewechselt zu: {page}")
+        else:
+            logger.error(f"Unbekannte Seite: {page}")
 
     # Legacy-Methode entfernt - TimerManager übernimmt Timer-Verwaltung
     # stop_all_timers() -> self.timer_manager.stop_all_timers()

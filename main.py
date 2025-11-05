@@ -36,20 +36,16 @@ def main():
             import hardware.hx711_sim as hx711_sim
             hx711_sim.setze_simulation(True)
             logger.info("HX711-Simulation aktiviert")
-
             # DEBUG: Sofort testen
             print(f"DEBUG: HX711 aktiv? {hx711_sim.ist_simulation_aktiv()}")
 
         # 3. PyQt-Anwendung starten - OHNE Daten zu laden!
         app = QApplication(sys.argv)
-        window = MainWindow(sensor_manager)  # Keine heu_namen mehr!
-        
-        # ECHTER Fullscreen-Modus - versteckt Statusleiste komplett
-        window.showFullScreen()
-        logger.info("MainWindow gestartet im ECHTEN Fullscreen-Modus")
-
+        window = MainWindow(sensor_manager)
+        window.resize(1280, 720)
+        window.show()
+        logger.info("MainWindow gestartet im Fenster-Modus 1280x720")
         sys.exit(app.exec_())
-
     except Exception as e:
         logger.error(f"Kritischer Fehler in main(): {e}")
         sys.exit(1)
