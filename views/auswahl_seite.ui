@@ -19,8 +19,8 @@
   <widget class="QPushButton" name="btn_to_side_fu_heulage">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>170</y>
+     <x>700</x>
+     <y>270</y>
      <width>300</width>
      <height>120</height>
     </rect>
@@ -76,8 +76,8 @@ QPushButton:hover {
    </property>
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>170</y>
+     <x>260</x>
+     <y>270</y>
      <width>300</width>
      <height>120</height>
     </rect>
@@ -126,8 +126,8 @@ QPushButton:hover {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
-     <height>60</height>
+     <width>1280</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -144,8 +144,8 @@ QPushButton:hover {
    </property>
    <property name="maximumSize">
     <size>
-     <width>1024</width>
-     <height>60</height>
+     <width>1280</width>
+     <height>100</height>
     </size>
    </property>
    <property name="font">
@@ -177,10 +177,10 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_to_side_settings">
    <property name="geometry">
     <rect>
-     <x>965</x>
-     <y>10</y>
-     <width>41</width>
-     <height>41</height>
+     <x>1190</x>
+     <y>20</y>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -204,8 +204,8 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_to_side_fu_laden">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>350</y>
+     <x>420</x>
+     <y>450</y>
      <width>450</width>
      <height>120</height>
     </rect>

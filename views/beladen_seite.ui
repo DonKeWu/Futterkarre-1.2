@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>55</height>
+     <height>100</height>
     </rect>
    </property>
    <property name="font">
@@ -46,8 +46,8 @@ color: #fdffe0;
   <widget class="QLabel" name="label_karre_gewicht">
    <property name="geometry">
     <rect>
-     <x>79</x>
-     <y>250</y>
+     <x>220</x>
+     <y>310</y>
      <width>671</width>
      <height>201</height>
     </rect>
@@ -55,7 +55,7 @@ color: #fdffe0;
    <property name="font">
     <font>
      <family>URW Gothic</family>
-     <pointsize>120</pointsize>
+     <pointsize>170</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -70,10 +70,10 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_w_bestaetigen">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>480</y>
+     <x>720</x>
+     <y>580</y>
      <width>300</width>
-     <height>60</height>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
@@ -93,10 +93,10 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_settings">
    <property name="geometry">
     <rect>
-     <x>965</x>
-     <y>6</y>
-     <width>41</width>
-     <height>41</height>
+     <x>1190</x>
+     <y>20</y>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -123,10 +123,10 @@ color: #fdffe0;
    </property>
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>100</y>
+     <x>280</x>
+     <y>160</y>
      <width>300</width>
-     <height>91</height>
+     <height>100</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -175,10 +175,10 @@ QPushButton:checked {
   <widget class="QPushButton" name="btn_heulage_laden">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>100</y>
+     <x>720</x>
+     <y>160</y>
      <width>300</width>
-     <height>91</height>
+     <height>100</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -233,10 +233,10 @@ QPushButton:checked {
   <widget class="QPushButton" name="btn_wa_nullen">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>480</y>
+     <x>270</x>
+     <y>580</y>
      <width>300</width>
-     <height>60</height>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
@@ -256,8 +256,8 @@ QPushButton:checked {
   <widget class="QLabel" name="txt_kg">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>340</y>
+     <x>930</x>
+     <y>450</y>
      <width>91</width>
      <height>71</height>
     </rect>
@@ -277,10 +277,10 @@ QPushButton:checked {
   <widget class="QPushButton" name="btn_back">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>6</y>
-     <width>41</width>
-     <height>41</height>
+     <x>30</x>
+     <y>20</y>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
