@@ -42,9 +42,8 @@ def main():
         # 3. PyQt-Anwendung starten - OHNE Daten zu laden!
         app = QApplication(sys.argv)
         window = MainWindow(sensor_manager)
-        window.resize(1280, 720)
-        window.show()
-        logger.info("MainWindow gestartet im Fenster-Modus 1280x720")
+        window.showFullScreen()
+        logger.info("MainWindow gestartet im Vollbild-Modus (kompletter Bildschirm)")
         sys.exit(app.exec_())
     except Exception as e:
         logger.error(f"Kritischer Fehler in main(): {e}")
