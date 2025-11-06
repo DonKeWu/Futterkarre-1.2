@@ -1,4 +1,4 @@
-# 🚜 Futterkarre 1.2 - Komplette Dokumentation
+# 🚜 Futterkarre 1.4.0 - Komplette Dokumentation
 
 **Intelligente Futterwaage für Pferde mit Raspberry Pi 5 + Touch-Display**
 
@@ -279,8 +279,8 @@ cat > ~/Desktop/🚜-Futterkarre.desktop << 'EOF'
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=🚜 Futterkarre 1.2
-Exec=/bin/bash -c "cd /home/daniel/Futterkarre-1.2 && source .venv/bin/activate && python main.py"
+Name=🚜 Futterkarre 1.4.0
+Exec=/bin/bash -c "cd /home/daniel/Futterkarre-1.4.0 && source .venv/bin/activate && python main.py"
 Icon=applications-utilities
 Terminal=false
 Categories=Application;Utility;

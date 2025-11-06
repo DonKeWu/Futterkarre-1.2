@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Futterkarre 1.0 - Futter laden</string>
+   <string>Futterkarre 1.4.0 - Futter laden</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #fdffe0;</string>

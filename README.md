@@ -1,4 +1,4 @@
-# 🚜 Futterkarre 1.2 - Intelligente Futterwaage für Pferde
+# 🚜 Futterkarre 1.4.0 - Intelligente Futterwaage für Pferde
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green.svg)](https://pypi.org/project/PyQt5/)
@@ -9,7 +9,7 @@ Ein **PyQt5-basiertes Steuerungssystem** für eine mobile Futterwaage zur präzi
 
 ## 📋 **Projektstatus: Work in Progress** 
 
-**Aktuelle Version:** 2.0  
+**Aktuelle Version:** 1.4.0  
 **Zielplattform:** Raspberry Pi 5  
 **Letzte Analyse:** 4. November 2025
 
