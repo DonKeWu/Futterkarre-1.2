@@ -118,6 +118,33 @@ QPushButton:hover {
     <string>START</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_version">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>650</y>
+     <width>220</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>24</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #666666;</string>
+   </property>
+   <property name="text">
+    <string>Version 1.4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignVCenter</set>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
