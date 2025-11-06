@@ -32,11 +32,17 @@ class MainWindow(QMainWindow):
         self.aktueller_pferd_index = 0
         self.pferde_liste = self.lade_pferde_daten()
 
-        # Navigation
+        # Navigation - Smart Stack System
         self.previous_page = "auswahl"
         self.previous_context = {}
         self.current_status = "start"
         self.current_context = {}
+        
+        # Smart Navigation: Hauptseiten vs. Unterseiten
+        self.main_pages = {"auswahl", "fuettern", "einstellungen", "beladen", "start"}
+        self.sub_pages = {"futter_konfiguration", "abschluss"}
+        self.main_page_stack = []  # Stack der Hauptseiten
+        self.current_main_page = None
 
         # Futter-Listen initialisieren
         self.heu_liste = []
@@ -198,16 +204,32 @@ class MainWindow(QMainWindow):
         pass
 
     def show_status(self, page, context=None):
-        """Zentrale Navigation mit TimerManager"""
+        """Zentrale Navigation mit Smart Stack System"""
         logger.info(f"Navigation: {page} mit Kontext: {context}")
 
         # Timer der vorherigen Seite über TimerManager stoppen
         self.timer_manager.stop_all_timers()
 
-        # Vorherige Seite merken (außer bei Back-Navigation) - NACH Timer-Stop!
+        # Smart Navigation: Hauptseiten vs. Unterseiten verwalten
         if page != "back" and self.current_status != page:
-            self.previous_page = self.current_status
-            self.previous_context = self.current_context.copy() if self.current_context else {}
+            # Wenn wir zu einer Hauptseite wechseln
+            if page in self.main_pages:
+                # Aktuelle Hauptseite auf Stack legen (falls sie existiert)
+                if self.current_main_page and self.current_main_page != page:
+                    if self.current_main_page not in self.main_page_stack:
+                        self.main_page_stack.append(self.current_main_page)
+                        logger.info(f"Hauptseite auf Stack: {self.current_main_page}")
+                
+                self.current_main_page = page
+                self.previous_page = self.current_status
+                self.previous_context = self.current_context.copy() if self.current_context else {}
+                
+            # Wenn wir zu einer Unterseite wechseln
+            elif page in self.sub_pages:
+                # Hauptseite bleibt gleich, nur vorherige Seite merken
+                self.previous_page = self.current_status
+                self.previous_context = self.current_context.copy() if self.current_context else {}
+                logger.info(f"Unterseite {page}, Hauptseite bleibt: {self.current_main_page}")
 
         # Seite tatsächlich wechseln
         if page in self.page_widgets:
@@ -285,16 +307,32 @@ class MainWindow(QMainWindow):
         self.show_status("einstellungen")
 
     def go_back(self):
-        """Intelligenter Back-Button - geht zur vorherigen Seite"""
-        logger.info(f"Back-Button: Aktuell={self.current_status}, Zurück zu={self.previous_page}")
-        logger.info(f"Navigation-History: {self.previous_page} → {self.current_status}")
-
+        """Smart Back-Button - intelligente Hauptseiten-Navigation"""
+        logger.info(f"Smart Back: Aktuell={self.current_status}, Hauptseite={self.current_main_page}")
+        logger.info(f"Stack: {self.main_page_stack}, Previous: {self.previous_page}")
+        
+        # Fall 1: Von Unterseite zurück zur aktuellen Hauptseite
+        if self.current_status in self.sub_pages and self.current_main_page:
+            logger.info(f"Unterseite → Hauptseite: {self.current_status} → {self.current_main_page}")
+            self.show_status(self.current_main_page)
+            return
+        
+        # Fall 2: Von Hauptseite zu vorheriger Hauptseite (vom Stack)
+        if self.current_status in self.main_pages and self.main_page_stack:
+            previous_main = self.main_page_stack.pop()
+            logger.info(f"Hauptseite → vorherige Hauptseite: {self.current_status} → {previous_main}")
+            self.show_status(previous_main)
+            return
+        
+        # Fall 3: Standard-Rücksprung (wie bisher)
         if self.previous_page and self.previous_page != self.current_status:
+            logger.info(f"Standard-Rücksprung: {self.current_status} → {self.previous_page}")
             self.show_status(self.previous_page, self.previous_context)
-        else:
-            logger.warning(f"Ungültige Navigation: previous_page={self.previous_page}, current={self.current_status}")
-            # Fallback zur Auswahl
-            self.show_status("auswahl")
+            return
+        
+        # Fall 4: Fallback zur Auswahl
+        logger.warning(f"Fallback zur Auswahl - keine gültige Rücksprung-Option")
+        self.show_status("auswahl")
 
     # === PFERDE-MANAGEMENT ===
     def lade_pferde_daten(self):
