@@ -5483,3 +5483,222 @@
 2025-11-08 09:00:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
 2025-11-08 09:00:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
 2025-11-08 09:00:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:11:50,293 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 09:11:50,293 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 09:11:50,293 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 09:11:50,293 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 09:11:50,302 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 09:11:50,302 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 09:11:50,302 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 09:11:50,302 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 09:11:50,302 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 09:11:50,303 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 09:11:50,303 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 09:11:50,303 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 09:11:50,303 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 09:11:50,303 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 09:11:50,303 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 09:11:50,303 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 09:11:50,303 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 09:11:50,303 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 09:11:50,304 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:11:50,304 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 09:11:50,304 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 09:11:50,304 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:11:50,304 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 09:11:50,304 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 09:11:50,304 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 09:11:50,304 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 09:11:50,304 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:11:50,304 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 09:11:50,304 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 09:11:50,310 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 09:11:50,312 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 09:11:50,312 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 09:11:50,312 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 09:11:50,312 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 09:11:50,316 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 09:11:50,316 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 09:11:50,316 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 09:11:50,316 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 09:11:50,316 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 09:11:50,321 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 09:11:50,323 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 09:11:50,323 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 09:11:50,323 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 09:11:50,323 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 09:11:50,323 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 09:11:50,324 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 09:11:50,324 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 09:11:50,335 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 09:11:50,335 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:11:50,335 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 09:11:50,349 [INFO] __main__: MainWindow gestartet im Fenster-Modus (1280x720)
+2025-11-08 09:11:53,891 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 09:11:53,891 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:11:53,891 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 09:11:56,270 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 09:11:56,270 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:11:56,280 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 09:11:56,281 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 09:11:56,281 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 09:11:56,281 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 09:11:56,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:11:57,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:11:57,623 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:11:57,623 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 09:11:57,623 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 09:11:57,623 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 09:11:57,623 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 09:11:57,623 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 09:11:57,623 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 09:11:57,623 [INFO] views.fuettern_seite: Pferd-Objekt aus MainWindow geholt: Midnight
+2025-11-08 09:11:57,634 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 1 - Midnight
+2025-11-08 09:11:57,640 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 1 - Midnight, 12 Jahre, 350.0 kg
+2025-11-08 09:11:57,640 [INFO] views.fuettern_seite: Pferd-Daten im Kontext mit processEvents gesetzt
+2025-11-08 09:11:57,640 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 09:11:57,640 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 09:11:57,640 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 09:11:57,640 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 09:11:58,674 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:11:59,725 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:00,775 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:04,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:05,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:12:06,388 [INFO] views.fuettern_seite: EXIT-Button gedrückt - Anwendung wird beendet
+2025-11-08 09:15:00,861 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 09:15:00,861 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 09:15:00,861 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 09:15:00,861 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 09:15:00,883 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 09:15:00,883 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 09:15:00,883 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 09:15:00,883 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 09:15:00,883 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 09:15:00,883 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 09:15:00,883 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 09:15:00,884 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 09:15:00,884 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 09:15:00,884 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 09:15:00,884 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 09:15:00,884 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 09:15:00,884 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 09:15:00,884 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 09:15:00,884 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:15:00,884 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 09:15:00,884 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 09:15:00,885 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:15:00,885 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 09:15:00,885 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 09:15:00,885 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 09:15:00,885 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 09:15:00,885 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 09:15:00,885 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 09:15:00,885 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 09:15:00,891 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 09:15:00,893 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 09:15:00,893 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 09:15:00,894 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 09:15:00,894 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 09:15:00,898 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 09:15:00,898 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 09:15:00,898 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 09:15:00,898 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 09:15:00,898 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 09:15:00,902 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 09:15:00,904 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 09:15:00,905 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 09:15:00,905 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 09:15:00,905 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 09:15:00,905 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 09:15:00,905 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 09:15:00,906 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 09:15:00,916 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 09:15:00,917 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:15:00,917 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 09:15:00,932 [INFO] __main__: MainWindow gestartet im Fenster-Modus (1280x720)
+2025-11-08 09:15:04,026 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 09:15:04,026 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:15:04,026 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 09:15:05,131 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 09:15:05,131 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 09:15:05,131 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 09:15:05,131 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 09:15:05,131 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 09:15:05,131 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 09:15:05,656 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:06,175 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:06,175 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 09:15:06,175 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 09:15:06,175 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 09:15:06,175 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 09:15:06,175 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 09:15:06,175 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 09:15:06,175 [INFO] views.fuettern_seite: Pferd-Objekt aus MainWindow geholt: Midnight
+2025-11-08 09:15:06,186 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 1 - Midnight
+2025-11-08 09:15:06,189 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 1 - Midnight, 12 Jahre, 350.0 kg
+2025-11-08 09:15:06,189 [INFO] views.fuettern_seite: Pferd-Daten im Kontext mit processEvents gesetzt
+2025-11-08 09:15:06,189 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 09:15:06,189 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 09:15:06,189 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 09:15:06,189 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 09:15:07,225 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:08,275 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:09,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:10,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:11,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:12,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:13,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:13,686 [INFO] views.main_window: Wechsel zu Box 2: Delight
+2025-11-08 09:15:13,686 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 2 - Delight
+2025-11-08 09:15:13,687 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 2 - Delight, 3 Jahre, 280.0 kg
+2025-11-08 09:15:13,687 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:14,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:14,591 [INFO] views.main_window: Wechsel zu Box 3: Maverick
+2025-11-08 09:15:14,591 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 3 - Maverick
+2025-11-08 09:15:14,592 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 3 - Maverick, 5 Jahre, 400.0 kg
+2025-11-08 09:15:14,592 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:15,214 [INFO] views.main_window: Wechsel zu Box 4: Rondo
+2025-11-08 09:15:15,214 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 4 - Rondo
+2025-11-08 09:15:15,215 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 4 - Rondo, 12 Jahre, 520.0 kg
+2025-11-08 09:15:15,215 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:15,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:16,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:17,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:18,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:19,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:20,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:21,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:22,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:23,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:24,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:25,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:26,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:27,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:28,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:29,308 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:30,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:31,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:32,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:33,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:34,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:35,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:36,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:37,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:38,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:39,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:40,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:41,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:42,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:43,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:44,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:45,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:46,308 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:47,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:48,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:49,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:50,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:15:50,422 [INFO] views.fuettern_seite: EXIT-Button gedrückt - Anwendung wird beendet

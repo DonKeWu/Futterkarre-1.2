@@ -5,7 +5,7 @@ Ein PyQt5-basiertes Steuerungssystem für eine mobile Futterwaage zur präzisen
 Pferdefütterung mit Raspberry Pi 5 und HX711-Wägezellen.
 """
 
-__version__ = "1.5.2"
+__version__ = "1.5.3"
 __author__ = "DonKeWu"
 __description__ = "Intelligente Futterwaage für Pferde"
 

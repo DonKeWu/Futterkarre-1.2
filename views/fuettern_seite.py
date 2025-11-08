@@ -322,6 +322,24 @@ class FuetternSeite(QWidget):
             if hasattr(self, 'label_fu_entnommen'):
                 self.label_fu_entnommen.setText(f"{self.entnommenes_gewicht:.2f}")
 
+            # NÄHRWERTE DYNAMISCH aktualisieren basierend auf entnommenem Gewicht
+            if hasattr(self, 'aktuelle_futter_daten') and self.aktuelle_futter_daten:
+                # Dynamische Berechnung: Bei 0.0kg entnommen = 0.0g Nährwerte
+                if self.entnommenes_gewicht == 0.0:
+                    # Alle Nährwerte auf 0.0g setzen
+                    if hasattr(self, 'label_h_rohprotein'):
+                        self.label_h_rohprotein.setText("0.0g")
+                        self.label_h_rohprotein.setStyleSheet("color: gray;")
+                    if hasattr(self, 'label_h_rohfaser'):
+                        self.label_h_rohfaser.setText("0.0g")  
+                        self.label_h_rohfaser.setStyleSheet("color: gray;")
+                    if hasattr(self, 'label_h_fruktan'):
+                        self.label_h_fruktan.setText("0.0g")
+                        self.label_h_fruktan.setStyleSheet("color: gray;")
+                else:
+                    # Echte Berechnung basierend auf entnommener Menge
+                    self.zeige_futter_analysewerte(self.aktuelle_futter_daten, self.entnommenes_gewicht)
+
             # Debug-Ausgabe
             print(f"DEBUG: Entnommen: {self.entnommenes_gewicht:.2f} kg")
             
