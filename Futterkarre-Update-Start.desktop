@@ -2,12 +2,11 @@
 Version=1.0
 Type=Application
 Name=Futterkarre Update & Start
-Comment=Aktualisiert und startet die Futterkarre-Anwendung
-Exec=/usr/bin/bash -c "cd /home/daniel/Futterkarre && ./futterkarre_update_start.sh"
-Icon=/home/daniel/Futterkarre/views/icons/icon.png
+Comment=Aktualisiert und startet die Futterkarre-Anwendung (automatischer Pfad)
+Exec=bash -c "cd \"$(dirname \"$0\")\" && ./futterkarre_update_start.sh"
+Icon=./views/icons/icon.png
 Terminal=true
 Categories=Application;Development;
 StartupNotify=true
-Path=/home/daniel/Futterkarre
 Keywords=futterkarre;pferde;fütterung;
 GenericName=Futterkarre Manager

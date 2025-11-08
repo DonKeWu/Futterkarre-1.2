@@ -5,9 +5,8 @@
 # Startet die Anwendung direkt im GUI-Modus
 # ==============================================================================
 
-# Projekt-Pfad
-PROJECT_DIR="/home/daniel/Futterkarre"
-VENV_PATH="$PROJECT_DIR/.venv"
+# Dynamischer Projekt-Pfad (wo das Script liegt)
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MAIN_SCRIPT="$PROJECT_DIR/main.py"
 
 # Ins Projekt-Verzeichnis wechseln

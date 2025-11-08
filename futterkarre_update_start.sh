@@ -15,10 +15,9 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Projekt-Pfade (automatisch erkannt)
-PROJECT_DIR="/home/daniel/Futterkarre"
+# Projekt-Pfade (automatisch erkannt - funktioniert überall!)
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON_DIR="$PROJECT_DIR"
-VENV_PATH="$PROJECT_DIR/.venv"
 MAIN_SCRIPT="$PROJECT_DIR/main.py"
 
 echo -e "${BLUE}📁 Projekt-Verzeichnis: $PROJECT_DIR${NC}"
