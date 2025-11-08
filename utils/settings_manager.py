@@ -141,9 +141,27 @@ class SettingsManager:
                 if 'calibration' in data:
                     self.calibration = CalibrationSettings(**data['calibration'])
                 if 'feeding' in data:
-                    self.feeding = FeedingSettings(**data['feeding'])
+                    # Robuste Filterung für FeedingSettings - nur bekannte Parameter
+                    feeding_data = {}
+                    valid_feeding_keys = {'default_feed_amount', 'max_feed_per_horse', 'min_feed_per_horse', 
+                                        'max_total_load', 'warning_threshold', 'simulation_mode', 'auto_reload_threshold'}
+                    for key, value in data['feeding'].items():
+                        if key in valid_feeding_keys:
+                            feeding_data[key] = value
+                        else:
+                            logger.warning(f"Überspringe unbekannten FeedingSettings Parameter: {key}")
+                    self.feeding = FeedingSettings(**feeding_data)
                 if 'hardware' in data:
-                    self.hardware = HardwareSettings(**data['hardware'])
+                    # Robuste Filterung für HardwareSettings - nur bekannte Parameter
+                    hardware_data = {}
+                    valid_hardware_keys = {'use_simulation', 'hx711_update_rate', 'sensor_timeout', 
+                                         'auto_hardware_detection', 'backup_to_usb', 'debug_mode'}
+                    for key, value in data['hardware'].items():
+                        if key in valid_hardware_keys:
+                            hardware_data[key] = value
+                        else:
+                            logger.warning(f"Überspringe unbekannten HardwareSettings Parameter: {key}")
+                    self.hardware = HardwareSettings(**hardware_data)
                 if 'ui' in data:
                     self.ui = UISettings(**data['ui'])
                 
@@ -376,9 +394,23 @@ class SettingsManager:
             if 'calibration' in data:
                 self.calibration = CalibrationSettings(**data['calibration'])
             if 'feeding' in data:
-                self.feeding = FeedingSettings(**data['feeding'])
+                # Robuste Filterung für FeedingSettings - nur bekannte Parameter
+                feeding_data = {}
+                valid_feeding_keys = {'default_feed_amount', 'max_feed_per_horse', 'min_feed_per_horse', 
+                                    'max_total_load', 'warning_threshold', 'simulation_mode', 'auto_reload_threshold'}
+                for key, value in data['feeding'].items():
+                    if key in valid_feeding_keys:
+                        feeding_data[key] = value
+                self.feeding = FeedingSettings(**feeding_data)
             if 'hardware' in data:
-                self.hardware = HardwareSettings(**data['hardware'])
+                # Robuste Filterung für HardwareSettings - nur bekannte Parameter
+                hardware_data = {}
+                valid_hardware_keys = {'use_simulation', 'hx711_update_rate', 'sensor_timeout', 
+                                     'auto_hardware_detection', 'backup_to_usb', 'debug_mode'}
+                for key, value in data['hardware'].items():
+                    if key in valid_hardware_keys:
+                        hardware_data[key] = value
+                self.hardware = HardwareSettings(**hardware_data)
             if 'ui' in data:
                 self.ui = UISettings(**data['ui'])
             
