@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QTimer
 
 from hardware.weight_manager import get_weight_manager
+from utils.ui_utils import UIUtils
 
 logger = logging.getLogger(__name__)
 
@@ -100,7 +101,7 @@ class FuetternSeite(QWidget):
         # Initial-Titel setzen
         self.update_titel(self.gewaehlter_futtertyp)
             
-        # EXIT-BUTTON für Testzwecke
+        # EXIT-BUTTON für Testzwecke und Debugging
         if hasattr(self, 'exit'):
             self.exit.clicked.connect(self.exit_application)
             logger.info("Exit-Button für Tests verbunden")
@@ -121,16 +122,14 @@ class FuetternSeite(QWidget):
         self.label_fu_entnommen = QLabel("0.00")
 
         # Buttons
-        self.btn_h_fu_sim = QPushButton("Fütterung simulieren")
         self.btn_back = QPushButton("Zurück")
         
-        # EXIT-Button für Tests hinzufügen
+        # EXIT-Button für Tests und Debugging
         self.exit = QPushButton("🛑 EXIT (Test)")
         self.exit.setStyleSheet("background-color: red; color: white; font-weight: bold;")
 
         layout.addWidget(self.label_rgv_name)
         layout.addWidget(self.label_karre_gewicht_anzeigen)
-        layout.addWidget(self.btn_h_fu_sim)
         layout.addWidget(self.btn_back)
         layout.addWidget(self.exit)  # EXIT-Button hinzufügen
 
@@ -184,8 +183,8 @@ class FuetternSeite(QWidget):
                 logger.warning("label_rgv_name nicht verfügbar")
             
             # UI sofort updaten nach jedem Label-Set
-            from PyQt5.QtWidgets import QApplication
-            QApplication.processEvents()
+            from utils.ui_utils import UIUtils
+            UIUtils.process_events("Pferd-Name gesetzt")
                 
             if hasattr(self, 'label_rgv_alter'):
                 self.label_rgv_alter.setText(f"{pferd.alter} Jahre")
@@ -204,8 +203,7 @@ class FuetternSeite(QWidget):
             # KEINE automatische TextLabel Bereinigung hier - das macht die UI kaputt!
 
             # UI-Refresh explizit erzwingen
-            from PyQt5.QtWidgets import QApplication
-            QApplication.processEvents()
+            UIUtils.process_events("Pferd-Daten vollständig gesetzt")
             self.update()
             logger.debug("UI-Refresh nach Pferd-Daten-Update erzwungen")
 
@@ -380,17 +378,18 @@ class FuetternSeite(QWidget):
             self.set_karre_gewicht(neues_gewicht)
 
         # KRITISCH: Pferd-Objekt fehlt im Kontext - direkt vom MainWindow holen!
-        if not self.aktuelles_pferd and hasattr(self, 'main_window'):
+        if not self.aktuelles_pferd and hasattr(self, 'main_window') and self.main_window is not None:
             aktuelles_pferd = self.main_window.get_aktuelles_pferd()
             if aktuelles_pferd:
                 self.aktuelles_pferd = aktuelles_pferd
                 logger.info(f"Pferd-Objekt aus MainWindow geholt: {aktuelles_pferd.name}")
+        elif not self.aktuelles_pferd:
+            logger.warning("Kein main_window verfügbar - kann aktuelles Pferd nicht laden!")
 
         # Pferd-Daten anzeigen mit UI-Refresh
         if self.aktuelles_pferd:
             # UI-Events verarbeiten vor Pferd-Daten setzen
-            from PyQt5.QtWidgets import QApplication
-            QApplication.processEvents()
+            UIUtils.process_events("Vor Pferd-Daten setzen")
             self.zeige_pferd_daten(self.aktuelles_pferd)
             logger.info("Pferd-Daten im Kontext mit processEvents gesetzt")
         else:
@@ -498,8 +497,10 @@ class FuetternSeite(QWidget):
         # Zur Beladen-Seite mit HEU-Context
         self.navigation.show_status("beladen", context)
 
+
+    
     def exit_application(self):
-        """EXIT-Button für Testzwecke - Beendet die gesamte Anwendung"""
+        """EXIT-Button für Testzwecke und Debugging - Beendet die gesamte Anwendung"""
         import sys
         logger.info("EXIT-Button gedrückt - Anwendung wird beendet")
         print("🛑 EXIT-Button gedrückt - Anwendung wird beendet")
@@ -524,7 +525,7 @@ class FuetternSeite(QWidget):
         
         # Hauptprozess beenden
         sys.exit(0)
-    
+
     def _on_weight_change(self, new_weight: float):
         """DEAKTIVIERT - FütternSeite verwendet feste Gewichtswerte"""
         # Diese Methode würde den festen Wert von der Beladung überschreiben

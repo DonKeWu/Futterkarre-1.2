@@ -61,8 +61,6 @@ class EinstellungenSeite(QtWidgets.QWidget):
         self.ui_file = Path(__file__).parent / "einstellungen_seite.ui"
         if self.ui_file.exists():
             uic.loadUi(str(self.ui_file), self)
-            # Alte UI-Komponenten weiterhin unterstützen
-            self.setup_legacy_ui()
         else:
             self.init_manual_ui()
         
@@ -79,13 +77,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         
         logger.info("EinstellungenSeite initialisiert")
     
-    def setup_legacy_ui(self):
-        """Setup für bestehende UI-Komponenten"""
-        # Legacy Simulation-Support
-        # Hardware-only Modus (Simulation entfernt)
-        
-        # Legacy Timer (nicht verwendet)
-        self.timer = QTimer()
+
     
     def init_manual_ui(self):
         """Manueller UI-Aufbau falls .ui-Datei fehlt"""
@@ -197,23 +189,13 @@ class EinstellungenSeite(QtWidgets.QWidget):
         tab = QtWidgets.QWidget()
         layout = QtWidgets.QFormLayout(tab)
         
-        # Legacy Simulation Support
-        legacy_group = QtWidgets.QGroupBox("Simulation (Legacy)")
-        legacy_layout = QtWidgets.QFormLayout(legacy_group)
-        
-        self.btn_simulation_toggle = QtWidgets.QCheckBox("HX711 Simulation aktiviert")
-        self.btn_simulation_toggle.setCheckable(True)
-        self.btn_simulation_toggle.setChecked(True)
-        legacy_layout.addRow("", self.btn_simulation_toggle)
-        
-        layout.addRow(legacy_group)
-        
-        # Moderne Hardware-Einstellungen
-        mode_group = QtWidgets.QGroupBox("Betriebsmodus")
+        # Hardware-Betriebsmodus (Simulation entfernt)
+        mode_group = QtWidgets.QGroupBox("Hardware-Modus")
         mode_layout = QtWidgets.QFormLayout(mode_group)
         
-        self.simulation_check = QtWidgets.QCheckBox("Simulation verwenden")
-        mode_layout.addRow("", self.simulation_check)
+        hardware_info = QtWidgets.QLabel("System läuft im Hardware-only Modus (Simulation entfernt)")
+        hardware_info.setStyleSheet("color: green; font-weight: bold;")
+        mode_layout.addRow("Status:", hardware_info)
         
         self.auto_detection_check = QtWidgets.QCheckBox("Auto-Hardware-Erkennung")
         mode_layout.addRow("", self.auto_detection_check)
@@ -345,11 +327,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         if hasattr(self, 'btn_back'):
             self.btn_back.clicked.connect(self.zurueck_geklickt)
         
-        # Legacy Button Support
-        if hasattr(self, 'btn_simulation_toggle'):
-            self.btn_simulation_toggle.clicked.connect(self.toggle_hx_simulation)
-        if hasattr(self, 'btn_futter_config'):
-            self.btn_futter_config.clicked.connect(self.zu_futter_konfiguration)
+        # Legacy-Simulation-Buttons entfernt - Hardware-only Modus aktiv
         
         # Slider-Updates
         if hasattr(self, 'brightness_slider'):
@@ -374,13 +352,8 @@ class EinstellungenSeite(QtWidgets.QWidget):
                 self.brightness_slider.setValue(brightness)
                 self.update_brightness_label(brightness)
             
-            # Hardware Settings
-            if hasattr(self, 'simulation_check'):
-                self.simulation_check.setChecked(self.settings_manager.hardware.use_simulation)
-            
-            # Legacy Support
-            if hasattr(self, 'btn_simulation_toggle'):
-                self.btn_simulation_toggle.setChecked(self.settings_manager.hardware.use_simulation)
+            # Hardware Settings (Hardware-only Modus)
+            # Simulation-Checkboxen entfernt - System läuft nur mit Hardware
             
             # Feeding Settings
             if hasattr(self, 'default_amount_spin'):
@@ -401,11 +374,8 @@ class EinstellungenSeite(QtWidgets.QWidget):
             if hasattr(self, 'brightness_slider'):
                 self.settings_manager.system.brightness = self.brightness_slider.value()
             
-            # Hardware Settings
-            if hasattr(self, 'simulation_check'):
-                self.settings_manager.hardware.use_simulation = self.simulation_check.isChecked()
-            
-            # Hardware-only (Simulation entfernt)
+            # Hardware Settings (Hardware-only - Simulation entfernt)
+            # Keine Simulation-Checkboxes mehr verfügbar
             
             # Feeding Settings
             if hasattr(self, 'default_amount_spin'):
@@ -492,41 +462,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         except Exception as e:
             logger.error(f"Reset-Fehler: {e}")
             QMessageBox.critical(self, "Fehler", f"Reset fehlgeschlagen: {e}")
-    
-    # Legacy Functions (Hardware-only)
-    def toggle_hx_simulation(self, checked):
-        """Legacy Hardware Toggle (Simulation entfernt)"""
-        logger.info("Hardware-Modus aktiv (Simulation entfernt)")
-    
-    def zurueck_geklickt(self):
-        """Legacy Navigation zurück"""
-        logger.info("Zurück-Button geklickt")
-        if self.navigation:
-            self.navigation.go_back()
-        else:
-            logger.error("Navigation nicht verfügbar!")
-    
-    def zu_futter_konfiguration(self):
-        """Legacy Navigation zur Futter-Konfiguration"""
-        if self.navigation:
-            logger.info("Wechsel zur Futter-Konfiguration")
-            self.navigation.show_status("futter_konfiguration")
-    
-    def start_timer(self):
-        """Legacy Timer (nicht verwendet)"""
-        pass
-    
-    def stop_timer(self):
-        """Legacy Timer (nicht verwendet)"""
-        pass
-    
-    def update_weight(self):
-        """Legacy Weight Update (nicht verwendet)"""
-        pass
-    
-    def connect_buttons(self):
-        """Legacy Button Connection (bereits in init_ui)"""
-        self.init_ui()
+
     
     # Neue Funktionen
     def update_brightness_label(self, value):

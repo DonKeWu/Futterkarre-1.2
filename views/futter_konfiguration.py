@@ -499,22 +499,7 @@ class FutterKonfiguration(QtWidgets.QWidget):
         else:
             logger.warning("Navigation nicht verfügbar!")
     
-    # Kompatibilität mit alter Schnittstelle
-    def futter_daten_laden(self, datei_name: str):
-        """Legacy Funktion für Kompatibilität"""
-        if hasattr(self, 'combo_dateien'):
-            index = self.combo_dateien.findText(datei_name)
-            if index >= 0:
-                self.combo_dateien.setCurrentIndex(index)
-        return self.aktuelle_daten
-    
-    def get_futter_daten(self):
-        """Legacy Funktion - gibt aktuelle Daten zurück"""
-        return self.aktuelle_daten
-    
-    def get_gewahlte_datei(self):
-        """Legacy Funktion - gibt gewählte Datei zurück"""
-        return self.gewahlte_datei
+
     
     def showEvent(self, event):
         """Wird aufgerufen wenn Seite angezeigt wird"""

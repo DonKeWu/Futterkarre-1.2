@@ -8,6 +8,7 @@ from PyQt5 import QtCore
 from utils.timer_manager import get_timer_manager
 from utils.settings_manager import get_settings_manager
 from utils.database_manager import get_database_manager, FeedingRecord
+from utils.ui_utils import UIUtils
 from datetime import datetime
 
 from views.start import StartSeite
@@ -280,8 +281,8 @@ class MainWindow(QMainWindow):
             logger.info(f"Zeige Heu-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
             
             # UI-Update SOFORT nach Seiten-Wechsel
-            from PyQt5.QtWidgets import QApplication
-            QApplication.processEvents()  # UI-Event verarbeiten
+            from utils.ui_utils import UIUtils
+            UIUtils.process_events("Nach Heu-Fütterung Seitenwechsel")
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
             logger.info("Pferd-Daten sofort nach show_status() gesetzt")
             
@@ -316,8 +317,7 @@ class MainWindow(QMainWindow):
             logger.info(f"Zeige Heulage-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
             
             # UI-Update SOFORT nach Seiten-Wechsel
-            from PyQt5.QtWidgets import QApplication
-            QApplication.processEvents()  # UI-Event verarbeiten
+            UIUtils.process_events("Nach Heulage-Fütterung Seitenwechsel")
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
             logger.info("Pferd-Daten sofort nach show_status() gesetzt")
             
