@@ -1,10 +1,14 @@
-# main.py - NUR Grundfunktionen
-from config.logging_config import setup_logging
-
-setup_logging()
+# main.py - Pi5-optimiert mit erweitertem Logging
+from config.logging_config import setup_logging, get_pi5_logger
 import logging
 
+# Pi5-optimiertes Logging initialisieren
+pi5_logger = setup_logging(enable_remote_debug=False)
 logger = logging.getLogger(__name__)
+
+# Context-spezifische Logger für verschiedene Bereiche
+startup_logger = pi5_logger.create_context_logger("startup")
+deployment_logger = pi5_logger.create_context_logger("pi5-deployment")
 
 import sys
 import os
@@ -27,29 +31,49 @@ from PyQt5.QtWidgets import QApplication
 
 def main():
     try:
+        startup_logger.info("🚀 Futterkarre Pi5-Startup gestartet")
+        
+        # System-Metriken loggen
+        pi5_logger.log_system_metrics()
+        
         # 1. Hardware initialisieren
+        startup_logger.info("⚙️ Hardware-Initialisierung...")
         sensor_manager = SmartSensorManager()
-        logger.info("Sensor Manager initialisiert")
+        startup_logger.info("✅ Sensor Manager initialisiert")
 
-        # 2. Hardware-Modus initialisieren
-        logger.info("Hardware-Modus aktiviert")
+        # 2. Hardware-Modus aktivieren
+        deployment_logger.info("🔧 Hardware-only Modus aktiviert")
+        startup_logger.info("✅ Hardware-Modus bereit")
 
         # 3. PyQt-Anwendung starten
+        startup_logger.info("🖥️ PyQt5-GUI wird initialisiert...")
         app = QApplication(sys.argv)
         window = MainWindow(sensor_manager)
         
-        # 4. Fenster-Modus: --window Parameter für Tests
+        # 4. Display-Modus basierend auf Parametern
         if "--window" in sys.argv:
-            window.resize(1280, 720)  # Fenstergröße setzen
-            window.show()  # Normales Fenster
-            logger.info("MainWindow gestartet im Fenster-Modus (1280x720)")
+            window.resize(1280, 720)
+            window.show()
+            startup_logger.info("🪟 MainWindow gestartet im Fenster-Modus (1280x720)")
+            deployment_logger.info("Fenster-Modus aktiv - wahrscheinlich Test-Umgebung")
         else:
-            window.showFullScreen()  # Vollbild für Pi5
-            logger.info("MainWindow gestartet im Vollbild-Modus (kompletter Bildschirm)")
+            window.showFullScreen()
+            startup_logger.info("📺 MainWindow gestartet im Vollbild-Modus (Pi5-Display)")
+            deployment_logger.info("Vollbild-Modus aktiv - Pi5-Produktion")
         
+        startup_logger.info("🎯 Futterkarre erfolgreich gestartet - GUI bereit")
+        
+        # Event-Loop starten
         sys.exit(app.exec_())
+        
     except Exception as e:
-        logger.error(f"Kritischer Fehler in main(): {e}")
+        startup_logger.error(f"❌ Kritischer Startup-Fehler: {e}")
+        deployment_logger.error(f"Pi5-Deployment fehlgeschlagen: {e}")
+        
+        # Debug-Informationen für Remote-Diagnose
+        import traceback
+        deployment_logger.error(f"Traceback: {traceback.format_exc()}")
+        
         sys.exit(1)
 
 
