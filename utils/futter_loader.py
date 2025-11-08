@@ -39,16 +39,16 @@ def lade_pferde_als_dataclasses(dateiname: str) -> List[Pferd]:
         # Nur aktive Pferde mit Namen laden
         if row_data.get('Aktiv', 'true').lower() == 'true' and row_data.get('Name'):
             pferd = Pferd(
-                name=row_data['Name'],
+                name=str(row_data['Name']),
                 gewicht=float(row_data['Gewicht']),
                 alter=int(row_data['Alter']),
                 box=int(row_data.get('Box', row_data.get('Folge', 1))),
                 aktiv=True,
-                notizen=row_data.get('Notizen', '')
+                notizen=str(row_data.get('Notizen', ''))
             )
             pferde_liste.append(pferd)
         else:
-            logger.info(f"Leere Box übersprungen: Box {row_data.get('Box', '?')}")
+            logger.debug(f"Leere Box übersprungen: Box {row_data.get('Box', row_data.get('Folge', '?'))}")
     
     # Nach Box-Nummer sortieren
     pferde_liste.sort(key=lambda p: p.box)

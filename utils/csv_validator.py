@@ -346,11 +346,11 @@ class CSVValidator:
         """Erstellt Fallback-Daten wenn CSV komplett fehlerhaft ist"""
         if csv_type == 'pferde':
             return [{
-                'Name': 'Notfall-Pferd',
-                'Gewicht': 500,
-                'Alter': 10,
-                'Box': 1,
-                'Aktiv': 'true'
+                'name': 'Notfall-Pferd',
+                'gewicht': 500,
+                'alter': 10,
+                'box': 1,
+                'aktiv': True
             }]
         elif csv_type == 'heu':
             return [{

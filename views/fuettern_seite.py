@@ -142,32 +142,42 @@ class FuetternSeite(QWidget):
             return
 
         self.aktuelles_pferd = pferd
+        logger.info(f"Setze Pferd-Daten: Box {pferd.box} - {pferd.name}")
 
         try:
             # ECHTE Pferd-Daten anzeigen - Box-Nummer getrennt vom Namen
-            if hasattr(self, 'label_box') and hasattr(pferd, 'box'):
-                # Box-Nummer in separates Label
+            if hasattr(self, 'label_box'):
                 self.label_box.setText(f"Box {pferd.box}")
+                logger.debug(f"Box-Label gesetzt: Box {pferd.box}")
+            else:
+                logger.warning("label_box nicht verfügbar")
                 
-            if hasattr(self, 'label_rgv_name') and hasattr(pferd, 'name'):
-                # Nur noch der Name ohne Box-Nummer
+            if hasattr(self, 'label_rgv_name'):
                 self.label_rgv_name.setText(pferd.name)
+                logger.debug(f"Name-Label gesetzt: {pferd.name}")
+            else:
+                logger.warning("label_rgv_name nicht verfügbar")
                 
-            if hasattr(self, 'label_rgv_alter') and hasattr(pferd, 'alter'):
+            if hasattr(self, 'label_rgv_alter'):
                 self.label_rgv_alter.setText(f"{pferd.alter} Jahre")
-            if hasattr(self, 'label_rgv_gewicht') and hasattr(pferd, 'gewicht'):
+                logger.debug(f"Alter-Label gesetzt: {pferd.alter} Jahre")
+                
+            if hasattr(self, 'label_rgv_gewicht'):
                 self.label_rgv_gewicht.setText(f"{pferd.gewicht} kg")
+                logger.debug(f"Gewicht-Label gesetzt: {pferd.gewicht} kg")
             
             # Neue Labels mit Einheiten (aus .ui-Datei)
-            if hasattr(self, 'label_rgv_alter_jahre') and hasattr(pferd, 'alter'):
+            if hasattr(self, 'label_rgv_alter_jahre'):
                 self.label_rgv_alter_jahre.setText(f"{pferd.alter} Jahre")
-            if hasattr(self, 'label_rgv_gewicht_kg') and hasattr(pferd, 'gewicht'):
+            if hasattr(self, 'label_rgv_gewicht_kg'):
                 self.label_rgv_gewicht_kg.setText(f"{pferd.gewicht} kg")
 
-            logger.info(f"Pferd-Daten angezeigt: Box {getattr(pferd, 'box', '?')} - {pferd.name}, {pferd.alter} Jahre, {pferd.gewicht} kg")
+            logger.info(f"✅ Pferd-Daten erfolgreich angezeigt: Box {pferd.box} - {pferd.name}, {pferd.alter} Jahre, {pferd.gewicht} kg")
 
         except Exception as e:
-            logger.error(f"Fehler beim Anzeigen der Pferd-Daten: {e}")
+            logger.error(f"❌ Fehler beim Anzeigen der Pferd-Daten: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
 
     def zeige_futter_analysewerte(self, futter_daten, gefuetterte_menge_kg=5.0):
         """Zeigt Futter-Analysewerte als absolute Mengen basierend auf gefütterter Menge"""

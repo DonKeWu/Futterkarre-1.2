@@ -273,6 +273,9 @@ class MainWindow(QMainWindow):
 
         # WICHTIG: Pferd-Daten explizit setzen
         if aktuelles_pferd:
+            logger.info(f"Zeige Heu-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
+            
+            # UI-Update mit expliziter Pferd-Übertragung
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
             
             # FUTTER-DATEN hinzufügen
@@ -286,9 +289,9 @@ class MainWindow(QMainWindow):
                 
             # Navigation zu Füttern-Seite über TimerManager
             self.timer_manager.set_active_page("FuetternSeite")
-            logger.info(f"Heu-Fütterung gestartet für: {aktuelles_pferd.name}")
+            logger.info(f"Heu-Fütterung gestartet für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
         else:
-            logger.warning("Kein Pferd verfügbar!")
+            logger.error(f"KRITISCH: Kein Pferd verfügbar bei Index {self.aktueller_pferd_index}! Pferde-Liste: {len(self.pferde_liste)}")
 
     def zeige_heulage_futter(self):
         """Zeigt Heulage-Fütterung mit echten Pferd- und Futter-Daten"""
@@ -300,6 +303,9 @@ class MainWindow(QMainWindow):
         self.show_status("fuettern")
 
         if aktuelles_pferd:
+            logger.info(f"Zeige Heulage-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
+            
+            # UI-Update mit expliziter Pferd-Übertragung
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
             
             # HEULAGE-DATEN hinzufügen
@@ -313,9 +319,9 @@ class MainWindow(QMainWindow):
                 
             # Navigation zu Füttern-Seite über TimerManager
             self.timer_manager.set_active_page("FuetternSeite")
-            logger.info(f"Heulage-Fütterung gestartet für: {aktuelles_pferd.name}")
+            logger.info(f"Heulage-Fütterung gestartet für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
         else:
-            logger.warning("Kein Pferd verfügbar!")
+            logger.error(f"KRITISCH: Kein Pferd verfügbar bei Index {self.aktueller_pferd_index}! Pferde-Liste: {len(self.pferde_liste)}")
 
     def zeige_futter_laden(self):
         self.show_status("beladen")
