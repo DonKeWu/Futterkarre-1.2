@@ -15,11 +15,5 @@ cd "$PROJECT_DIR" || exit 1
 # Git-Update im Hintergrund (ohne Ausgabe)
 git pull origin main >/dev/null 2>&1
 
-# Virtual Environment aktivieren falls verfügbar
-if [ -f "$VENV_PATH/bin/python" ]; then
-    # Mit Virtual Environment
-    .venv/bin/python main.py
-else
-    # Fallback auf System Python
-    python3 main.py
-fi
+# Direkt mit System-Python starten (KEIN .venv!)
+python3 main.py
