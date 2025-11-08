@@ -12,17 +12,33 @@ logger = logging.getLogger(__name__)
 DATA_DIR = (Path(__file__).parent.parent / "data").resolve()
 
 def lade_pferde_als_dataclasses(dateiname: str) -> List[Pferd]:
-    """Lädt Pferde mit robuster CSV-Validierung"""
-    pfad = DATA_DIR / dateiname
+    """Lädt Pferde mit robuster CSV-Validierung und Error-Handling"""
+    from utils.error_handler import error_handler
     
-    # CSV-Validierung
-    validation_result = csv_validator.validate_csv_file(pfad, 'pferde')
+    def load_and_validate():
+        pfad = DATA_DIR / dateiname
+        
+        # CSV-Validierung
+        validation_result = csv_validator.validate_csv_file(pfad, 'pferde')
+        
+        if not validation_result['success']:
+            logger.warning("Verwende Fallback-Pferd wegen Validierungsfehler")
+            fallback_data = csv_validator.get_fallback_data('pferde')
+            return [Pferd(**data) for data in fallback_data]
+        
+        return validation_result
     
-    if not validation_result['success']:
-        logger.error(f"CSV-Validierung fehlgeschlagen für {dateiname}: {validation_result['error']}")
-        logger.warning("Verwende Fallback-Pferd")
-        fallback_data = csv_validator.get_fallback_data('pferde')
-        return [Pferd(**data) for data in fallback_data]
+    # Mit Error-Handler ausführen
+    validation_result = error_handler.safe_execute(
+        load_and_validate,
+        fallback_value={'data': csv_validator.get_fallback_data('pferde')},
+        operation_name=f"CSV-Loading {dateiname}",
+        show_user_error=False
+    )
+    
+    # Falls bereits Pferd-Objekte zurückgegeben wurden (Fallback-Fall)
+    if isinstance(validation_result, list):
+        return validation_result
     
     # Warnungen loggen
     for warning in validation_result['warnings']:

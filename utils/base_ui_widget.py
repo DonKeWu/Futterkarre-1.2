@@ -57,23 +57,27 @@ class BaseUIWidget(QtWidgets.QWidget):
         
     def load_ui_or_fallback(self, ui_filename: str):
         """
-        Lädt UI-Datei oder erstellt Fallback
+        Lädt UI-Datei mit robustem Error-Handling
         
         Args:
             ui_filename: Name der .ui-Datei (z.B. "start.ui")
         """
-        try:
+        from utils.error_handler import error_handler
+        
+        def load_ui():
             ui_path = Path(__file__).parent / ui_filename
-            if ui_path.exists():
-                uic.loadUi(str(ui_path), self)
-                logger.info(f"{ui_filename} erfolgreich geladen")
-                return True
-            else:
-                logger.warning(f"{ui_filename} nicht gefunden - verwende Fallback")
-                return False
-        except Exception as e:
-            logger.error(f"Fehler beim Laden von {ui_filename}: {e}")
-            return False
+            if not ui_path.exists():
+                raise FileNotFoundError(f"UI-Datei nicht gefunden: {ui_path}")
+            
+            uic.loadUi(str(ui_path), self)
+            return True
+        
+        return error_handler.safe_execute(
+            load_ui,
+            fallback_value=False,
+            operation_name=f"UI-Loading {ui_filename}",
+            show_user_error=False
+        )
     
     def setup_pitouch_display(self):
         """
@@ -110,20 +114,35 @@ class BaseUIWidget(QtWidgets.QWidget):
     
     def safe_navigation(self, target: str, context=None):
         """
-        Sichere Navigation mit Fehlerbehandlung
+        Robuste Navigation mit Error-Handling und Recovery
         
         Args:
             target: Ziel-Seite (z.B. "start", "auswahl")
             context: Optionaler Kontext
         """
-        if self.navigation:
-            if hasattr(self.navigation, 'show_status'):
-                self.navigation.show_status(target, context)
-                logger.debug(f"Navigation zu {target}")
-            else:
-                logger.warning("Navigation hat keine show_status Methode")
-        else:
-            logger.warning("Navigation nicht verfügbar")
+        from utils.error_handler import error_handler, recovery_manager
+        
+        def navigate():
+            if not self.navigation:
+                raise AttributeError("Navigation nicht verfügbar")
+                
+            if not hasattr(self.navigation, 'show_status'):
+                raise AttributeError("Navigation hat keine show_status Methode")
+                
+            self.navigation.show_status(target, context)
+            return True
+        
+        success = error_handler.safe_execute(
+            navigate,
+            fallback_value=False,
+            operation_name=f"Navigation zu {target}",
+            show_user_error=False
+        )
+        
+        # Bei Navigationsfehler: Recovery zur sicheren Startseite
+        if not success and target != "start":
+            logger.warning(f"Navigation zu {target} fehlgeschlagen - Recovery zur Startseite")
+            recovery_manager.recover_navigation(self.navigation, "start")
     
     def back_clicked(self):
         """Standard Zurück-Button Implementierung"""
