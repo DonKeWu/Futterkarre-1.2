@@ -236,6 +236,23 @@ class MainWindow(QMainWindow):
             self.stacked_widget.setCurrentWidget(self.page_widgets[page])
             self.current_status = page
             self.current_context = context or {}
+            
+            # Timer für aktuelle Seite aktivieren UND Kontext übertragen
+            if page == "beladen":
+                self.timer_manager.set_active_page("BeladenSeite")
+                # BeladenSeite: Kontext setzen (falls vorhanden)
+                if context and hasattr(self.page_widgets[page], 'set_context'):
+                    self.page_widgets[page].set_context(context)
+                logger.info("Timer für BeladenSeite aktiviert")
+            elif page == "fuettern":
+                self.timer_manager.set_active_page("FuetternSeite")
+                # FütternSeite: Kontext wiederherstellen (WICHTIG für Beladungswerte!)
+                if context and hasattr(self.page_widgets[page], 'restore_context'):
+                    self.page_widgets[page].restore_context(context)
+                    logger.info(f"FütternSeite: Kontext wiederhergestellt - {context.get('neues_gewicht', 0):.2f}kg")
+                logger.info("Timer für FuetternSeite aktiviert")
+            # Andere Seiten haben keine Timer
+            
             logger.info(f"Seite gewechselt zu: {page}")
         else:
             logger.error(f"Unbekannte Seite: {page}")

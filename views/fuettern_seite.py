@@ -66,11 +66,9 @@ class FuetternSeite(QWidget):
 
     def connect_buttons(self):
         """Verbindet alle Buttons"""
-        # WeightManager Observer registrieren für automatische UI-Updates
-        if not self._weight_observer_registered:
-            self.weight_manager.register_observer("fuettern_seite", self._on_weight_change)
-            self._weight_observer_registered = True
-            logger.info("WeightManager Observer für FuetternSeite registriert")
+        # KEIN WeightManager Observer für FütternSeite - verwendet feste Werte!
+        # FütternSeite = Inventar-Tracking, BeladenSeite = Live-Waage
+        logger.info("FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)")
         
         # TimerManager Timer registrieren
         if not self._timer_registered:
@@ -262,11 +260,17 @@ class FuetternSeite(QWidget):
     # Simuliere_fuetterung entfernt - wird jetzt automatisch über btn_next_rgv gehandhabt
 
     def update_gewichts_anzeigen(self):
-        """Aktualisiert alle Gewichts-Anzeigen - verwendet WeightManager"""
+        """Aktualisiert alle Gewichts-Anzeigen - HYBRID: Simulation vs Hardware"""
         try:
-            # Zentralisierte Gewichtsquelle über WeightManager
-            aktuelles_gewicht = self.weight_manager.read_weight()
-            self.karre_gewicht = aktuelles_gewicht
+            # HYBRID-MODUS: Simulation vs Hardware unterscheiden
+            if self.weight_manager.get_status()['is_simulation']:
+                # SIMULATION: WeightManager-Updates beachten (für realistische Demo)
+                aktuelles_gewicht = self.weight_manager.read_weight()
+                self.karre_gewicht = aktuelles_gewicht
+                print(f"DEBUG: Karre-Gewicht (SIMULATION): {self.karre_gewicht:.2f} kg")
+            else:
+                # HARDWARE: Feste Werte verwenden (Inventar-System)
+                print(f"DEBUG: Karre-Gewicht (HARDWARE-FEST): {self.karre_gewicht:.2f} kg")
             
             # Karre-Gewicht anzeigen
             if hasattr(self, 'label_karre_gewicht_anzeigen'):
@@ -277,7 +281,6 @@ class FuetternSeite(QWidget):
                 self.label_fu_entnommen.setText(f"{self.entnommenes_gewicht:.2f}")
 
             # Debug-Ausgabe
-            print(f"DEBUG: Karre-Gewicht: {self.karre_gewicht:.2f} kg")
             print(f"DEBUG: Entnommen: {self.entnommenes_gewicht:.2f} kg")
             
         except Exception as e:
@@ -374,6 +377,8 @@ class FuetternSeite(QWidget):
             self.entnommenes_gewicht = 4.5  # Für Anzeige
             logger.info("WeightManager: 4.5kg automatisch entnommen")
             
+            # UI wird automatisch über Timer aktualisiert - kein manueller Aufruf nötig
+            
             # Futter-Analysewerte mit tatsächlicher Menge aktualisieren
             if self.aktuelle_futter_daten:
                 self.zeige_futter_analysewerte(self.aktuelle_futter_daten, self.entnommenes_gewicht)
@@ -453,18 +458,10 @@ class FuetternSeite(QWidget):
         sys.exit(0)
     
     def _on_weight_change(self, new_weight: float):
-        """Callback für WeightManager Observer - automatische UI-Updates"""
-        try:
-            self.karre_gewicht = new_weight
-            
-            # UI-Labels aktualisieren (nur wenn sie existieren)
-            if hasattr(self, 'label_karre_gewicht_anzeigen'):
-                self.label_karre_gewicht_anzeigen.setText(f"{new_weight:.2f}")
-            
-            logger.debug(f"FuetternSeite: Gewicht automatisch aktualisiert auf {new_weight:.2f}kg")
-            
-        except Exception as e:
-            logger.error(f"Fehler bei automatischer Gewichtsaktualisierung: {e}")
+        """DEAKTIVIERT - FütternSeite verwendet feste Gewichtswerte"""
+        # Diese Methode würde den festen Wert von der Beladung überschreiben
+        # FütternSeite = Inventar-System, nicht Live-Waage!
+        logger.debug(f"FuetternSeite: WeightManager-Update ignoriert ({new_weight:.2f}kg) - verwende feste Werte")
     
     def closeEvent(self, event):
         """Aufräumen beim Schließen der Seite"""

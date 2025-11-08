@@ -267,15 +267,21 @@ class WeightManager:
             logger.warning("Gewichtssimulation nur im Simulationsmodus möglich")
             return
         
+        workflow_sim = hx711_sim.get_workflow_simulation()
+        alte_menge = workflow_sim.karre_gewicht
+        print(f"🔄 simulate_weight_change({delta_kg:+.1f}kg) - Vor: {alte_menge:.1f}kg")
+        
         if delta_kg > 0:
             hx711_sim.karre_beladen(delta_kg)
         elif delta_kg < 0:
             # Manuelle Entnahme simulieren
-            hx711_sim._workflow_sim.karre_gewicht += delta_kg
-            if hx711_sim._workflow_sim.karre_gewicht < 0:
-                hx711_sim._workflow_sim.karre_gewicht = 0.0
+            workflow_sim.karre_gewicht += delta_kg
+            if workflow_sim.karre_gewicht < 0:
+                workflow_sim.karre_gewicht = 0.0
         
+        neue_menge = workflow_sim.karre_gewicht
         logger.info(f"Simulation: Gewicht um {delta_kg:+.1f}kg geändert")
+        print(f"✅ Nach Änderung: {neue_menge:.1f}kg (Differenz: {neue_menge - alte_menge:+.1f}kg)")
 
 # Globale Instanz für einfachen Zugriff
 weight_manager = WeightManager()

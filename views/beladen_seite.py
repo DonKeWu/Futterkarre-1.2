@@ -57,7 +57,8 @@ class BeladenSeite(QWidget):
                 self.update_weight
             )
             self._timer_registered = True
-            logger.info("TimerManager Timer für BeladenSeite registriert")
+            logger.info("🎯 TimerManager Timer für BeladenSeite registriert")
+            print(f"🎯 BeladenSeite: Timer registriert - ID: beladen_weight_update")
 
         # Legacy Timer erstellen (für Fallback)
         self.timer = QTimer()
@@ -250,22 +251,43 @@ class BeladenSeite(QWidget):
                 self.navigation.show_status("fuettern", self.context)
 
     def update_weight(self):
-        """Aktualisiert Gewichtsanzeige mit WeightManager"""
+        """Aktualisiert Gewichtsanzeige mit WeightManager - Enhanced Debugging"""
         try:
+            # SIMULATION HACK: Simuliere "Material-auf-Waage" für Live-Demo  
+            import hardware.hx711_sim as hx711_sim
+            if self.weight_manager.get_status()['is_simulation']:
+                # Simuliere dass Material auf die Waage gelegt wird (für BeladenSeite)
+                workflow_sim = hx711_sim.get_workflow_simulation()
+                if not workflow_sim.ist_beladen:
+                    # Simuliere dass 15-25kg Material bereits auf der Waage liegen
+                    import random
+                    basis_gewicht = random.uniform(15.0, 25.0)
+                    workflow_sim.karre_gewicht = basis_gewicht
+                    workflow_sim.ist_beladen = True
+                    print(f"🎯 SIMULATION: Basis-Material simuliert: {basis_gewicht:.1f}kg")
+
             # WeightManager für einheitliche Gewichtsquelle
             aktuelles_gewicht = self.weight_manager.read_weight()
-            print(f"Gewicht gelesen: {aktuelles_gewicht:.2f} kg")
+            print(f"🔄 UPDATE_WEIGHT AUFGERUFEN: {aktuelles_gewicht:.2f} kg")
 
             # Hauptgewichtsanzeige aktualisieren
             if hasattr(self, 'label_karre_gewicht'):
+                old_text = self.label_karre_gewicht.text()
                 self.label_karre_gewicht.setText(f"{aktuelles_gewicht:.2f}")
-                print(f"Label aktualisiert: {aktuelles_gewicht:.2f}")
+                print(f"📝 LABEL UPDATE: {old_text} -> {aktuelles_gewicht:.2f}")
+                
+                # Force UI refresh
+                self.label_karre_gewicht.update()
+                self.label_karre_gewicht.repaint()
+                print(f"🖼️ UI REFRESH erzwungen")
             else:
-                print("FEHLER: label_karre_gewicht nicht gefunden!")
+                print("❌ FEHLER: label_karre_gewicht nicht gefunden!")
+                # Debug: Alle verfügbaren Attribute anzeigen
+                print(f"📋 Verfügbare Label-Attribute: {[attr for attr in dir(self) if 'label' in attr.lower()]}")
 
         except Exception as e:
             logger.error(f"Fehler beim Wiegen: {e}")
-            print(f"FEHLER in update_weight: {e}")
+            print(f"💥 FEHLER in update_weight: {e}")
             if hasattr(self, 'label_karre_gewicht'):
                 self.label_karre_gewicht.setText("Error")
 
