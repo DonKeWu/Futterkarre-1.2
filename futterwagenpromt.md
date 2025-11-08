@@ -35,4 +35,11 @@
 5. Push mit Tags: git push origin main --tags
 6. Pi5 per SSH updaten: git pull origin main
 
+**Debugging-Best-Practices (Lessons Learned):**
+- **Objekt-Status direkt prüfen**: `if self.aktuelles_pferd:` - Null-Checks sind essentiell
+- **Kontext-Inhalt analysieren**: Was wird wirklich übertragen? Logs zeigen nicht immer die ganze Wahrheit
+- **Einfache Null-Checks**: Manchmal sind die simpelsten Bugs die tückischsten
+- **Root Cause vs. Symptom**: UI zeigt "TextLabel" ≠ UI-Problem, sondern fehlende Daten
+- **Datenfluss verfolgen**: BeladenSeite → MainWindow → FütternSeite - wo geht das Objekt verloren?
+
 **Merke:** Immer diese Regeln beachten, wenn du Anweisungen für den Raspberry Pi gibst!

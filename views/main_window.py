@@ -96,6 +96,7 @@ class MainWindow(QMainWindow):
         self.auswahl_seite = AuswahlSeite()
         self.beladen_seite = BeladenSeite(sensor_manager=self.sensor_manager)
         self.fuettern_seite = FuetternSeite()
+        self.fuettern_seite.main_window = self  # Für Pferd-Objekt Zugriff
         self.einstellungen_seite = EinstellungenSeite(sensor_manager=self.sensor_manager)
 
         # NEUE Seiten hinzufügen
@@ -274,12 +275,15 @@ class MainWindow(QMainWindow):
         aktuelles_pferd = self.get_aktuelles_pferd()
         self.show_status("fuettern")
 
-        # WICHTIG: Pferd-Daten explizit setzen
+        # WICHTIG: Pferd-Daten explizit setzen NACH dem show_status
         if aktuelles_pferd:
             logger.info(f"Zeige Heu-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
             
-            # UI-Update mit expliziter Pferd-Übertragung
+            # UI-Update SOFORT nach Seiten-Wechsel
+            from PyQt5.QtWidgets import QApplication
+            QApplication.processEvents()  # UI-Event verarbeiten
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
+            logger.info("Pferd-Daten sofort nach show_status() gesetzt")
             
             # FUTTER-DATEN hinzufügen
             if self.heu_liste:
@@ -311,8 +315,11 @@ class MainWindow(QMainWindow):
         if aktuelles_pferd:
             logger.info(f"Zeige Heulage-Fütterung für: Box {aktuelles_pferd.box} - {aktuelles_pferd.name}")
             
-            # UI-Update mit expliziter Pferd-Übertragung
+            # UI-Update SOFORT nach Seiten-Wechsel
+            from PyQt5.QtWidgets import QApplication
+            QApplication.processEvents()  # UI-Event verarbeiten
             self.fuettern_seite.zeige_pferd_daten(aktuelles_pferd)
+            logger.info("Pferd-Daten sofort nach show_status() gesetzt")
             
             # HEULAGE-DATEN hinzufügen
             if self.heulage_liste:

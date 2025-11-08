@@ -15,6 +15,7 @@ class FuetternSeite(QWidget):
     def __init__(self, pferd=None, parent=None):
         super().__init__(parent)
         self.navigation = None
+        self.main_window = None  # Wird vom MainWindow gesetzt
         
         # WeightManager Integration
         self.weight_manager = get_weight_manager()
@@ -181,6 +182,10 @@ class FuetternSeite(QWidget):
                 logger.debug(f"Name-Label gesetzt: {pferd.name}")
             else:
                 logger.warning("label_rgv_name nicht verfügbar")
+            
+            # UI sofort updaten nach jedem Label-Set
+            from PyQt5.QtWidgets import QApplication
+            QApplication.processEvents()
                 
             if hasattr(self, 'label_rgv_alter'):
                 self.label_rgv_alter.setText(f"{pferd.alter} Jahre")
@@ -197,6 +202,12 @@ class FuetternSeite(QWidget):
                 self.label_rgv_gewicht_kg.setText(f"{pferd.gewicht} kg")
 
             # KEINE automatische TextLabel Bereinigung hier - das macht die UI kaputt!
+
+            # UI-Refresh explizit erzwingen
+            from PyQt5.QtWidgets import QApplication
+            QApplication.processEvents()
+            self.update()
+            logger.debug("UI-Refresh nach Pferd-Daten-Update erzwungen")
 
             logger.info(f"✅ Pferd-Daten erfolgreich angezeigt: Box {pferd.box} - {pferd.name}, {pferd.alter} Jahre, {pferd.gewicht} kg")
 
@@ -350,9 +361,22 @@ class FuetternSeite(QWidget):
         if neues_gewicht > 0:
             self.set_karre_gewicht(neues_gewicht)
 
-        # Pferd-Daten anzeigen
+        # KRITISCH: Pferd-Objekt fehlt im Kontext - direkt vom MainWindow holen!
+        if not self.aktuelles_pferd and hasattr(self, 'main_window'):
+            aktuelles_pferd = self.main_window.get_aktuelles_pferd()
+            if aktuelles_pferd:
+                self.aktuelles_pferd = aktuelles_pferd
+                logger.info(f"Pferd-Objekt aus MainWindow geholt: {aktuelles_pferd.name}")
+
+        # Pferd-Daten anzeigen mit UI-Refresh
         if self.aktuelles_pferd:
+            # UI-Events verarbeiten vor Pferd-Daten setzen
+            from PyQt5.QtWidgets import QApplication
+            QApplication.processEvents()
             self.zeige_pferd_daten(self.aktuelles_pferd)
+            logger.info("Pferd-Daten im Kontext mit processEvents gesetzt")
+        else:
+            logger.error("❌ KEIN Pferd-Objekt verfügbar - UI bleibt leer!")
 
         logger.info(f"Kontext wiederhergestellt - Pferd {self.aktuelle_pferd_nummer}, Karre: {neues_gewicht:.2f} kg")
 

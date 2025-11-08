@@ -4358,3 +4358,1128 @@
 2025-11-08 06:39:45,025 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 86.87kg
 2025-11-08 06:39:45,025 [INFO] views.main_window: Timer für FuetternSeite aktiviert
 2025-11-08 06:39:45,025 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:48:39,146 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 08:48:39,146 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 08:48:39,146 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 08:48:39,146 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 08:48:39,159 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 08:48:39,159 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 08:48:39,159 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 08:48:39,159 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 08:48:39,159 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 08:48:39,159 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 08:48:39,159 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 08:48:39,160 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 08:48:39,160 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:48:39,160 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:48:39,160 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:48:39,160 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:48:39,160 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 08:48:39,160 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 08:48:39,160 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:48:39,160 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 08:48:39,160 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 08:48:39,160 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:48:39,161 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 08:48:39,161 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 08:48:39,161 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 08:48:39,161 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 08:48:39,161 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:48:39,161 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 08:48:39,161 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 08:48:39,167 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 08:48:39,169 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 08:48:39,169 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 08:48:39,169 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 08:48:39,169 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 08:48:39,175 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 08:48:39,175 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 08:48:39,175 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 08:48:39,175 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 08:48:39,175 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 08:48:39,178 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 08:48:39,180 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 08:48:39,180 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 08:48:39,180 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 08:48:39,180 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 08:48:39,180 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 08:48:39,181 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 08:48:39,181 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 08:48:39,192 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 08:48:39,192 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:48:39,192 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 08:48:39,217 [INFO] __main__: MainWindow gestartet im Vollbild-Modus (kompletter Bildschirm)
+2025-11-08 08:48:41,647 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 08:48:41,647 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:48:41,648 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 08:48:42,908 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 08:48:42,908 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:48:42,908 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 08:48:42,908 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 08:48:42,908 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 08:48:42,908 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 08:48:43,384 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:43,859 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:44,334 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:44,504 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:44,504 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 08:48:44,504 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 08:48:44,505 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 08:48:44,505 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 08:48:44,505 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 08:48:44,505 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 08:48:44,505 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 08:48:44,505 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 08:48:44,505 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 08:48:44,505 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:48:45,456 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:46,406 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:47,355 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:48,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:49,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:50,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:51,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:51,401 [INFO] views.main_window: Wechsel zu Box 2: Delight
+2025-11-08 08:48:51,401 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 2 - Delight
+2025-11-08 08:48:51,401 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 2 - Delight, 3 Jahre, 280.0 kg
+2025-11-08 08:48:51,401 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:52,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:53,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:48:53,880 [INFO] views.fuettern_seite: EXIT-Button gedrückt - Anwendung wird beendet
+2025-11-08 08:51:28,315 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 08:51:28,315 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 08:51:28,315 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 08:51:28,315 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 08:51:28,324 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 08:51:28,324 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 08:51:28,324 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 08:51:28,324 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 08:51:28,324 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 08:51:28,324 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 08:51:28,324 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 08:51:28,325 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:51:28,325 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 08:51:28,325 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 08:51:28,325 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:51:28,325 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 08:51:28,325 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 08:51:28,325 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:51:28,325 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 08:51:28,325 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 08:51:28,325 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 08:51:28,325 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:51:28,325 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 08:51:28,325 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 08:51:28,331 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 08:51:28,333 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 08:51:28,334 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 08:51:28,334 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 08:51:28,334 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 08:51:28,339 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 08:51:28,339 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 08:51:28,339 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 08:51:28,339 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 08:51:28,339 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 08:51:28,342 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 08:51:28,344 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 08:51:28,344 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 08:51:28,345 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 08:51:28,345 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 08:51:28,345 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 08:51:28,345 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 08:51:28,345 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 08:51:28,356 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 08:51:28,356 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:51:28,356 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 08:51:28,371 [INFO] __main__: MainWindow gestartet im Vollbild-Modus (kompletter Bildschirm)
+2025-11-08 08:51:30,802 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 08:51:30,802 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:51:30,802 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 08:51:31,696 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 08:51:31,696 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:51:31,696 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 08:51:31,696 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 08:51:31,696 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 08:51:31,696 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 08:51:32,221 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:32,744 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:32,744 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 08:51:32,744 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 08:51:32,744 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 08:51:32,744 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 08:51:32,744 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 08:51:32,744 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 08:51:32,744 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 08:51:32,744 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 08:51:32,744 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 08:51:32,744 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:51:33,794 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:34,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:37,932 [INFO] views.main_window: Wechsel zu Box 2: Delight
+2025-11-08 08:51:37,932 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 2 - Delight
+2025-11-08 08:51:37,935 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 2 - Delight, 3 Jahre, 280.0 kg
+2025-11-08 08:51:37,935 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:38,709 [INFO] views.main_window: Wechsel zu Box 3: Maverick
+2025-11-08 08:51:38,709 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 3 - Maverick
+2025-11-08 08:51:38,710 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 3 - Maverick, 5 Jahre, 400.0 kg
+2025-11-08 08:51:38,710 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:39,172 [INFO] views.main_window: Wechsel zu Box 4: Rondo
+2025-11-08 08:51:39,172 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 4 - Rondo
+2025-11-08 08:51:39,172 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 4 - Rondo, 12 Jahre, 520.0 kg
+2025-11-08 08:51:39,172 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:51:40,431 [INFO] views.fuettern_seite: EXIT-Button gedrückt - Anwendung wird beendet
+2025-11-08 08:53:30,728 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 08:53:30,728 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 08:53:30,728 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 08:53:30,728 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 08:53:30,742 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 08:53:30,743 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 08:53:30,743 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 08:53:30,743 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 08:53:30,743 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 08:53:30,743 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 08:53:30,743 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 08:53:30,744 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:53:30,744 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 08:53:30,744 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 08:53:30,744 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:53:30,744 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 08:53:30,744 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 08:53:30,744 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:53:30,744 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 08:53:30,744 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 08:53:30,744 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 08:53:30,744 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:53:30,744 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 08:53:30,744 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 08:53:30,751 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 08:53:30,753 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 08:53:30,753 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 08:53:30,753 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 08:53:30,753 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 08:53:30,759 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 08:53:30,759 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 08:53:30,759 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 08:53:30,759 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 08:53:30,759 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 08:53:30,763 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 08:53:30,765 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 08:53:30,765 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 08:53:30,765 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 08:53:30,765 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 08:53:30,765 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 08:53:30,766 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 08:53:30,766 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 08:53:30,777 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 08:53:30,777 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:53:30,777 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 08:53:30,791 [INFO] __main__: MainWindow gestartet im Fenster-Modus (1280x720)
+2025-11-08 08:53:34,546 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 08:53:34,546 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:53:34,547 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 08:53:37,182 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 08:53:37,182 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:53:37,182 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 08:53:37,183 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 08:53:37,183 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 08:53:37,183 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 08:53:37,709 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:38,233 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:38,759 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:39,283 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:40,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:41,307 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:42,306 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:42,999 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:43,000 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 08:53:43,000 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 08:53:43,000 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 08:53:43,000 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 08:53:43,000 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 08:53:43,000 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 08:53:43,000 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 08:53:43,000 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 08:53:43,000 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 08:53:43,000 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:53:43,951 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:44,900 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:45,850 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:47,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:48,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:53,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:55,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:56,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:53:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:02,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:04,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:09,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:17,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:18,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:22,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:23,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:27,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:28,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:31,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:36,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:38,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:40,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:43,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:44,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:45,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:49,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:51,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:52,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:53,635 [INFO] views.main_window: Wechsel zu Box 2: Delight
+2025-11-08 08:54:53,635 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 2 - Delight
+2025-11-08 08:54:53,637 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 2 - Delight, 3 Jahre, 280.0 kg
+2025-11-08 08:54:53,637 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:53,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:54,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:54:59,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:07,419 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 08:55:07,419 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 08:55:07,419 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 08:55:07,419 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 08:55:07,430 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 08:55:07,430 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 08:55:07,430 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 08:55:07,430 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 08:55:07,430 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 08:55:07,430 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 08:55:07,430 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 08:55:07,431 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:55:07,431 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 08:55:07,431 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 08:55:07,431 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:55:07,431 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 08:55:07,431 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 08:55:07,431 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:55:07,431 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 08:55:07,431 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 08:55:07,431 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 08:55:07,431 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:55:07,431 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 08:55:07,432 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 08:55:07,437 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 08:55:07,439 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 08:55:07,439 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 08:55:07,440 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 08:55:07,440 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 08:55:07,445 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 08:55:07,445 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 08:55:07,445 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 08:55:07,445 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 08:55:07,445 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 08:55:07,448 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 08:55:07,451 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 08:55:07,451 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 08:55:07,451 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 08:55:07,451 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 08:55:07,451 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 08:55:07,452 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 08:55:07,452 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 08:55:07,462 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 08:55:07,462 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:55:07,462 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 08:55:07,486 [INFO] __main__: MainWindow gestartet im Fenster-Modus (1280x720)
+2025-11-08 08:55:11,782 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 08:55:11,783 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:55:11,783 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 08:55:14,017 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 08:55:14,017 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:55:14,017 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 08:55:14,018 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 08:55:14,018 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 08:55:14,018 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 08:55:14,493 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:14,968 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:15,443 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:15,715 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:15,715 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 08:55:15,715 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 08:55:15,715 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 08:55:15,715 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 08:55:15,715 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 08:55:15,716 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 08:55:15,716 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 08:55:15,716 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 08:55:15,716 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 08:55:15,716 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:55:16,766 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:17,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:19,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:22,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:25,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:28,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:30,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:31,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:40,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:41,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:42,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:43,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:44,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:46,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:47,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:54,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:56,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:57,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:55:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:04,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:07,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:12,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:13,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:16,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:17,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:18,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:20,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:22,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:23,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:27,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:30,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:31,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:32,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:34,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:43,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:44,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:49,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:51,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:52,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:55,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:56,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:57,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:58,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:56:59,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:00,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:01,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:04,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:07,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:08,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:09,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:10,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:11,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:12,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:13,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:14,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:15,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:16,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:17,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:18,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:19,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:21,236 [ERROR] hardware.weight_manager: ❌ Hardware-Module nicht importierbar: No module named 'hx711'
+2025-11-08 08:57:21,237 [INFO] hardware.weight_manager: WeightManager initialisiert - Hardware verfügbar: False
+2025-11-08 08:57:21,237 [INFO] __main__: Sensor Manager initialisiert
+2025-11-08 08:57:21,237 [INFO] __main__: Hardware-Modus aktiviert
+2025-11-08 08:57:21,246 [INFO] utils.timer_manager: TimerManager initialisiert
+2025-11-08 08:57:21,246 [WARNING] utils.settings_manager: Überspringe unbekannten FeedingSettings Parameter: hardware_mode
+2025-11-08 08:57:21,246 [WARNING] utils.settings_manager: Überspringe unbekannten HardwareSettings Parameter: use_hardware_only
+2025-11-08 08:57:21,246 [INFO] utils.settings_manager: Einstellungen geladen aus config/settings.json
+2025-11-08 08:57:21,246 [INFO] utils.settings_manager: SettingsManager initialisiert
+2025-11-08 08:57:21,246 [INFO] utils.database_manager: Datenbank-Schema erfolgreich initialisiert
+2025-11-08 08:57:21,246 [INFO] utils.database_manager: DatabaseManager initialisiert: data/feeding_history.db
+2025-11-08 08:57:21,247 [INFO] utils.csv_validator: CSV-Validierung für pferde.csv: 30 gültige Zeilen, 2 Fehler, 4 Warnungen
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 12: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Gewicht', Standard verwendet: 500
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 16: Fehlender Wert für 'Alter', Standard verwendet: 10
+2025-11-08 08:57:21,247 [ERROR] utils.futter_loader: Zeile 12: Pflichtfeld 'Name' fehlt
+2025-11-08 08:57:21,247 [ERROR] utils.futter_loader: Zeile 16: Pflichtfeld 'Name' fehlt
+2025-11-08 08:57:21,247 [INFO] utils.futter_loader: 30 Pferde erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:57:21,247 [INFO] views.main_window: 30 Pferde aus CSV geladen
+2025-11-08 08:57:21,247 [INFO] utils.csv_validator: CSV-Validierung für heu_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 0 Warnungen
+2025-11-08 08:57:21,247 [INFO] utils.futter_loader: 1 Heu-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:57:21,247 [INFO] views.main_window: Standard-Heu geladen: 1 Einträge
+2025-11-08 08:57:21,247 [INFO] utils.csv_validator: CSV-Validierung für heulage_eigen_2025.csv: 1 gültige Zeilen, 0 Fehler, 2 Warnungen
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 2: 'Trockensubstanz' zu groß: 71.1 > 70, Standard verwendet: 45
+2025-11-08 08:57:21,247 [WARNING] utils.futter_loader: Zeile 2: 'ME-Pferd' zu klein: 7.4 < 8, Standard verwendet: 10
+2025-11-08 08:57:21,247 [INFO] utils.futter_loader: 1 Heulage-Einträge erfolgreich geladen mit CSV-Validierung
+2025-11-08 08:57:21,247 [INFO] views.main_window: Standard-Heulage geladen: 1 Einträge
+2025-11-08 08:57:21,247 [INFO] views.main_window: MainWindow wird initialisiert mit erweiterten Managern
+2025-11-08 08:57:21,253 [INFO] views.auswahl_seite: AuswahlSeite Buttons verbunden
+2025-11-08 08:57:21,256 [INFO] views.beladen_seite: beladen_seite.ui erfolgreich geladen
+2025-11-08 08:57:21,256 [INFO] views.beladen_seite: 🎯 TimerManager Timer für BeladenSeite registriert
+2025-11-08 08:57:21,256 [INFO] views.beladen_seite: Futter-Button-Gruppe eingerichtet mit 2 Optionen
+2025-11-08 08:57:21,256 [INFO] views.beladen_seite: Back-Button verbunden
+2025-11-08 08:57:21,262 [INFO] views.fuettern_seite: fuettern_seite.ui erfolgreich geladen
+2025-11-08 08:57:21,262 [INFO] views.fuettern_seite: FütternSeite verwendet feste Gewichtswerte (kein WeightManager Observer)
+2025-11-08 08:57:21,262 [INFO] views.fuettern_seite: TimerManager Timer für FuetternSeite registriert
+2025-11-08 08:57:21,262 [INFO] views.fuettern_seite: HEU-Zwischenstopp Button verbunden
+2025-11-08 08:57:21,262 [INFO] views.fuettern_seite: Exit-Button für Tests verbunden
+2025-11-08 08:57:21,265 [INFO] views.einstellungen_seite: EinstellungenSeite initialisiert
+2025-11-08 08:57:21,267 [INFO] views.futter_konfiguration: Heulage-Datei gewählt: heulage_eigen_2025.csv
+2025-11-08 08:57:21,267 [INFO] views.futter_konfiguration: Heu-Datei gewählt: heu_frd_2025.csv
+2025-11-08 08:57:21,267 [INFO] views.futter_konfiguration: Pellet-Datei gewählt: Pellets_deukavallo_Top_E.csv
+2025-11-08 08:57:21,267 [INFO] views.futter_konfiguration: Verfügbare Dateien: 2 Heu, 1 Heulage, 1 Pellets
+2025-11-08 08:57:21,267 [INFO] views.futter_konfiguration: FutterKonfiguration initialisiert
+2025-11-08 08:57:21,268 [INFO] views.fuetterung_abschluss: fuetterung_abschluss.ui erfolgreich geladen
+2025-11-08 08:57:21,268 [INFO] views.main_window: Signal-Verbindungen erfolgreich eingerichtet
+2025-11-08 08:57:21,279 [INFO] views.main_window: Navigation: start mit Kontext: None
+2025-11-08 08:57:21,279 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:57:21,279 [INFO] views.main_window: Seite gewechselt zu: start
+2025-11-08 08:57:21,295 [INFO] __main__: MainWindow gestartet im Fenster-Modus (1280x720)
+2025-11-08 08:57:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:22,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:23,402 [INFO] views.main_window: Navigation: auswahl mit Kontext: None
+2025-11-08 08:57:23,402 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:57:23,403 [INFO] views.main_window: Seite gewechselt zu: auswahl
+2025-11-08 08:57:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:24,514 [INFO] views.main_window: Navigation: beladen mit Kontext: None
+2025-11-08 08:57:24,514 [INFO] utils.timer_manager: Alle Timer gestoppt (0 aktive)
+2025-11-08 08:57:24,514 [INFO] views.main_window: Hauptseite auf Stack: auswahl
+2025-11-08 08:57:24,515 [INFO] utils.timer_manager: Aktive Seite gewechselt: BeladenSeite
+2025-11-08 08:57:24,515 [INFO] views.main_window: Timer für BeladenSeite aktiviert
+2025-11-08 08:57:24,515 [INFO] views.main_window: Seite gewechselt zu: beladen
+2025-11-08 08:57:24,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:24,990 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:25,465 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:25,739 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:25,739 [INFO] views.beladen_seite: Hardware: Erstmaliges Beladen 0.00 kg
+2025-11-08 08:57:25,739 [INFO] views.beladen_seite: Beladen abgeschlossen: Gesamt 0.00 kg
+2025-11-08 08:57:25,739 [INFO] views.main_window: Navigation: fuettern mit Kontext: {'neues_gewicht': 0.0, 'nachgeladen': 0.0, 'futtertyp': 'heu'}
+2025-11-08 08:57:25,739 [INFO] utils.timer_manager: Alle Timer gestoppt (1 aktive)
+2025-11-08 08:57:25,739 [INFO] views.main_window: Hauptseite auf Stack: beladen
+2025-11-08 08:57:25,739 [INFO] utils.timer_manager: Aktive Seite gewechselt: FuetternSeite
+2025-11-08 08:57:25,739 [INFO] views.fuettern_seite: Pferd-Objekt aus MainWindow geholt: Midnight
+2025-11-08 08:57:25,750 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 1 - Midnight
+2025-11-08 08:57:25,754 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 1 - Midnight, 12 Jahre, 350.0 kg
+2025-11-08 08:57:25,754 [INFO] views.fuettern_seite: Pferd-Daten im Kontext mit processEvents gesetzt
+2025-11-08 08:57:25,754 [INFO] views.fuettern_seite: Kontext wiederhergestellt - Pferd 1, Karre: 0.00 kg
+2025-11-08 08:57:25,754 [INFO] views.main_window: FütternSeite: Kontext wiederhergestellt - 0.00kg
+2025-11-08 08:57:25,754 [INFO] views.main_window: Timer für FuetternSeite aktiviert
+2025-11-08 08:57:25,754 [INFO] views.main_window: Seite gewechselt zu: fuettern
+2025-11-08 08:57:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:26,789 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:27,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:27,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:29,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:29,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:33,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:34,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:35,259 [INFO] views.main_window: Wechsel zu Box 2: Delight
+2025-11-08 08:57:35,259 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 2 - Delight
+2025-11-08 08:57:35,260 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 2 - Delight, 3 Jahre, 280.0 kg
+2025-11-08 08:57:35,260 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:36,098 [INFO] views.main_window: Wechsel zu Box 3: Maverick
+2025-11-08 08:57:36,098 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 3 - Maverick
+2025-11-08 08:57:36,099 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 3 - Maverick, 5 Jahre, 400.0 kg
+2025-11-08 08:57:36,099 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:36,805 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:36,895 [INFO] views.main_window: Wechsel zu Box 4: Rondo
+2025-11-08 08:57:36,895 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 4 - Rondo
+2025-11-08 08:57:36,895 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 4 - Rondo, 12 Jahre, 520.0 kg
+2025-11-08 08:57:36,895 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,238 [INFO] views.main_window: Wechsel zu Box 5: Maranello
+2025-11-08 08:57:37,238 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 5 - Maranello
+2025-11-08 08:57:37,239 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 5 - Maranello, 20 Jahre, 450.0 kg
+2025-11-08 08:57:37,239 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,444 [INFO] views.main_window: Wechsel zu Box 6: Salute
+2025-11-08 08:57:37,444 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 6 - Salute
+2025-11-08 08:57:37,445 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 6 - Salute, 4 Jahre, 300.0 kg
+2025-11-08 08:57:37,445 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,634 [INFO] views.main_window: Wechsel zu Box 7: Calli
+2025-11-08 08:57:37,635 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 7 - Calli
+2025-11-08 08:57:37,635 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 7 - Calli, 10 Jahre, 450.0 kg
+2025-11-08 08:57:37,635 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:37,828 [INFO] views.main_window: Wechsel zu Box 8: Karl
+2025-11-08 08:57:37,828 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 8 - Karl
+2025-11-08 08:57:37,829 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 8 - Karl, 15 Jahre, 300.0 kg
+2025-11-08 08:57:37,829 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,022 [INFO] views.main_window: Wechsel zu Box 9: Furore
+2025-11-08 08:57:38,022 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 9 - Furore
+2025-11-08 08:57:38,023 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 9 - Furore, 12 Jahre, 500.0 kg
+2025-11-08 08:57:38,023 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,199 [INFO] views.main_window: Wechsel zu Box 10: Nabo
+2025-11-08 08:57:38,199 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 10 - Nabo
+2025-11-08 08:57:38,200 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 10 - Nabo, 8 Jahre, 300.0 kg
+2025-11-08 08:57:38,200 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,377 [INFO] views.main_window: Wechsel zu Box 12: Shadow
+2025-11-08 08:57:38,377 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 12 - Shadow
+2025-11-08 08:57:38,378 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 12 - Shadow, 10 Jahre, 580.0 kg
+2025-11-08 08:57:38,378 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,570 [INFO] views.main_window: Wechsel zu Box 13: Devina
+2025-11-08 08:57:38,570 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 13 - Devina
+2025-11-08 08:57:38,571 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 13 - Devina, 17 Jahre, 450.0 kg
+2025-11-08 08:57:38,571 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,781 [INFO] views.main_window: Wechsel zu Box 14: Tajo
+2025-11-08 08:57:38,781 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 14 - Tajo
+2025-11-08 08:57:38,781 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 14 - Tajo, 3 Jahre, 150.0 kg
+2025-11-08 08:57:38,781 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:38,987 [INFO] views.main_window: Wechsel zu Box 16: Saphina
+2025-11-08 08:57:38,987 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 16 - Saphina
+2025-11-08 08:57:38,988 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 16 - Saphina, 5 Jahre, 200.0 kg
+2025-11-08 08:57:38,988 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,165 [INFO] views.main_window: Wechsel zu Box 17: Donna
+2025-11-08 08:57:39,165 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 17 - Donna
+2025-11-08 08:57:39,165 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 17 - Donna, 15 Jahre, 450.0 kg
+2025-11-08 08:57:39,165 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,367 [INFO] views.main_window: Wechsel zu Box 18: Hugo
+2025-11-08 08:57:39,367 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 18 - Hugo
+2025-11-08 08:57:39,368 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 18 - Hugo, 13 Jahre, 500.0 kg
+2025-11-08 08:57:39,368 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,573 [INFO] views.main_window: Wechsel zu Box 19: Pippa
+2025-11-08 08:57:39,573 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 19 - Pippa
+2025-11-08 08:57:39,574 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 19 - Pippa, 18 Jahre, 400.0 kg
+2025-11-08 08:57:39,574 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,796 [INFO] views.main_window: Wechsel zu Box 20: Million
+2025-11-08 08:57:39,796 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 20 - Million
+2025-11-08 08:57:39,797 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 20 - Million, 3 Jahre, 280.0 kg
+2025-11-08 08:57:39,797 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:39,990 [INFO] views.main_window: Wechsel zu Box 21: Osi
+2025-11-08 08:57:39,990 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 21 - Osi
+2025-11-08 08:57:39,991 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 21 - Osi, 18 Jahre, 250.0 kg
+2025-11-08 08:57:39,991 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:40,196 [INFO] views.main_window: Wechsel zu Box 22: Onkel
+2025-11-08 08:57:40,196 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 22 - Onkel
+2025-11-08 08:57:40,197 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 22 - Onkel, 17 Jahre, 300.0 kg
+2025-11-08 08:57:40,197 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:40,406 [INFO] views.main_window: Wechsel zu Box 23: James
+2025-11-08 08:57:40,406 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 23 - James
+2025-11-08 08:57:40,407 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 23 - James, 10 Jahre, 150.0 kg
+2025-11-08 08:57:40,407 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:40,613 [INFO] views.main_window: Wechsel zu Box 24: Fine
+2025-11-08 08:57:40,613 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 24 - Fine
+2025-11-08 08:57:40,614 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 24 - Fine, 15 Jahre, 350.0 kg
+2025-11-08 08:57:40,614 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,009 [INFO] views.main_window: Wechsel zu Box 25: Dario
+2025-11-08 08:57:41,009 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 25 - Dario
+2025-11-08 08:57:41,010 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 25 - Dario, 17 Jahre, 250.0 kg
+2025-11-08 08:57:41,010 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,224 [INFO] views.main_window: Wechsel zu Box 26: Bella
+2025-11-08 08:57:41,224 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 26 - Bella
+2025-11-08 08:57:41,225 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 26 - Bella, 6 Jahre, 480.0 kg
+2025-11-08 08:57:41,225 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,430 [INFO] views.main_window: Wechsel zu Box 27: Rosa
+2025-11-08 08:57:41,430 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 27 - Rosa
+2025-11-08 08:57:41,431 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 27 - Rosa, 3 Jahre, 200.0 kg
+2025-11-08 08:57:41,431 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,644 [INFO] views.main_window: Wechsel zu Box 28: Milla
+2025-11-08 08:57:41,644 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 28 - Milla
+2025-11-08 08:57:41,645 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 28 - Milla, 3 Jahre, 200.0 kg
+2025-11-08 08:57:41,645 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:41,851 [INFO] views.main_window: Wechsel zu Box 29: Missy
+2025-11-08 08:57:41,851 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 29 - Missy
+2025-11-08 08:57:41,852 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 29 - Missy, 10 Jahre, 400.0 kg
+2025-11-08 08:57:41,852 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:42,053 [INFO] views.main_window: Wechsel zu Box 30: Eddi
+2025-11-08 08:57:42,053 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 30 - Eddi
+2025-11-08 08:57:42,054 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 30 - Eddi, 12 Jahre, 580.0 kg
+2025-11-08 08:57:42,054 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:42,296 [INFO] views.main_window: Wechsel zu Box 31: Nasty
+2025-11-08 08:57:42,296 [INFO] views.fuettern_seite: Setze Pferd-Daten: Box 31 - Nasty
+2025-11-08 08:57:42,297 [INFO] views.fuettern_seite: ✅ Pferd-Daten erfolgreich angezeigt: Box 31 - Nasty, 13 Jahre, 300.0 kg
+2025-11-08 08:57:42,297 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:42,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:42,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:43,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:43,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:44,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:44,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:45,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:46,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:47,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:48,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:49,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:50,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:51,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:52,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:53,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:55,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:56,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:57,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:57,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:58,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:59,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:57:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:00,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:01,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:01,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:02,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:02,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:03,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:03,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:04,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:04,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:06,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:17,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:17,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:20,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:20,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:22,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:22,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:26,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:29,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:30,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:32,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:33,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:36,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:37,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:38,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:38,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:40,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:40,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:41,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:43,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:43,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:44,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:44,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:45,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:46,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:48,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:50,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:50,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:58:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:01,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:02,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:03,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:03,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:04,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:04,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:05,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:06,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:07,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:08,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:08,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:09,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:10,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:11,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:12,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:13,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:14,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:14,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:15,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:17,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:17,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:19,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:21,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:21,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:22,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:22,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:24,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:26,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:28,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:28,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:29,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:30,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:30,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:31,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:32,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:33,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:35,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:36,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:39,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:40,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:41,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:42,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:43,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:43,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:44,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:44,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:45,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:46,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:47,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:47,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:48,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:49,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:49,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:50,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:50,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:51,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:51,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:52,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:52,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:53,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:53,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:54,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:54,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:55,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:55,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:56,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:57,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:58,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:58,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:59,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 08:59:59,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:00,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:01,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:01,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:02,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:02,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:03,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:03,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:04,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:04,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:05,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:05,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:06,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:07,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:08,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:09,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:10,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:11,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:12,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:13,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:14,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:15,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:16,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:17,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:17,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:18,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:18,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:19,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:20,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:20,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:21,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:21,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:22,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:22,808 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:23,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:24,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:24,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:25,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:25,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:26,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:27,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:28,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:29,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:29,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:30,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:31,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:32,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:33,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:34,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:35,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:36,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:36,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:37,807 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:38,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
+2025-11-08 09:00:39,806 [WARNING] hardware.weight_manager: Hardware nicht verfügbar - gebe 0.0 zurück
