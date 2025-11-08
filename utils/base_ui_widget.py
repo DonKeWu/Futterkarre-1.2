@@ -65,7 +65,9 @@ class BaseUIWidget(QtWidgets.QWidget):
         from utils.error_handler import error_handler
         
         def load_ui():
-            ui_path = Path(__file__).parent / ui_filename
+            # UI-Dateien sind im views/ Ordner, nicht in utils/
+            views_dir = Path(__file__).parent.parent / "views" 
+            ui_path = views_dir / ui_filename
             if not ui_path.exists():
                 raise FileNotFoundError(f"UI-Datei nicht gefunden: {ui_path}")
             
