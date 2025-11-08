@@ -19,12 +19,12 @@ if [ -f "$SCRIPT_DIR/main.py" ]; then
     PROJECT_DIR="$SCRIPT_DIR"
     echo -e "${GREEN}✅ Projekt gefunden im Script-Verzeichnis${NC}"
 # 2. Prüfe typische Pfade
-elif [ -f "/home/daniel/Projekte/Futterkarre-2/main.py" ]; then
-    PROJECT_DIR="/home/daniel/Projekte/Futterkarre-2"
-    echo -e "${GREEN}✅ Projekt gefunden in /home/daniel/Projekte/Futterkarre-2${NC}"
-elif [ -f "/home/daniel/Dokumente/HOF/Futterwagen/Python/Futterkarre-2/main.py" ]; then
-    PROJECT_DIR="/home/daniel/Dokumente/HOF/Futterwagen/Python/Futterkarre-2"
+elif [ -f "/home/daniel/Dokumente/HOF/Futterwagen/Python/Futterkarre/main.py" ]; then
+    PROJECT_DIR="/home/daniel/Dokumente/HOF/Futterwagen/Python/Futterkarre"
     echo -e "${GREEN}✅ Projekt gefunden in HOF-Verzeichnis${NC}"
+elif [ -f "/home/daniel/Projekte/Futterkarre/main.py" ]; then
+    PROJECT_DIR="/home/daniel/Projekte/Futterkarre"
+    echo -e "${GREEN}✅ Projekt gefunden in Projekte-Verzeichnis${NC}"
 else
     echo -e "${RED}❌ Futterkarre-Projekt nicht gefunden!${NC}"
     echo "Suche nach main.py in Home-Verzeichnis..."
