@@ -538,12 +538,18 @@ class EinstellungenSeite(QtWidgets.QWidget):
         logger.debug("EinstellungenSeite angezeigt")
     
     def zurueck_geklickt(self):
-        """Zurück-Button geklickt - zur Hauptseite"""
-        logger.info("Zurück-Button geklickt - zurück zur Hauptseite")
-        if hasattr(self.parent(), 'show_start_seite'):
-            self.parent().show_start_seite()
+        """Zurück-Button geklickt - sichere Navigation zurück"""
+        logger.info("Zurück-Button geklickt - zurück zur vorherigen Seite")
+        
+        # Moderne Navigation verwenden
+        if self.navigation:
+            if hasattr(self.navigation, 'go_back'):
+                self.navigation.go_back()
+            else:
+                # Fallback zur Auswahl-Seite (wo User herkommt)
+                self.navigation.show_status("auswahl")
         else:
-            logger.warning("Parent hat keine show_start_seite Methode")
+            logger.warning("Navigation nicht verfügbar - kann nicht zurück navigieren")
     
     def hideEvent(self, event):
         """Wird aufgerufen wenn Seite versteckt wird"""
