@@ -102,22 +102,23 @@ QLabel#b_heu_fuetterung {
     color: #000000 !important;
 }
 
-/* Spezielle Buttons auf Fütterungsseite - Nur Background */
+/* Spezielle Buttons auf Fütterungsseite - HELLBLAUER HINTERGRUND */
 QPushButton#btn_h_extra {
-    background-color: #fdffe0 !important;
-    color: #000000 !important;
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
+    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
     border: none !important;
+    font-weight: bold !important;
 }
 
 QPushButton#btn_h_reload {
-    background-color: #fdffe0 !important;
-    color: #000000 !important;
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
+    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
     border: none !important;
 }
 
 QPushButton#btn_next_rgv {
-    background-color: #fdffe0 !important;
-    color: #000000 !important;
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
+    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
     border: none !important;
 }
 
