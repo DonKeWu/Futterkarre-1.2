@@ -1,13 +1,14 @@
-/* Natur Theme - Grün-Töne, pferde-freundlich, OHNE störende Rahmen */
+/* Natur Theme - Grün-Töne, beruhigend für Pferde */
 QWidget {
     background-color: #0d1f0d;
     color: #90ee90;
 }
 
-/* Header-Bereiche - NUR für echte Header */
-QLabel[objectName*="header"], QLabel[objectName*="lbl_header"] {
-    background-color: #1a4a1a;
+/* Header-Bereiche */
+QLabel[objectName*="header"], QLabel[objectName*="titel"] {
+    background-color: #1a3d1a;
     color: #90ee90;
+    border-radius: 8px;
     padding: 10px;
 }
 
@@ -19,10 +20,11 @@ QPushButton {
     border: none;
 }
 
-/* Input-Felder - Minimale Rahmen */
+/* Input-Felder */
 QLineEdit, QComboBox {
     background-color: #1a4a1a;
-    border: 1px solid #4a7a4a;
+    border: 2px solid #32cd32;
+    border-radius: 8px;
     padding: 8px;
     color: #90ee90;
 }
@@ -34,55 +36,51 @@ QComboBox:drop-down {
 QComboBox QAbstractItemView {
     background-color: #1a4a1a;
     color: #90ee90;
-    selection-background-color: #4a7a4a;
-    border: 1px solid #4a7a4a;
+    selection-background-color: #32cd32;
 }
 
-/* Slider - Sauber ohne Rahmen */
+/* Slider */
 QSlider::groove:horizontal {
     background-color: #1a4a1a;
     height: 8px;
+    border-radius: 4px;
 }
 
 QSlider::handle:horizontal {
-    background-color: #4a7a4a;
+    background-color: #32cd32;
     width: 20px;
-    height: 20px;
     margin: -6px 0;
+    border-radius: 10px;
 }
 
 QSlider::sub-page:horizontal {
     background-color: #90ee90;
+    border-radius: 4px;
 }
 
-/* Tabellen - Nur bei Bedarf */
+/* Tabellen */
 QTableWidget {
     background-color: #1a4a1a;
-    gridline-color: #4a7a4a;
-    border: 1px solid #4a7a4a;
+    gridline-color: #32cd32;
+    border: 2px solid #32cd32;
     color: #90ee90;
 }
 
 QTableWidget::item {
     padding: 8px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #32cd32;
 }
 
 QTableWidget::item:selected {
-    background-color: #4a7a4a;
-    color: white;
+    background-color: #32cd32;
+    color: #0d1f0d;
 }
 
-/* Frames - NUR minimal für Vorschau-Bereiche */
-QFrame[objectName*="vorschau"] {
-    border: 1px solid #4a7a4a;
-    background-color: #0d1f0d;
-}
-
-/* Alle anderen Frames OHNE Rahmen */
+/* Frames */
 QFrame {
+    border: 2px solid #32cd32;
+    border-radius: 15px;
     background-color: #0d1f0d;
-    border: none;
 }
 
 /* CheckBoxes - Sauber */
@@ -93,12 +91,12 @@ QCheckBox {
 QCheckBox::indicator {
     width: 18px;
     height: 18px;
-    border: 1px solid #4a7a4a;
+    border: 1px solid #32cd32;
     background-color: #1a4a1a;
 }
 
 QCheckBox::indicator:checked {
-    background-color: #4a7a4a;
+    background-color: #32cd32;
 }
 
 /* FÜTTERUNGSSEITE - Spezielle Elemente */
@@ -107,22 +105,22 @@ QLabel#b_heu_fuetterung {
     color: #90ee90 !important;
 }
 
-/* Spezielle Buttons auf Fütterungsseite - HELLGRÜNER HINTERGRUND */
+/* Spezielle Buttons auf Fütterungsseite - HELLBLAUER HINTERGRUND */
 QPushButton#btn_h_extra {
-    background-color: #90ee90 !important;  /* HELLGRÜN für bessere Sichtbarkeit */
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
     color: #0d1f0d !important;  /* Dunkler Text auf hellem Grund */
     border: none !important;
     font-weight: bold !important;
 }
 
 QPushButton#btn_h_reload {
-    background-color: #90ee90 !important;  /* HELLGRÜN für bessere Sichtbarkeit */
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
     color: #0d1f0d !important;  /* Dunkler Text auf hellem Grund */
     border: none !important;
 }
 
 QPushButton#btn_next_rgv {
-    background-color: #90ee90 !important;  /* HELLGRÜN für bessere Sichtbarkeit */
+    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
     color: #0d1f0d !important;  /* Dunkler Text auf hellem Grund */
     border: none !important;
 }
@@ -140,28 +138,31 @@ QLabel[objectName^="label_h_"] {
     color: #90ee90 !important;
 }
 
-/* Scrollbars - Dezent */
+/* Scrollbars */
 QScrollBar:vertical {
     background-color: #1a4a1a;
-    width: 16px;
+    width: 20px;
+    border-radius: 10px;
 }
 
 QScrollBar::handle:vertical {
-    background-color: #4a7a4a;
+    background-color: #32cd32;
+    border-radius: 10px;
 }
 
 QScrollBar::handle:vertical:hover {
     background-color: #90ee90;
 }
 
-/* Spezielle Gewichts-Labels für bessere Lesbarkeit */
+/* Spezielle Gewichts-Labels */
 QLabel[objectName*="gewicht"] {
     color: #90ee90;
 }
 
-/* Status-Bereiche - Nur bei expliziten Status-Labels */
+/* Status-Bereiche */
 QLabel[objectName*="status"] {
     background-color: #2d5a2d;
     color: #90ee90;
+    border-radius: 8px;
     padding: 5px;
 }
