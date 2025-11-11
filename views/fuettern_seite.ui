@@ -28,6 +28,11 @@
     <height>720</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>System-ui</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string notr="true">Heu-Fütterung</string>
   </property>
@@ -61,6 +66,12 @@
      <height>1200</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>70</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
@@ -91,6 +102,14 @@
      <width>1280</width>
      <height>1280</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="statusTip">
     <string/>
@@ -237,6 +256,12 @@
      <height>30</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Rohprotein:</string>
    </property>
@@ -268,6 +293,12 @@
      <height>30</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Rohfaser:</string>
    </property>
@@ -298,6 +329,12 @@
      <width>16777215</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Fruktan:</string>
@@ -353,6 +390,14 @@
      <height>300</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>32</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -389,6 +434,14 @@
      <width>600</width>
      <height>300</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>32</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
@@ -427,6 +480,14 @@
      <height>300</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic [urw]</family>
+     <pointsize>32</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -446,6 +507,14 @@
      <height>91</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>50</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
     <string>kg</string>
    </property>
@@ -458,6 +527,14 @@
      <width>681</width>
      <height>341</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>200</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>0.00</string>
@@ -493,6 +570,12 @@
      <height>300</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>BOX</string>
    </property>
@@ -505,6 +588,12 @@
      <width>101</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Ubuntu Sans</family>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>EXIT</string>
@@ -543,6 +632,14 @@
      <height>300</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>32</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -580,6 +677,12 @@
      <height>30</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Rest</string>
    </property>
@@ -592,6 +695,14 @@
      <width>150</width>
      <height>100</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>34</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>EXTRA</string>
@@ -623,6 +734,12 @@
      <width>16777215</width>
      <height>300</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -657,6 +774,12 @@
      <width>1501</width>
      <height>401</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>TextLabel</string>

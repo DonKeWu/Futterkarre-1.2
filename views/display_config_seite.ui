@@ -28,6 +28,11 @@
     <height>720</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>System-ui</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Display-Konfiguration</string>
   </property>
@@ -45,8 +50,16 @@
      <height>100</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string></string>
+    <string> color: #fdffe0;</string>
    </property>
    <property name="text">
     <string>Display-Konfiguration</string>
@@ -89,6 +102,12 @@
      <width>300</width>
      <height>50</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Display-Helligkeit:</string>
@@ -133,8 +152,16 @@
      <height>50</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string></string>
+    <string>color: #2E672F;</string>
    </property>
    <property name="text">
     <string>48%</string>
@@ -154,6 +181,12 @@
      <height>50</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Farbschema:</string>
    </property>
@@ -168,10 +201,16 @@
      <height>50</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string>QComboBox {
     background-color: white;
-    
+    border: 2px solid #2E672F;
     border-radius: 8px;
     padding: 8px;
 }
@@ -215,6 +254,12 @@ QComboBox::down-arrow {
      <height>40</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Auto Nacht-Modus (22:00 - 06:00 Uhr)</string>
    </property>
@@ -229,6 +274,12 @@ QComboBox::down-arrow {
      <width>150</width>
      <height>50</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Vorschau:</string>
@@ -247,7 +298,7 @@ QComboBox::down-arrow {
    <property name="styleSheet">
     <string>QFrame {
     
-    
+    border: 3px solid #2E672F;
     border-radius: 15px;
 }</string>
    </property>
@@ -265,8 +316,16 @@ QComboBox::down-arrow {
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Droid Sans Fallback</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string>  padding: 5px</string>
+     <string> color: #fdffe0; padding: 5px;</string>
     </property>
     <property name="text">
      <string>🐴 Futterkarre Vorschau</string>
@@ -284,6 +343,12 @@ QComboBox::down-arrow {
       <width>410</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Droid Sans Fallback</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Gewicht: 45.2 kg
@@ -303,6 +368,12 @@ Status: Bereit zum Füttern</string>
       <width>150</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Droid Sans Fallback</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
    <property name="styleSheet">
     <string>QPushButton {
@@ -327,6 +398,12 @@ Status: Bereit zum Füttern</string>
      <height>60</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string>QPushButton {
     
@@ -347,6 +424,12 @@ Status: Bereit zum Füttern</string>
      <width>200</width>
      <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string>QPushButton {

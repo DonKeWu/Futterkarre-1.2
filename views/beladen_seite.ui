@@ -14,7 +14,7 @@
    <string>Futterkarre 1.4.0 - Futter laden</string>
   </property>
   <property name="styleSheet">
-   <string></string>
+   <string notr="true"></string>
   </property>
   <widget class="QLabel" name="ub_laden">
    <property name="geometry">
@@ -25,9 +25,15 @@
      <height>100</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">
-
+color: #fdffe0;
 </string>
    </property>
    <property name="text">
@@ -46,6 +52,12 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>0.00</string>
    </property>
@@ -62,8 +74,15 @@
      <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string></string>
+    <string notr="true"> color: #fdffe0;</string>
    </property>
    <property name="text">
     <string>Beladung bestätigen</string>
@@ -105,6 +124,14 @@
      <height>80</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
     <string>HEU</string>
    </property>
@@ -117,6 +144,14 @@
      <width>180</width>
      <height>80</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>HEULAGE</string>
@@ -131,8 +166,15 @@
      <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string></string>
+    <string notr="true"> color: #fdffe0;</string>
    </property>
    <property name="text">
     <string>Waage Nullen</string>
@@ -146,6 +188,14 @@
      <width>91</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>kg</string>

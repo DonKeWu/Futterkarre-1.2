@@ -14,7 +14,7 @@
    <string>Futterkarre 1.4.0</string>
   </property>
   <property name="styleSheet">
-   <string></string>
+   <string notr="true"></string>
   </property>
   <widget class="QPushButton" name="btn_to_side_fu_heulage">
    <property name="geometry">
@@ -42,6 +42,14 @@
      <width>300</width>
      <height>16777215</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
@@ -78,6 +86,14 @@ QPushButton {
      <width>300</width>
      <height>120</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
@@ -118,12 +134,20 @@ QPushButton {
      <height>100</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="statusTip">
     <string/>
    </property>
    <property name="styleSheet">
     <string notr="true">
-
+color: #fdffe0;
 </string>
    </property>
    <property name="text">
@@ -144,6 +168,9 @@ QPushButton {
      <width>60</width>
      <height>60</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"></string>
    </property>
    <property name="text">
     <string/>
@@ -186,6 +213,14 @@ QPushButton {
      <width>450</width>
      <height>16777215</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">

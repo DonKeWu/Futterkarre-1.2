@@ -14,7 +14,7 @@
    <string>Futterkarre 1.4.0</string>
   </property>
   <property name="styleSheet">
-   <string></string>
+   <string notr="true"></string>
   </property>
   <widget class="QLabel" name="label_title">
    <property name="geometry">
@@ -42,6 +42,14 @@
      <width>1024</width>
      <height>150</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>100</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -83,6 +91,14 @@
      <height>100</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">
 QPushButton {
@@ -103,6 +119,14 @@ QPushButton {
      <width>220</width>
      <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>24</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>Version 1.4</string>

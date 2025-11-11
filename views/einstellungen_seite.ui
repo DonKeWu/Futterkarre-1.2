@@ -28,6 +28,11 @@
     <height>720</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>System-ui</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string notr="true">Heu-Fütterung</string>
   </property>
@@ -35,7 +40,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string></string>
+   <string notr="true"></string>
   </property>
   <widget class="QLabel" name="txt_simulation_toggle">
    <property name="geometry">
@@ -63,6 +68,12 @@
      <width>600</width>
      <height>70</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
@@ -100,6 +111,12 @@
      <height>70</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -136,12 +153,20 @@
      <height>100</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="statusTip">
     <string/>
    </property>
    <property name="styleSheet">
     <string notr="true">
-
+color: #fdffe0;
 </string>
    </property>
    <property name="text">
@@ -166,12 +191,12 @@
    <property name="styleSheet">
     <string notr="true">QPushButton {
     
-    
+    color: #ffffff;
     border-radius: 15px;
 }
 QPushButton:hover {
     
-    
+    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -207,12 +232,12 @@ QPushButton:hover {
    <property name="styleSheet">
     <string notr="true">QPushButton {
     
-    
+    color: #ffffff;
     border-radius: 15px;
 }
 QPushButton:hover {
     
-    
+    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -268,12 +293,12 @@ QPushButton:hover {
    <property name="styleSheet">
     <string notr="true">QPushButton {
     
-    
+    color: #ffffff;
     border-radius: 15px;
 }
 QPushButton:hover {
     
-    
+    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -324,6 +349,12 @@ QPushButton:hover {
      <height>70</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -360,6 +391,12 @@ QPushButton:hover {
      <height>70</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -381,12 +418,12 @@ QPushButton:hover {
    <property name="styleSheet">
     <string notr="true">QPushButton {
     
-    
+    color: #ffffff;
     border-radius: 15px;
 }
 QPushButton:hover {
     
-    
+    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -430,6 +467,12 @@ QPushButton:hover {
      <width>600</width>
      <height>70</height>
     </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>30</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
