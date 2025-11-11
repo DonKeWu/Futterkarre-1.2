@@ -117,7 +117,7 @@ color: #fdffe0;
     </size>
    </property>
   </widget>
-    <widget class="QPushButton" name="btn_heu">
+  <widget class="QPushButton" name="btn_heu">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -147,7 +147,8 @@ QPushButton:checked {
    <property name="text">
     <string>HEU</string>
    </property>
-    <widget class="QPushButton" name="btn_heulage">
+  </widget>
+  <widget class="QPushButton" name="btn_heulage">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -177,6 +178,7 @@ QPushButton:checked {
    <property name="text">
     <string>HEULAGE</string>
    </property>
+  </widget>
   <widget class="QPushButton" name="btn_wa_nullen">
    <property name="geometry">
     <rect>
