@@ -1,7 +1,6 @@
 /* Ultra-Dunkel Theme - Minimale Helligkeit für extreme Nacht-Situationen */
 QWidget {
     background-color: #000000;
-    font-family: "Droid Sans Fallback";
     color: #333333;
 }
 
@@ -98,22 +97,55 @@ QFrame {
     background-color: #000000;
 }
 
-/* CheckBoxes */
+/* CheckBoxes - Sauber */
 QCheckBox {
     font-size: 16px;
     color: #666666;
 }
 
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #404040;
-    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #404040;
     background-color: #1a1a1a;
 }
 
 QCheckBox::indicator:checked {
     background-color: #404040;
+}
+
+/* FÜTTERUNGSSEITE - Spezielle Elemente */
+QLabel[objectName="b_heu_fuetterung"] {
+    background-color: #000000;  /* Ultra-Dunkel Background-Farbe */
+    color: #666666;
+}
+
+/* Spezielle Buttons auf Fütterungsseite */
+QPushButton[objectName="btn_h_extra"], 
+QPushButton[objectName="btn_h_reload"], 
+QPushButton[objectName="btn_next_rgv"] {
+    background-color: #000000;  /* Ultra-Dunkel Background-Farbe */
+    color: #666666;
+    border: 1px solid #404040;
+}
+
+QPushButton[objectName="btn_h_extra"]:hover, 
+QPushButton[objectName="btn_h_reload"]:hover, 
+QPushButton[objectName="btn_next_rgv"]:hover {
+    background-color: #404040;
+    color: #888888;
+}
+
+/* Font-Spezifizierungen für Fütterungsseite */
+QLabel[objectName*="text"] {
+    font-family: "Droid Sans Fallback";
+    color: #666666;
+}
+
+QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="kg"] {
+    font-family: "URW Gothic";
+    font-weight: bold;
+    color: #666666;
 }
 
 /* Scrollbars */

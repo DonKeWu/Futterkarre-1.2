@@ -1,7 +1,6 @@
 /* Standard Theme - Grün/Gelb wie ursprünglich, OHNE störende Rahmen */
 QWidget {
     background-color: #fdffe0;
-    font-family: "Droid Sans Fallback";
     color: #000000;
 }
 
@@ -109,6 +108,38 @@ QCheckBox::indicator {
 
 QCheckBox::indicator:checked {
     background-color: #2E672F;
+}
+
+/* FÜTTERUNGSSEITE - Spezielle Elemente */
+QLabel[objectName="b_heu_fuetterung"] {
+    background-color: #fdffe0;  /* Theme Background-Farbe */
+    color: #000000;
+}
+
+/* Spezielle Buttons auf Fütterungsseite */
+QPushButton[objectName="btn_h_extra"], 
+QPushButton[objectName="btn_h_reload"], 
+QPushButton[objectName="btn_next_rgv"] {
+    background-color: #fdffe0;  /* Theme Background-Farbe */
+    color: #000000;
+    border: 1px solid #2E672F;
+}
+
+QPushButton[objectName="btn_h_extra"]:hover, 
+QPushButton[objectName="btn_h_reload"]:hover, 
+QPushButton[objectName="btn_next_rgv"]:hover {
+    background-color: #2E672F;
+    color: white;
+}
+
+/* Font-Spezifizierungen für Fütterungsseite */
+QLabel[objectName*="text"] {
+    font-family: "Droid Sans Fallback";
+}
+
+QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="kg"] {
+    font-family: "URW Gothic";
+    font-weight: bold;
 }
 
 /* Scrollbars - Dezent */
