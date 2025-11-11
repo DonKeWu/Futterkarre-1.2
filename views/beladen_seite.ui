@@ -14,7 +14,7 @@
    <string>Futterkarre 1.4.0 - Futter laden</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"></string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="ub_laden">
    <property name="geometry">
@@ -33,7 +33,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">
-color: #fdffe0;
+
 </string>
    </property>
    <property name="text">
@@ -46,16 +46,16 @@ color: #fdffe0;
   <widget class="QLabel" name="label_karre_gewicht">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>300</y>
-     <width>200</width>
-     <height>30</height>
+     <x>250</x>
+     <y>320</y>
+     <width>671</width>
+     <height>251</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>16</pointsize>
+     <family>URW Gothic</family>
+     <pointsize>100</pointsize>
     </font>
    </property>
    <property name="text">
@@ -76,13 +76,14 @@ color: #fdffe0;
    </property>
    <property name="font">
     <font>
+     <family>URW Gothic</family>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"> color: #fdffe0;</string>
+    <string notr="true"> </string>
    </property>
    <property name="text">
     <string>Beladung bestätigen</string>
@@ -98,7 +99,7 @@ color: #fdffe0;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"></string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -118,18 +119,18 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_heu">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>100</y>
+     <x>370</x>
+     <y>200</y>
      <width>180</width>
      <height>80</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
+     <family>Droid Sans Fallback</family>
      <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -139,18 +140,18 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_heulage">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>100</y>
+     <x>730</x>
+     <y>200</y>
      <width>180</width>
      <height>80</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
+     <family>Droid Sans Fallback</family>
      <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -168,13 +169,14 @@ color: #fdffe0;
    </property>
    <property name="font">
     <font>
+     <family>URW Gothic</family>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"> color: #fdffe0;</string>
+    <string notr="true"> </string>
    </property>
    <property name="text">
     <string>Waage Nullen</string>
@@ -183,8 +185,8 @@ color: #fdffe0;
   <widget class="QLabel" name="txt_kg">
    <property name="geometry">
     <rect>
-     <x>990</x>
-     <y>470</y>
+     <x>940</x>
+     <y>420</y>
      <width>91</width>
      <height>71</height>
     </rect>
@@ -211,7 +213,7 @@ color: #fdffe0;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"></string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>

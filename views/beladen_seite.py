@@ -72,39 +72,49 @@ class BeladenSeite(QWidget):
 
     def setup_futter_buttons(self):
         """Richtet alle Futtertypen als Wechselschaltung ein"""
-        futter_buttons = []
+        # Standard-Futtertyp setzen
+        self.gewaehlter_futtertyp = "heu"
+        
+        # Initiales Highlighting setzen
+        self.update_futter_highlighting()
 
-        # Alle verfügbaren Futter-Buttons sammeln
-        if hasattr(self, 'btn_heu_laden'):
-            futter_buttons.append((self.btn_heu_laden, 1, "heu"))
-        if hasattr(self, 'btn_heulage_laden'):
-            futter_buttons.append((self.btn_heulage_laden, 2, "heulage"))
-        if hasattr(self, 'btn_pellets_laden'):
-            futter_buttons.append((self.btn_pellets_laden, 3, "pellets"))
-        if hasattr(self, 'btn_hafer_laden'):
-            futter_buttons.append((self.btn_hafer_laden, 4, "hafer"))
-
-        if futter_buttons:
-            # Button-Gruppe erstellen
-            self.futter_group = QButtonGroup(self)
-            self.futter_group.setExclusive(True)
-
-            # Alle Buttons zur Gruppe hinzufügen
-            for button, button_id, futtertyp in futter_buttons:
-                button.setCheckable(True)
-                self.futter_group.addButton(button, button_id)
-
-            # Standard: Erster Button ausgewählt
-            futter_buttons[0][0].setChecked(True)
-            self.gewaehlter_futtertyp = futter_buttons[0][2]
-
-            # Signal verbinden
-            self.futter_group.buttonClicked[int].connect(self.futter_typ_gewaehlt)
-
-            logger.info(f"Futter-Button-Gruppe eingerichtet mit {len(futter_buttons)} Optionen")
+    def select_futter_type(self, futter_type):
+        """Wählt Futtertyp und aktualisiert Button-Highlighting"""
+        self.gewaehlter_futtertyp = futter_type
+        logger.info(f"Futtertyp gewählt: {self.gewaehlter_futtertyp.upper()}")
+        
+        # Button-Highlighting aktualisieren
+        self.update_futter_highlighting()
+        
+    def update_futter_highlighting(self):
+        """Aktualisiert das Highlighting der Futter-Buttons"""
+        # Hellblaues Highlighting für ausgewählten Button
+        selected_style = """
+            QPushButton {
+                background-color: #87CEEB;
+                color: #000000;
+                border: 2px solid #4682B4;
+                border-radius: 8px;
+            }
+        """
+        
+        # Standard-Style (vom Theme-Manager kontrolliert)
+        default_style = ""
+        
+        # Alle Buttons zurücksetzen
+        if hasattr(self, 'btn_heu'):
+            self.btn_heu.setStyleSheet(default_style)
+        if hasattr(self, 'btn_heulage'):
+            self.btn_heulage.setStyleSheet(default_style)
+            
+        # Ausgewählten Button highlighten
+        if self.gewaehlter_futtertyp == 'heu' and hasattr(self, 'btn_heu'):
+            self.btn_heu.setStyleSheet(selected_style)
+        elif self.gewaehlter_futtertyp == 'heulage' and hasattr(self, 'btn_heulage'):
+            self.btn_heulage.setStyleSheet(selected_style)
 
     def futter_typ_gewaehlt(self, button_id):
-        """Wird aufgerufen wenn ein Futtertyp gewählt wird"""
+        """Wird aufgerufen wenn ein Futtertyp gewählt wird (Legacy)"""
         futtertyp_mapping = {
             1: "heu",
             2: "heulage",
@@ -114,12 +124,19 @@ class BeladenSeite(QWidget):
 
         self.gewaehlter_futtertyp = futtertyp_mapping.get(button_id, "heu")
         logger.info(f"Futtertyp gewählt: {self.gewaehlter_futtertyp.upper()}")
+        self.update_futter_highlighting()
 
     def connect_buttons(self):
         """Verbindet alle Buttons"""
         if hasattr(self, 'btn_back'):
             self.btn_back.clicked.connect(self.zurueck_geklickt)
             logger.info("Back-Button verbunden")
+
+        # Futter-Auswahl Buttons mit Highlighting
+        if hasattr(self, 'btn_heu'):
+            self.btn_heu.clicked.connect(lambda: self.select_futter_type('heu'))
+        if hasattr(self, 'btn_heulage'):
+            self.btn_heulage.clicked.connect(lambda: self.select_futter_type('heulage'))
 
         # Andere Buttons...
         if hasattr(self, 'btn_settings'):
