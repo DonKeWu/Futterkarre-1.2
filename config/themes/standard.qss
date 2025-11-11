@@ -1,0 +1,124 @@
+/* Standard Theme - Grün/Gelb wie gewohnt */
+QWidget {
+    background-color: #fdffe0;
+    font-family: "Droid Sans Fallback";
+    color: #000000;
+}
+
+/* Header-Bereiche */
+QLabel[objectName*="header"], QLabel[objectName*="titel"] {
+    background-color: #2E672F;
+    color: #fdffe0;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #2E672F;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: #8FBC8F;
+    color: #f5f5b5;
+}
+
+QPushButton:pressed {
+    background-color: #1a3d1a;
+}
+
+/* Input-Felder */
+QLineEdit, QComboBox {
+    background-color: white;
+    border: 2px solid #2E672F;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+QComboBox:drop-down {
+    border: none;
+}
+
+/* Slider */
+QSlider::groove:horizontal {
+    background-color: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background-color: #2E672F;
+    width: 20px;
+    margin: -6px 0;
+    border-radius: 10px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #8FBC8F;
+    border-radius: 4px;
+}
+
+/* Tabellen */
+QTableWidget {
+    background-color: white;
+    gridline-color: #2E672F;
+    border: 2px solid #2E672F;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+QTableWidget::item:selected {
+    background-color: #8FBC8F;
+    color: white;
+}
+
+/* Frames */
+QFrame {
+    border: 2px solid #2E672F;
+    border-radius: 15px;
+    background-color: #fdffe0;
+}
+
+/* CheckBoxes */
+QCheckBox {
+    font-size: 16px;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #2E672F;
+    border-radius: 4px;
+    background-color: white;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #2E672F;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    background-color: #f0f0f0;
+    width: 20px;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #2E672F;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #8FBC8F;
+}

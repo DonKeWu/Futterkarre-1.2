@@ -81,7 +81,7 @@
 }</string>
    </property>
    <property name="text">
-    <string>Waagen - Simulation an/aus</string>
+    <string>Display Einstellungen</string>
    </property>
   </widget>
   <widget class="QLabel" name="txt_kalibrieren">
@@ -220,11 +220,11 @@ QPushButton:hover {
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_display_config">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>180</y>
+     <x>390</x>
+     <y>450</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -253,59 +253,6 @@ QPushButton:hover {
      <width>50</width>
      <height>50</height>
     </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_simulation_toggle">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>450</y>
-     <width>100</width>
-     <height>70</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string notr="true"/>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-    background-color: lightgray;
-    color: black;
-    border-radius: 15px;
-    border: none;
-}
-QPushButton:checked {
-    background-color: red;
-    color: white;
-    border-radius: 15px;
-    border: none;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
-    border-radius: 15px;
-    border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string notr="true"/>
-   </property>
-   <property name="icon">
-    <iconset resource="../../Futterwagen_2/views/icons/icons.qrc">
-     <normaloff>:/icons/Sim.png</normaloff>:/icons/Sim.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="shortcut">
-    <string notr="true"/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_back">
@@ -415,59 +362,6 @@ QPushButton:hover {
    </property>
    <property name="text">
     <string notr="true">Wiegeeinheit auswählen</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_fu_sim_toggle">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>540</y>
-     <width>100</width>
-     <height>70</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string notr="true"/>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-    background-color: lightgray;
-    color: black;
-    border-radius: 15px;
-    border: none;
-}
-QPushButton:checked {
-    background-color: red;
-    color: white;
-    border-radius: 15px;
-    border: none;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
-    border-radius: 15px;
-    border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string notr="true"/>
-   </property>
-   <property name="icon">
-    <iconset resource="../../Futterwagen_2/views/icons/icons.qrc">
-     <normaloff>:/icons/Sim.png</normaloff>:/icons/Sim.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="shortcut">
-    <string notr="true"/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="txt_fu_sim_toggle">
@@ -593,12 +487,10 @@ QPushButton:hover {
   <zorder>txt_simulation_toggle</zorder>
   <zorder>txt_kalibrieren</zorder>
   <zorder>btn_kalibrieren</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>btn_simulation_toggle</zorder>
+  <zorder>btn_display_config</zorder>
   <zorder>btn_back</zorder>
   <zorder>btn_we_auswahl</zorder>
   <zorder>txt_we_auswahl</zorder>
-  <zorder>btn_fu_sim_toggle</zorder>
   <zorder>txt_fu_sim_toggle</zorder>
   <zorder>btn_futter_config</zorder>
   <zorder>txt_kalibrieren_2</zorder>

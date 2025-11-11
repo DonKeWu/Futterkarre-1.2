@@ -1,0 +1,149 @@
+/* Nacht Theme - Blau-Töne, pferde-freundlich */
+QWidget {
+    background-color: #1a1a2e;
+    font-family: "Droid Sans Fallback";
+    color: #87ceeb;
+}
+
+/* Header-Bereiche */
+QLabel[objectName*="header"], QLabel[objectName*="titel"] {
+    background-color: #16213e;
+    color: #87ceeb;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #0f3460;
+    color: #87ceeb;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #4682b4;
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+    color: #e6f3ff;
+}
+
+QPushButton:pressed {
+    background-color: #003366;
+}
+
+/* Input-Felder */
+QLineEdit, QComboBox {
+    background-color: #2c2c54;
+    border: 2px solid #4682b4;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    color: #87ceeb;
+}
+
+QComboBox:drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2c2c54;
+    color: #87ceeb;
+    selection-background-color: #4682b4;
+}
+
+/* Slider */
+QSlider::groove:horizontal {
+    background-color: #2c2c54;
+    height: 8px;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background-color: #4682b4;
+    width: 20px;
+    margin: -6px 0;
+    border-radius: 10px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #87ceeb;
+    border-radius: 4px;
+}
+
+/* Tabellen */
+QTableWidget {
+    background-color: #2c2c54;
+    gridline-color: #4682b4;
+    border: 2px solid #4682b4;
+    color: #87ceeb;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #4682b4;
+}
+
+QTableWidget::item:selected {
+    background-color: #4682b4;
+    color: white;
+}
+
+/* Frames */
+QFrame {
+    border: 2px solid #4682b4;
+    border-radius: 15px;
+    background-color: #1a1a2e;
+}
+
+/* CheckBoxes */
+QCheckBox {
+    font-size: 16px;
+    color: #87ceeb;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4682b4;
+    border-radius: 4px;
+    background-color: #2c2c54;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4682b4;
+    image: url(:/icons/check_white.png);
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    background-color: #2c2c54;
+    width: 20px;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #4682b4;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #87ceeb;
+}
+
+/* Spezielle Gewichts-Labels für bessere Lesbarkeit */
+QLabel[objectName*="gewicht"] {
+    color: #87ceeb;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Status-Bereiche */
+QLabel[objectName*="status"] {
+    background-color: #0f3460;
+    color: #87ceeb;
+    border-radius: 8px;
+    padding: 5px;
+}

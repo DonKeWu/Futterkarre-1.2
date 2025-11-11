@@ -1,0 +1,141 @@
+```
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                        FUTTERKARRE ESP8266 WIRELESS WAAGE                          │
+│                     Spannungsversorgung für verteilte HX711                        │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+                               18650 Li-Ion Akku
+                                3.7V - 4.2V
+                                3000mAh
+                                    │
+                                    │
+                    ┌───────────────┴───────────────┐
+                    │         TP4056 Modul          │
+                    │     USB-C Ladecontroller      │
+                    │                               │
+                    │  ┌─────────────────────────┐  │
+                    │  │      LM2596S Boost      │  │
+                    │  │    3.7V → 5.0V/1A      │  │
+                    │  │     Effizienz: 92%     │  │
+                    │  └─────────────────────────┘  │
+                    └───────────────┬───────────────┘
+                                    │
+                              5V Rail (stabil)
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    │               │               │
+            ┌───────▼────────┐      │      ┌────────▼───────┐
+            │   AMS1117-3V3  │      │      │   AMS1117-3V3  │
+            │   Regulator    │      │      │   Regulator    │
+            │   5V → 3.3V    │      │      │   5V → 3.3V    │
+            └───────┬────────┘      │      └────────┬───────┘
+                    │               │               │
+                3.3V lokal          │           3.3V lokal
+                    │               │               │
+                    │               │               │
+        ┌───────────┼───────────┐   │   ┌───────────┼───────────┐
+        │           │           │   │   │           │           │
+        │       ┌───▼───┐   ┌───▼───┐   │   ┌───▼───┐   ┌───▼───┐
+        │       │HX711_1│   │HX711_2│   │   │HX711_3│   │HX711_4│
+        │       │ (CLK) │   │ (CLK) │   │   │ (CLK) │   │ (CLK) │
+        │       │ (DT)  │   │ (DT)  │   │   │ (DT)  │   │ (DT)  │
+        │       └───────┘   └───────┘   │   └───────┘   └───────┘
+        │                               │                       │
+        │        VORNE (ESP8266)        │         HINTEN        │
+        │         0m Entfernung         │      1.5m Entfernung  │
+        └───────────────────────────────┘                       │
+                        │                                       │
+                        │                                       │
+                ┌───────▼────────┐                              │
+                │  ESP8266       │                              │
+                │  NodeMCU v3    │◄─────────1.5m Kabel────────┘
+                │                │   (4x Signal + GND)
+                │  D1(CLK1) D2(DT1)  D3(CLK2) D4(DT2)          │
+                │  D5(CLK3) D6(DT3)  D7(CLK4) D8(DT4)          │
+                │                │                              │
+                │  WiFi WebSocket│                              │
+                │  Port 81       │                              │
+                └────────────────┘                              │
+                        │                                       │
+                        │ WiFi 2.4GHz                           │
+                        │ 2m Reichweite                         │
+                        ▼                                       │
+                ┌────────────────┐                              │
+                │ Raspberry Pi 5 │                              │
+                │ Futterkarre    │                              │
+                │ Software       │                              │
+                └────────────────┘                              │
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                                VERKABELUNG                                          │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                     │
+│  ESP8266 → HX711 Vorne (kurze Kabel):                                             │
+│  ├── D1 (GPIO5)  →→→ HX711_1 CLK (vorne-links)                                   │
+│  ├── D2 (GPIO4)  →→→ HX711_1 DT  (vorne-links)                                   │
+│  ├── D3 (GPIO0)  →→→ HX711_2 CLK (vorne-rechts)                                  │
+│  ├── D4 (GPIO2)  →→→ HX711_2 DT  (vorne-rechts)                                  │
+│  └── 3.3V/GND   →→→ Lokale Versorgung (AMS1117)                                  │
+│                                                                                     │
+│  ESP8266 → HX711 Hinten (1.5m Kabel):                                            │
+│  ├── D5 (GPIO14) ═══════════════→ HX711_3 CLK (hinten-links)                    │
+│  ├── D6 (GPIO12) ═══════════════→ HX711_3 DT  (hinten-links)                    │
+│  ├── D7 (GPIO13) ═══════════════→ HX711_4 CLK (hinten-rechts)                   │
+│  ├── D8 (GPIO15) ═══════════════→ HX711_4 DT  (hinten-rechts)                   │
+│  └── GND         ═══════════════→ Gemeinsame Masse                                │
+│                                                                                     │
+│  Spannungsversorgung (5V Rail):                                                    │
+│  ├── 18650 Akku  →→→ TP4056 →→→ LM2596 →→→ 5V Rail                              │
+│  ├── 5V Rail     →→→ AMS1117 (vorne) →→→ 3.3V für HX711_1+2                    │
+│  ├── 5V Rail     ═══════════════════════→ AMS1117 (hinten) →→→ 3.3V HX711_3+4   │
+│  └── ESP8266     →→→ Eigener 3.3V Regler (onboard)                               │
+│                                                                                     │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                              KABEL-SPEZIFIKATION                                   │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                     │
+│  1.5m Signalkabel (ESP8266 ↔ HX711 hinten):                                       │
+│  ├── 6x Adern: CLK3, DT3, CLK4, DT4, GND, Shield                                 │
+│  ├── Querschnitt: 0.25mm² (28AWG) - ausreichend für Signale                      │
+│  ├── Geschirmt: Ja (gegen Störungen bei 1.5m)                                    │
+│  └── Stecker: Wasserdichte JST-Stecker                                            │
+│                                                                                     │
+│  5V Rail Versorgung (LM2596 ↔ hinten):                                           │
+│  ├── 2x Adern: +5V, GND                                                          │
+│  ├── Querschnitt: 0.75mm² (20AWG) - niedriger Widerstand                        │
+│  ├── Verdrillt: Ja (gegen Störungen)                                             │
+│  └── Max. Strom: 100mA (HX711_3+4 + Regler)                                     │
+│                                                                                     │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                            STROMVERBRAUCH ANALYSE                                  │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                     │
+│  Komponente                    │  Strom @ 3.7V  │  Strom @ 5V   │  Bemerkung       │
+│  ─────────────────────────────┼─────────────────┼───────────────┼─────────────────  │
+│  ESP8266 NodeMCU (aktiv)      │      80mA       │      -        │  WiFi + CPU      │
+│  ESP8266 NodeMCU (deep sleep) │      <1mA       │      -        │  RTC only        │
+│  4x HX711 @ 3.3V              │      40mA       │      -        │  10mA je Modul   │
+│  4x HX711 @ 5V                │      -          │     60mA      │  15mA je Modul   │
+│  LM2596 Boost (92% eff.)      │     +20mA       │      -        │  Wandlerverlust  │
+│  2x AMS1117 Regler            │      -          │     +5mA      │  Verluste        │
+│  ─────────────────────────────┼─────────────────┼───────────────┼─────────────────  │
+│  Gesamt (aktiv)               │    ~140mA       │      -        │  @ 3.7-4.2V      │
+│  Gesamt (deep sleep)          │     <5mA        │      -        │  @ 3.7-4.2V      │
+│                                                                                     │
+│  Laufzeit 18650 (3000mAh):                                                         │
+│  ├── Dauerbetrieb (2Hz):      21h (3000mAh / 140mA)                              │
+│  ├── 50% Deep Sleep:          42h (durchschnittlich 70mA)                         │
+│  └── Nur bei Bedarf:          Mehrere Tage                                        │
+│                                                                                     │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+Legende:
+→→→  Kurzes Kabel (<30cm)
+═══  Langes Kabel (1.5m)
+▼    WiFi-Verbindung
+```

@@ -27,9 +27,10 @@ class SystemSettings:
     language: str = "de"
     display_timeout: int = 300  # Sekunden
     fullscreen: bool = True
-    brightness: int = 80  # Prozent
+    brightness: int = 15  # Hardware-Wert 1-31 für PiTouch2
     volume: int = 50
     auto_sleep: bool = True
+    auto_night_mode: bool = False  # Automatischer Nacht-Modus 22-6 Uhr
 
 @dataclass
 class CalibrationSettings:
