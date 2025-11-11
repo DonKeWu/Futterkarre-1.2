@@ -51,7 +51,7 @@ def main():
         window = MainWindow(sensor_manager)
         
         # 4. Display-Modus basierend auf Parametern
-        if "--window" in sys.argv:
+        if "--window" in sys.argv or "--windows" in sys.argv:
             window.resize(1280, 720)
             window.show()
             startup_logger.info("🪟 MainWindow gestartet im Fenster-Modus (1280x720)")
