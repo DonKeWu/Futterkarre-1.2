@@ -28,11 +28,6 @@
     <height>720</height>
    </size>
   </property>
-  <property name="font">
-   <font>
-    <family>System-ui</family>
-   </font>
-  </property>
   <property name="windowTitle">
    <string notr="true">Heu-Fütterung</string>
   </property>
@@ -68,14 +63,6 @@
      <width>1280</width>
      <height>100</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>30</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
    </property>
    <property name="statusTip">
     <string/>
@@ -210,12 +197,6 @@
      <height>70</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -251,12 +232,6 @@
      <width>600</width>
      <height>70</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
@@ -294,12 +269,6 @@
      <height>70</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>24</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -335,12 +304,6 @@
      <width>600</width>
      <height>70</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
@@ -378,12 +341,6 @@
      <height>70</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -419,12 +376,6 @@
      <width>600</width>
      <height>70</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
@@ -462,12 +413,6 @@
      <height>70</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     background-color: transparent;
@@ -503,12 +448,6 @@
      <width>600</width>
      <height>70</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>20</pointsize>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {

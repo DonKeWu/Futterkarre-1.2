@@ -43,14 +43,6 @@
      <height>16777215</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">
 QPushButton {
@@ -86,14 +78,6 @@ QPushButton {
      <width>300</width>
      <height>120</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
@@ -133,14 +117,6 @@ QPushButton {
      <width>1280</width>
      <height>100</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>35</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
    </property>
    <property name="statusTip">
     <string/>
@@ -210,14 +186,6 @@ QPushButton {
      <width>450</width>
      <height>16777215</height>
     </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">

@@ -43,14 +43,6 @@
      <height>150</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>URW Gothic</family>
-     <pointsize>100</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -91,14 +83,6 @@
      <height>100</height>
     </size>
    </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
    <property name="styleSheet">
     <string notr="true">
 QPushButton {
@@ -119,14 +103,6 @@ QPushButton {
      <width>220</width>
      <height>60</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>URW Gothic</family>
-     <pointsize>24</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
    </property>
    <property name="text">
     <string>Version 1.4</string>
