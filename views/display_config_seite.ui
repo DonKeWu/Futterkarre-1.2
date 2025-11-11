@@ -325,7 +325,7 @@ QComboBox::down-arrow {
      </font>
     </property>
     <property name="styleSheet">
-     <string>background-color: #2E672F; color: #fdffe0; border-radius: 8px; padding: 5px;</string>
+     <string>background-color: #2E672F; color: #fdffe0; padding: 5px;</string>
     </property>
     <property name="text">
      <string>🐴 Futterkarre Vorschau</string>
@@ -375,17 +375,13 @@ Status: Bereit zum Füttern</string>
       <pointsize>14</pointsize>
      </font>
     </property>
-    <property name="styleSheet">
-     <string>QPushButton {
+   <property name="styleSheet">
+    <string>QPushButton {
     background-color: #2E672F;
     color: white;
-    border-radius: 8px;
     padding: 5px;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
 }</string>
-    </property>
+   </property>
     <property name="text">
      <string>Demo Button</string>
     </property>
@@ -412,11 +408,6 @@ QPushButton:hover {
     <string>QPushButton {
     background-color: #2E672F;
     color: white;
-    border-radius: 15px;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -444,10 +435,6 @@ QPushButton:hover {
     <string>QPushButton {
     background-color: #8B4513;
     color: white;
-    border-radius: 15px;
-}
-QPushButton:hover {
-    background-color: #A0522D;
 }</string>
    </property>
    <property name="text">

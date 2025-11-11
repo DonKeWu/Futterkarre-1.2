@@ -108,11 +108,6 @@ color: #fdffe0;
     <string notr="true">QPushButton {
     background-color: #2E672F;
     color: #ffffff;
-    border-radius: 15px;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">
@@ -170,11 +165,6 @@ QPushButton:hover {
     <string notr="true">QPushButton {
     background-color: #2E672F;
     color: #ffffff;
-    border-radius: 15px;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
 }</string>
    </property>
    <property name="text">

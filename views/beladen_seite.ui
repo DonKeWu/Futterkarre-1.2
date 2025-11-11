@@ -117,34 +117,19 @@ color: #fdffe0;
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_heu_laden">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+    <widget class="QPushButton" name="btn_heu">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>160</y>
-     <width>300</width>
-     <height>100</height>
+     <x>40</x>
+     <y>100</y>
+     <width>180</width>
+     <height>80</height>
     </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>300</width>
-     <height>120</height>
-    </size>
    </property>
    <property name="font">
     <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
+     <family>DejaVu Sans</family>
+     <pointsize>18</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -153,56 +138,28 @@ color: #fdffe0;
     <string notr="true">QPushButton {
     background-color: #b0cfa5;
     color: #ffffff;
-    border-radius: 15px;
 }
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
-}
-QPushButton:pressed,
 QPushButton:checked {
-    background-color: #a30000;  /* Dunkelrot */
+    background-color: #a30000;
     color: #ffffff;
 }</string>
    </property>
    <property name="text">
     <string>HEU</string>
    </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_heulage_laden">
+    <widget class="QPushButton" name="btn_heulage">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>160</y>
-     <width>300</width>
-     <height>100</height>
+     <x>270</x>
+     <y>100</y>
+     <width>180</width>
+     <height>80</height>
     </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>300</width>
-     <height>16777215</height>
-    </size>
    </property>
    <property name="font">
     <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>40</pointsize>
+     <family>DejaVu Sans</family>
+     <pointsize>18</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -211,25 +168,15 @@ QPushButton:checked {
     <string notr="true">QPushButton {
     background-color: #b0cfa5;
     color: #ffffff;
-    border-radius: 15px;
 }
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
-}
-QPushButton:pressed,
 QPushButton:checked {
-    background-color: #a30000;  /* Dunkelrot */
+    background-color: #a30000;
     color: #ffffff;
 }</string>
    </property>
    <property name="text">
     <string>HEULAGE</string>
    </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_wa_nullen">
    <property name="geometry">
     <rect>

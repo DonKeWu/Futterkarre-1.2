@@ -104,13 +104,8 @@
 QPushButton {
     background-color: #b0cfa5;
     color: #ffffff;
-    border-radius: 18px;
     min-width: 300px;
     min-height: 120px;
-}
-QPushButton:hover {
-    background-color: #8FBC8F;
-    color: #f5f5b5;
 }
         </string>
    </property>
