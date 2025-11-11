@@ -213,10 +213,11 @@ class BeladenSeite(QWidget):
                     logger.info("HEU-Zwischenstopp beendet - Rückkehr zur Füttern-Seite")
                     
                     # HEU-Context für Füttern-Seite vorbereiten
+                    original_futtertyp = self.context.get('original_futtertyp', 'heulage')  # Fallback
                     rueckkehr_context = {
                         'pferd_objekt': self.context.get('rueckkehr_pferd'),
                         'pferd_name': self.context.get('pferd_name', 'Unbekannt'),
-                        'futtertyp': self.gewaehlter_futtertyp,  # Dynamisch: heu oder heulage
+                        'futtertyp': original_futtertyp,  # URSPRÜNGLICHEN Futtertyp verwenden!
                         'heu_gewicht': aktuelles_gewicht,
                         'zwischenstopp_beendet': True
                     }

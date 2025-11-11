@@ -492,11 +492,12 @@ class FuetternSeite(QWidget):
             
         # Aktuelles Pferd für Rückkehr speichern
         context = {
-            'futtertyp': 'heu',                    # HEU vorwählen
+            'futtertyp': 'heu',                    # HEU vorwählen für Beladen
             'zwischenstopp': True,                 # Spezial-Modus
             'rueckkehr_pferd': getattr(self, 'aktuelles_pferd', None),
             'rueckkehr_seite': 'fuettern',        # Zurück zur Füttern-Seite
-            'pferd_name': getattr(self, 'pferd_name', 'Unbekannt')
+            'pferd_name': getattr(self, 'pferd_name', 'Unbekannt'),
+            'original_futtertyp': self.gewaehlter_futtertyp  # Ursprünglicher Futtertyp merken!
         }
         
         logger.info(f"HEU-Zwischenstopp für Pferd: {context['pferd_name']}")
