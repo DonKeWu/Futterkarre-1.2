@@ -133,6 +133,11 @@ QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="k
     color: #666666;
 }
 
+/* Nährwert-Labels auf Füttern-Seite - GRAU */
+QLabel[objectName^="label_h_"] {
+    color: #666666 !important;
+}
+
 /* Scrollbars */
 QScrollBar:vertical {
     background-color: #1a1a1a;

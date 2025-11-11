@@ -127,6 +127,12 @@ QLabel[objectName*="text"], QLabel[objectName^="txt_"] {
 }
 
 QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="kg"] {
+    color: #000000;  /* Schwarze Zahlen für Standard-Theme */
+}
+
+/* Nährwert-Labels auf Füttern-Seite - SCHWARZ */
+QLabel[objectName^="label_h_"] {
+    color: #000000 !important;
 }
 
 /* Scrollbars - Dezent */
