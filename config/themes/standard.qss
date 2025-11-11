@@ -1,24 +1,22 @@
-/* Standard Theme - Grün/Gelb wie gewohnt */
+/* Standard Theme - Grün/Gelb wie ursprünglich, OHNE störende Rahmen */
 QWidget {
     background-color: #fdffe0;
     font-family: "Droid Sans Fallback";
     color: #000000;
 }
 
-/* Header-Bereiche */
-QLabel[objectName*="header"], QLabel[objectName*="titel"] {
+/* Header-Bereiche - NUR für echte Header */
+QLabel[objectName*="header"], QLabel[objectName*="lbl_header"] {
     background-color: #2E672F;
     color: #fdffe0;
     font-weight: bold;
-    border-radius: 8px;
     padding: 10px;
 }
 
-/* Buttons */
+/* Buttons - Wie ursprünglich ohne Rahmen */
 QPushButton {
     background-color: #2E672F;
     color: white;
-    border-radius: 15px;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
@@ -34,11 +32,10 @@ QPushButton:pressed {
     background-color: #1a3d1a;
 }
 
-/* Input-Felder */
+/* Input-Felder - Minimale Rahmen */
 QLineEdit, QComboBox {
     background-color: white;
-    border: 2px solid #2E672F;
-    border-radius: 8px;
+    border: 1px solid #2E672F;
     padding: 8px;
     font-size: 16px;
 }
@@ -47,30 +44,33 @@ QComboBox:drop-down {
     border: none;
 }
 
-/* Slider */
+QComboBox QAbstractItemView {
+    background-color: white;
+    border: 1px solid #2E672F;
+}
+
+/* Slider - Sauber */
 QSlider::groove:horizontal {
     background-color: #e0e0e0;
     height: 8px;
-    border-radius: 4px;
 }
 
 QSlider::handle:horizontal {
     background-color: #2E672F;
     width: 20px;
+    height: 20px;
     margin: -6px 0;
-    border-radius: 10px;
 }
 
 QSlider::sub-page:horizontal {
     background-color: #8FBC8F;
-    border-radius: 4px;
 }
 
-/* Tabellen */
+/* Tabellen - Nur bei Bedarf */
 QTableWidget {
     background-color: white;
     gridline-color: #2E672F;
-    border: 2px solid #2E672F;
+    border: 1px solid #2E672F;
 }
 
 QTableWidget::item {
@@ -83,23 +83,27 @@ QTableWidget::item:selected {
     color: white;
 }
 
-/* Frames */
-QFrame {
-    border: 2px solid #2E672F;
-    border-radius: 15px;
+/* Frames - NUR minimal für Vorschau-Bereiche */
+QFrame[objectName*="vorschau"] {
+    border: 1px solid #2E672F;
     background-color: #fdffe0;
 }
 
-/* CheckBoxes */
+/* Alle anderen Frames OHNE Rahmen */
+QFrame {
+    background-color: #fdffe0;
+    border: none;
+}
+
+/* CheckBoxes - Sauber */
 QCheckBox {
     font-size: 16px;
 }
 
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #2E672F;
-    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #2E672F;
     background-color: white;
 }
 
@@ -107,16 +111,14 @@ QCheckBox::indicator:checked {
     background-color: #2E672F;
 }
 
-/* Scrollbars */
+/* Scrollbars - Dezent */
 QScrollBar:vertical {
     background-color: #f0f0f0;
-    width: 20px;
-    border-radius: 10px;
+    width: 16px;
 }
 
 QScrollBar::handle:vertical {
     background-color: #2E672F;
-    border-radius: 10px;
 }
 
 QScrollBar::handle:vertical:hover {
