@@ -370,6 +370,10 @@ class FuetternSeite(QWidget):
         futtertyp = context.get('futtertyp', 'heu')
         neues_gewicht = context.get('neues_gewicht', 0.0)
 
+        # KRITISCH: Futtertyp aktualisieren (für EXTRA-Heu Rückkehr!)
+        self.gewaehlter_futtertyp = futtertyp
+        logger.info(f"Futtertyp wiederhergestellt: {self.gewaehlter_futtertyp}")
+
         # Titel aktualisieren
         self.update_titel(futtertyp)
 
