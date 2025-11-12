@@ -36,39 +36,82 @@ class FuetterungAbschluss(QWidget):
     def zeige_zusammenfassung(self, fuetterung_daten):
         """Zeigt die Fütterung-Zusammenfassung"""
         try:
-            # Gesamtmenge berechnen
-            gefuetterte_pferde = fuetterung_daten.get('gefuetterte_pferde', 0)
-            menge_pro_pferd = fuetterung_daten.get('menge_pro_pferd', 4.5)
-            gesamtmenge = gefuetterte_pferde * menge_pro_pferd
+            # Erweiterte Daten extrahieren
+            heu_gesamt = fuetterung_daten.get('heu_gesamt', 0)
+            heulage_gesamt = fuetterung_daten.get('heulage_gesamt', 0)
+            heu_pferde = fuetterung_daten.get('heu_pferde', 0)
+            heulage_pferde = fuetterung_daten.get('heulage_pferde', 0)
+            gesamtmenge = fuetterung_daten.get('gesamtmenge', heu_gesamt + heulage_gesamt)
+            gefuetterte_pferde_gesamt = heu_pferde + heulage_pferde
             
-            # Werte setzen
+            # 1. GESAMTMENGE
             if hasattr(self, 'label_gesamtmenge_wert'):
                 self.label_gesamtmenge_wert.setText(f"{gesamtmenge:.1f} kg")
-                
-            if hasattr(self, 'label_futtertyp_wert'):
-                futtertyp = fuetterung_daten.get('futtertyp', 'Heu eigen 2025')
-                self.label_futtertyp_wert.setText(futtertyp)
-                
+            
+            # 2. HEU AUFSPALTUNG  
+            if hasattr(self, 'label_heu_wert'):
+                if heu_gesamt > 0:
+                    self.label_heu_wert.setText(f"{heu_gesamt:.1f} kg ({heu_pferde} Pferde)")
+                else:
+                    self.label_heu_wert.setText("0 kg (kein Heu)")
+            
+            # 3. HEULAGE AUFSPALTUNG
+            if hasattr(self, 'label_heulage_wert'):
+                if heulage_gesamt > 0:
+                    self.label_heulage_wert.setText(f"{heulage_gesamt:.1f} kg ({heulage_pferde} Pferde)")
+                else:
+                    self.label_heulage_wert.setText("0 kg (keine Heulage)")
+            
+            # 4. PFERDE KORREKT (echte Anzahl statt 32 fest)
             if hasattr(self, 'label_pferde_wert'):
-                gesamte_boxen = fuetterung_daten.get('gesamte_boxen', 32)
-                self.label_pferde_wert.setText(f"{gefuetterte_pferde} von {gesamte_boxen} Boxen")
+                # Annahme: Wir haben so viele Boxen wie gefütterte Pferde (realistische Anzeige)
+                self.label_pferde_wert.setText(f"{gefuetterte_pferde_gesamt} von {gefuetterte_pferde_gesamt} Boxen")
                 
-            # Dauer berechnen
+            # 5. ECHTE DAUER berechnen
             if self.fuetterung_start_zeit:
                 dauer = datetime.now() - self.fuetterung_start_zeit
                 dauer_minuten = int(dauer.total_seconds() / 60)
                 if hasattr(self, 'label_dauer_wert'):
                     self.label_dauer_wert.setText(f"{dauer_minuten} Minuten")
+            else:
+                if hasattr(self, 'label_dauer_wert'):
+                    self.label_dauer_wert.setText("Unbekannt")
             
-            # Nächste Fütterung (6 Stunden später)
-            naechste_fuetterung = datetime.now() + timedelta(hours=6)
+            # 6. INTELLIGENTE NÄCHSTE FÜTTERUNG
+            naechste_zeit, naechste_art = self.berechne_naechste_fuetterung()
             if hasattr(self, 'label_naechste_wert'):
-                self.label_naechste_wert.setText(naechste_fuetterung.strftime("%H:%M Uhr"))
+                self.label_naechste_wert.setText(f"{naechste_zeit} ({naechste_art})")
                 
-            logger.info(f"Fütterung-Zusammenfassung angezeigt: {gesamtmenge:.1f}kg, {gefuetterte_pferde} Pferde")
+            logger.info(f"📊 Fütterung-Zusammenfassung: Gesamt={gesamtmenge:.1f}kg, Heu={heu_gesamt:.1f}kg ({heu_pferde}P), Heulage={heulage_gesamt:.1f}kg ({heulage_pferde}P)")
             
         except Exception as e:
             logger.error(f"Fehler beim Anzeigen der Zusammenfassung: {e}")
+    
+    def berechne_naechste_fuetterung(self):
+        """Berechnet intelligente nächste Fütterungszeit basierend auf Tageszeit"""
+        try:
+            jetzt = datetime.now()
+            stunde = jetzt.hour
+            
+            # Fütterungszeiten: 05:45 Heulage, 16:30 Heu
+            if stunde < 5 or (stunde == 5 and jetzt.minute < 45):
+                # Vor 05:45 - nächste ist Heulage um 05:45
+                naechste = jetzt.replace(hour=5, minute=45, second=0, microsecond=0)
+                return naechste.strftime("%H:%M Uhr"), "Heulage"
+            elif stunde < 16 or (stunde == 16 and jetzt.minute < 30):
+                # Nach 05:45 aber vor 16:30 - nächste ist Heu um 16:30
+                naechste = jetzt.replace(hour=16, minute=30, second=0, microsecond=0)
+                return naechste.strftime("%H:%M Uhr"), "Heu"
+            else:
+                # Nach 16:30 - nächste ist Heulage am nächsten Tag um 05:45
+                naechste = (jetzt + timedelta(days=1)).replace(hour=5, minute=45, second=0, microsecond=0)
+                return naechste.strftime("%H:%M Uhr"), "Heulage"
+                
+        except Exception as e:
+            logger.error(f"Fehler bei nächster Fütterung-Berechnung: {e}")
+            # Fallback: +6 Stunden
+            naechste_fuetterung = datetime.now() + timedelta(hours=6)
+            return naechste_fuetterung.strftime("%H:%M Uhr"), "Unbekannt"
             
     def set_start_zeit(self, start_zeit):
         """Setzt die Fütterung-Startzeit"""
