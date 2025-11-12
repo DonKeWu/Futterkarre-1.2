@@ -1,32 +1,30 @@
-/* Ultra-Dunkel Theme - Minimale Helligkeit für extreme Nacht-Situationen */
+/* Nacht Theme - Ultra-Dunkle Grautöne, pferde-freundlich, OHNE störende Rahmen */
 QWidget {
-    background-color: #000000;
-    color: #333333;
+    background-color: #1a1a1a;
+    color: #cccccc;
 }
 
-/* Header-Bereiche */
-QLabel[objectName*="header"], QLabel[objectName*="titel"] {
-    background-color: #1a1a1a;
-    color: #666666;
-    border-radius: 8px;
+/* Header-Bereiche - NUR für echte Header */
+QLabel[objectName*="header"], QLabel[objectName*="lbl_header"] {
+    background-color: #2a2a2a;
+    color: #cccccc;
     padding: 10px;
 }
 
 /* Buttons - Nur Background, keine Effekte */
 QPushButton {
     background-color: #2a2a2a;
-    color: #666666;
+    color: #cccccc;
     padding: 10px;
     border: none;
 }
 
-/* Input-Felder */
+/* Input-Felder - Minimale Rahmen */
 QLineEdit, QComboBox {
-    background-color: #1a1a1a;
-    border: 2px solid #404040;
-    border-radius: 8px;
+    background-color: #333333;
+    border: 1px solid #404040;
     padding: 8px;
-    color: #666666;
+    color: #cccccc;
 }
 
 QComboBox:drop-down {
@@ -34,65 +32,69 @@ QComboBox:drop-down {
 }
 
 QComboBox QAbstractItemView {
-    background-color: #1a1a1a;
-    color: #666666;
+    background-color: #333333;
+    color: #cccccc;
     selection-background-color: #404040;
+    border: 1px solid #404040;
 }
 
-/* Slider */
+/* Slider - Sauber ohne Rahmen */
 QSlider::groove:horizontal {
-    background-color: #1a1a1a;
+    background-color: #333333;
     height: 8px;
-    border-radius: 4px;
 }
 
 QSlider::handle:horizontal {
     background-color: #404040;
     width: 20px;
+    height: 20px;
     margin: -6px 0;
-    border-radius: 10px;
 }
 
 QSlider::sub-page:horizontal {
-    background-color: #333333;
-    border-radius: 4px;
+    background-color: #cccccc;
 }
 
-/* Tabellen */
+/* Tabellen - Nur bei Bedarf */
 QTableWidget {
-    background-color: #1a1a1a;
+    background-color: #333333;
     gridline-color: #404040;
-    border: 2px solid #404040;
-    color: #666666;
+    border: 1px solid #404040;
+    color: #cccccc;
 }
 
 QTableWidget::item {
     padding: 8px;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #333;
 }
 
 QTableWidget::item:selected {
     background-color: #404040;
-    color: #888888;
+    color: white;
 }
 
-/* Frames */
+/* Frames - NUR minimal für Vorschau-Bereiche */
+QFrame[objectName*="vorschau"] {
+    border: 1px solid #404040;
+    background-color: #1a1a1a;
+}
+
+/* Alle anderen Frames OHNE Rahmen */
 QFrame {
-    border: 2px solid #404040;
-    border-radius: 15px;
-    background-color: #000000;
+    background-color: #1a1a1a;
+    border: none;
 }
 
 /* CheckBoxes - Sauber */
 QCheckBox {
-    color: #666666;
+    color: #cccccc;
 }
 
 QCheckBox::indicator {
     width: 18px;
     height: 18px;
     border: 1px solid #404040;
-    background-color: #1a1a1a;
+    background-color: #333333;
 }
 
 QCheckBox::indicator:checked {
@@ -101,70 +103,65 @@ QCheckBox::indicator:checked {
 
 /* FÜTTERUNGSSEITE - Spezielle Elemente */
 QLabel#b_heu_fuetterung {
-    background-color: #000000 !important;  /* Ultra-Dunkel Background-Farbe */
-    color: #666666 !important;
+    background-color: #1a1a1a !important;  /* Nacht-Theme Background-Farbe */
+    color: #cccccc !important;
 }
 
-/* Spezielle Buttons auf Fütterungsseite - HELLBLAUER HINTERGRUND */
+/* Spezielle Buttons auf Fütterungsseite - DUNKELGRAU HINTERGRUND */
 QPushButton#btn_h_extra {
-    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
-    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
+    background-color: #2a2a2a !important;  /* DUNKELGRAU wie normale Buttons */
+    color: #cccccc !important;  /* Heller Text auf dunklem Grund */
     border: none !important;
     font-weight: bold !important;
 }
 
 QPushButton#btn_h_reload {
-    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
-    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
+    background-color: #2a2a2a !important;  /* DUNKELGRAU wie normale Buttons */
+    color: #cccccc !important;  /* Heller Text auf dunklem Grund */
     border: none !important;
 }
 
 QPushButton#btn_next_rgv {
-    background-color: #87ceeb !important;  /* HELLBLAU für bessere Sichtbarkeit */
-    color: #000000 !important;  /* Schwarzer Text auf hellem Grund */
+    background-color: #2a2a2a !important;  /* DUNKELGRAU wie normale Buttons */
+    color: #cccccc !important;  /* Heller Text auf dunklem Grund */
     border: none !important;
 }
 
 QLabel[objectName*="text"], QLabel[objectName^="txt_"] {
-    color: #666666;
+    color: #cccccc;
 }
 
 QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="kg"] {
-    color: #666666;
+    color: #cccccc;
 }
 
-/* Nährwert-Labels auf Füttern-Seite - GRAU */
+/* Nährwert-Labels auf Füttern-Seite - HELLGRAU */
 QLabel[objectName^="label_h_"] {
-    color: #666666 !important;
+    color: #cccccc !important;
 }
 
-/* Scrollbars */
+/* Scrollbars - Dezent */
 QScrollBar:vertical {
-    background-color: #1a1a1a;
-    width: 20px;
-    border-radius: 10px;
+    background-color: #333333;
+    width: 16px;
 }
 
 QScrollBar::handle:vertical {
     background-color: #404040;
-    border-radius: 10px;
 }
 
 QScrollBar::handle:vertical:hover {
-    background-color: #666666;
+    background-color: #cccccc;
 }
 
-/* Spezielle Gewichts-Labels */
+/* Spezielle Gewichts-Labels für bessere Lesbarkeit */
 QLabel[objectName*="gewicht"] {
-    color: #666666;
+    color: #cccccc;
 }
 
-/* Status-Bereiche */
+/* Status-Bereiche - Nur bei expliziten Status-Labels */
 QLabel[objectName*="status"] {
     background-color: #2a2a2a;
-    color: #666666;
-    border-radius: 8px;
+    color: #cccccc;
     padding: 5px;
 }
-
-/* Warnung: Sehr dunkle Farben, nur für echte Nacht-Nutzung */

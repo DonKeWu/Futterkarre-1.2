@@ -59,7 +59,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string> color: #fdffe0;</string>
+    <string></string>
    </property>
    <property name="text">
     <string>Display-Konfiguration</string>
@@ -244,27 +244,6 @@ QComboBox::down-arrow {
    </item>
   </widget>
 
-  <!-- AUTO NACHT-MODUS -->
-  <widget class="QCheckBox" name="chk_auto_nachtmodus">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>440</y>
-     <width>400</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Droid Sans Fallback</family>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Auto Nacht-Modus (22:00 - 06:00 Uhr)</string>
-   </property>
-  </widget>
-
   <!-- VORSCHAU BEREICH -->
   <widget class="QLabel" name="lbl_vorschau">
    <property name="geometry">
@@ -411,7 +390,7 @@ Status: Bereit zum Füttern</string>
 }</string>
    </property>
    <property name="text">
-    <string>💾 Speichern</string>
+    <string>Speichern</string>
    </property>
   </widget>
 

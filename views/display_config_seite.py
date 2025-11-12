@@ -2,7 +2,6 @@
 import os
 import sys
 import json
-from datetime import datetime
 from PyQt5.QtWidgets import QApplication, QSlider
 from PyQt5.QtCore import QTimer, pyqtSignal
 
@@ -34,16 +33,9 @@ class DisplayConfigSeite(BaseViewWidget):
         self.brightness_path = "/sys/class/backlight/11-0045/brightness"
         self.brightness_max_path = "/sys/class/backlight/11-0045/max_brightness"
         
-        # Auto-Nacht Timer
-        self.auto_night_timer = QTimer()
-        self.auto_night_timer.timeout.connect(self.check_auto_night_mode)
-        
         # UI initialisieren
         self.setup_ui()
         self.load_current_settings()
-        
-        # Timer für Auto-Nacht starten (alle 30 Sekunden prüfen)
-        self.auto_night_timer.start(30000)
 
     def setup_ui(self):
         """UI-Elemente konfigurieren und Signale verbinden"""
@@ -66,10 +58,6 @@ class DisplayConfigSeite(BaseViewWidget):
             if hasattr(self, 'combo_theme'):
                 self.combo_theme.currentTextChanged.connect(self.on_theme_changed)
             
-            # Auto-Nacht CheckBox
-            if hasattr(self, 'chk_auto_nachtmodus'):
-                self.chk_auto_nachtmodus.toggled.connect(self.on_auto_night_toggled)
-                
             print("✅ Display-Config UI erfolgreich initialisiert")
             
         except Exception as e:
@@ -91,12 +79,7 @@ class DisplayConfigSeite(BaseViewWidget):
                 if index >= 0:
                     self.combo_theme.setCurrentIndex(index)
             
-            # Auto-Nacht laden
-            auto_night = self.settings.get_setting('system', 'auto_night_mode', False)
-            if hasattr(self, 'chk_auto_nachtmodus'):
-                self.chk_auto_nachtmodus.setChecked(auto_night)
-                
-            print(f"✅ Settings geladen: Helligkeit={current_brightness}, Theme={current_theme}, Auto-Nacht={auto_night}")
+            print(f"✅ Settings geladen: Helligkeit={current_brightness}, Theme={current_theme}")
             
         except Exception as e:
             print(f"❌ Fehler beim Laden der Display-Settings: {e}")
@@ -210,11 +193,19 @@ class DisplayConfigSeite(BaseViewWidget):
                 },
                 "Nacht (Blau)": {
                     "bg_color": "#1a1a2e",
-                    "header_bg": "#16213e",
+                    "header_bg": "#16213e", 
                     "header_fg": "#87ceeb",
                     "text_color": "#87ceeb",
                     "button_bg": "#0f3460",
                     "button_fg": "#87ceeb"
+                },
+                "Ultra-Dunkel": {
+                    "bg_color": "#1a1a1a",
+                    "header_bg": "#2a2a2a",
+                    "header_fg": "#cccccc",
+                    "text_color": "#cccccc",
+                    "button_bg": "#2a2a2a",
+                    "button_fg": "#cccccc"
                 },
                 "Natur (Grün)": {
                     "bg_color": "#0d1f0d",
@@ -279,52 +270,7 @@ class DisplayConfigSeite(BaseViewWidget):
         except Exception as e:
             print(f"❌ Fehler beim Anwenden des Themes: {e}")
 
-    def on_auto_night_toggled(self, checked):
-        """Auto-Nacht-Modus wurde geändert"""
-        try:
-            print(f"🌙 Auto-Nacht-Modus: {'Aktiviert' if checked else 'Deaktiviert'}")
-            
-            # Sofort prüfen wenn aktiviert
-            if checked:
-                self.check_auto_night_mode()
-                
-        except Exception as e:
-            print(f"❌ Fehler beim Auto-Nacht Toggle: {e}")
 
-    def check_auto_night_mode(self):
-        """Prüft ob Auto-Nacht-Modus aktiv werden soll"""
-        try:
-            # Nur prüfen wenn Auto-Modus aktiviert ist
-            if not (hasattr(self, 'chk_auto_nachtmodus') and self.chk_auto_nachtmodus.isChecked()):
-                return
-            
-            # Aktuelle Zeit prüfen
-            now = datetime.now()
-            hour = now.hour
-            
-            # Nacht-Zeit: 22:00 - 06:00
-            is_night_time = hour >= 22 or hour < 6
-            
-            # Theme automatisch wechseln
-            if hasattr(self, 'combo_theme'):
-                current_theme = self.combo_theme.currentText()
-                
-                if is_night_time and "Nacht" not in current_theme:
-                    # Zu Nacht-Theme wechseln
-                    night_index = self.combo_theme.findText("Nacht (Blau)")
-                    if night_index >= 0:
-                        self.combo_theme.setCurrentIndex(night_index)
-                        print(f"🌙 Auto-Wechsel zu Nacht-Theme um {now.strftime('%H:%M')}")
-                        
-                elif not is_night_time and "Nacht" in current_theme:
-                    # Zu Standard-Theme wechseln
-                    standard_index = self.combo_theme.findText("Standard")
-                    if standard_index >= 0:
-                        self.combo_theme.setCurrentIndex(standard_index)
-                        print(f"☀️ Auto-Wechsel zu Tag-Theme um {now.strftime('%H:%M')}")
-                        
-        except Exception as e:
-            print(f"❌ Fehler bei Auto-Nacht-Prüfung: {e}")
 
     def demo_animation(self):
         """Demo-Animation für Vorschau"""
@@ -353,11 +299,6 @@ class DisplayConfigSeite(BaseViewWidget):
             if hasattr(self, 'combo_theme'):
                 theme = self.combo_theme.currentText()
                 self.settings.set_setting('ui', 'theme', theme)
-            
-            # Auto-Nacht speichern
-            if hasattr(self, 'chk_auto_nachtmodus'):
-                auto_night = self.chk_auto_nachtmodus.isChecked()
-                self.settings.set_setting('system', 'auto_night_mode', auto_night)
             
             # Settings speichern
             self.settings.save_settings()
