@@ -69,6 +69,14 @@ QLabel[objectName*="kg"] {
     font-weight: bold;
 }
 
+/* Spezifische Labels auf Fütterungsseite */
+QLabel#txt_kg_2,
+QLabel#label_rgv_gewicht_kg,
+QLabel#label_karre_gewicht_anzeigen {
+    color: #7db8e8 !important;   /* Überschreibt andere Formatierungen */
+    font-weight: bold !important;
+}
+
 /* Tabellen */
 QTableWidget {
     background-color: #1a2633;
