@@ -239,7 +239,17 @@ QComboBox::down-arrow {
    </item>
    <item>
     <property name="text">
+     <string>Nacht (Blau) v2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>Ultra-Dunkel</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Natur (Grün) v2</string>
     </property>
    </item>
   </widget>
