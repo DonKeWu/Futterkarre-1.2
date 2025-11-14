@@ -19,6 +19,9 @@ from PyQt5 import QtWidgets, QtCore, QtGui, uic
 from PyQt5.QtCore import pyqtSignal, QTimer
 from PyQt5.QtWidgets import QMessageBox
 import os
+
+# Logger Setup
+logger = logging.getLogger(__name__)
 from pathlib import Path
 from datetime import datetime
 
