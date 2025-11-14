@@ -43,6 +43,47 @@ QPushButton#btn_next_rgv {
     border: none !important;
 }
 
+/* Auswahlseite Buttons - DUNKLES BLAU */
+QPushButton#btn_to_side_fu_heu {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU */
+    color: #87ceeb !important;  /* Heller Text */
+    border: none !important;
+}
+
+QPushButton#btn_to_side_fu_heulage {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU */
+    color: #87ceeb !important;  /* Heller Text */
+    border: none !important;
+}
+
+QPushButton#btn_to_side_fu_laden {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU */
+    color: #87ceeb !important;  /* Heller Text */
+    border: none !important;
+}
+
+QPushButton#btn_to_side_settings {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU */
+    color: #87ceeb !important;  /* Heller Text */
+    border: none !important;
+}
+
+/* Hover-Effekte für Auswahlseite Buttons */
+QPushButton#btn_to_side_fu_heu:hover,
+QPushButton#btn_to_side_fu_heulage:hover,
+QPushButton#btn_to_side_fu_laden:hover,
+QPushButton#btn_to_side_settings:hover {
+    background-color: #4682b4 !important;
+}
+
+/* Pressed-Effekte für Auswahlseite Buttons */
+QPushButton#btn_to_side_fu_heu:pressed,
+QPushButton#btn_to_side_fu_heulage:pressed,
+QPushButton#btn_to_side_fu_laden:pressed,
+QPushButton#btn_to_side_settings:pressed {
+    background-color: #003366 !important;
+}
+
 /* Input-Felder */
 QLineEdit, QComboBox {
     background-color: #2c2c54;
