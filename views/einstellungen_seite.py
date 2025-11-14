@@ -505,16 +505,43 @@ class EinstellungenSeite(QtWidgets.QWidget):
                 self.status_label.setText(f"Auto-Tare Fehler: {e}")
     
     def start_calibration(self):
-        """Startet Kalibrierungs-Prozess"""
+        """Startet Kalibrierungs-Prozess - Navigiert zur Waagenkalibrierung"""
         try:
-            self.calibration_requested.emit()
+            logger.info("Kalibrierungs-Button geklickt - navigiere zur Waagenkalibrierung")
+            
+            if self.navigation:
+                self.navigation.show_status("waagen_kalibrierung")
+            else:
+                logger.warning("Navigation nicht verfügbar für waagen_kalibrierung")
+                self.show_kalibrierung_fallback()
+            
             if hasattr(self, 'status_label'):
-                self.status_label.setText("Kalibrierung gestartet...")
+                self.status_label.setText("Navigiere zur Waagenkalibrierung...")
             
         except Exception as e:
-            logger.error(f"Kalibrierungs-Fehler: {e}")
+            logger.error(f"Kalibrierungs-Navigation-Fehler: {e}")
             if hasattr(self, 'status_label'):
-                self.status_label.setText(f"Kalibrierung Fehler: {e}")
+                self.status_label.setText(f"Navigation Fehler: {e}")
+    
+    def show_kalibrierung_fallback(self):
+        """Fallback: Waagenkalibrierung direkt anzeigen"""
+        try:
+            from views.waagen_kalibrierung import WaagenKalibrierung
+            
+            # Erstelle Kalibrierungs-Seite
+            self.waagen_kalibrierung = WaagenKalibrierung()
+            self.waagen_kalibrierung.navigation = self.navigation
+            
+            # Zeige als Modal Dialog oder ersetze aktuelles Widget
+            if hasattr(self.parent(), 'setCentralWidget'):
+                self.parent().setCentralWidget(self.waagen_kalibrierung)
+            else:
+                self.waagen_kalibrierung.show()
+                
+            logger.info("Waagenkalibrierung als Fallback geöffnet")
+            
+        except Exception as e:
+            logger.error(f"Waagenkalibrierung Fallback fehlgeschlagen: {e}")
     
     def test_weights(self):
         """Testet aktuelle Gewichtswerte"""
