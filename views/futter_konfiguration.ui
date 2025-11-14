@@ -39,9 +39,7 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <property name="styleSheet">
-   <string notr="true"></string>
-  </property>
+  <!-- styleSheet entfernt - Theme-Manager übernimmt -->
   <widget class="QLabel" name="label_titel">
    <property name="geometry">
     <rect>
@@ -80,11 +78,7 @@
    <property name="statusTip">
     <string/>
    </property>
-   <property name="styleSheet">
-    <string notr="true">
-color: #fdffe0;
-</string>
-   </property>
+   <!-- styleSheet entfernt - Theme-Manager übernimmt Farben -->
    <property name="text">
     <string>Futter-Konfiguration</string>
    </property>
