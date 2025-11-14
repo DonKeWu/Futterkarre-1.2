@@ -26,11 +26,34 @@ from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.base_ui_widget import BaseViewWidget
 from utils.settings_manager import get_settings_manager
-from hardware.hx711_real import (
-    hx_sensors, HX711_AVAILABLE,
-    lese_gewicht_hx711, lese_einzelzellwerte_hx711,
-    nullpunkt_setzen_alle, kalibriere_einzelzelle
-)
+# Hardware-Module mit Fallback
+try:
+    from hardware.hx711_real import (
+        hx_sensors, HX711_AVAILABLE,
+        lese_gewicht_hx711, lese_einzelzellwerte_hx711,
+        nullpunkt_setzen_alle, kalibriere_einzelzelle
+    )
+except ImportError as e:
+    logger.warning(f"HX711-Hardware nicht verfügbar: {e}")
+    # Fallback-Werte für Entwicklung ohne Hardware
+    hx_sensors = []
+    HX711_AVAILABLE = False
+    
+    def lese_gewicht_hx711():
+        import random
+        return random.uniform(0, 50)
+    
+    def lese_einzelzellwerte_hx711():
+        import random
+        return [random.uniform(0, 15) for _ in range(4)]
+    
+    def nullpunkt_setzen_alle():
+        logger.info("Simulation: Nullpunkt gesetzt")
+        return True
+    
+    def kalibriere_einzelzelle(index, gewicht):
+        logger.info(f"Simulation: Sensor {index} mit {gewicht}kg kalibriert")
+        return True
 
 logger = logging.getLogger(__name__)
 
