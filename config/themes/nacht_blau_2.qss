@@ -25,11 +25,22 @@ QPushButton:pressed {
 }
 
 /* Spezielle Buttons auf Fütterungsseite - GLEICHES DUNKLES BLAU wie normale Buttons */
-QPushButton#btn_h_extra,
-QPushButton#btn_h_reload,
+QPushButton#btn_h_extra {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
+    border: none !important;
+}
+
+QPushButton#btn_h_reload {
+    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
+    border: none !important;
+}
+
 QPushButton#btn_next_rgv {
-    background-color: #0f3460;
-    color: #87ceeb;
+    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
+    border: none !important;
 }
 
 /* Input-Felder */
