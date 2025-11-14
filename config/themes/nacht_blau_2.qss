@@ -1,116 +1,166 @@
-/* Nacht Theme v2 - NUR FARBEN! Keine Formatierung! Original UI-Design respektieren! */
+/* Nacht Theme v2 - Nur Farben, KEINE Font-Überschreibungen */
 QWidget {
-    background-color: #1a1a2e;
+    background-color: #0d1f2e;
     color: #87ceeb;
 }
 
-/* Header-Bereiche */
+/* Header-Bereiche - NUR für echte Header */
 QLabel[objectName*="header"], QLabel[objectName*="lbl_header"] {
-    background-color: #16213e;
+    background-color: #1a3a5a;
     color: #87ceeb;
+    padding: 10px;
 }
 
-/* Buttons */
+/* Buttons - Nur Background, keine Effekte */
 QPushButton {
-    background-color: #0f3460;
+    background-color: #2d4a6d;
+    color: #87ceeb;
+    padding: 10px;
+    border: none;
+}
+
+/* Input-Felder - Minimale Rahmen */
+QLineEdit, QComboBox {
+    background-color: #1a3a5a;
+    border: 1px solid #4a6a8a;
+    padding: 8px;
     color: #87ceeb;
 }
 
-QPushButton:hover {
-    background-color: #4682b4;
+QComboBox:drop-down {
+    border: none;
 }
 
-QPushButton:pressed {
-    background-color: #003366;
+QComboBox QAbstractItemView {
+    background-color: #1a3a5a;
+    color: #87ceeb;
+    selection-background-color: #4a6a8a;
+    border: 1px solid #4a6a8a;
+}
+
+/* Slider - Sauber ohne Rahmen */
+QSlider::groove:horizontal {
+    background-color: #1a3a5a;
+    height: 8px;
+}
+
+QSlider::handle:horizontal {
+    background-color: #4a6a8a;
+    width: 20px;
+    height: 20px;
+    margin: -6px 0;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #87ceeb;
+}
+
+/* Tabellen - Nur bei Bedarf */
+QTableWidget {
+    background-color: #1a3a5a;
+    gridline-color: #4a6a8a;
+    border: 1px solid #4a6a8a;
+    color: #87ceeb;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #333;
+}
+
+QTableWidget::item:selected {
+    background-color: #4a6a8a;
+    color: white;
+}
+
+/* Frames - NUR minimal für Vorschau-Bereiche */
+QFrame[objectName*="vorschau"] {
+    border: 1px solid #4a6a8a;
+    background-color: #0d1f2e;
+}
+
+/* Alle anderen Frames OHNE Rahmen */
+QFrame {
+    background-color: #0d1f2e;
+    border: none;
+}
+
+/* CheckBoxes - Sauber */
+QCheckBox {
+    color: #87ceeb;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #4a6a8a;
+    background-color: #1a3a5a;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4a6a8a;
+}
+
+/* FÜTTERUNGSSEITE - Spezielle Elemente */
+QLabel#b_heu_fuetterung {
+    background-color: #0d1f2e !important;  /* Nacht-Theme Background-Farbe */
+    color: #87ceeb !important;
 }
 
 /* Spezielle Buttons auf Fütterungsseite - GLEICHES DUNKLES BLAU wie normale Buttons */
 QPushButton#btn_h_extra {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    background-color: #2d4a6d !important;  /* DUNKLES BLAU wie normale Buttons */
     color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
     border: none !important;
 }
 
 QPushButton#btn_h_reload {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    background-color: #2d4a6d !important;  /* DUNKLES BLAU wie normale Buttons */
     color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
     border: none !important;
 }
 
 QPushButton#btn_next_rgv {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU wie normale Buttons */
+    background-color: #2d4a6d !important;  /* DUNKLES BLAU wie normale Buttons */
     color: #87ceeb !important;  /* Heller Text wie bei normalen Buttons */
     border: none !important;
 }
 
-/* Auswahlseite Buttons - DUNKLES BLAU */
-QPushButton#btn_to_side_fu_heu {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU */
-    color: #87ceeb !important;  /* Heller Text */
-    border: none !important;
-}
-
-QPushButton#btn_to_side_fu_heulage {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU */
-    color: #87ceeb !important;  /* Heller Text */
-    border: none !important;
-}
-
-QPushButton#btn_to_side_fu_laden {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU */
-    color: #87ceeb !important;  /* Heller Text */
-    border: none !important;
-}
-
-QPushButton#btn_to_side_settings {
-    background-color: #0f3460 !important;  /* DUNKLES BLAU */
-    color: #87ceeb !important;  /* Heller Text */
-    border: none !important;
-}
-
-/* Hover-Effekte für Auswahlseite Buttons */
-QPushButton#btn_to_side_fu_heu:hover,
-QPushButton#btn_to_side_fu_heulage:hover,
-QPushButton#btn_to_side_fu_laden:hover,
-QPushButton#btn_to_side_settings:hover {
-    background-color: #4682b4 !important;
-}
-
-/* Pressed-Effekte für Auswahlseite Buttons */
-QPushButton#btn_to_side_fu_heu:pressed,
-QPushButton#btn_to_side_fu_heulage:pressed,
-QPushButton#btn_to_side_fu_laden:pressed,
-QPushButton#btn_to_side_settings:pressed {
-    background-color: #003366 !important;
-}
-
-/* Input-Felder */
-QLineEdit, QComboBox {
-    background-color: #2c2c54;
+QLabel[objectName*="text"], QLabel[objectName^="txt_"] {
     color: #87ceeb;
 }
 
-QComboBox QAbstractItemView {
-    background-color: #2c2c54;
-    color: #87ceeb;
-    selection-background-color: #4682b4;
-}
-
-/* CheckBoxes */
-QCheckBox {
+QLabel[objectName*="zahl"], QLabel[objectName*="gewicht"], QLabel[objectName*="kg"] {
     color: #87ceeb;
 }
 
-QCheckBox::indicator:checked {
-    background-color: #4682b4;
+/* Nährwert-Labels auf Füttern-Seite - HELLBLAU */
+QLabel[objectName^="label_h_"] {
+    color: #87ceeb !important;
 }
 
-/* Tabellen */
-QTableWidget {
-    background-color: #2c2c54;
+/* Scrollbars - Dezent */
+QScrollBar:vertical {
+    background-color: #1a3a5a;
+    width: 16px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #4a6a8a;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #87ceeb;
+}
+
+/* Spezielle Gewichts-Labels für bessere Lesbarkeit */
+QLabel[objectName*="gewicht"] {
     color: #87ceeb;
 }
 
-QTableWidget::item:selected {
-    background-color: #4682b4;
+/* Status-Bereiche - Nur bei expliziten Status-Labels */
+QLabel[objectName*="status"] {
+    background-color: #2d4a6d;
+    color: #87ceeb;
+    padding: 5px;
 }
