@@ -568,6 +568,20 @@ class ESP8266ConfigSeite(BaseViewWidget):
             if 'signal_strength' in status_data and hasattr(self, 'lbl_rssi_wert'):
                 rssi = status_data['signal_strength']
                 self.lbl_rssi_wert.setText(f"{rssi} dBm")
+                
+                # Farbe je nach Signalstärke (dBm - negativer Wert!)
+                if rssi <= -80:
+                    signal_color = "#f44336"  # Rot - sehr schwach
+                elif rssi <= -70:
+                    signal_color = "#FF9800"  # Orange - schwach  
+                elif rssi <= -60:
+                    signal_color = "#FFC107"  # Gelb - mäßig
+                elif rssi <= -50:
+                    signal_color = "#8BC34A"  # Hellgrün - gut
+                else:
+                    signal_color = "#4CAF50"  # Grün - ausgezeichnet
+                
+                self.lbl_rssi_wert.setStyleSheet(f"color: {signal_color}; font-weight: bold;")
             
             # Akku-Spannung (HTTP API verwendet 'battery_voltage')
             if 'battery_voltage' in status_data and hasattr(self, 'lbl_akku_wert'):
