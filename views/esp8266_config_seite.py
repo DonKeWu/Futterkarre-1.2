@@ -478,18 +478,43 @@ class ESP8266ConfigSeite(BaseViewWidget):
             logger.error(f"Fehler beim Auto-Update Toggle: {e}")
     
     def start_status_monitoring(self):
-        """Status-Monitoring starten"""
+        """Status-Monitoring starten - QTimer statt QThread für bessere Signal-Stabilität"""
         try:
-            if self.status_thread and self.status_thread.isRunning():
-                return  # Bereits gestartet
-            
-            self.status_thread = ESP8266StatusThread(self.discovery)
-            self.status_thread.status_updated.connect(self.update_status_display)
-            self.status_thread.connection_changed.connect(self.update_connection_status)
-            self.status_thread.start()
+            if not hasattr(self, 'status_timer'):
+                from PyQt5.QtCore import QTimer
+                self.status_timer = QTimer()
+                self.status_timer.timeout.connect(self.check_esp8266_status)
+                self.status_timer.start(10000)  # 10 Sekunden
+                logger.info("📡 ESP8266 Auto-Monitor gestartet (QTimer-basiert)")
             
         except Exception as e:
             logger.error(f"Fehler beim Starten des Status-Monitoring: {e}")
+    
+    def check_esp8266_status(self):
+        """ESP8266 Status prüfen - läuft im Main-Thread"""
+        try:
+            if self.discovery:
+                # Direkt bekannte IPs testen statt async find_esp8266()
+                test_ips = ["192.168.2.17", "192.168.4.1"]  # Bekannte ESP8266 IPs
+                
+                for test_ip in test_ips:
+                    logger.info(f"🔍 Testing ESP8266 IP: {test_ip}")
+                    status_data = self.discovery.test_http_status(test_ip)
+                    
+                    if status_data and isinstance(status_data, dict):
+                        logger.info(f"📊 SUCCESS - Status Data: {status_data}")
+                        logger.info("✅ Calling update_status_display directly")
+                        self.update_status_display(status_data)
+                        self.update_connection_status(True, test_ip)
+                        return  # Success - stop testing other IPs
+                    else:
+                        logger.info(f"❌ No response from {test_ip}")
+                
+                # If we get here, no IP responded
+                logger.warning("❌ No ESP8266 responded")
+                self.update_connection_status(False, "")
+        except Exception as e:
+            logger.error(f"Fehler bei ESP8266 Status Check: {e}")
     
     def stop_status_monitoring(self):
         """Status-Monitoring stoppen"""
