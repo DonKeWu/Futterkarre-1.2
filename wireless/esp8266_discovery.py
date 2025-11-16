@@ -12,6 +12,9 @@ import json
 import logging
 from typing import Optional, Tuple
 import time
+import urllib.request
+import urllib.error
+import socket
 
 # Websockets optional - fallback für Entwicklung
 try:
@@ -75,8 +78,8 @@ class ESP8266Discovery:
         try:
             # Prüfe ob wir mit Futterkarre_WiFi verbunden sind
             if await self.is_connected_to_futterkarre_wifi():
-                # Teste direkte Verbindung zu ESP8266
-                if await self.test_websocket("192.168.4.1"):
+                # Teste direkte Verbindung zu ESP8266 via HTTP
+                if self.test_http_status("192.168.4.1"):
                     return "192.168.4.1"
             
             return None
@@ -91,10 +94,10 @@ class ESP8266Discovery:
             # Bestimme Heimnetz-Range
             network_base = "192.168.2"  # Dein Heimnetz
             
-            # Teste gängige ESP8266 IP-Bereiche
+            # Teste gängige ESP8266 IP-Bereiche mit HTTP
             for i in range(100, 200):
                 ip = f"{network_base}.{i}"
-                if await self.test_websocket(ip):
+                if self.test_http_status(ip):
                     return ip
             
             return None
@@ -115,6 +118,26 @@ class ESP8266Discovery:
             
         except Exception:
             return False
+    
+    def test_http_status(self, ip: str, timeout: float = 3.0) -> Optional[dict]:
+        """Testet HTTP /status API und gibt ESP8266-Status zurück"""
+        try:
+            url = f"http://{ip}/status"
+            
+            # HTTP Request mit Timeout
+            req = urllib.request.Request(url)
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                if response.status == 200:
+                    data = json.loads(response.read().decode('utf-8'))
+                    
+                    # Prüfe ob es wirklich ein ESP8266 ist
+                    if data.get("device_name") == "FutterWaage_ESP8266":
+                        return data
+            
+            return None
+            
+        except (urllib.error.URLError, socket.timeout, json.JSONDecodeError):
+            return None
     
     async def test_websocket(self, ip: str, timeout: float = 2.0) -> bool:
         """Testet WebSocket-Verbindung zu IP"""
@@ -238,6 +261,11 @@ esp8266_discovery = ESP8266Discovery()
 async def get_esp8266_connection() -> Optional[Tuple[str, str]]:
     """Convenience-Funktion für ESP8266-Verbindung"""
     return await esp8266_discovery.find_esp8266()
+
+def get_esp8266_status(ip: str) -> Optional[dict]:
+    """Holt aktuellen ESP8266 Status via HTTP"""
+    discovery = ESP8266Discovery()
+    return discovery.test_http_status(ip)
 
 if __name__ == "__main__":
     # Test-Script
