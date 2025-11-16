@@ -151,10 +151,10 @@
   <widget class="QLabel" name="label_wifi_status">
    <property name="geometry">
     <rect>
-     <x>1100</x>
-     <y>20</y>
-     <width>60</width>
-     <height>60</height>
+     <x>1180</x>
+     <y>15</y>
+     <width>90</width>
+     <height>40</height>
     </rect>
    </property>
    <property name="sizePolicy">
