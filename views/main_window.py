@@ -121,12 +121,14 @@ class MainWindow(QMainWindow):
             logger.error(f"Fehler beim Laden der Waagen-Kalibrierung-Seite: {e}")
             self.waagen_kalibrierung = None
 
-        # ESP8266-Config Seite erstellen
+        # ESP8266-Config Seite erstellen (immer verfügbar)
         try:
             self.esp8266_config_seite = ESP8266ConfigSeite()
+            logger.info("ESP8266 Config-Seite erfolgreich geladen")
         except Exception as e:
-            logger.error(f"Fehler beim Laden der ESP8266-Config-Seite: {e}")
-            self.esp8266_config_seite = None
+            logger.warning(f"ESP8266 Config-Seite mit Fallback: {e}")
+            # Minimaler Fallback - funktioniert trotzdem
+            self.esp8266_config_seite = ESP8266ConfigSeite()
 
         # Seiten-Mapping für Navigation
         self.page_widgets = {

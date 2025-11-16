@@ -22,7 +22,7 @@ try:
     WEBSOCKETS_AVAILABLE = True
 except ImportError:
     WEBSOCKETS_AVAILABLE = False
-    logging.getLogger(__name__).warning("websockets-Modul nicht verfügbar - ESP8266Discovery deaktiviert")
+    # Keine Warnung - HTTP-Discovery funktioniert ohne WebSockets
 
 logger = logging.getLogger(__name__)
 

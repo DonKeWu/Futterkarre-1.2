@@ -32,23 +32,19 @@ class WiFiStatusThread(QThread):
         self.running = True
         while self.running:
             try:
-                # Synchrone get_esp8266_status verwenden statt async find_esp8266
-                status = self.esp8266_discovery.get_esp8266_status()
+                # ESP8266 per HTTP-Status testen
+                known_ips = ["192.168.2.17", "192.168.4.1"]
+                found_ip = None
                 
-                if status and "ESP8266:" in status and "nicht gefunden" not in status:
-                    # Status Format: "ESP8266: 192.168.2.17 (Haus)"
-                    if "192.168." in status:
-                        # IP extrahieren
-                        ip_start = status.find("192.168.")
-                        ip_end = status.find(" ", ip_start)
-                        if ip_end == -1:
-                            ip_end = len(status)
-                        esp8266_ip = status[ip_start:ip_end]
-                        self.wifi_status_changed.emit(True, esp8266_ip)
-                        logger.debug(f"ESP8266 gefunden: {esp8266_ip}")
-                    else:
-                        self.wifi_status_changed.emit(True, "ESP8266")
-                        logger.debug("ESP8266 gefunden (keine IP)")
+                for test_ip in known_ips:
+                    status = self.esp8266_discovery.test_http_status(test_ip)
+                    if status and isinstance(status, dict):
+                        found_ip = test_ip
+                        break
+                
+                if found_ip:
+                    self.wifi_status_changed.emit(True, found_ip)
+                    logger.debug(f"ESP8266 gefunden: {found_ip}")
                 else:
                     self.wifi_status_changed.emit(False, "")
                     logger.debug("ESP8266 nicht erreichbar")
