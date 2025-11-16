@@ -18,6 +18,7 @@ from views.einstellungen_seite import EinstellungenSeite
 from views.beladen_seite import BeladenSeite
 from views.futter_konfiguration import FutterKonfiguration
 from views.fuetterung_abschluss import FuetterungAbschluss
+from views.esp8266_config_seite import ESP8266ConfigSeite
 
 class MainWindow(QMainWindow):
     def __init__(self, sensor_manager):  # OHNE heu_namen!
@@ -41,7 +42,7 @@ class MainWindow(QMainWindow):
         
         # Smart Navigation: Hauptseiten vs. Unterseiten
         self.main_pages = {"auswahl", "fuettern", "einstellungen", "beladen", "start"}
-        self.sub_pages = {"futter_konfiguration", "abschluss", "display_config", "waagen_kalibrierung"}
+        self.sub_pages = {"futter_konfiguration", "abschluss", "display_config", "waagen_kalibrierung", "esp8266_config"}
         self.main_page_stack = []  # Stack der Hauptseiten
         self.current_main_page = None
 
@@ -120,6 +121,13 @@ class MainWindow(QMainWindow):
             logger.error(f"Fehler beim Laden der Waagen-Kalibrierung-Seite: {e}")
             self.waagen_kalibrierung = None
 
+        # ESP8266-Config Seite erstellen
+        try:
+            self.esp8266_config_seite = ESP8266ConfigSeite()
+        except Exception as e:
+            logger.error(f"Fehler beim Laden der ESP8266-Config-Seite: {e}")
+            self.esp8266_config_seite = None
+
         # Seiten-Mapping für Navigation
         self.page_widgets = {
             "start": self.start_screen,
@@ -130,7 +138,8 @@ class MainWindow(QMainWindow):
             "futter_konfiguration": self.futter_konfiguration,
             "abschluss": self.fuetterung_abschluss,
             "display_config": self.display_config_seite,
-            "waagen_kalibrierung": self.waagen_kalibrierung
+            "waagen_kalibrierung": self.waagen_kalibrierung,
+            "esp8266_config": self.esp8266_config_seite
         }
 
         # Signal-Verbindungen für erweiterte Funktionen
@@ -139,7 +148,8 @@ class MainWindow(QMainWindow):
         # Navigation für alle Seiten setzen
         for seite in [self.start_screen, self.auswahl_seite, self.beladen_seite,
                       self.fuettern_seite, self.einstellungen_seite, self.futter_konfiguration, 
-                      self.fuetterung_abschluss, self.display_config_seite, self.waagen_kalibrierung]:
+                      self.fuetterung_abschluss, self.display_config_seite, self.waagen_kalibrierung,
+                      self.esp8266_config_seite]:
             if seite:  # Nur wenn Seite erfolgreich geladen wurde
                 seite.navigation = self
 
@@ -159,6 +169,10 @@ class MainWindow(QMainWindow):
         # Waagen-Kalibrierung Seite hinzufügen (falls geladen)
         if self.waagen_kalibrierung:
             self.stacked_widget.addWidget(self.waagen_kalibrierung)
+
+        # ESP8266-Config Seite hinzufügen (falls geladen)
+        if self.esp8266_config_seite:
+            self.stacked_widget.addWidget(self.esp8266_config_seite)
 
         self.setCentralWidget(self.stacked_widget)
         self.show_status("start")

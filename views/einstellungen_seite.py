@@ -575,6 +575,9 @@ class EinstellungenSeite(BaseViewWidget):
         
         # Spezifische Einstellungen-Seite Aktionen
         self.load_current_settings()
+        
+        # ESP8266-Status aktualisieren
+        self.update_esp8266_status()
     
     def zu_display_config(self):
         """Navigiert zur Display-Konfigurationsseite"""
@@ -654,6 +657,63 @@ class EinstellungenSeite(BaseViewWidget):
             
         except Exception as e:
             logger.error(f"Display-Config Fallback fehlgeschlagen: {e}")
+
+    def update_esp8266_status(self):
+        """Aktualisiert ESP8266-Status im txt_fu_sim_toggle Label"""
+        try:
+            if hasattr(self, 'txt_fu_sim_toggle'):
+                try:
+                    # ESP8266 Discovery verwenden
+                    from wireless.esp8266_discovery import ESP8266Discovery
+                    import asyncio
+                    
+                    discovery = ESP8266Discovery()
+                    
+                    # Asynchrone ESP8266-Suche in Thread
+                    def check_esp8266():
+                        try:
+                            loop = asyncio.new_event_loop()
+                            asyncio.set_event_loop(loop)
+                            result = loop.run_until_complete(discovery.find_esp8266(force_rescan=True))
+                            loop.close()
+                            
+                            if result:
+                                ip, mode = result
+                                status_text = f"Hardware-Status: Pi5 + HX711 + ESP8266 ({ip}, {mode})"
+                                color = "#4CAF50"  # Grün
+                            else:
+                                status_text = "Hardware-Status: Pi5 + HX711 (ESP8266 nicht gefunden)"
+                                color = "#FF9800"  # Orange
+                                
+                            # UI-Update im Main-Thread
+                            from PyQt5.QtCore import QMetaObject, Qt
+                            QMetaObject.invokeMethod(self.txt_fu_sim_toggle, "setText", 
+                                                   Qt.QueuedConnection, 
+                                                   QtCore.Q_ARG(str, status_text))
+                            QMetaObject.invokeMethod(self.txt_fu_sim_toggle, "setStyleSheet",
+                                                   Qt.QueuedConnection,
+                                                   QtCore.Q_ARG(str, f"QLabel {{ background-color: transparent; color: {color}; }}"))
+                                                   
+                        except Exception as e:
+                            logger.error(f"ESP8266 Status Check Fehler: {e}")
+                            fallback_text = "Hardware-Status: Pi5 + HX711 (ESP8266 Status unbekannt)"
+                            QMetaObject.invokeMethod(self.txt_fu_sim_toggle, "setText",
+                                                   Qt.QueuedConnection,
+                                                   QtCore.Q_ARG(str, fallback_text))
+                    
+                    # Status-Check in separatem Thread starten
+                    from threading import Thread
+                    status_thread = Thread(target=check_esp8266, daemon=True)
+                    status_thread.start()
+                    
+                except ImportError:
+                    # Fallback wenn ESP8266Discovery nicht verfügbar
+                    fallback_text = "Hardware-Status: Pi5 + HX711 (ESP8266 nicht konfiguriert)"
+                    self.txt_fu_sim_toggle.setText(fallback_text)
+                    self.txt_fu_sim_toggle.setStyleSheet("QLabel { background-color: transparent; color: #FF9800; }")
+                    
+        except Exception as e:
+            logger.error(f"ESP8266-Status Update fehlgeschlagen: {e}")
 
     def zurueck_geklickt(self):
         """Zurück-Button geklickt - sichere Navigation zurück"""

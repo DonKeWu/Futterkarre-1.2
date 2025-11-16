@@ -17,8 +17,18 @@ from PyQt5.QtGui import *
 
 from utils.base_ui_widget import BaseViewWidget
 from utils.settings_manager import SettingsManager
-from wireless.wireless_weight_manager import WirelessWeightManager
-from wireless.esp8266_discovery import ESP8266Discovery
+
+# Wireless-Module optional laden
+try:
+    from wireless.wireless_weight_manager import WirelessWeightManager
+    from wireless.esp8266_discovery import ESP8266Discovery
+    WIRELESS_AVAILABLE = True
+except ImportError as e:
+    logger = logging.getLogger(__name__)
+    logger.warning(f"Wireless-Module nicht verfügbar: {e}")
+    WirelessWeightManager = None
+    ESP8266Discovery = None
+    WIRELESS_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
 
@@ -86,11 +96,13 @@ class ESP8266ConfigSeite(BaseViewWidget):
         
         # Discovery Manager
         self.discovery = None
-        try:
-            from wireless.esp8266_discovery import ESP8266Discovery
-            self.discovery = ESP8266Discovery()
-        except ImportError:
-            logger.warning("ESP8266Discovery nicht verfügbar")
+        if WIRELESS_AVAILABLE and ESP8266Discovery:
+            try:
+                self.discovery = ESP8266Discovery()
+            except Exception as e:
+                logger.warning(f"ESP8266Discovery Initialisierung fehlgeschlagen: {e}")
+        else:
+            logger.warning("ESP8266Discovery nicht verfügbar - Wireless-Module fehlen")
         
         # Status Thread
         self.status_thread = None

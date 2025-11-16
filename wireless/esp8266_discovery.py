@@ -8,11 +8,18 @@ Findet ESP8266 automatisch in beiden Modi:
 
 import subprocess
 import asyncio
-import websockets
 import json
 import logging
 from typing import Optional, Tuple
 import time
+
+# Websockets optional - fallback für Entwicklung
+try:
+    import websockets
+    WEBSOCKETS_AVAILABLE = True
+except ImportError:
+    WEBSOCKETS_AVAILABLE = False
+    logging.getLogger(__name__).warning("websockets-Modul nicht verfügbar - ESP8266Discovery deaktiviert")
 
 logger = logging.getLogger(__name__)
 
@@ -30,9 +37,14 @@ class ESP8266Discovery:
             (ip, mode) oder None falls nicht gefunden
             mode: "stall" oder "haus"
         """
+        # WebSockets-Check
+        if not WEBSOCKETS_AVAILABLE:
+            logger.warning("ESP8266Discovery: websockets-Modul fehlt")
+            return None
+            
         # Cache für 30 Sekunden
         if not force_rescan and time.time() - self.last_scan_time < 30:
-            if self.esp8266_ip:
+            if self.esp8266_ip and self.connection_mode:
                 return (self.esp8266_ip, self.connection_mode)
         
         logger.info("🔍 ESP8266 Auto-Discovery gestartet...")
@@ -106,6 +118,9 @@ class ESP8266Discovery:
     
     async def test_websocket(self, ip: str, timeout: float = 2.0) -> bool:
         """Testet WebSocket-Verbindung zu IP"""
+        if not WEBSOCKETS_AVAILABLE:
+            return False
+            
         try:
             uri = f"ws://{ip}:81"
             websocket = await asyncio.wait_for(

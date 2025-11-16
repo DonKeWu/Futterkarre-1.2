@@ -40,13 +40,13 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"></string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="txt_hardware_status">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>450</y>
+     <x>460</x>
+     <y>390</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -87,8 +87,8 @@
   <widget class="QLabel" name="txt_kalibrieren">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>270</y>
+     <x>460</x>
+     <y>210</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -156,7 +156,7 @@
    <property name="font">
     <font>
      <family>Droid Sans Fallback</family>
-     <pointsize>35</pointsize>
+     <pointsize>32</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -182,8 +182,8 @@ color: #fdffe0;
   <widget class="QPushButton" name="btn_kalibrieren">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>270</y>
+     <x>330</x>
+     <y>210</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -223,8 +223,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_display_config">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>450</y>
+     <x>330</x>
+     <y>390</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -265,7 +265,7 @@ QPushButton:hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"></string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -284,8 +284,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_we_auswahl">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>180</y>
+     <x>330</x>
+     <y>120</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -325,8 +325,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_we_auswahl">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>190</y>
+     <x>460</x>
+     <y>130</y>
      <width>600</width>
      <height>51</height>
     </rect>
@@ -367,8 +367,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_fu_sim_toggle">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>540</y>
+     <x>460</x>
+     <y>550</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -409,8 +409,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_futter_config">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>360</y>
+     <x>330</x>
+     <y>300</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -444,8 +444,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_kalibrieren_2">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>360</y>
+     <x>460</x>
+     <y>300</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -486,8 +486,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btn_esp8266_config">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>540</y>
+     <x>330</x>
+     <y>480</y>
      <width>100</width>
      <height>70</height>
     </rect>
@@ -507,7 +507,7 @@ QPushButton:hover {
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../../Futterwagen_2/views/icons/icons.qrc">
+    <iconset>
      <normaloff>:/icons/Wireless.png</normaloff>
      <normalon>:/icons/Wireless.png</normalon>:/icons/Wireless.png</iconset>
    </property>
@@ -521,8 +521,8 @@ QPushButton:hover {
   <widget class="QLabel" name="txt_esp8266_config">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>540</y>
+     <x>460</x>
+     <y>480</y>
      <width>600</width>
      <height>70</height>
     </rect>
@@ -560,6 +560,8 @@ QPushButton:hover {
     <string>ESP8266 Wireless Waage</string>
    </property>
   </widget>
+  <zorder>btn_esp8266_config</zorder>
+  <zorder>txt_esp8266_config</zorder>
   <zorder>ub_einstellungen</zorder>
   <zorder>txt_hardware_status</zorder>
   <zorder>txt_kalibrieren</zorder>
