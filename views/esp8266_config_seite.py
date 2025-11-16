@@ -528,14 +528,14 @@ class ESP8266ConfigSeite(BaseViewWidget):
         try:
             self.current_status = status_data
             
-            # RSSI Signal
-            if 'wifi_rssi' in status_data and hasattr(self, 'lbl_rssi_wert'):
-                rssi = status_data['wifi_rssi']
+            # RSSI Signal (HTTP API verwendet 'signal_strength')
+            if 'signal_strength' in status_data and hasattr(self, 'lbl_rssi_wert'):
+                rssi = status_data['signal_strength']
                 self.lbl_rssi_wert.setText(f"{rssi} dBm")
             
-            # Akku-Spannung
-            if 'battery_v' in status_data and hasattr(self, 'lbl_akku_wert'):
-                battery = status_data['battery_v']
+            # Akku-Spannung (HTTP API verwendet 'battery_voltage')
+            if 'battery_voltage' in status_data and hasattr(self, 'lbl_akku_wert'):
+                battery = status_data['battery_voltage']
                 self.lbl_akku_wert.setText(f"{battery:.2f} V")
                 
                 # Farbe je nach Spannung
@@ -550,8 +550,8 @@ class ESP8266ConfigSeite(BaseViewWidget):
             
             # Status-Log erweitern
             timestamp = datetime.now().strftime("%H:%M:%S")
-            self.log_message(f"📊 Status Update - RSSI: {status_data.get('wifi_rssi', 'N/A')} dBm, "
-                           f"Akku: {status_data.get('battery_v', 0):.2f} V")
+            self.log_message(f"📊 Status Update - RSSI: {status_data.get('signal_strength', 'N/A')} dBm, "
+                           f"Akku: {status_data.get('battery_voltage', 0):.2f} V")
             
         except Exception as e:
             logger.error(f"Fehler beim Status-Display Update: {e}")
