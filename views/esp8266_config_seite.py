@@ -233,10 +233,11 @@ class ESP8266ConfigSeite(BaseViewWidget):
                 self.log_message("❌ ESP8266Discovery nicht verfügbar")
                 return
             
-            # ESP8266 suchen (synchron via HTTP-Test)
+            # ESP8266 testen (bekannte IP zuerst)
             esp_ip = None
-            for i in range(100, 200):
-                test_ip = f"192.168.2.{i}"
+            known_ips = ["192.168.2.17", "192.168.4.1"]  # Bekannte IPs zuerst
+            
+            for test_ip in known_ips:
                 if self.discovery.test_http_status(test_ip):
                     esp_ip = test_ip
                     break
