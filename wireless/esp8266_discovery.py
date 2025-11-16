@@ -190,6 +190,47 @@ class ESP8266Discovery:
             "status": f"Verbunden ({mode}-Modus)",
             "wifi_network": "Futterkarre_WiFi" if mode == "stall" else "Heimnetz"
         }
+    
+    async def get_esp8266_status_async(self, ip: Optional[str] = None) -> str:
+        """Async Status-Ausgabe für UI-Integration"""
+        try:
+            # Falls IP gegeben, direkt verwenden
+            if ip:
+                if await self.test_websocket(ip):
+                    # Bestimme Modus basierend auf IP
+                    if ip == "192.168.4.1":
+                        return f"ESP8266: {ip} (Stall)"
+                    else:
+                        return f"ESP8266: {ip} (Haus)"
+                else:
+                    return f"ESP8266: {ip} nicht erreichbar"
+            
+            # Automatische Suche
+            esp_info = await self.find_esp8266()
+            
+            if not esp_info:
+                return "ESP8266: Nicht gefunden"
+            
+            ip, mode = esp_info
+            mode_text = "Stall" if mode == "stall" else "Haus"
+            return f"ESP8266: {ip} ({mode_text})"
+            
+        except Exception as e:
+            logger.error(f"Fehler bei ESP8266-Status: {e}")
+            return f"ESP8266: Fehler - {str(e)}"
+    
+    def get_esp8266_status(self, ip: Optional[str] = None) -> str:
+        """Synchroner Wrapper für UI-Integration"""
+        try:
+            # Neuen Event Loop in Thread erstellen
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            result = loop.run_until_complete(self.get_esp8266_status_async(ip))
+            loop.close()
+            return result
+        except Exception as e:
+            logger.error(f"Fehler bei synchronem ESP8266-Status: {e}")
+            return f"ESP8266: Sync-Fehler - {str(e)}"
 
 # Singleton für globale Verwendung
 esp8266_discovery = ESP8266Discovery()

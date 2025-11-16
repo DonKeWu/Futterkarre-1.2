@@ -603,11 +603,12 @@ void checkBattery() {
     serializeJson(warning, warningStr);
     webSocket.broadcastTXT(warningStr);
     
-    // Automatischer Deep Sleep bei kritischer Spannung
-    if (battery_voltage < (BATTERY_MIN - 0.2)) {
-      Serial.println("🔋 Kritische Spannung - Deep Sleep aktiviert");
-      deep_sleep_requested = true;
-    }
+    // Automatischer Deep Sleep bei kritischer Spannung - DEAKTIVIERT FÜR TESTS
+    // if (battery_voltage < (BATTERY_MIN - 0.2)) {
+    //   Serial.println("🔋 Kritische Spannung - Deep Sleep aktiviert");
+    //   deep_sleep_requested = true;
+    // }
+    Serial.println("🧪 Deep Sleep deaktiviert für Tests");
   }
 }
 
