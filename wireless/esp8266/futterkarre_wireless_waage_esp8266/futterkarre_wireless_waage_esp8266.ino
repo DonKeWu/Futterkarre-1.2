@@ -268,7 +268,7 @@ void setupHTTPRoutes() {
     statusDoc["ip_address"] = WiFi.localIP().toString();
     statusDoc["ssid"] = WiFi.SSID();
     statusDoc["signal_strength"] = WiFi.RSSI();
-    statusDoc["battery_voltage"] = battery_voltage;
+    statusDoc["battery_voltage"] = 5.0;  // Step-Down-Wandler (extern gespeist)
     statusDoc["uptime"] = millis();
     statusDoc["free_heap"] = ESP.getFreeHeap();
     
@@ -319,11 +319,11 @@ void loop() {
     last_measurement = now;
   }
   
-  // Akku-Status prüfen (alle 5s)
-  if (now - last_battery_check >= BATTERY_CHECK_INTERVAL) {
-    checkBattery();
-    last_battery_check = now;
-  }
+  // Akku-Check deaktiviert (Step-Down-Wandler verwendet)
+  // if (now - last_battery_check >= BATTERY_CHECK_INTERVAL) {
+  //   checkBattery();
+  //   last_battery_check = now;
+  // }
   
   // Status-LED blinken (1Hz)
   if (now - last_status_led >= STATUS_LED_INTERVAL) {
@@ -331,10 +331,10 @@ void loop() {
     last_status_led = now;
   }
   
-  // Deep Sleep prüfen
-  if (deep_sleep_requested) {
-    enterDeepSleep();
-  }
+  // Deep Sleep deaktiviert (Step-Down-Wandler = 24/7 Betrieb)
+  // if (deep_sleep_requested) {
+  //   enterDeepSleep();  
+  // }
   
   // Kurze Pause für Stabilität
   delay(10);
@@ -508,7 +508,7 @@ void sendWeightData() {
   corners.add(round(weight_3 * 100) / 100.0);
   corners.add(round(weight_4 * 100) / 100.0);
   
-  doc["battery_v"] = round(battery_voltage * 10) / 10.0;
+  doc["battery_v"] = 5.0;  // Step-Down-Wandler
   doc["wifi_rssi"] = wifi_rssi;
   
   // Als String serialisieren und senden
@@ -600,7 +600,7 @@ void sendStatusMessage(uint8_t clientNum) {
   doc["wifi_ssid"] = (current_wifi_mode == 1) ? HOME_WIFI_SSID : AP_SSID;
   doc["ip_address"] = (current_wifi_mode == 1) ? WiFi.localIP().toString() : WiFi.softAPIP().toString();
   doc["wifi_rssi"] = wifi_rssi;
-  doc["battery_v"] = battery_voltage;
+  doc["battery_v"] = 5.0;  // Step-Down-Wandler
   doc["scales_ok"] = scales_initialized;
   doc["uptime_ms"] = millis();
   doc["free_heap"] = ESP.getFreeHeap();
