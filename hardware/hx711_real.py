@@ -13,9 +13,10 @@ hx711_configs = [
 scales = [1.0, 1.0, 1.0, 1.0]       # Skalenfaktoren
 offsets = [0, 0, 0, 0]               # Nullpunkt-Offsets
 
-# TODO: Multi-HX711 Library oder separate HX711-Instanzen verwenden
-# from hx711_multi import HX711  # Falls verfügbar
-from hx711 import HX711  # Standard HX711 Library
+# Hardware-Konfiguration: Standard HX711 Library für 4-Sensor Setup
+# Zukünftige Erweiterung: Multi-HX711 Library für bessere Performance
+# from hx711_multi import HX711  # Option für Multi-Sensor Hardware
+from hx711 import HX711  # Standard HX711 Library (aktuell verwendet)
 
 # HX711 Konfiguration für 4 Wägezellen (Option 1: 4x separate Module)
 # Jede Wägezelle hat ihr eigenes HX711-Modul für maximale Zuverlässigkeit

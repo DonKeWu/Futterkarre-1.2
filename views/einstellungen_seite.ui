@@ -42,7 +42,7 @@
   <property name="styleSheet">
    <string notr="true"></string>
   </property>
-  <widget class="QLabel" name="txt_simulation_toggle">
+  <widget class="QLabel" name="txt_hardware_status">
    <property name="geometry">
     <rect>
      <x>520</x>
@@ -403,7 +403,7 @@ QPushButton:hover {
 }</string>
    </property>
    <property name="text">
-    <string>Fütter - Simulation an/aus</string>
+    <string>Hardware-Status: Pi5 + HX711</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_futter_config">
@@ -484,7 +484,7 @@ QPushButton:hover {
    </property>
   </widget>
   <zorder>ub_einstellungen</zorder>
-  <zorder>txt_simulation_toggle</zorder>
+  <zorder>txt_hardware_status</zorder>
   <zorder>txt_kalibrieren</zorder>
   <zorder>btn_kalibrieren</zorder>
   <zorder>btn_display_config</zorder>

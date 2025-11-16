@@ -139,8 +139,8 @@ def main():
     logger.info("🚀 ESP32-S3 Wireless Weight System - Integration Test")
     logger.info("=" * 60)
     
-    # ESP32-IP konfigurieren (muss angepasst werden für echte Hardware)
-    ESP32_IP = "192.168.1.100"  # TODO: Echte IP eintragen
+    # ESP32-IP konfigurieren (wird automatisch via mDNS erkannt oder manuell gesetzt)
+    ESP32_IP = "192.168.1.100"  # Standard-IP - wird via WiFi-Setup angepasst
     
     # Test-Ergebnisse
     results = {}

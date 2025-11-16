@@ -116,7 +116,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         self.system_tab = self.create_system_tab()
         self.tab_widget.addTab(self.system_tab, "System")
         
-        # Hardware Tab (inkl. legacy Simulation)
+        # Hardware Tab - Waagen-Kalibrierung und Hardware-Einstellungen
         self.hardware_tab = self.create_hardware_tab()
         self.tab_widget.addTab(self.hardware_tab, "Hardware")
         
@@ -189,7 +189,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         tab = QtWidgets.QWidget()
         layout = QtWidgets.QFormLayout(tab)
         
-        # Hardware-Betriebsmodus (Simulation entfernt)
+        # Hardware-Betriebsmodus - Pi5 mit HX711 Waagen-Sensoren
         mode_group = QtWidgets.QGroupBox("Hardware-Modus")
         mode_layout = QtWidgets.QFormLayout(mode_group)
         
@@ -335,7 +335,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
         if hasattr(self, 'btn_futter_config'):
             self.btn_futter_config.clicked.connect(self.zu_futter_config)
         
-        # Legacy-Simulation-Buttons entfernt - Hardware-only Modus aktiv
+        # Button-Verbindungen abgeschlossen - Hardware-Modus aktiv
         
         # Slider-Updates
         if hasattr(self, 'brightness_slider'):
@@ -362,8 +362,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
                 self.brightness_slider.setValue(brightness)
                 self.update_brightness_label(brightness)
             
-            # Hardware Settings (Hardware-only Modus)
-            # Simulation-Checkboxen entfernt - System läuft nur mit Hardware
+            # Hardware Settings - Pi5 mit HX711 Sensoren
             
             # Feeding Settings
             if hasattr(self, 'default_amount_spin'):
@@ -384,8 +383,7 @@ class EinstellungenSeite(QtWidgets.QWidget):
             if hasattr(self, 'brightness_slider'):
                 self.settings_manager.system.brightness = self.brightness_slider.value()
             
-            # Hardware Settings (Hardware-only - Simulation entfernt)
-            # Keine Simulation-Checkboxes mehr verfügbar
+            # Hardware Settings - Echte HX711 Waagen-Hardware
             
             # Feeding Settings
             if hasattr(self, 'default_amount_spin'):

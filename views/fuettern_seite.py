@@ -83,7 +83,7 @@ class FuetternSeite(QWidget):
             self._timer_registered = True
             logger.info("TimerManager Timer für FuetternSeite registriert")
         
-        # Navigation Buttons (Fütterungs-Simulation entfernt)
+        # Navigation Buttons - Echtes Hardware-Füttern
         if hasattr(self, 'btn_back'):
             self.btn_back.clicked.connect(self.zurueck_zur_auswahl)
         if hasattr(self, 'btn_settings'):
