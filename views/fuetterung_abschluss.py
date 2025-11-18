@@ -20,8 +20,8 @@ class FuetterungAbschluss(BaseViewWidget):
         
         # UI laden
         try:
-            uic.loadUi('views/fuetterung_abschluss_modern.ui', self)
-            logger.info("fuetterung_abschluss_modern.ui erfolgreich geladen")
+            uic.loadUi('views/fuetterung_abschluss.ui', self)
+            logger.info("fuetterung_abschluss.ui erfolgreich geladen")
         except Exception as e:
             logger.error(f"Fehler beim Laden der UI: {e}")
         

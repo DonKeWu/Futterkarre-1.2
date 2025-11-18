@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Fütterung Abgeschlossen</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    ;
+    color: #D8DEE9;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+}
+
+QLabel {
+    font-size: 16px;
+    padding: 8px;
+}
+
+QPushButton {
+    
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    min-height: 60px;
+}
+
+.title-label {
+    font-size: 32px;
+    font-weight: bold;
+    color: #88C0D0;
+    padding: 20px;
+}
+
+.summary-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #A3BE8C;
+    padding: 16px;
+}
+
+.info-label {
+    font-size: 20px;
+    color: #ECEFF4;
+    padding: 12px;
+}
+
+.value-label {
+    font-size: 22px;
+    font-weight: bold;
+    color: #88C0D0;
+    padding: 12px;
+}</string>
+  </property>
+  <widget class="QLabel" name="label_titel">
+   <property name="geometry">
+    <rect>
+     <x>206</x>
+     <y>80</y>
+     <width>924</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 32px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string notr="true">Fütterung erfolgreich abgeschlossen!</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_zusammenfassung">
+   <property name="geometry">
+    <rect>
+     <x>256</x>
+     <y>180</y>
+     <width>824</width>
+     <height>350</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame { border: 2px solid #4C566A;}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <widget class="QLabel" name="label_gesamtmenge_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>Gesamtmenge gefüttert:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_gesamtmenge_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>30</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>135.0 kg</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_heu_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>🌾 Heu gefüttert:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_heu_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>80</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>67.5 kg (15 Pferde)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_heulage_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>🌿 Heulage gefüttert:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_heulage_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>130</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>67.5 kg (15 Pferde)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_pferde_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>180</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>🐴 Pferde gefüttert:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_pferde_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>180</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>30 von 30 Boxen</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_dauer_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>⏱️ Fütterungsdauer:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_dauer_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>230</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>32 Minuten</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_naechste_text">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>280</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>⏰ Nächste Fütterung:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_naechste_wert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>280</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>font-size: 22px; font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>16:30 Uhr (Heu)</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btn_neue_fuetterung">
+   <property name="geometry">
+    <rect>
+     <x>306</x>
+     <y>530</y>
+     <width>300</width>
+     <height>84</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string></string>
+   </property>
+   <property name="text">
+    <string>🔄 Neue Fütterung</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_zum_start">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>530</y>
+     <width>300</width>
+     <height>84</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string></string>
+   </property>
+   <property name="text">
+    <string>🏠 Zum Start</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

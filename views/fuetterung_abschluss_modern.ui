@@ -13,30 +13,29 @@
   <property name="windowTitle">
    <string>Fütterung Abgeschlossen</string>
   </property>
-  
-  <!-- Header Titel -->
-  <widget class="QLabel" name="label_title">
+  <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>20</y>
-     <width>1180</width>
-     <height>60</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>100</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🎉 Fütterung erfolgreich abgeschlossen!</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>35</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>title_label</string>
+   <property name="text">
+    <string>Fütterung erfolgreich abgeschlossen!</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignLeft|Qt::AlignVCenter</set>
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
-
-  <!-- Gesamtmenge -->
-  <widget class="QLabel" name="label_gesamtmenge">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -44,33 +43,37 @@
      <width>250</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Gesamtmenge:</string>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
-   </property>
   </widget>
-  <widget class="QLabel" name="label_gesamtmenge_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>120</y>
+     <y>130</y>
      <width>200</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>0.0 kg</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Heu -->
-  <widget class="QLabel" name="label_heu">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -79,32 +82,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🌾 Heu:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Heu:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_heu_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>180</y>
+     <y>190</y>
      <width>300</width>
      <height>40</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>0.0 kg (0 Pferde)</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Heulage -->
-  <widget class="QLabel" name="label_heulage">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -113,32 +120,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🌿 Heulage:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Heulage:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_heulage_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>240</y>
+     <y>250</y>
      <width>300</width>
      <height>40</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>0.0 kg (0 Pferde)</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Gefütterte Boxen -->
-  <widget class="QLabel" name="label_pferde">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -147,32 +158,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🐴 Gefütterte Boxen:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Gefütterte Boxen:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_pferde_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>300</y>
+     <y>310</y>
      <width>200</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>0 von 0 Boxen</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Dauer -->
-  <widget class="QLabel" name="label_dauer">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -181,32 +196,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>⏱️ Dauer:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Dauer:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_dauer_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>360</y>
+     <y>370</y>
      <width>200</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>0 Minuten</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Nächste Fütterung -->
-  <widget class="QLabel" name="label_naechste">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -215,32 +234,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>⏰ Nächste Fütterung:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Nächste Fütterung:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_naechste_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>420</y>
+     <y>430</y>
      <width>300</width>
      <height>40</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>06:00 Uhr (Heulage)</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- Sync-Status -->
-  <widget class="QLabel" name="label_sync_status">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>700</x>
@@ -249,32 +272,36 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🔄 Sync-Status:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Sync-Status:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_sync_status_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>920</x>
      <y>120</y>
-     <width>200</width>
+     <width>261</width>
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>● Bereit</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
+   <property name="text">
+    <string>Bereit</string>
    </property>
   </widget>
-
-  <!-- Letzte Sync -->
-  <widget class="QLabel" name="label_last_sync">
+  <widget class="QLabel" name="info_label">
    <property name="geometry">
     <rect>
      <x>700</x>
@@ -283,84 +310,93 @@
      <height>40</height>
     </rect>
    </property>
-   <property name="text">
-    <string>📅 Letzte Sync:</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>info_label</string>
+   <property name="text">
+    <string>Letzte Sync:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_last_sync_wert">
+  <widget class="QLabel" name="value_label">
    <property name="geometry">
     <rect>
      <x>920</x>
      <y>180</y>
-     <width>200</width>
+     <width>261</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Noch nicht synchronisiert</string>
    </property>
-   <property name="objectName">
-    <string>value_label</string>
-   </property>
   </widget>
-
-  <!-- SYNC BUTTONS -->
-  <widget class="QPushButton" name="btn_sync_now">
-   <property name="geometry">
-    <rect>
-     <x>700</x>
-     <y>250</y>
-     <width>250</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>🚀 Jetzt synchronisieren</string>
-   </property>
-   <property name="objectName">
-    <string>primary_button</string>
-   </property>
-  </widget>
-  
-  <widget class="QPushButton" name="btn_backup_local">
-   <property name="geometry">
-    <rect>
-     <x>970</x>
-     <y>250</y>
-     <width>200</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>💾 Lokales Backup</string>
-   </property>
-   <property name="objectName">
-    <string>secondary_button</string>
-   </property>
-  </widget>
-
-  <widget class="QPushButton" name="btn_auto_sync">
+  <widget class="QPushButton" name="primary_button">
    <property name="geometry">
     <rect>
      <x>700</x>
      <y>330</y>
-     <width>250</width>
+     <width>291</width>
      <height>60</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🔄 Auto-Sync Ein/Aus</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>secondary_button</string>
+   <property name="text">
+    <string>Jetzt synchronisieren</string>
    </property>
   </widget>
-
-  <!-- NAVIGATION BUTTONS -->
-  <widget class="QPushButton" name="btn_neue_fuetterung">
+  <widget class="QPushButton" name="secondary_button">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>250</y>
+     <width>291</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Lokales Backup</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="secondary_button">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>410</y>
+     <width>291</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Auto-Sync Ein/Aus</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="primary_button">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -369,15 +405,17 @@
      <height>80</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🔄 Neue Fütterung starten</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>primary_button</string>
+   <property name="text">
+    <string>Neue Fütterung starten</string>
    </property>
   </widget>
-
-  <widget class="QPushButton" name="btn_zum_start">
+  <widget class="QPushButton" name="secondary_button">
    <property name="geometry">
     <rect>
      <x>700</x>
@@ -386,15 +424,45 @@
      <height>80</height>
     </rect>
    </property>
-   <property name="text">
-    <string>🏠 Zum Start</string>
+   <property name="font">
+    <font>
+     <family>Droid Sans Fallback</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="objectName">
-    <string>secondary_button</string>
+   <property name="text">
+    <string>Zum Start</string>
    </property>
   </widget>
-
+  <widget class="QPushButton" name="btn_back">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Futterwagen/Futterkarre/icons/icons.qrc">
+     <normaloff>:/icons/Back.png</normaloff>:/icons/Back.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Futterwagen/Futterkarre/icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
