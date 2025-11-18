@@ -19,7 +19,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>80</height>
+     <height>100</height>
     </rect>
    </property>
    <property name="font">
@@ -41,7 +41,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>90</y>
+     <y>110</y>
      <width>400</width>
      <height>40</height>
     </rect>
@@ -172,7 +172,6 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
      <string>Verbundene Geräte: 1</string>
     </property>
    </widget>
-   
    <widget class="QLabel" name="lbl_ap_signal_titel">
     <property name="geometry">
      <rect>
@@ -194,7 +193,6 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
      <string>Signal:</string>
     </property>
    </widget>
-   
    <widget class="QLabel" name="lbl_ap_signal_wert">
     <property name="geometry">
      <rect>
@@ -216,7 +214,6 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
      <string>-45 dBm</string>
     </property>
    </widget>
-   
    <widget class="QLabel" name="lbl_ap_power_titel">
     <property name="geometry">
      <rect>
@@ -238,7 +235,6 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
      <string>Power:</string>
     </property>
    </widget>
-   
    <widget class="QLabel" name="lbl_ap_power_wert">
     <property name="geometry">
      <rect>
@@ -481,7 +477,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
     <string>border: 3px solid #4CAF50; padding: 10px; background-color: #f0fff0; border-radius: 5px;</string>
    </property>
    <property name="text">
-    <string>🏠 Verbunden via 192.168.2.17</string>
+    <string>Verbunden via 192.168.2.17</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -492,7 +488,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
     <rect>
      <x>480</x>
      <y>340</y>
-     <width>200</width>
+     <width>321</width>
      <height>40</height>
     </rect>
    </property>
@@ -505,7 +501,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
     </font>
    </property>
    <property name="text">
-    <string>⚙️ MODUS-WAHL:</string>
+    <string>MODUS-WAHL:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_stall_modus">
