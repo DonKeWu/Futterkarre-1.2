@@ -199,12 +199,26 @@ void setupScales() {
 }
 
 void setupWiFi() {
-  Serial.println("📡 WiFi Hybrid-Setup wird gestartet...");
+  Serial.println("📡 WiFi DUAL-MODE Setup wird gestartet...");
   
-  // Erst versuchen: Heimnetz verbinden
-  Serial.print("🏠 Versuche Heimnetz-Verbindung... ");
-  WiFi.mode(WIFI_STA);
+  // DUAL-MODE: AP + Station gleichzeitig
+  Serial.println("🔄 Starte AP+STA Dual-Modus...");
+  WiFi.mode(WIFI_AP_STA);
   WiFi.hostname(DEVICE_NAME);
+  
+  // 1. Access Point starten (für Futterkarre-Betrieb)
+  Serial.print("🚜 Starte Access Point... ");
+  bool ap_started = WiFi.softAP(AP_SSID, AP_PASSWORD);
+  if (ap_started) {
+    Serial.println("OK");
+    Serial.printf("   Stall-WiFi: %s\n", AP_SSID);
+    Serial.printf("   AP-IP: %s\n", WiFi.softAPIP().toString().c_str());
+  } else {
+    Serial.println("❌ FEHLER");
+  }
+  
+  // 2. Heimnetz verbinden (für Updates/Sync)
+  Serial.print("🏠 Versuche Heimnetz-Verbindung... ");
   WiFi.begin(HOME_WIFI_SSID, HOME_WIFI_PASSWORD);
   
   int timeout = 100; // 10s timeout für Heimnetz
@@ -215,30 +229,27 @@ void setupWiFi() {
   
   if (WiFi.status() == WL_CONNECTED) {
     // Heimnetz erfolgreich
-    current_wifi_mode = 1; // Station Mode
+    current_wifi_mode = 2; // Dual Mode (AP + Station)
     wifi_connected = true;
     digitalWrite(LED_WIFI, LOW); // WiFi LED an
     
     Serial.println(" OK");
-    Serial.printf("   Heimnetz-Modus aktiv\n");
-    Serial.printf("   IP: %s\n", WiFi.localIP().toString().c_str());
+    Serial.printf("   🎯 DUAL-MODE aktiv!\n");
+    Serial.printf("   Station-IP: %s (Heimnetz)\n", WiFi.localIP().toString().c_str());
+    Serial.printf("   AP-IP: %s (Stall-WiFi)\n", WiFi.softAPIP().toString().c_str());
     Serial.printf("   RSSI: %d dBm\n", WiFi.RSSI());
     wifi_rssi = WiFi.RSSI();
   } else {
-    // Fallback: Access Point Modus (Stall)
+    // Heimnetz fehlgeschlagen - nur Access Point
     Serial.println(" Timeout");
-    Serial.print("📡 Starte Access Point Modus... ");
+    Serial.printf("   ⚠️ Heimnetz nicht erreichbar\n");
+    Serial.printf("   ✅ Access Point bleibt aktiv\n");
     
-    WiFi.mode(WIFI_AP);
-    bool ap_started = WiFi.softAP(AP_SSID, AP_PASSWORD);
+    current_wifi_mode = 0; // Nur AP Mode
+    wifi_connected = true;
+    digitalWrite(LED_WIFI, LOW); // WiFi LED an
     
-    if (ap_started) {
-      current_wifi_mode = 0; // AP Mode
-      wifi_connected = true;
-      digitalWrite(LED_WIFI, LOW); // WiFi LED an
-      
-      Serial.println("OK");
-      Serial.printf("   Stall-Modus aktiv\n");
+    Serial.printf("   Stall-Modus aktiv\n");
       Serial.printf("   AP-SSID: %s\n", AP_SSID);
       Serial.printf("   AP-IP: %s\n", WiFi.softAPIP().toString().c_str());
     } else {
@@ -265,7 +276,12 @@ void setupHTTPRoutes() {
     statusDoc["device_name"] = DEVICE_NAME;
     statusDoc["firmware_version"] = FIRMWARE_VERSION;
     statusDoc["wifi_connected"] = wifi_connected;
-    statusDoc["ip_address"] = WiFi.localIP().toString();
+    
+    // Dual-Mode IP Adressen (AP + Station)
+    statusDoc["ap_ip"] = WiFi.softAPIP().toString();        // Futterkarre_WiFi (192.168.4.1)
+    statusDoc["station_ip"] = WiFi.localIP().toString();    // Heimnetz (192.168.2.x)
+    statusDoc["ip_address"] = WiFi.localIP().toString();    // Backwards compatibility
+    
     statusDoc["ssid"] = WiFi.SSID();
     statusDoc["signal_strength"] = WiFi.RSSI();
     statusDoc["battery_voltage"] = 5.0;  // Step-Down-Wandler (extern gespeist)
@@ -663,9 +679,14 @@ void sendStatusMessage(uint8_t clientNum) {
   JsonDocument doc;
   doc["type"] = "status";
   doc["device"] = DEVICE_NAME;
-  doc["wifi_mode"] = (current_wifi_mode == 1) ? "HOME" : "AP";
-  doc["wifi_ssid"] = (current_wifi_mode == 1) ? HOME_WIFI_SSID : AP_SSID;
-  doc["ip_address"] = (current_wifi_mode == 1) ? WiFi.localIP().toString() : WiFi.softAPIP().toString();
+  doc["wifi_mode"] = "DUAL";  // AP+STA Modus
+  doc["wifi_ssid"] = WiFi.SSID();
+  
+  // Dual-Mode IP Adressen
+  doc["ap_ip"] = WiFi.softAPIP().toString();        // Futterkarre_WiFi (192.168.4.1)
+  doc["station_ip"] = WiFi.localIP().toString();    // Heimnetz (192.168.2.x)
+  doc["ip_address"] = WiFi.localIP().toString();    // Backwards compatibility
+  
   doc["wifi_rssi"] = wifi_rssi;
   doc["battery_v"] = 5.0;  // Step-Down-Wandler
   doc["scales_ok"] = scales_initialized;

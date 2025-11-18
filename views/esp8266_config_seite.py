@@ -605,10 +605,27 @@ class ESP8266ConfigSeite(BaseViewWidget):
                 
                 self.lbl_akku_wert.setStyleSheet(f"color: {color}; font-weight: bold;")
             
+            # IP-Adressen anzeigen (Dual-Mode)
+            if hasattr(self, 'lbl_ip_wert'):
+                ap_ip = status_data.get('ap_ip', '192.168.4.1')
+                station_ip = status_data.get('station_ip', 'N/A')
+                
+                # Dual-Mode IP Display: AP IP + Station IP
+                if station_ip != 'N/A' and station_ip != '0.0.0.0':
+                    ip_display = f"🚜 {ap_ip} | 🏠 {station_ip}"
+                else:
+                    ip_display = f"🚜 {ap_ip} (AP-Only)"
+                
+                self.lbl_ip_wert.setText(ip_display)
+                self.lbl_ip_wert.setStyleSheet("color: #4CAF50; font-weight: bold; font-size: 11px;")
+            
             # Status-Log erweitern
             timestamp = datetime.now().strftime("%H:%M:%S")
+            ap_ip = status_data.get('ap_ip', 'N/A')
+            station_ip = status_data.get('station_ip', 'N/A')
             self.log_message(f"📊 Status Update - RSSI: {status_data.get('signal_strength', 'N/A')} dBm, "
-                           f"Akku: {status_data.get('battery_voltage', 0):.2f} V")
+                           f"Akku: {status_data.get('battery_voltage', 0):.2f} V, "
+                           f"IPs: 🚜{ap_ip}|🏠{station_ip}")
             
         except Exception as e:
             logger.error(f"Fehler beim Status-Display Update: {e}")
