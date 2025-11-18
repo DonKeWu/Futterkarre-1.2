@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Fütterung Abgeschlossen</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>40</number>
+   </property>
+   <property name="topMargin">
+    <number>40</number>
+   </property>
+   <property name="rightMargin">
+    <number>40</number>
+   </property>
+   <property name="bottomMargin">
+    <number>40</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="title_label">
+     <property name="text">
+      <string>🎉 Fütterung erfolgreich abgeschlossen!</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="content_group">
+     <property name="title">
+      <string>📊 Zusammenfassung</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_zusammenfassung">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <item row="3" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>🐴 Gefütterte Boxen:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>0 Minuten</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>0.0 kg</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>⏰ Nächste Fütterung:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>0.0 kg (0 Pferde)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>0 von 0 Boxen</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>⏱️ Dauer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>🌾 Heu:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>06:00 Uhr (Heulage)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>Gesamtmenge:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>0.0 kg (0 Pferde)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>🌿 Heulage:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="content_group">
+     <property name="title">
+      <string>🔄 Daten-Synchronisation</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_sync">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>Status:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>● Bereit</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="info_label">
+        <property name="text">
+         <string>Letzte Sync:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="value_label">
+        <property name="text">
+         <string>Noch nicht synchronisiert</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_sync_buttons">
+        <item>
+         <widget class="QPushButton" name="primary_button">
+          <property name="text">
+           <string>🚀 Jetzt synchronisieren</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="secondary_button">
+          <property name="text">
+           <string>💾 Lokales Backup</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="secondary_button">
+          <property name="text">
+           <string>🔄 Auto-Sync Ein/Aus</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_navigation">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="primary_button">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>🔄 Neue Fütterung starten</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
