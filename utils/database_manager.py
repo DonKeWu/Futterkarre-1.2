@@ -21,6 +21,13 @@ from dataclasses import dataclass, asdict, field
 from contextlib import contextmanager
 import threading
 
+# MySQL Import (optional - nur wenn verfügbar)
+try:
+    import mysql.connector
+    MYSQL_AVAILABLE = True
+except ImportError:
+    MYSQL_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 @dataclass
@@ -76,14 +83,28 @@ class DatabaseManager:
         # Daten-Ordner erstellen
         self.db_path.parent.mkdir(exist_ok=True)
         
-        # Datenbank initialisieren
+        # MySQL Konfiguration (optional)
+        self.mysql_config = {
+            'host': '192.168.2.230',
+            'port': 3306,
+            'user': 'root',
+            'password': 'FutterkarreDB2025!',
+            'database': 'futterkarre',
+            'charset': 'utf8mb4',
+            'collation': 'utf8mb4_unicode_ci'
+        }
+        
+        # MySQL Verfügbarkeit prüfen
+        self.mysql_available = self._check_mysql_connection()
+        
+        # Datenbanken initialisieren
         self.init_database()
         
-        logger.info(f"DatabaseManager initialisiert: {self.db_path}")
+        logger.info(f"DatabaseManager initialisiert: SQLite={self.db_path}, MySQL={self.mysql_available}")
     
     @contextmanager
     def get_connection(self):
-        """Context Manager für Datenbankverbindungen"""
+        """Context Manager für SQLite-Datenbankverbindungen"""
         conn = None
         try:
             conn = sqlite3.connect(self.db_path, timeout=30.0)
@@ -92,7 +113,41 @@ class DatabaseManager:
         except Exception as e:
             if conn:
                 conn.rollback()
-            logger.error(f"Datenbankfehler: {e}")
+            logger.error(f"SQLite Datenbankfehler: {e}")
+            raise
+        finally:
+            if conn:
+                conn.close()
+    
+    def _check_mysql_connection(self) -> bool:
+        """Prüft ob MySQL-Verbindung verfügbar ist"""
+        if not MYSQL_AVAILABLE:
+            logger.info("MySQL-Connector nicht verfügbar")
+            return False
+            
+        try:
+            conn = mysql.connector.connect(**self.mysql_config)
+            conn.close()
+            logger.info("MySQL-Verbindung erfolgreich getestet")
+            return True
+        except Exception as e:
+            logger.info(f"MySQL nicht verfügbar: {e}")
+            return False
+    
+    @contextmanager
+    def get_mysql_connection(self):
+        """Context Manager für MySQL-Datenbankverbindungen"""
+        if not self.mysql_available:
+            raise Exception("MySQL nicht verfügbar")
+            
+        conn = None
+        try:
+            conn = mysql.connector.connect(**self.mysql_config)
+            yield conn
+        except Exception as e:
+            if conn:
+                conn.rollback()
+            logger.error(f"MySQL Datenbankfehler: {e}")
             raise
         finally:
             if conn:
@@ -137,7 +192,11 @@ class DatabaseManager:
                 conn.execute("CREATE INDEX IF NOT EXISTS idx_feeding_type ON feeding_history(feed_type)")
                 
                 conn.commit()
-                logger.info("Datenbank-Schema erfolgreich initialisiert")
+                logger.info("SQLite Datenbank-Schema erfolgreich initialisiert")
+                
+                # MySQL Synchronisation (falls verfügbar)
+                if self.mysql_available:
+                    self._sync_master_data_from_mysql()
                 
         except Exception as e:
             logger.error(f"Fehler bei Datenbank-Initialisierung: {e}")
@@ -563,6 +622,142 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Backup fehlgeschlagen: {e}")
             return False
+    
+    def _sync_master_data_from_mysql(self):
+        """Lädt Stammdaten (Pferde, Futter) von MySQL zu SQLite"""
+        if not self.mysql_available:
+            return
+            
+        try:
+            with self.get_mysql_connection() as mysql_conn:
+                mysql_cursor = mysql_conn.cursor(dictionary=True)
+                
+                # Pferde-Daten holen und lokal speichern
+                mysql_cursor.execute("SELECT * FROM pferde")
+                horses = mysql_cursor.fetchall()
+                
+                # Futter-Daten holen
+                mysql_cursor.execute("SELECT * FROM futter")
+                feeds = mysql_cursor.fetchall()
+                
+                # In lokale SQLite-Tabellen einfügen/aktualisieren
+                with self.get_connection() as sqlite_conn:
+                    # Pferde-Stammdaten-Tabelle erstellen
+                    sqlite_conn.execute("""
+                        CREATE TABLE IF NOT EXISTS horses_master (
+                            id INTEGER PRIMARY KEY,
+                            name TEXT UNIQUE,
+                            rasse TEXT,
+                            geburtsdatum TEXT,
+                            gewicht REAL,
+                            besonderheiten TEXT,
+                            sync_timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+                        )
+                    """)
+                    
+                    # Futter-Stammdaten-Tabelle erstellen
+                    sqlite_conn.execute("""
+                        CREATE TABLE IF NOT EXISTS feeds_master (
+                            id INTEGER PRIMARY KEY,
+                            name TEXT UNIQUE,
+                            typ TEXT,
+                            kalorien_pro_kg REAL,
+                            preis_pro_kg REAL,
+                            lagerbestand_kg REAL,
+                            sync_timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+                        )
+                    """)
+                    
+                    # Pferde synchronisieren
+                    for horse in horses:
+                        sqlite_conn.execute("""
+                            INSERT OR REPLACE INTO horses_master 
+                            (id, name, rasse, geburtsdatum, gewicht, besonderheiten)
+                            VALUES (?, ?, ?, ?, ?, ?)
+                        """, (
+                            horse['id'], horse['name'], horse['rasse'],
+                            str(horse['geburtsdatum']), horse['gewicht'], horse['besonderheiten']
+                        ))
+                    
+                    # Futter synchronisieren  
+                    for feed in feeds:
+                        sqlite_conn.execute("""
+                            INSERT OR REPLACE INTO feeds_master
+                            (id, name, typ, kalorien_pro_kg, preis_pro_kg, lagerbestand_kg)
+                            VALUES (?, ?, ?, ?, ?, ?)
+                        """, (
+                            feed['id'], feed['name'], feed['typ'],
+                            feed['kalorien_pro_kg'], feed['preis_pro_kg'], feed['lagerbestand_kg']
+                        ))
+                    
+                    sqlite_conn.commit()
+                    logger.info(f"Stammdaten synchronisiert: {len(horses)} Pferde, {len(feeds)} Futter")
+                    
+        except Exception as e:
+            logger.error(f"MySQL-Sync fehlgeschlagen: {e}")
+    
+    def sync_feeding_data_to_mysql(self):
+        """Überträgt neue Fütterungsdaten von SQLite zu MySQL"""
+        if not self.mysql_available:
+            return
+            
+        try:
+            # Ungesyncte Fütterungsdaten aus SQLite holen
+            with self.get_connection() as sqlite_conn:
+                cursor = sqlite_conn.execute("""
+                    SELECT * FROM feeding_history 
+                    WHERE id NOT IN (
+                        SELECT COALESCE(sqlite_id, 0) FROM sync_status WHERE table_name = 'feeding_history'
+                    )
+                    ORDER BY timestamp
+                """)
+                unsynced_records = cursor.fetchall()
+            
+            if not unsynced_records:
+                return
+                
+            # Zu MySQL übertragen
+            with self.get_mysql_connection() as mysql_conn:
+                mysql_cursor = mysql_conn.cursor()
+                
+                for record in unsynced_records:
+                    mysql_cursor.execute("""
+                        INSERT INTO fuetterungen (pferd_id, futter_id, menge_kg, zeit, notizen)
+                        SELECT p.id, f.id, %s, %s, %s
+                        FROM pferde p, futter f
+                        WHERE p.name = %s AND f.name = %s
+                    """, (
+                        record['actual_amount'], record['timestamp'],
+                        record['notes'], record['horse_name'], record['feed_type']
+                    ))
+                
+                mysql_conn.commit()
+                logger.info(f"{len(unsynced_records)} Fütterungsdaten zu MySQL übertragen")
+                
+        except Exception as e:
+            logger.error(f"Feeding-Sync zu MySQL fehlgeschlagen: {e}")
+    
+    def get_horses_from_master(self) -> List[Dict[str, Any]]:
+        """Holt Pferde-Liste aus den Stammdaten (lokal oder MySQL)"""
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.execute("SELECT * FROM horses_master ORDER BY name")
+                return [dict(row) for row in cursor.fetchall()]
+        except:
+            # Fallback: CSV-Daten oder leere Liste
+            logger.warning("Keine Pferde-Stammdaten verfügbar")
+            return []
+    
+    def get_feeds_from_master(self) -> List[Dict[str, Any]]:
+        """Holt Futter-Liste aus den Stammdaten (lokal oder MySQL)"""
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.execute("SELECT * FROM feeds_master ORDER BY name")
+                return [dict(row) for row in cursor.fetchall()]
+        except:
+            # Fallback: CSV-Daten oder leere Liste
+            logger.warning("Keine Futter-Stammdaten verfügbar")
+            return []
 
 # Globale Instanz
 _db_manager_instance: Optional[DatabaseManager] = None
