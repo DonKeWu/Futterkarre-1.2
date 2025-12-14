@@ -28,34 +28,108 @@ from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.base_ui_widget import BaseViewWidget
 from utils.settings_manager import get_settings_manager
-# Hardware-Module mit Fallback
+# ESP8266 Wireless-Module verwenden statt lokale HX711-Hardware
 try:
-    from hardware.hx711_real import (
-        hx_sensors, HX711_AVAILABLE,
-        lese_gewicht_hx711, lese_einzelzellwerte_hx711,
-        nullpunkt_setzen_alle, kalibriere_einzelzelle
-    )
-except ImportError as e:
-    logger.warning(f"HX711-Hardware nicht verfügbar: {e}")
-    # Fallback-Werte für Entwicklung ohne Hardware
-    hx_sensors = []
-    HX711_AVAILABLE = False
+    from wireless.esp8266_discovery import ESP8266Discovery, get_esp8266_status
+    import urllib.request
+    import urllib.error
+    import json
+    
+    ESP8266_AVAILABLE = True
+    esp8266_discovery = ESP8266Discovery()
     
     def lese_gewicht_hx711():
-        import random
-        return random.uniform(0, 50)
+        """Liest Gewicht vom ESP8266 via HTTP"""
+        try:
+            # Bekannte ESP8266 IPs testen
+            test_ips = ["192.168.2.20", "192.168.4.1"]
+            
+            for ip in test_ips:
+                status = get_esp8266_status(ip)
+                if status and status.get('weight_available'):
+                    return status.get('current_weight', 0.0)
+            
+            return 0.0
+        except Exception as e:
+            logger.error(f"ESP8266 Gewicht-Fehler: {e}")
+            return 0.0
     
     def lese_einzelzellwerte_hx711():
-        import random
-        return [random.uniform(0, 15) for _ in range(4)]
+        """Liest Einzelzellen vom ESP8266 via HTTP"""
+        try:
+            # ESP8266 hat keine separate Einzelzell-API in aktueller Firmware
+            # Verwende Gesamtgewicht/4 als Schätzung
+            total = lese_gewicht_hx711()
+            return [total/4, total/4, total/4, total/4]
+        except Exception as e:
+            logger.error(f"ESP8266 Einzelzell-Fehler: {e}")
+            return [0.0, 0.0, 0.0, 0.0]
     
     def nullpunkt_setzen_alle():
-        logger.info("Simulation: Nullpunkt gesetzt")
-        return True
+        """Sendet Tare-Kommando an ESP8266"""
+        try:
+            test_ips = ["192.168.2.20", "192.168.4.1"]
+            
+            for ip in test_ips:
+                try:
+                    url = f"http://{ip}/tare"
+                    req = urllib.request.Request(url, method='POST')
+                    with urllib.request.urlopen(req, timeout=5) as response:
+                        if response.status == 200:
+                            logger.info(f"✅ ESP8266 Nullpunkt gesetzt: {ip}")
+                            return True
+                except Exception:
+                    continue
+                    
+            logger.error("❌ ESP8266 Nullpunkt-Setzung fehlgeschlagen")
+            return False
+        except Exception as e:
+            logger.error(f"ESP8266 Tare-Fehler: {e}")
+            return False
     
     def kalibriere_einzelzelle(index, gewicht):
-        logger.info(f"Simulation: Sensor {index} mit {gewicht}kg kalibriert")
-        return True
+        """Sendet Kalibrierungs-Kommando an ESP8266"""
+        try:
+            test_ips = ["192.168.2.20", "192.168.4.1"]
+            
+            for ip in test_ips:
+                try:
+                    url = f"http://{ip}/calibrate"
+                    data = json.dumps({"weight": gewicht}).encode('utf-8')
+                    req = urllib.request.Request(url, data=data, method='POST')
+                    req.add_header('Content-Type', 'application/json')
+                    
+                    with urllib.request.urlopen(req, timeout=5) as response:
+                        if response.status == 200:
+                            logger.info(f"✅ ESP8266 kalibriert mit {gewicht}kg: {ip}")
+                            return True
+                except Exception:
+                    continue
+                    
+            logger.error(f"❌ ESP8266 Kalibrierung fehlgeschlagen: {gewicht}kg")
+            return False
+        except Exception as e:
+            logger.error(f"ESP8266 Kalibrierungs-Fehler: {e}")
+            return False
+
+except ImportError as e:
+    logger.warning(f"ESP8266-Discovery nicht verfügbar: {e}")
+    # Fallback für Entwicklung
+    ESP8266_AVAILABLE = False
+    
+    def lese_gewicht_hx711():
+        return 0.0
+    
+    def lese_einzelzellwerte_hx711():
+        return [0.0, 0.0, 0.0, 0.0]
+    
+    def nullpunkt_setzen_alle():
+        logger.warning("ESP8266 nicht verfügbar")
+        return False
+    
+    def kalibriere_einzelzelle(index, gewicht):
+        logger.warning("ESP8266 nicht verfügbar")
+        return False
 
 logger = logging.getLogger(__name__)
 
@@ -179,13 +253,12 @@ class WaagenKalibrierung(BaseViewWidget):
     
     def start_live_updates(self):
         """Startet Live-Gewichtsanzeige"""
-        if HX711_AVAILABLE and hx_sensors:
+        if ESP8266_AVAILABLE:
             self.update_timer.start(1000)  # 1 Sekunde Intervall
-            self.update_status("Live-Updates gestartet")
+            self.update_status("Live-Updates gestartet - ESP8266 Wireless")
         else:
-            self.update_status("WARNUNG: Hardware nicht verfügbar - Simulation aktiv")
-            # Simulierte Werte für Entwicklung
-            self.update_timer.start(1000)
+            self.update_status("WARNUNG: ESP8266 nicht verfügbar")
+            self.update_timer.start(1000)  # Timer trotzdem starten für Fallback
     
     def stop_live_updates(self):
         """Stoppt Live-Updates"""
@@ -195,20 +268,14 @@ class WaagenKalibrierung(BaseViewWidget):
     def update_live_anzeige(self):
         """Aktualisiert Live-Gewichtsanzeige"""
         try:
-            if HX711_AVAILABLE and hx_sensors:
-                # Echte Hardware-Werte
+            if ESP8266_AVAILABLE:
+                # ESP8266 Wireless-Daten
                 gesamtgewicht = lese_gewicht_hx711()
                 einzelwerte = lese_einzelzellwerte_hx711()
             else:
-                # Simulation für Entwicklung
-                import random
-                gesamtgewicht = random.uniform(0, 50)
-                einzelwerte = [
-                    random.uniform(0, 15),
-                    random.uniform(0, 15), 
-                    random.uniform(0, 15),
-                    random.uniform(0, 15)
-                ]
+                # Fallback wenn ESP8266 nicht verfügbar
+                gesamtgewicht = 0.0
+                einzelwerte = [0.0, 0.0, 0.0, 0.0]
             
             # Gesamtgewicht anzeigen
             if hasattr(self, 'lbl_gesamtgewicht_wert'):
