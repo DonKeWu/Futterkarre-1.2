@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-12-12T14:41:54.677505",
+  "analysis": {
+    "wifi_attempts": 0,
+    "wifi_connected": false,
+    "ap_mode_started": false,
+    "boot_successful": false,
+    "errors": [],
+    "warnings": [],
+    "network_scans": [],
+    "ip_addresses": []
+  },
+  "total_log_lines": 0,
+  "duration_seconds": 60
+}
