@@ -45,8 +45,8 @@ try:
     def lese_gewicht_hx711():
         """Liest Gesamtgewicht vom ESP8266 via HTTP (alle 4 HX711)"""
         try:
-            # Bekannte ESP8266 IPs testen
-            test_ips = ["192.168.2.20", "192.168.4.1"]
+            # ESP8266 Dual-Mode IPs (Stall + Haus)
+            test_ips = ["192.168.4.1", "192.168.2.20"]
             
             for ip in test_ips:
                 try:
@@ -85,8 +85,8 @@ try:
     def lese_einzelzellwerte_hx711():
         """Liest alle 4 Einzelzellen vom ESP8266 via HTTP"""
         try:
-            # Bekannte ESP8266 IPs testen
-            test_ips = ["192.168.2.20", "192.168.4.1"]
+            # ESP8266 Dual-Mode IPs (Stall + Haus)
+            test_ips = ["192.168.4.1", "192.168.2.20"]
             
             for ip in test_ips:
                 try:
