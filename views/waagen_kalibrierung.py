@@ -1169,17 +1169,49 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
             zell_status = [False, False, False, False]  # Default: nicht gefunden
             
             if ESP8266_AVAILABLE:
-                # ESP8266 Einzelzellwerte testen
-                einzelwerte = lese_einzelzellwerte_hx711()
+                # ESP8266 Status direkt abfragen
+                test_ips = ["192.168.4.1", "192.168.2.20"]
                 
-                if einzelwerte and len(einzelwerte) >= 4:
-                    for i, wert in enumerate(einzelwerte[:4]):
-                        # Zelle als "gefunden" markieren wenn Wert ungleich 0 oder sinnvoll ist
-                        if abs(wert) > 10:  # Mindestens 10 Raw-Units als "aktiv" betrachten
-                            zell_status[i] = True
-                        logger.info(f"HX711-{i} ({zell_namen[i]}): {wert} → {'✅' if zell_status[i] else '❌'}")
+                for ip in test_ips:
+                    try:
+                        url = f"http://{ip}/live-values-data"
+                        req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                        
+                        with urllib.request.urlopen(req, timeout=3) as response:
+                            data = json.loads(response.read().decode('utf-8'))
+                            
+                            # Raw-Werte direkt prüfen (nicht konvertiert)
+                            raw_values = [
+                                data.get('vl_value', 0),  # VL
+                                data.get('vr_value', 0),  # VR  
+                                data.get('hl_value', 0),  # HL
+                                data.get('hr_value', 0)   # HR
+                            ]
+                            
+                            for i, raw_val in enumerate(raw_values):
+                                try:
+                                    val = float(raw_val)
+                                    # HX711 ist angeschlossen wenn Raw-Wert != 0 
+                                    # (0 = nicht angeschlossen, echte Werte = angeschlossen)
+                                    if val != 0:
+                                        zell_status[i] = True
+                                    logger.info(f"HX711-{i} ({zell_namen[i]}): Raw={val} → {'✅ ANGESCHLOSSEN' if zell_status[i] else '❌ NICHT ANGESCHLOSSEN'}")
+                                except (ValueError, TypeError):
+                                    logger.warning(f"HX711-{i}: Ungültiger Wert '{raw_val}'")
+                                    zell_status[i] = False
+                            
+                            # Erfolgreich - ESP8266 gefunden
+                            logger.info(f"ESP8266 unter {ip} gefunden - Status: {sum(zell_status)}/4 HX711 aktiv")
+                            break
+                            
+                    except urllib.error.URLError:
+                        logger.debug(f"ESP8266 unter {ip} nicht erreichbar")
+                        continue
+                    except Exception as e:
+                        logger.warning(f"ESP8266 {ip} Fehler: {e}")
+                        continue
                 else:
-                    logger.warning("Keine HX711-Einzelwerte erhalten")
+                    logger.warning("Kein ESP8266 unter bekannten IPs erreichbar")
             else:
                 logger.warning("ESP8266 nicht verfügbar - simuliere HX711-Status")
                 # Simulation: 2 von 4 Zellen "gefunden"
@@ -1201,14 +1233,14 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
                 if hasattr(self, led_label_name):
                     led_label = getattr(self, led_label_name)
                     if status:
-                        # Grün für "gefunden"
+                        # Grün für "angeschlossen und funktionsfähig"
                         led_label.setText("🟢")
-                        led_label.setToolTip(f"{name}: HX711 erkannt und aktiv")
+                        led_label.setToolTip(f"{name}: HX711 angeschlossen und funktionsfähig")
                         led_label.setStyleSheet("color: #4CAF50; font-size: 16px;")
                     else:
-                        # Rot für "nicht gefunden"
+                        # Rot für "nicht angeschlossen"
                         led_label.setText("🔴")
-                        led_label.setToolTip(f"{name}: HX711 nicht erkannt oder inaktiv")
+                        led_label.setToolTip(f"{name}: HX711 nicht angeschlossen (Raw-Wert = 0)")
                         led_label.setStyleSheet("color: #f44336; font-size: 16px;")
                 else:
                     # Fallback: Status in den Gewichts-Labels anzeigen
@@ -1222,7 +1254,12 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
             
             # Gesamt-Status anzeigen
             gefundene_anzahl = sum(status_list)
-            self.update_status(f"HX711-Status: {gefundene_anzahl}/4 Zellen erkannt")
+            angeschlossene_zellen = [namen_list[i] for i, status in enumerate(status_list) if status]
+            if angeschlossene_zellen:
+                zell_liste = ", ".join([name.split()[0] for name in angeschlossene_zellen])  # Nur VL, VR, HL, HR
+                self.update_status(f"HX711-Hardware: {gefundene_anzahl}/4 Zellen angeschlossen ({zell_liste})")
+            else:
+                self.update_status("HX711-Hardware: Keine Zellen angeschlossen - ESP8266 prüfen!")
             
         except Exception as e:
             logger.error(f"LED-Status-Update Fehler: {e}")
