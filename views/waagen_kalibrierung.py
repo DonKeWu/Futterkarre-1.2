@@ -670,6 +670,11 @@ class WaagenKalibrierung(BaseViewWidget):
         # HX711-Status-Check beim Start
         self.check_hx711_status()
         
+        # Status-Update Timer (häufiger für bessere LED-Aktualisierung)
+        self.status_update_timer = QTimer()
+        self.status_update_timer.timeout.connect(self.check_hx711_status)
+        self.status_update_timer.start(3000)  # Alle 3 Sekunden HX711-Status prüfen
+        
         # Live-Updates starten wenn aktiviert
         if hasattr(self, 'cb_live_update') and self.cb_live_update.isChecked():
             self.start_live_updates()
@@ -1155,6 +1160,10 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
         # Live-Updates stoppen
         self.stop_live_updates()
         
+        # Status-Update Timer stoppen
+        if hasattr(self, 'status_update_timer'):
+            self.status_update_timer.stop()
+        
         logger.debug("WaagenKalibrierung versteckt")
     
     def check_hx711_status(self):
@@ -1191,11 +1200,11 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
                             for i, raw_val in enumerate(raw_values):
                                 try:
                                     val = float(raw_val)
-                                    # HX711 ist angeschlossen wenn Raw-Wert != 0 
-                                    # (0 = nicht angeschlossen, echte Werte = angeschlossen)
-                                    if val != 0:
+                                    # HX711 ist angeschlossen wenn Raw-Wert > 1000 (echte Messung, kein Rauschen)
+                                    # Kleine Werte können Rauschen/Drift sein
+                                    if abs(val) > 1000:
                                         zell_status[i] = True
-                                    logger.info(f"HX711-{i} ({zell_namen[i]}): Raw={val} → {'✅ ANGESCHLOSSEN' if zell_status[i] else '❌ NICHT ANGESCHLOSSEN'}")
+                                    logger.info(f"HX711-{i} ({zell_namen[i]}): Raw={val:.0f} → {'✅ ANGESCHLOSSEN' if zell_status[i] else '❌ NICHT ANGESCHLOSSEN'}")
                                 except (ValueError, TypeError):
                                     logger.warning(f"HX711-{i}: Ungültiger Wert '{raw_val}'")
                                     zell_status[i] = False
