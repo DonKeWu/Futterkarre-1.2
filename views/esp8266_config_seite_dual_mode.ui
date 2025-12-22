@@ -347,7 +347,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
      <string>color: #2196F3;</string>
     </property>
     <property name="text">
-     <string>IP: 192.168.2.17</string>
+     <string>IP: 192.168.2.20</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_rssi_titel">
@@ -477,7 +477,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 10px 0 10px
     <string>border: 3px solid #4CAF50; padding: 10px; background-color: #f0fff0; border-radius: 5px;</string>
    </property>
    <property name="text">
-    <string>Verbunden via 192.168.2.17</string>
+    <string>Verbunden via 192.168.2.20</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -555,7 +555,7 @@ QPushButton:pressed { background-color: #0a6bc2; }</string>
    </property>
    <property name="text">
     <string>HAUS-MODUS
-(192.168.2.17)</string>
+(192.168.2.20)</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_test_connection">
