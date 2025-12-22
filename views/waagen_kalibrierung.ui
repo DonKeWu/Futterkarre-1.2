@@ -156,7 +156,7 @@
     </font>
    </property>
    <property name="text">
-    <string>●</string>
+    <string></string>
    </property>
    <property name="toolTip">
     <string>HX711 VL Status</string>
@@ -232,7 +232,7 @@
     </font>
    </property>
    <property name="text">
-    <string>●</string>
+    <string></string>
    </property>
    <property name="toolTip">
     <string>HX711 VR Status</string>
@@ -308,7 +308,7 @@
     </font>
    </property>
    <property name="text">
-    <string>●</string>
+    <string></string>
    </property>
    <property name="toolTip">
     <string>HX711 HL Status</string>
@@ -384,7 +384,7 @@
     </font>
    </property>
    <property name="text">
-    <string>●</string>
+    <string></string>
    </property>
    <property name="toolTip">
     <string>HX711 HR Status</string>
