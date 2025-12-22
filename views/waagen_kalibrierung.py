@@ -710,8 +710,7 @@ class WaagenKalibrierung(BaseViewWidget):
                 self.cb_live_update.toggled.connect(self.live_update_toggled)
             
             # HX711-Test Buttons (falls vorhanden in UI)
-            if hasattr(self, 'btn_test_esp8266'):
-                self.btn_test_esp8266.clicked.connect(self.test_esp8266_connection)
+            # ESP8266-Test Button ENTFERNT - ersetzt durch LED-Status
             
             if hasattr(self, 'btn_test_hx711_live'):
                 self.btn_test_hx711_live.clicked.connect(self.test_hx711_live_measurements)
@@ -1141,118 +1140,7 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
         except Exception as e:
             logger.error(f"Navigation-Fehler: {e}")
     
-    def test_esp8266_connection(self):
-        """Testet ESP8266-Verbindung und zeigt Live-HX711-Werte"""
-        try:
-            self.update_status("📡 ESP8266-Verbindung und HX711-Werte testen...")
-            
-            # Stoppe Live-Updates temporär
-            was_running = self.update_timer.isActive()
-            if was_running:
-                self.stop_live_updates()
-            
-            test_ips = ["192.168.2.20", "192.168.4.1"]
-            esp_found = False
-            
-            for ip in test_ips:
-                try:
-                    self.update_status(f"📡 Teste ESP8266 unter {ip}...")
-                    
-                    # Live-Values-Data abrufen (neue API)
-                    url = f"http://{ip}/live-values-data"
-                    req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
-                    
-                    with urllib.request.urlopen(req, timeout=3) as response:
-                        data = json.loads(response.read().decode('utf-8'))
-                        
-                        # HX711-Daten extrahieren
-                        vl_ready = data.get('vl_ready', False)
-                        vr_ready = data.get('vr_ready', False) 
-                        hl_ready = data.get('hl_ready', False)
-                        hr_ready = data.get('hr_ready', False)
-                        
-                        vl_val = data.get('vl_value', '0')
-                        vr_val = data.get('vr_value', '0')
-                        hl_val = data.get('hl_value', '0')
-                        hr_val = data.get('hr_value', '0')
-                        
-                        # Pi5-Integration testen
-                        total_weight = lese_gewicht_hx711()
-                        individual_weights = lese_einzelzellwerte_hx711()
-                        
-                        esp_found = True
-                        
-                        # Ausführliches Ergebnis anzeigen
-                        result_text = f"""🎉 ESP8266 ↔ Pi5 Integration erfolgreich!
-
-📡 ESP8266 Status:
-  • IP-Adresse: {ip}
-  • Firmware: Live-Values API aktiv
-  • Timestamp: {data.get('timestamp', 'unbekannt')}ms
-
-📊 HX711 Hardware-Status:
-  • VL (D2/D1): {'✅ Ready' if vl_ready else '❌ Not Ready'} - Raw: {vl_val}
-  • VR (D4/D3): {'✅ Ready' if vr_ready else '❌ Not Ready'} - Raw: {vr_val}  
-  • HL (D6/D5): {'✅ Ready' if hl_ready else '❌ Not Ready'} - Raw: {hl_val}
-  • HR (D8/D7): {'✅ Ready' if hr_ready else '❌ Not Ready'} - Raw: {hr_val}
-
-⚖️ Pi5 Gewichts-Integration:
-  • Gesamtgewicht: {total_weight:.3f} kg
-  • Einzelzellen: VL={individual_weights[0]:.3f}, VR={individual_weights[1]:.3f}, HL={individual_weights[2]:.3f}, HR={individual_weights[3]:.3f}
-
-🔗 System-Status:
-  ✅ ESP8266 ↔ Pi5 HTTP-Kommunikation
-  ✅ JSON-API Datenübertragung  
-  ✅ HX711-Werte werden gelesen
-  ✅ Futterkarre-Integration bereit
-
-🌐 ESP8266 Web-Interface: http://{ip}/
-🔴 Live-Werte: http://{ip}/live-values"""
-                        
-                        QMessageBox.information(self, "ESP8266 ↔ Pi5 Integration Test", result_text)
-                        self.update_status(f"✅ ESP8266 Integration unter {ip} erfolgreich!")
-                        break
-                        
-                except urllib.error.URLError as e:
-                    logger.warning(f"ESP8266 {ip} nicht erreichbar: {e}")
-                    continue
-                except Exception as e:
-                    logger.error(f"ESP8266 {ip} Test-Fehler: {e}")
-                    continue
-            
-            if not esp_found:
-                error_text = """❌ ESP8266 ↔ Pi5 Integration fehlgeschlagen!
-
-🔍 Getestete IPs: 192.168.2.20, 192.168.4.1
-
-🔧 Troubleshooting-Schritte:
-  1. ESP8266 eingeschaltet und WiFi aktiv?
-  2. Aktuelle Firmware mit /live-values-data API?
-  3. HX711-Module angeschlossen und mit 5V versorgt?
-  4. Netzwerk-Verbindung Pi5 ↔ ESP8266?
-
-💡 Direkt testen:
-  • ESP8266 Web-UI: http://192.168.2.20/
-  • Live-Werte: http://192.168.2.20/live-values
-  
-🚨 Falls Hardware-Test zeigt "FAKE" Werte:
-  • HX711-Module wirklich angeschlossen?
-  • 5V Stromversorgung (nicht 3.3V)?
-  • Wägezellen korrekt verkabelt?"""
-                
-                QMessageBox.warning(self, "ESP8266 ↔ Pi5 Integration Fehler", error_text)
-                self.update_status("❌ ESP8266 ↔ Pi5 Integration fehlgeschlagen")
-            
-            # Live-Updates wieder starten falls sie liefen
-            if was_running:
-                self.start_live_updates()
-                
-        except Exception as e:
-            logger.error(f"ESP8266-Integration-Test Fehler: {e}")
-            self.update_status(f"❌ ESP8266-Test fehlgeschlagen: {e}")
-            QMessageBox.critical(self, "ESP8266 Test-Fehler", f"Unerwarteter Fehler:\n{e}")
-            self.update_status(f"❌ {error_msg}")
-            logger.error(error_msg)
+    # ESP8266-Test-Funktion ENTFERNT - ersetzt durch automatische LED-Status-Checks
     
     def test_hx711_live_measurements(self):
         """Führt Live-HX711-Messungen durch"""
@@ -1455,23 +1343,7 @@ Zellen-Details:
                 
                 test_layout = QHBoxLayout(self.hx711_test_container)
                 
-                # ESP8266-Test Button
-                self.btn_test_esp8266 = QPushButton("📡 ESP8266 Test")
-                self.btn_test_esp8266.setStyleSheet("""
-                    QPushButton {
-                        background-color: #4CAF50;
-                        color: white;
-                        border: none;
-                        padding: 8px 12px;
-                        border-radius: 4px;
-                        font-weight: bold;
-                    }
-                    QPushButton:hover {
-                        background-color: #45a049;
-                    }
-                """)
-                self.btn_test_esp8266.clicked.connect(self.test_esp8266_connection)
-                test_layout.addWidget(self.btn_test_esp8266)
+                # ESP8266-Test Button ENTFERNT - LED-Status ersetzt das
                 
                 # HX711 Live-Test Button
                 self.btn_test_hx711_live = QPushButton("⚖️ Live Test")
