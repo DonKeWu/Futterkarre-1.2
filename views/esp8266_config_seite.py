@@ -309,15 +309,12 @@ class ESP8266ConfigSeite(BaseViewWidget):
                 # Hier würde Haus-Modus Kommando gesendet
             else:
                 self.log_message("❌ Keine ESP8266-Verbindung verfügbar")
-                self.update_connection_status(True, esp_ip)
-                
-                # Status abrufen
-                self.get_esp8266_status()
-            else:
-                self.log_message("❌ ESP8266 nicht im Netzwerk gefunden - Gerät eingeschaltet?")
-                self.update_connection_status(False, "")
                 
         except Exception as e:
+            logger.error(f"Haus-Modus Fehler: {e}")
+            self.log_message(f"❌ Haus-Modus Fehler: {e}")
+
+    def activate_deep_sleep(self):
             logger.error(f"Fehler beim Verbindungstest: {e}")
             self.log_message(f"❌ Verbindungstest fehlgeschlagen: {e}")
     
