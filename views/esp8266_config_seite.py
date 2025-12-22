@@ -232,11 +232,49 @@ class ESP8266ConfigSeite(BaseViewWidget):
             logger.error(f"Fehler beim Passwort Toggle: {e}")
     
     def test_connection(self):
-        """ESP8266 Verbindung testen"""
+        """ESP8266 Verbindung testen - EINFACHER ANSATZ"""
         try:
-            self.log_message("🔍 Scanne Netzwerk nach ESP8266...")
+            self.log_message("🔍 Teste ESP8266 unter 192.168.2.20...")
             
-            if not self.discovery:
+            import urllib.request
+            import json
+            
+            # DIREKT testen - wie curl
+            try:
+                url = "http://192.168.2.20/live-values-data"
+                req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    if response.status == 200:
+                        data = json.loads(response.read().decode())
+                        self.log_message(f"✅ ESP8266 gefunden! HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
+                        self.current_esp_ip = "192.168.2.20"
+                        self.update_connection_status(True, "192.168.2.20")
+                        return
+            except Exception as e:
+                self.log_message(f"❌ ESP8266 192.168.2.20 Fehler: {e}")
+            
+            # Fallback auf AP-Modus
+            try:
+                url = "http://192.168.4.1/live-values-data"
+                req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                
+                with urllib.request.urlopen(req, timeout=5) as response:
+                    if response.status == 200:
+                        data = json.loads(response.read().decode())
+                        self.log_message(f"✅ ESP8266 AP-Modus! HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
+                        self.current_esp_ip = "192.168.4.1"
+                        self.update_connection_status(True, "192.168.4.1")
+                        return
+            except Exception as e:
+                self.log_message(f"❌ ESP8266 192.168.4.1 Fehler: {e}")
+            
+            self.log_message("❌ ESP8266 nicht gefunden!")
+            self.update_connection_status(False, "")
+            
+        except Exception as e:
+            logger.error(f"Fehler beim Verbindungstest: {e}")
+            self.log_message(f"❌ Verbindungstest Fehler: {e}")
                 self.log_message("❌ ESP8266Discovery nicht verfügbar")
                 return
             
