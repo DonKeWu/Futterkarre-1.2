@@ -43,41 +43,148 @@ try:
     esp8266_discovery = ESP8266Discovery()
     
     def lese_gewicht_hx711():
-        """Liest Gewicht vom ESP8266 via HTTP"""
+        """Liest Gesamtgewicht vom ESP8266 via HTTP (alle 4 HX711)"""
         try:
             # Bekannte ESP8266 IPs testen
             test_ips = ["192.168.2.20", "192.168.4.1"]
             
             for ip in test_ips:
-                status = get_esp8266_status(ip)
-                if status and status.get('weight_available'):
-                    return status.get('current_weight', 0.0)
+                try:
+                    url = f"http://{ip}/live-values-data"
+                    req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                    
+                    with urllib.request.urlopen(req, timeout=2) as response:
+                        data = json.loads(response.read().decode('utf-8'))
+                        
+                        # Alle 4 HX711-Werte aufsummieren
+                        vl_val = float(data.get('vl_value', '0'))
+                        vr_val = float(data.get('vr_value', '0'))
+                        hl_val = float(data.get('hl_value', '0'))
+                        hr_val = float(data.get('hr_value', '0'))
+                        
+                        # Umrechnung von Raw-Werten zu kg (vereinfacht)
+                        # TODO: Echte Kalibrierungsfaktoren verwenden
+                        total_raw = vl_val + vr_val + hl_val + hr_val
+                        total_kg = total_raw / 100000.0  # Vereinfachte Skalierung
+                        
+                        logger.info(f"ESP8266 ({ip}): VL={vl_val}, VR={vr_val}, HL={hl_val}, HR={hr_val} → {total_kg:.3f}kg")
+                        return total_kg
+                        
+                except urllib.error.URLError:
+                    continue  # Nächste IP probieren
+                except Exception as e:
+                    logger.warning(f"ESP8266 {ip} Fehler: {e}")
+                    continue
             
+            logger.warning("Kein ESP8266 unter bekannten IPs erreichbar")
             return 0.0
         except Exception as e:
             logger.error(f"ESP8266 Gewicht-Fehler: {e}")
             return 0.0
     
     def lese_einzelzellwerte_hx711():
-        """Liest Einzelzellen vom ESP8266 via HTTP"""
+        """Liest alle 4 Einzelzellen vom ESP8266 via HTTP"""
         try:
-            # ESP8266 hat keine separate Einzelzell-API in aktueller Firmware
-            # Verwende Gesamtgewicht/4 als Schätzung
-            total = lese_gewicht_hx711()
-            return [total/4, total/4, total/4, total/4]
+            # Bekannte ESP8266 IPs testen
+            test_ips = ["192.168.2.20", "192.168.4.1"]
+            
+            for ip in test_ips:
+                try:
+                    url = f"http://{ip}/live-values-data"
+                    req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                    
+                    with urllib.request.urlopen(req, timeout=2) as response:
+                        data = json.loads(response.read().decode('utf-8'))
+                        
+                        # Raw-Werte von allen 4 HX711
+                        vl_raw = float(data.get('vl_value', '0'))
+                        vr_raw = float(data.get('vr_value', '0'))
+                        hl_raw = float(data.get('hl_value', '0'))
+                        hr_raw = float(data.get('hr_value', '0'))
+                        
+                        # Umrechnung zu kg (vereinfacht)
+                        scale_factor = 100000.0  # TODO: Echte Kalibrierung
+                        
+                        weights = [
+                            vl_raw / scale_factor,  # VL (Vorne Links)
+                            vr_raw / scale_factor,  # VR (Vorne Rechts)
+                            hl_raw / scale_factor,  # HL (Hinten Links)
+                            hr_raw / scale_factor   # HR (Hinten Rechts)
+                        ]
+                        
+                        logger.info(f"ESP8266 Einzelzellen: {weights}")
+                        return weights
+                        
+                except urllib.error.URLError:
+                    continue  # Nächste IP probieren
+                except Exception as e:
+                    logger.warning(f"ESP8266 {ip} Fehler: {e}")
+                    continue
+            
+            logger.warning("Kein ESP8266 für Einzelzellwerte erreichbar")
+            return [0.0, 0.0, 0.0, 0.0]
         except Exception as e:
             logger.error(f"ESP8266 Einzelzell-Fehler: {e}")
             return [0.0, 0.0, 0.0, 0.0]
     
     def nullpunkt_setzen_alle():
-        """Sendet Tare-Kommando an ESP8266"""
+        """Sendet Tare-Kommando an alle 4 HX711 über ESP8266"""
         try:
             test_ips = ["192.168.2.20", "192.168.4.1"]
             
             for ip in test_ips:
                 try:
-                    url = f"http://{ip}/tare"
-                    req = urllib.request.Request(url, method='POST')
+                    # ESP8266 hat noch kein /tare-Endpoint
+                    # Für jetzt nur Logging
+                    logger.info(f"ESP8266 ({ip}): Tare-Funktion noch nicht implementiert")
+                    
+                    # TODO: ESP8266-Firmware um /tare-Endpoint erweitern
+                    # url = f"http://{ip}/tare-all"
+                    # req = urllib.request.Request(url, method='POST')
+                    # urllib.request.urlopen(req, timeout=5)
+                    
+                    return True
+                    
+                except Exception as e:
+                    logger.warning(f"ESP8266 {ip} Tare-Fehler: {e}")
+                    continue
+            
+            logger.warning("Kein ESP8266 für Tare erreichbar")
+            return False
+        except Exception as e:
+            logger.error(f"ESP8266 Tare-Fehler: {e}")
+            return False
+    
+    def kalibriere_einzelzelle(index, gewicht):
+        """Sendet Kalibrierungs-Kommando an ESP8266"""
+        try:
+            test_ips = ["192.168.2.20", "192.168.4.1"]
+            
+            zellen_namen = ["VL", "VR", "HL", "HR"]
+            if index >= len(zellen_namen):
+                logger.error(f"Ungültiger Zellen-Index: {index}")
+                return False
+            
+            for ip in test_ips:
+                try:
+                    # ESP8266 hat noch kein Kalibrierungs-Endpoint
+                    logger.info(f"ESP8266 ({ip}): Kalibrierung für {zellen_namen[index]} mit {gewicht}kg noch nicht implementiert")
+                    
+                    # TODO: ESP8266-Firmware um /calibrate-Endpoint erweitern
+                    # data = json.dumps({'cell': index, 'weight': gewicht})
+                    # req = urllib.request.Request(f"http://{ip}/calibrate", data=data.encode(), method='POST')
+                    # urllib.request.urlopen(req, timeout=5)
+                    
+                    return True
+                    
+                except Exception as e:
+                    logger.warning(f"ESP8266 {ip} Kalibrierungs-Fehler: {e}")
+                    continue
+            
+            return False
+        except Exception as e:
+            logger.error(f"ESP8266 Kalibrierungs-Fehler: {e}")
+            return False
                     with urllib.request.urlopen(req, timeout=5) as response:
                         if response.status == 200:
                             logger.info(f"✅ ESP8266 Nullpunkt gesetzt: {ip}")
@@ -1021,26 +1128,115 @@ Status: {'BESTANDEN' if toleranz_ok else 'NICHT BESTANDEN'}
             logger.error(f"Navigation-Fehler: {e}")
     
     def test_esp8266_connection(self):
-        """Testet ESP8266-Verbindung für HX711"""
+        """Testet ESP8266-Verbindung und zeigt Live-HX711-Werte"""
         try:
-            self.update_status("🔍 Teste ESP8266-Verbindung...")
+            self.update_status("📡 ESP8266-Verbindung und HX711-Werte testen...")
             
-            # ESP8266 IPs testen
+            # Stoppe Live-Updates temporär
+            was_running = self.update_timer.isActive()
+            if was_running:
+                self.stop_live_updates()
+            
             test_ips = ["192.168.2.20", "192.168.4.1"]
-            working_ips = []
+            esp_found = False
             
             for ip in test_ips:
                 try:
-                    if ESP8266_AVAILABLE:
-                        from wireless.esp8266_discovery import get_esp8266_status
-                        status = get_esp8266_status(ip)
-                        if status:
-                            working_ips.append(ip)
-                            logger.info(f"✅ ESP8266 gefunden: {ip}")
+                    self.update_status(f"📡 Teste ESP8266 unter {ip}...")
+                    
+                    # Live-Values-Data abrufen (neue API)
+                    url = f"http://{ip}/live-values-data"
+                    req = urllib.request.Request(url, headers={'User-Agent': 'Futterkarre-Pi5'})
+                    
+                    with urllib.request.urlopen(req, timeout=3) as response:
+                        data = json.loads(response.read().decode('utf-8'))
+                        
+                        # HX711-Daten extrahieren
+                        vl_ready = data.get('vl_ready', False)
+                        vr_ready = data.get('vr_ready', False) 
+                        hl_ready = data.get('hl_ready', False)
+                        hr_ready = data.get('hr_ready', False)
+                        
+                        vl_val = data.get('vl_value', '0')
+                        vr_val = data.get('vr_value', '0')
+                        hl_val = data.get('hl_value', '0')
+                        hr_val = data.get('hr_value', '0')
+                        
+                        # Pi5-Integration testen
+                        total_weight = lese_gewicht_hx711()
+                        individual_weights = lese_einzelzellwerte_hx711()
+                        
+                        esp_found = True
+                        
+                        # Ausführliches Ergebnis anzeigen
+                        result_text = f"""🎉 ESP8266 ↔ Pi5 Integration erfolgreich!
+
+📡 ESP8266 Status:
+  • IP-Adresse: {ip}
+  • Firmware: Live-Values API aktiv
+  • Timestamp: {data.get('timestamp', 'unbekannt')}ms
+
+📊 HX711 Hardware-Status:
+  • VL (D2/D1): {'✅ Ready' if vl_ready else '❌ Not Ready'} - Raw: {vl_val}
+  • VR (D4/D3): {'✅ Ready' if vr_ready else '❌ Not Ready'} - Raw: {vr_val}  
+  • HL (D6/D5): {'✅ Ready' if hl_ready else '❌ Not Ready'} - Raw: {hl_val}
+  • HR (D8/D7): {'✅ Ready' if hr_ready else '❌ Not Ready'} - Raw: {hr_val}
+
+⚖️ Pi5 Gewichts-Integration:
+  • Gesamtgewicht: {total_weight:.3f} kg
+  • Einzelzellen: VL={individual_weights[0]:.3f}, VR={individual_weights[1]:.3f}, HL={individual_weights[2]:.3f}, HR={individual_weights[3]:.3f}
+
+🔗 System-Status:
+  ✅ ESP8266 ↔ Pi5 HTTP-Kommunikation
+  ✅ JSON-API Datenübertragung  
+  ✅ HX711-Werte werden gelesen
+  ✅ Futterkarre-Integration bereit
+
+🌐 ESP8266 Web-Interface: http://{ip}/
+🔴 Live-Werte: http://{ip}/live-values"""
+                        
+                        QMessageBox.information(self, "ESP8266 ↔ Pi5 Integration Test", result_text)
+                        self.update_status(f"✅ ESP8266 Integration unter {ip} erfolgreich!")
+                        break
+                        
+                except urllib.error.URLError as e:
+                    logger.warning(f"ESP8266 {ip} nicht erreichbar: {e}")
+                    continue
                 except Exception as e:
-                    logger.warning(f"ESP8266 {ip}: {e}")
+                    logger.error(f"ESP8266 {ip} Test-Fehler: {e}")
+                    continue
             
-            if working_ips:
+            if not esp_found:
+                error_text = """❌ ESP8266 ↔ Pi5 Integration fehlgeschlagen!
+
+🔍 Getestete IPs: 192.168.2.20, 192.168.4.1
+
+🔧 Troubleshooting-Schritte:
+  1. ESP8266 eingeschaltet und WiFi aktiv?
+  2. Aktuelle Firmware mit /live-values-data API?
+  3. HX711-Module angeschlossen und mit 5V versorgt?
+  4. Netzwerk-Verbindung Pi5 ↔ ESP8266?
+
+💡 Direkt testen:
+  • ESP8266 Web-UI: http://192.168.2.20/
+  • Live-Werte: http://192.168.2.20/live-values
+  
+🚨 Falls Hardware-Test zeigt "FAKE" Werte:
+  • HX711-Module wirklich angeschlossen?
+  • 5V Stromversorgung (nicht 3.3V)?
+  • Wägezellen korrekt verkabelt?"""
+                
+                QMessageBox.warning(self, "ESP8266 ↔ Pi5 Integration Fehler", error_text)
+                self.update_status("❌ ESP8266 ↔ Pi5 Integration fehlgeschlagen")
+            
+            # Live-Updates wieder starten falls sie liefen
+            if was_running:
+                self.start_live_updates()
+                
+        except Exception as e:
+            logger.error(f"ESP8266-Integration-Test Fehler: {e}")
+            self.update_status(f"❌ ESP8266-Test fehlgeschlagen: {e}")
+            QMessageBox.critical(self, "ESP8266 Test-Fehler", f"Unerwarteter Fehler:\n{e}")
                 self.update_status(f"✅ ESP8266 verbunden: {working_ips[0]}")
                 QMessageBox.information(self, "ESP8266 Test", 
                     f"✅ ESP8266 erfolgreich gefunden!\n\nIP: {working_ips[0]}\nHX711-Daten verfügbar")

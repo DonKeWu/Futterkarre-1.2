@@ -29,4 +29,6 @@ env/
 
 # Project-specific
 *.ui.autosave
-python3 interactive py.txt
+python3 interactive py.txt.venv/
+__pycache__/
+*.pyc
