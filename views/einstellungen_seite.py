@@ -541,28 +541,40 @@ class EinstellungenSeite(BaseViewWidget):
                 self.status_label.setText(f"Auto-Tare Fehler: {e}")
     
     def start_calibration(self):
-        """Startet Kalibrierungs-Prozess - Navigiert zur Waagenkalibrierung"""
+        """Startet Kalibrierungs-Prozess - DIREKTE LÖSUNG OHNE NAVIGATION"""
         try:
             logger.info("🎯 KALIBRIERUNGS-BUTTON GEKLICKT!")
             print("🎯 KALIBRIERUNGS-BUTTON GEKLICKT!")  # Console Debug
             
-            logger.info("Kalibrierungs-Button geklickt - navigiere zur Waagenkalibrierung")
+            # FUCK THE NAVIGATION - DIREKTE LÖSUNG!
+            logger.info("🔥 DIREKTE LÖSUNG: Kalibrierung wird direkt geöffnet")
             
-            if self.navigation:
-                logger.info("✅ Navigation verfügbar - wechsle zu waagen_kalibrierung")
-                self.navigation.show_status("waagen_kalibrierung")
+            from views.waagen_kalibrierung import WaagenKalibrierung
+            
+            # Neue Kalibrierungsseite erstellen
+            self.kalibrierungs_fenster = WaagenKalibrierung()
+            
+            # Vollbild setzen
+            self.kalibrierungs_fenster.setWindowState(self.kalibrierungs_fenster.windowState() | QtCore.Qt.WindowMaximized)
+            self.kalibrierungs_fenster.show()
+            
+            # Aktuelles Fenster minimieren oder schließen
+            if self.parent():
+                self.parent().hide()
             else:
-                logger.warning("❌ Navigation nicht verfügbar für waagen_kalibrierung")
-                print("❌ Navigation nicht verfügbar!")
-                self.show_kalibrierung_fallback()
+                self.hide()
             
-            if hasattr(self, 'status_label'):
-                self.status_label.setText("Navigiere zur Waagenkalibrierung...")
+            logger.info("✅ Kalibrierungsseite direkt geöffnet - FUCK NAVIGATION!")
+            print("✅ Kalibrierungsseite direkt geöffnet!")
             
         except Exception as e:
-            error_msg = f"Kalibrierungs-Navigation-Fehler: {e}"
+            error_msg = f"DIREKTE Kalibrierung-Fehler: {e}"
             logger.error(error_msg)
             print(f"❌ {error_msg}")  # Console Debug
+            
+            # Fallback: MessageBox
+            from PyQt5.QtWidgets import QMessageBox
+            QMessageBox.critical(self, "Fehler", f"Kalibrierung konnte nicht geöffnet werden: {e}")
             if hasattr(self, 'status_label'):
                 self.status_label.setText(f"Navigation Fehler: {e}")
     
