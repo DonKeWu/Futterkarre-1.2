@@ -304,7 +304,34 @@ class MainWindow(QMainWindow):
 
         # Seite tatsächlich wechseln
         if page in self.page_widgets:
-            self.stacked_widget.setCurrentWidget(self.page_widgets[page])
+            widget = self.page_widgets[page]
+            if widget is None:
+                logger.error(f"❌ Widget für '{page}' ist None!")
+                
+                # NOTFALL-REPARATUR für waagen_kalibrierung
+                if page == "waagen_kalibrierung":
+                    logger.info("🔧 NOTFALL-REPARATUR: WaagenKalibrierung wird erstellt...")
+                    try:
+                        from views.waagen_kalibrierung import WaagenKalibrierung
+                        self.waagen_kalibrierung = WaagenKalibrierung()
+                        self.page_widgets["waagen_kalibrierung"] = self.waagen_kalibrierung
+                        self.stacked_widget.addWidget(self.waagen_kalibrierung)
+                        
+                        # Navigation setzen
+                        for page_widget in [self.waagen_kalibrierung]:
+                            if page_widget and hasattr(page_widget, 'navigation'):
+                                page_widget.navigation = self
+                        
+                        widget = self.waagen_kalibrierung
+                        logger.info("✅ WaagenKalibrierung NOTFALL-REPARATUR erfolgreich!")
+                    except Exception as e:
+                        logger.error(f"NOTFALL-REPARATUR fehlgeschlagen: {e}")
+                        return
+                else:
+                    logger.error(f"Keine Notfall-Reparatur für '{page}' verfügbar")
+                    return
+            
+            self.stacked_widget.setCurrentWidget(widget)
             self.current_status = page
             self.current_context = context or {}
             
