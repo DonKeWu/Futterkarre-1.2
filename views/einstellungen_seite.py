@@ -351,7 +351,7 @@ class EinstellungenSeite(BaseViewWidget):
         if hasattr(self, 'volume_slider'):
             self.volume_slider.valueChanged.connect(self.update_volume_label)
         
-        # Kalibrierungs-Buttons
+        # Kalibrierungs-Buttons - BRUTALE DIREKTE LÖSUNG
         if hasattr(self, 'btn_auto_tare'):
             self.btn_auto_tare.clicked.connect(self.auto_tare)
             logger.info("btn_auto_tare connected")
@@ -365,8 +365,28 @@ class EinstellungenSeite(BaseViewWidget):
             self.btn_test_weights.clicked.connect(self.test_weights)
             logger.info("btn_test_weights connected")
         
-        # Debug: Alle verfügbaren Buttons auflisten
+        # NOTFALL-LÖSUNG: Alle Buttons durchgehen und zwangsweise verbinden
         all_buttons = self.findChildren(QtWidgets.QPushButton)
+        for button in all_buttons:
+            button_name = button.objectName()
+            button_text = button.text()
+            logger.info(f"Button gefunden: {button_name} = '{button_text}'")
+            
+            # Kalibrierungsbutton zwangsweise verbinden
+            if ('kalibr' in button_name.lower() or 
+                'kalibr' in button_text.lower() or 
+                button_text in ['Neu Kalibrieren', 'Kalibrierung', 'Kalibrieren']):
+                
+                logger.info(f"🎯 KALIBRIERUNGS-BUTTON ZWANGSVERBINDUNG: {button_name}")
+                # Alte Verbindungen trennen und neu verbinden
+                try:
+                    button.clicked.disconnect()
+                except:
+                    pass
+                button.clicked.connect(self.start_calibration)
+                logger.info(f"✅ {button_name} ZWANGSWEISE VERBUNDEN!")
+        
+        # Debug: Alle verfügbaren Buttons auflisten
         logger.info(f"Verfügbare Buttons: {[btn.objectName() for btn in all_buttons]}")
     
     def load_current_settings(self):
