@@ -158,7 +158,7 @@ try:
     def kalibriere_einzelzelle(index, gewicht):
         """Sendet Kalibrierungs-Kommando an ESP8266"""
         try:
-            test_ips = ["192.168.2.20", "192.168.4.1"]
+            test_ips = ["192.168.2.17", "192.168.4.1"]
             
             zellen_namen = ["VL", "VR", "HL", "HR"]
             if index >= len(zellen_namen):
