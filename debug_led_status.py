@@ -53,6 +53,14 @@ def test_hx711_logic():
             print(f"\nErgebnis: {sum(zell_status)}/4 HX711 angeschlossen")
             print(f"Status-Array: {zell_status}")
             
+            # Log im neuen Format (wie du es siehst)
+            vl_status = '✅' if zell_status[0] else '❌'
+            vr_status = '✅' if zell_status[1] else '❌'
+            hl_status = '✅' if zell_status[2] else '❌'
+            hr_status = '✅' if zell_status[3] else '❌'
+            vl_val, vr_val, hl_val, hr_val = [int(float(v)) for v in raw_values]
+            print(f"🔍 ESP8266 Status: VL={vl_val} {vl_status}, VR={vr_val} {vr_status}, HL={hl_val} {hl_status}, HR={hr_val} {hr_status}")
+            
             # Welche sollten grün/rot sein?
             print("\nErwartete LED-Farben:")
             for i, (status, name) in enumerate(zip(zell_status, zell_namen)):

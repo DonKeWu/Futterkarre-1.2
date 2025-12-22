@@ -255,7 +255,7 @@ class ESP8266ConfigSeite(BaseViewWidget):
                 with urllib.request.urlopen(req, timeout=10) as response:
                     if response.status == 200:
                         data = json.loads(response.read().decode())
-                        self.log_message(f"✅ ESP8266 gefunden! HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
+                        self.log_message(f"✅ ESP8266 gefunden! VL={data.get('vl_value', '?')}, VR={data.get('vr_value', '?')}, HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
                         self.current_esp_ip = "192.168.2.20"
                         self.update_connection_status(True, "192.168.2.20")
                         return
@@ -270,7 +270,7 @@ class ESP8266ConfigSeite(BaseViewWidget):
                 with urllib.request.urlopen(req, timeout=5) as response:
                     if response.status == 200:
                         data = json.loads(response.read().decode())
-                        self.log_message(f"✅ ESP8266 AP-Modus! HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
+                        self.log_message(f"✅ ESP8266 AP-Modus! VL={data.get('vl_value', '?')}, VR={data.get('vr_value', '?')}, HL={data.get('hl_value', '?')}, HR={data.get('hr_value', '?')}")
                         self.current_esp_ip = "192.168.4.1"
                         self.update_connection_status(True, "192.168.4.1")
                         return
@@ -376,12 +376,16 @@ class ESP8266ConfigSeite(BaseViewWidget):
                             data = json.loads(response.read().decode())
                             
                             # Status anzeigen
+                            vl = data.get('vl_value', '?')
+                            vr = data.get('vr_value', '?')
                             hl = data.get('hl_value', '?')
                             hr = data.get('hr_value', '?')
+                            vl_ready = '✅' if data.get('vl_ready', False) else '❌'
+                            vr_ready = '✅' if data.get('vr_ready', False) else '❌'
                             hl_ready = '✅' if data.get('hl_ready', False) else '❌'
                             hr_ready = '✅' if data.get('hr_ready', False) else '❌'
                             
-                            self.log_message(f"📊 ESP8266 Status: HL={hl} {hl_ready}, HR={hr} {hr_ready}")
+                            self.log_message(f"📊 ESP8266 Status: VL={vl} {vl_ready}, VR={vr} {vr_ready}, HL={hl} {hl_ready}, HR={hr} {hr_ready}")
                             return
                             
                 except Exception as e:
